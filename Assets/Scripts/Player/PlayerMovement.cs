@@ -7,8 +7,10 @@ namespace BSTW.Player
     public class PlayerMovement : MonoBehaviour
     {
         private Vector2 _movement;
+        private Vector3 _newMovement;
+        private Vector3 _defaultRotation = Vector3.zero;
         private bool _canMove = false;
-        private bool isMoving = false;
+        private bool isMovingForward = false;
 
         [SerializeField] private Rigidbody _playerRb;
         [SerializeField] private Transform _thirdPersonCamera;
@@ -32,17 +34,19 @@ namespace BSTW.Player
 
         private void RotatePlayer()
         {
-            if (isMoving)
+            if (isMovingForward)
             {
-                var newRotation = Quaternion.Lerp(transform.rotation,
-                Quaternion.LookRotation(_thirdPersonCamera.transform.forward),
+                _defaultRotation = _thirdPersonCamera.transform.forward;
+            }
+
+            var newRotation = Quaternion.Lerp(transform.rotation,
+                Quaternion.LookRotation(_defaultRotation),
                 Time.deltaTime * _rotationSpeed);
 
-                newRotation.x = 0f;
-                newRotation.z = 0f;
+            newRotation.x = 0f;
+            newRotation.z = 0f;
 
-                transform.rotation = newRotation;
-            }
+            transform.rotation = newRotation;
         }
 
         private IEnumerator WaitToMove(float duration)
@@ -56,16 +60,22 @@ namespace BSTW.Player
         {
             if (_canMove)
             {
-                var forward = new Vector3(transform.forward.x, 0f, transform.forward.z).normalized;
-                var right = new Vector3(transform.right.x, 0f, transform.right.z).normalized;
-                _playerRb.velocity = (forward * _movement.y) + (right * _movement.x) + Vector3.up * _playerRb.velocity.y;
+                var forward = new Vector3(_thirdPersonCamera.transform.forward.x, 0f, _thirdPersonCamera.transform.forward.z).normalized;
+                var right = new Vector3(_thirdPersonCamera.transform.right.x, 0f, _thirdPersonCamera.transform.right.z).normalized;
+                _newMovement = (forward * _movement.y) + (right * _movement.x) + Vector3.up * _playerRb.velocity.y;
+                _playerRb.velocity = _newMovement;
+
+                if(_movement.magnitude != 0f)
+                {
+                    _defaultRotation = _newMovement;
+                }
             }
         }
 
         public void OnMove(InputAction.CallbackContext value)
         {
             _movement = value.ReadValue<Vector2>() * _movementSpeed;
-            isMoving = value.performed;
+            isMovingForward = _movement.y > 0f && _movement.x == 0f;
         }
 
         public void OnJump(InputAction.CallbackContext value)

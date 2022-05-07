@@ -278,9 +278,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.44917464
-  m_Height: 2.105453
+  m_Height: 2.0780458
   m_Direction: 1
-  m_Center: {x: -0.025412679, y: 1.0228617, z: 0}
+  m_Center: {x: -0.025412679, y: 1.0365653, z: 0}
 --- !u!114 &5571951601805222781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,9 +294,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerRb: {fileID: 5571951601805222785}
+  _thirdPersonCamera: {fileID: 0}
   _waitingTimeToMove: 1
-  _movementSpeed: 5
-  _jumpingSpeed: 6.5
+  _movementSpeed: 8
+  _jumpingSpeed: 8
+  _rotationSpeed: 10
   _maxGroundDistance: 0.1
 --- !u!114 &5571951601805222782
 MonoBehaviour:
