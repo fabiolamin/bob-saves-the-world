@@ -9,10 +9,12 @@ namespace BSTW.Player
         private Vector2 _movement;
         private Vector3 _newMovement;
         private Vector3 _defaultRotation = Vector3.zero;
+
         private bool _canMove = false;
         private bool isMovingForward = false;
 
         [SerializeField] private Rigidbody _playerRb;
+        [SerializeField] private Animator _playerAnimator;
         [SerializeField] private Transform _thirdPersonCamera;
 
         [SerializeField] private float _waitingTimeToMove = 1f;
@@ -30,6 +32,7 @@ namespace BSTW.Player
         {
             RotatePlayer();
             MovePlayer();
+            _playerAnimator.SetBool("IsTouchingGround", PlayerFoot.IsOnTheGround);
         }
 
         private void RotatePlayer()
@@ -65,12 +68,18 @@ namespace BSTW.Player
                 _newMovement = (forward * _movement.y) + (right * _movement.x) + Vector3.up * _playerRb.velocity.y;
                 _playerRb.velocity = _newMovement;
 
-                if(_movement.magnitude != 0f)
+                if (_movement.magnitude != 0f)
                 {
                     _defaultRotation = _newMovement;
                 }
+
+                _playerAnimator.SetFloat("Movement", _movement.magnitude);
             }
         }
+
+        public void Jump()
+        {
+            _playerRb.velocity += Vector3.up * _jumpingSpeed;        }
 
         public void OnMove(InputAction.CallbackContext value)
         {
@@ -82,14 +91,13 @@ namespace BSTW.Player
         {
             if (CanPlayerJump(value))
             {
-                _playerRb.velocity += Vector3.up * _jumpingSpeed;
+                _playerAnimator.SetTrigger("Jump");
             }
         }
 
         private bool CanPlayerJump(InputAction.CallbackContext value)
         {
-            return value.started &&
-            Physics.Raycast(transform.position, -transform.up, _maxGroundDistance, LayerMask.GetMask("Ground")) && _canMove;
+            return value.started && PlayerFoot.IsOnTheGround && _canMove;
         }
     }
 }
