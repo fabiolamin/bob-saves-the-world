@@ -10,7 +10,10 @@ namespace BSTW.Player
         private Vector3 _newMovement;
         private Vector3 _defaultRotation = Vector3.zero;
 
+        private float _currentSpeed = 0f;
+
         private bool _isJumping = false;
+        private bool _isRolling = false;
         private bool _canMove = false;
         private bool _isMovingForward = false;
 
@@ -20,11 +23,13 @@ namespace BSTW.Player
 
         [SerializeField] private float _waitingTimeToMove = 1f;
         [SerializeField] private float _movementSpeed = 5f;
+        [SerializeField] private float _rollSpeed = 10f;
         [SerializeField] private float _jumpingSpeed = 5f;
         [SerializeField] private float _rotationSpeed = 5f;
 
         private void Awake()
         {
+            _currentSpeed = _movementSpeed;
             StartCoroutine(WaitToMove(_waitingTimeToMove));
             PlayerFoot.OnPlayerFall += TurnOffJumping;
         }
@@ -76,7 +81,7 @@ namespace BSTW.Player
                 var forward = new Vector3(_thirdPersonCamera.transform.forward.x, 0f, _thirdPersonCamera.transform.forward.z).normalized;
                 var right = new Vector3(_thirdPersonCamera.transform.right.x, 0f, _thirdPersonCamera.transform.right.z).normalized;
 
-                _newMovement = (forward * _movement.y * _movementSpeed) + (right * _movement.x * _movementSpeed) + Vector3.up * _playerRb.velocity.y;
+                _newMovement = (forward * _movement.y * _currentSpeed) + (right * _movement.x * _currentSpeed) + Vector3.up * _playerRb.velocity.y;
 
                 _playerRb.velocity = _newMovement;
 
@@ -109,9 +114,34 @@ namespace BSTW.Player
             }
         }
 
+        public void OnRoll(InputAction.CallbackContext value)
+        {
+            if (CanPlayerRoll(value))
+            {
+                _isRolling = true;
+                _playerAnimator.SetTrigger("Roll");
+            }
+        }
+
+        public void OnRollStarted()
+        {
+            _currentSpeed = _rollSpeed;
+        }
+
+        public void OnRollFinished()
+        {
+            _isRolling = false;
+            _currentSpeed = _movementSpeed;
+        }
+
         private bool CanPlayerJump(InputAction.CallbackContext value)
         {
-            return value.started && PlayerFoot.IsOnTheGround && _canMove && !_isJumping;
+            return value.started && PlayerFoot.IsOnTheGround && _canMove && !_isJumping && !_isRolling;
+        }
+
+        private bool CanPlayerRoll(InputAction.CallbackContext value)
+        {
+            return value.started && !_isJumping && !_isRolling && _movement.magnitude != 0f;
         }
     }
 }
