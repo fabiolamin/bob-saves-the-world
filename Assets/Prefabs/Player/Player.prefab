@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.64580864, y: 0.123460196, z: 0.56597084}
-  m_Center: {x: 0.004325658, y: -0.02386083, z: 0.049102128}
+  m_Size: {x: 0.37004563, y: 0.068078846, z: 0.3149291}
+  m_Center: {x: 0.01079683, y: 0.0038298443, z: 0.044802368}
 --- !u!114 &9169875453399126426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +359,6 @@ MonoBehaviour:
   _movementSpeed: 8
   _jumpingSpeed: 8
   _rotationSpeed: 10
-  _maxGroundDistance: 0.1
 --- !u!114 &5571951601805222782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1867,6 +1866,10 @@ PrefabInstance:
     - target: {fileID: 4242068949597176097, guid: 4cf533a82e431ee448f77994e3be7e8e, type: 3}
       propertyPath: m_Name
       value: Rocket
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242068949597176097, guid: 4cf533a82e431ee448f77994e3be7e8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8564465987321667233, guid: 4cf533a82e431ee448f77994e3be7e8e, type: 3}
       propertyPath: m_RootOrder

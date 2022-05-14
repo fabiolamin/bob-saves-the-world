@@ -10,8 +10,9 @@ namespace BSTW.Player
         private Vector3 _newMovement;
         private Vector3 _defaultRotation = Vector3.zero;
 
+        private bool _isJumping = false;
         private bool _canMove = false;
-        private bool isMovingForward = false;
+        private bool _isMovingForward = false;
 
         [SerializeField] private Rigidbody _playerRb;
         [SerializeField] private Animator _playerAnimator;
@@ -21,23 +22,32 @@ namespace BSTW.Player
         [SerializeField] private float _movementSpeed = 5f;
         [SerializeField] private float _jumpingSpeed = 5f;
         [SerializeField] private float _rotationSpeed = 5f;
-        [SerializeField] private float _maxGroundDistance = 0.5f;
 
         private void Awake()
         {
             StartCoroutine(WaitToMove(_waitingTimeToMove));
+            PlayerFoot.OnPlayerFall += TurnOffJumping;
+        }
+
+        private void Update()
+        {
+            _playerAnimator.SetBool("IsTouchingGround", PlayerFoot.IsOnTheGround);
         }
 
         private void FixedUpdate()
         {
             RotatePlayer();
             MovePlayer();
-            _playerAnimator.SetBool("IsTouchingGround", PlayerFoot.IsOnTheGround);
+        }
+
+        private void TurnOffJumping()
+        {
+            _isJumping = false;
         }
 
         private void RotatePlayer()
         {
-            if (isMovingForward)
+            if (_isMovingForward)
             {
                 _defaultRotation = _thirdPersonCamera.transform.forward;
             }
@@ -65,7 +75,9 @@ namespace BSTW.Player
             {
                 var forward = new Vector3(_thirdPersonCamera.transform.forward.x, 0f, _thirdPersonCamera.transform.forward.z).normalized;
                 var right = new Vector3(_thirdPersonCamera.transform.right.x, 0f, _thirdPersonCamera.transform.right.z).normalized;
-                _newMovement = (forward * _movement.y) + (right * _movement.x) + Vector3.up * _playerRb.velocity.y;
+
+                _newMovement = (forward * _movement.y * _movementSpeed) + (right * _movement.x * _movementSpeed) + Vector3.up * _playerRb.velocity.y;
+
                 _playerRb.velocity = _newMovement;
 
                 if (_movement.magnitude != 0f)
@@ -79,25 +91,27 @@ namespace BSTW.Player
 
         public void Jump()
         {
-            _playerRb.velocity += Vector3.up * _jumpingSpeed;        }
+            _playerRb.velocity += Vector3.up * _jumpingSpeed;
+        }
 
         public void OnMove(InputAction.CallbackContext value)
         {
-            _movement = value.ReadValue<Vector2>() * _movementSpeed;
-            isMovingForward = _movement.y > 0f && _movement.x == 0f;
+            _movement = value.ReadValue<Vector2>();
+            _isMovingForward = _movement.y > 0f && _movement.x == 0f;
         }
 
         public void OnJump(InputAction.CallbackContext value)
         {
             if (CanPlayerJump(value))
             {
+                _isJumping = true;
                 _playerAnimator.SetTrigger("Jump");
             }
         }
 
         private bool CanPlayerJump(InputAction.CallbackContext value)
         {
-            return value.started && PlayerFoot.IsOnTheGround && _canMove;
+            return value.started && PlayerFoot.IsOnTheGround && _canMove && !_isJumping;
         }
     }
 }

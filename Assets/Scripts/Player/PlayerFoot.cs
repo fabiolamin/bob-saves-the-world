@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace BSTW.Player
@@ -6,8 +7,11 @@ namespace BSTW.Player
     {
         public static bool IsOnTheGround { get; private set; } = true;
 
+        public static event Action OnPlayerFall;
+
         private void OnTriggerEnter(Collider other)
         {
+            OnPlayerFall?.Invoke();
             IsOnTheGround = true;
         }
 
