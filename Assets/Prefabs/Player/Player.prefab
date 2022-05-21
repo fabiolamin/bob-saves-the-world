@@ -471,6 +471,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cccbaf3df29b7c94ba95998ebe93fb59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cinemachineCamera: {fileID: 0}
+  _cameraFOVWhenAiming: 30
+  _switchCameraFOVSpeed: 10
 --- !u!1 &7294626355850845354
 GameObject:
   m_ObjectHideFlags: 0
