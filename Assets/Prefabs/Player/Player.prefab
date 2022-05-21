@@ -262,8 +262,9 @@ GameObject:
   - component: {fileID: 8734364776986975258}
   - component: {fileID: 5571951601805222785}
   - component: {fileID: 5571951601805222786}
-  - component: {fileID: 5571951601805222781}
   - component: {fileID: 5571951601805222782}
+  - component: {fileID: 5571951601805222781}
+  - component: {fileID: 5157008614702098617}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -340,26 +341,6 @@ CapsuleCollider:
   m_Height: 2.0780458
   m_Direction: 1
   m_Center: {x: -0.025412679, y: 1.0365653, z: 0}
---- !u!114 &5571951601805222781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7294626355850845352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1738ddba1fc6cd42b9b0ac18e948377, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerRb: {fileID: 5571951601805222785}
-  _playerAnimator: {fileID: 8734364776986975258}
-  _thirdPersonCamera: {fileID: 0}
-  _waitingTimeToMove: 1
-  _movementSpeed: 8
-  _rollSpeed: 16
-  _jumpingSpeed: 16
-  _rotationSpeed: 4
 --- !u!114 &5571951601805222782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,11 +418,59 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8063cc30-409e-485d-b12f-2928f3c49c65
     m_ActionName: Player Movement/Roll[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5157008614702098617}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerShooting, Assembly-CSharp
+        m_MethodName: OnAim
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 70da253a-a1e7-4af3-a1b0-2c839ad88929
+    m_ActionName: Player Movement/Aim[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard & Mouse
   m_DefaultActionMap: Player Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5571951601805222781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294626355850845352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1738ddba1fc6cd42b9b0ac18e948377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerRb: {fileID: 5571951601805222785}
+  _playerAnimator: {fileID: 8734364776986975258}
+  _thirdPersonCamera: {fileID: 0}
+  _waitingTimeToMove: 1
+  _movementSpeed: 8
+  _rollSpeed: 16
+  _jumpingSpeed: 16
+  _rotationSpeed: 6
+--- !u!114 &5157008614702098617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294626355850845352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cccbaf3df29b7c94ba95998ebe93fb59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7294626355850845354
 GameObject:
   m_ObjectHideFlags: 0

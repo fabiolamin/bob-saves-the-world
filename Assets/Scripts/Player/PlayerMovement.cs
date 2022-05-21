@@ -27,6 +27,7 @@ namespace BSTW.Player
         [SerializeField] private float _jumpingSpeed = 5f;
         [SerializeField] private float _rotationSpeed = 5f;
 
+
         private void Awake()
         {
             _currentSpeed = _movementSpeed;
@@ -52,7 +53,7 @@ namespace BSTW.Player
 
         private void RotatePlayer()
         {
-            if (_isMovingForward)
+            if (_isMovingForward || (PlayerShooting.IsAiming && !_isRolling))
             {
                 _defaultRotation = _thirdPersonCamera.transform.forward;
             }
@@ -90,7 +91,16 @@ namespace BSTW.Player
                     _defaultRotation = _newMovement;
                 }
 
-                _playerAnimator.SetFloat("Movement", _movement.magnitude);
+                if (PlayerShooting.IsAiming)
+                {
+                    _playerAnimator.SetFloat("Pos Y", _movement.y);
+                    _playerAnimator.SetFloat("Pos X", _movement.x);
+                }
+                else
+                {
+                    _playerAnimator.SetFloat("Pos Y", _movement.magnitude);
+                    _playerAnimator.SetFloat("Pos X", 0f);
+                }
             }
         }
 
