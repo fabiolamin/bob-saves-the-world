@@ -11,6 +11,7 @@ namespace BSTW.Player
         [SerializeField] private CinemachineFreeLook _cinemachineCamera;
         [SerializeField] private float _cameraFOVWhenAiming = 30f;
         [SerializeField] private float _switchCameraFOVSpeed = 10f;
+        [SerializeField] private GameObject _aimImage;
 
         public static bool IsAiming { get; private set; } = false;
 
@@ -26,7 +27,8 @@ namespace BSTW.Player
 
         public void OnAim(InputAction.CallbackContext value)
         {
-            IsAiming = value.action.IsPressed() && PlayerFoot.IsOnTheGround;
+            IsAiming = value.action.IsPressed();
+            _aimImage.SetActive(IsAiming);
         }
 
         private void UpdateCameraFOVOnAiming()
