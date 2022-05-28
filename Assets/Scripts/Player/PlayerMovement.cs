@@ -1,3 +1,5 @@
+using BSTW.Data.Player;
+using BSTW.Equipments;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,36 +10,40 @@ namespace BSTW.Player
     {
         private Vector2 _movement;
         private Vector3 _newMovement;
+        private Vector3 _defaultVelocity;
         private Vector3 _defaultRotation = Vector3.zero;
 
         private float _currentSpeed = 0f;
+        private float _delayJumpingToFlyAux = 0f;
+        private float _currentFallForce = 0f;
 
         private bool _isJumping = false;
         private bool _isRolling = false;
+        private bool _isHoldingJumpKey = false;
         private bool _canMove = false;
         private bool _isMovingForward = false;
 
         [SerializeField] private Rigidbody _playerRb;
         [SerializeField] private Animator _playerAnimator;
         [SerializeField] private Transform _thirdPersonCamera;
-
-        [SerializeField] private float _waitingTimeToMove = 1f;
-        [SerializeField] private float _movementSpeed = 5f;
-        [SerializeField] private float _rollSpeed = 10f;
-        [SerializeField] private float _jumpingSpeed = 5f;
-        [SerializeField] private float _rotationSpeed = 5f;
-
+        [SerializeField] private JetBackpackUser _jetBackpackUser;
+        [SerializeField] private PlayerMovementData _movementData;
 
         private void Awake()
         {
-            _currentSpeed = _movementSpeed;
-            StartCoroutine(WaitToMove(_waitingTimeToMove));
-            PlayerFoot.OnPlayerFall += TurnOffJumping;
+            _currentSpeed = _movementData.MovementSpeed;
+            _defaultVelocity = _playerRb.velocity;
+
+            StartCoroutine(WaitToMove(_movementData.DelayToMove));
+
+            PlayerFoot.OnPlayerFall += CheckPlayerFall;
         }
 
         private void Update()
         {
             _playerAnimator.SetBool("IsTouchingGround", PlayerFoot.IsOnTheGround);
+            CheckIfPlayerIsFlying();
+            CheckPlayerHeight();
         }
 
         private void FixedUpdate()
@@ -46,9 +52,54 @@ namespace BSTW.Player
             MovePlayer();
         }
 
-        private void TurnOffJumping()
+        private void CheckIfPlayerIsFlying()
+        {
+            if (_isHoldingJumpKey && _jetBackpackUser.HasFuel)
+            {
+                if (_jetBackpackUser.IsFlying || _isRolling) return;
+
+                _delayJumpingToFlyAux += Time.deltaTime;
+
+                if (_delayJumpingToFlyAux >= _movementData.DelayJumpingToFly)
+                {
+                    _jetBackpackUser.IsFlying = true;
+                    _currentSpeed = _movementData.FlySpeed;
+                }
+            }
+            else
+            {
+                _delayJumpingToFlyAux = 0f;
+                _jetBackpackUser.IsFlying = false;
+            }
+        }
+
+        private void CheckPlayerHeight()
+        {
+            var currentPosition = transform.position;
+            currentPosition.y = Mathf.Clamp(currentPosition.y, _movementData.MinPlayerHeight, _movementData.MaxPlayerHeight);
+            transform.position = currentPosition;
+
+            if (_playerRb.velocity.y < 0f)
+                _currentFallForce += Mathf.Abs(_playerRb.velocity.y);
+            else if (_playerRb.velocity.y > 0f)
+                _currentFallForce = 0f;
+        }
+
+        private void CheckPlayerFall()
         {
             _isJumping = false;
+
+            if (CanPlayerRollOnFall())
+            {
+                Roll();
+            }
+
+            _currentFallForce = 0f;
+        }
+
+        private bool CanPlayerRollOnFall()
+        {
+            return _currentFallForce > _movementData.MinFallForceToRoll;
         }
 
         private void RotatePlayer()
@@ -60,7 +111,7 @@ namespace BSTW.Player
 
             var newRotation = Quaternion.Lerp(transform.rotation,
                 Quaternion.LookRotation(_defaultRotation),
-                Time.deltaTime * _rotationSpeed);
+                Time.deltaTime * _movementData.RotationSpeed);
 
             newRotation.x = 0f;
             newRotation.z = 0f;
@@ -79,34 +130,55 @@ namespace BSTW.Player
         {
             if (_canMove)
             {
-                var forward = new Vector3(_thirdPersonCamera.transform.forward.x, 0f, _thirdPersonCamera.transform.forward.z).normalized;
-                var right = new Vector3(_thirdPersonCamera.transform.right.x, 0f, _thirdPersonCamera.transform.right.z).normalized;
+                UpdateMovement();
+                UpdateMovementAnimations();
+            }
+        }
 
-                _newMovement = (forward * _movement.y * _currentSpeed) + (right * _movement.x * _currentSpeed) + Vector3.up * _playerRb.velocity.y;
+        private void UpdateMovement()
+        {
+            var forward = new Vector3(_thirdPersonCamera.transform.forward.x, 0f, _thirdPersonCamera.transform.forward.z).normalized;
+            var right = new Vector3(_thirdPersonCamera.transform.right.x, 0f, _thirdPersonCamera.transform.right.z).normalized;
 
-                _playerRb.velocity = _newMovement;
+            _newMovement = (forward * _movement.y * _currentSpeed) + (right * _movement.x * _currentSpeed) + Vector3.up * _playerRb.velocity.y;
 
-                if (_movement.magnitude != 0f)
-                {
-                    _defaultRotation = _newMovement;
-                }
+            if (_jetBackpackUser.IsFlying)
+            {
+                _newMovement.y = _movementData.FlySpeed;
+            }
+            else
+            {
+                if (_playerRb.velocity.y < 0f)
+                    _newMovement.y = _playerRb.velocity.y;
+                else if (_playerRb.velocity.y >= 0f && !_isJumping)
+                    _newMovement.y = _defaultVelocity.y;
+            }
 
-                if (PlayerShooting.IsAiming)
-                {
-                    _playerAnimator.SetFloat("Pos Y", _movement.y);
-                    _playerAnimator.SetFloat("Pos X", _movement.x);
-                }
-                else
-                {
-                    _playerAnimator.SetFloat("Pos Y", _movement.magnitude);
-                    _playerAnimator.SetFloat("Pos X", 0f);
-                }
+            _playerRb.velocity = _newMovement;
+
+            if (_movement.magnitude != 0f)
+            {
+                _defaultRotation = _newMovement;
+            }
+        }
+
+        private void UpdateMovementAnimations()
+        {
+            if (PlayerShooting.IsAiming)
+            {
+                _playerAnimator.SetFloat("Pos Y", _movement.y);
+                _playerAnimator.SetFloat("Pos X", _movement.x);
+            }
+            else
+            {
+                _playerAnimator.SetFloat("Pos Y", _movement.magnitude);
+                _playerAnimator.SetFloat("Pos X", 0f);
             }
         }
 
         public void Jump()
         {
-            _playerRb.velocity += Vector3.up * _jumpingSpeed;
+            _playerRb.velocity += Vector3.up * _movementData.JumpingSpeed;
         }
 
         public void OnMove(InputAction.CallbackContext value)
@@ -117,41 +189,53 @@ namespace BSTW.Player
 
         public void OnJump(InputAction.CallbackContext value)
         {
+            if (_isRolling) return;
+
             if (CanPlayerJump(value))
             {
                 _isJumping = true;
                 _playerAnimator.SetTrigger("Jump");
             }
+
+            _isHoldingJumpKey = value.action.IsPressed();
         }
 
         public void OnRoll(InputAction.CallbackContext value)
         {
-            if (CanPlayerRoll(value))
+            if (CanPlayerRollOnGround(value))
             {
-                _isRolling = true;
-                _playerAnimator.SetTrigger("Roll");
+                Roll();
             }
         }
 
         public void OnRollStarted()
         {
-            _currentSpeed = _rollSpeed;
+            _currentSpeed = _movementData.RollSpeed;
         }
 
         public void OnRollFinished()
         {
             _isRolling = false;
-            _currentSpeed = _movementSpeed;
+            _currentSpeed = _movementData.MovementSpeed;
         }
 
         private bool CanPlayerJump(InputAction.CallbackContext value)
         {
-            return value.started && PlayerFoot.IsOnTheGround && _canMove && !_isJumping && !_isRolling;
+            return value.started && PlayerFoot.IsOnTheGround &&
+            _canMove && !_isJumping && !_isRolling;
         }
 
-        private bool CanPlayerRoll(InputAction.CallbackContext value)
+        private bool CanPlayerRollOnGround(InputAction.CallbackContext value)
         {
-            return value.started && !_isJumping && !_isRolling && _movement.magnitude != 0f;
+            return value.started && PlayerFoot.IsOnTheGround &&
+            !_isJumping && !_isRolling && !_jetBackpackUser.IsFlying &&
+            _movement.magnitude != 0f;
+        }
+
+        private void Roll()
+        {
+            _isRolling = true;
+            _playerAnimator.SetTrigger("Roll");
         }
     }
 }

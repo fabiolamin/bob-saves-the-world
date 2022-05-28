@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 5571951601805222782}
   - component: {fileID: 5571951601805222781}
   - component: {fileID: 5157008614702098617}
+  - component: {fileID: 6025565614441959701}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -326,7 +327,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!136 &5571951601805222786
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -454,11 +455,8 @@ MonoBehaviour:
   _playerRb: {fileID: 5571951601805222785}
   _playerAnimator: {fileID: 8734364776986975258}
   _thirdPersonCamera: {fileID: 0}
-  _waitingTimeToMove: 1
-  _movementSpeed: 8
-  _rollSpeed: 16
-  _jumpingSpeed: 16
-  _rotationSpeed: 6
+  _jetBackpackUser: {fileID: 6025565614441959701}
+  _movementData: {fileID: 11400000, guid: fca5e4d0cc557244f9a98c45ba8e93f6, type: 2}
 --- !u!114 &5157008614702098617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +472,19 @@ MonoBehaviour:
   _cinemachineCamera: {fileID: 0}
   _cameraFOVWhenAiming: 30
   _switchCameraFOVSpeed: 10
+  _aimImage: {fileID: 0}
+--- !u!114 &6025565614441959701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294626355850845352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9055a9cf9bfd8694d8d91e20191806ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7294626355850845354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,13 +1927,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7294626355851198682}
     m_Modifications:
+    - target: {fileID: 1961563092493767145, guid: 4cf533a82e431ee448f77994e3be7e8e, type: 3}
+      propertyPath: _user
+      value: 
+      objectReference: {fileID: 5571951601805222785}
+    - target: {fileID: 1961563092493767145, guid: 4cf533a82e431ee448f77994e3be7e8e, type: 3}
+      propertyPath: _jetBackpackUser
+      value: 
+      objectReference: {fileID: 6025565614441959701}
     - target: {fileID: 4242068949597176097, guid: 4cf533a82e431ee448f77994e3be7e8e, type: 3}
       propertyPath: m_Name
       value: Rocket
       objectReference: {fileID: 0}
     - target: {fileID: 4242068949597176097, guid: 4cf533a82e431ee448f77994e3be7e8e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8564465987321667233, guid: 4cf533a82e431ee448f77994e3be7e8e, type: 3}
       propertyPath: m_RootOrder

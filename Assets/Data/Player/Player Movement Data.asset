@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f6a4591cf202a4d921c662bbb58008, type: 3}
+  m_Name: Player Movement Data
+  m_EditorClassIdentifier: 
+  _movementSpeed: 8
+  _rollSpeed: 16
+  _jumpingSpeed: 16
+  _rotationSpeed: 6
+  _flySpeed: 7
+  _delayJumpingToFly: 0.2
+  _delayToMove: 1
+  _maxPlayerHeight: 90
+  _minPlayerHeight: -1
+  _minFallForceToRoll: 1500
