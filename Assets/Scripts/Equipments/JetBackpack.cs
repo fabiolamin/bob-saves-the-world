@@ -11,6 +11,7 @@ namespace BSTW.Equipments
 
         [SerializeField] private JetBackpackData _jetBackpackData;
         [SerializeField] private JetBackpackUser _jetBackpackUser;
+        [SerializeField] private ParticleSystem _jetBackpackVFX;
 
         private void Awake()
         {
@@ -43,6 +44,8 @@ namespace BSTW.Equipments
             CheckJatBackpackRecharge();
 
             _jetBackpackUser.HasFuel = _jetBackpackData.CurrentFuelAmount > 0f;
+
+            ActivateJetBackpackFlame(_jetBackpackUser.HasFuel && _jetBackpackUser.IsFlying);
         }
 
         private void CheckJatBackpackRecharge()
@@ -58,6 +61,16 @@ namespace BSTW.Equipments
                     _rechargeDurationAux = 0f;
                 }
             }
+        }
+
+        private void ActivateJetBackpackFlame(bool isActive)
+        {
+            if (_jetBackpackVFX.isPlaying == isActive) return;
+
+            if (isActive)
+                _jetBackpackVFX.Play();
+            else
+                _jetBackpackVFX.Stop();
         }
     }
 }

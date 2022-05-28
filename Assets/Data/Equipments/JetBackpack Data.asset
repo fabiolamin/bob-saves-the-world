@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb11b7f410edd344ca818f412ea0fa13, type: 3}
   m_Name: JetBackpack Data
   m_EditorClassIdentifier: 
-  _maxFuelAmount: 15
+  _maxFuelAmount: 20
   _fuelIncreaseSpeed: 3
   _fuelDecreaseSpeed: 7
   _rechargeDuration: 1.2
