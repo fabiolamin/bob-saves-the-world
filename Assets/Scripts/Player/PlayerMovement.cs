@@ -41,7 +41,7 @@ namespace BSTW.Player
 
         private void Update()
         {
-            _playerAnimator.SetBool("IsTouchingGround", PlayerFoot.IsOnTheGround);
+            _playerAnimator.SetBool("IsOnTheGround", PlayerFoot.IsOnTheGround);
             CheckIfPlayerIsFlying();
             CheckPlayerHeight();
         }
@@ -60,14 +60,16 @@ namespace BSTW.Player
 
                 _delayJumpingToFlyAux += Time.deltaTime;
 
-                if (_delayJumpingToFlyAux >= _movementData.DelayJumpingToFly)
+                if (_delayJumpingToFlyAux > _movementData.DelayJumpingToFly)
                 {
+                    _playerAnimator.SetBool("IsFlying", true);
                     _jetBackpackUser.IsFlying = true;
                     _currentSpeed = _movementData.FlySpeed;
                 }
             }
             else
             {
+                _playerAnimator.SetBool("IsFlying", false);
                 _delayJumpingToFlyAux = 0f;
                 _jetBackpackUser.IsFlying = false;
             }
@@ -88,6 +90,7 @@ namespace BSTW.Player
         private void CheckPlayerFall()
         {
             _isJumping = false;
+            _isHoldingJumpKey = false;
 
             if (CanPlayerRollOnFall())
             {
@@ -131,7 +134,7 @@ namespace BSTW.Player
             if (_canMove)
             {
                 UpdateMovement();
-                UpdateMovementAnimations();
+                CheckMovementAnimations();
             }
         }
 
@@ -162,18 +165,25 @@ namespace BSTW.Player
             }
         }
 
-        private void UpdateMovementAnimations()
+        private void CheckMovementAnimations()
         {
+            if (_jetBackpackUser.IsFlying)
+            {
+                SetMovementAnimations(0f, 0f);
+
+                return;
+            }
+
             if (PlayerShooting.IsAiming)
-            {
-                _playerAnimator.SetFloat("Pos Y", _movement.y);
-                _playerAnimator.SetFloat("Pos X", _movement.x);
-            }
+                SetMovementAnimations(_movement.x, _movement.y);
             else
-            {
-                _playerAnimator.SetFloat("Pos Y", _movement.magnitude);
-                _playerAnimator.SetFloat("Pos X", 0f);
-            }
+                SetMovementAnimations(0f, _movement.magnitude);
+        }
+
+        private void SetMovementAnimations(float posX, float posY)
+        {
+            _playerAnimator.SetFloat("Pos X", posX);
+            _playerAnimator.SetFloat("Pos Y", posY);
         }
 
         public void Jump()
