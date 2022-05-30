@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxFuelAmount: 20
   _fuelIncreaseSpeed: 3
-  _fuelDecreaseSpeed: 7
+  _fuelDecreaseSpeed: 8
   _rechargeDuration: 1.2
