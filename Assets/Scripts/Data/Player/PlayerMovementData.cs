@@ -11,6 +11,7 @@ namespace BSTW.Data.Player
         [SerializeField] private float _jumpingSpeed = 5f;
         [SerializeField] private float _rotationSpeed = 5f;
         [SerializeField] private float _flySpeed = 5f;
+        [SerializeField] private float _aimingSpeed = 5f;
 
         [Header("Time")]
         [SerializeField] private float _delayJumpingToFly = 1.5f;
@@ -26,6 +27,7 @@ namespace BSTW.Data.Player
         public float JumpingSpeed => _jumpingSpeed;
         public float RotationSpeed => _rotationSpeed;
         public float FlySpeed => _flySpeed;
+        public float AimingSpeed => _aimingSpeed;
 
         public float DelayJumpingToFly => _delayJumpingToFly;
         public float DelayToMove => _delayToMove;

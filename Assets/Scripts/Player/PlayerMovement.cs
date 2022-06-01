@@ -107,7 +107,7 @@ namespace BSTW.Player
 
         private void RotatePlayer()
         {
-            if (_isMovingForward || (PlayerShooting.IsAiming && !_isRolling))
+            if (_isMovingForward || ((PlayerShooting.IsAiming || PlayerShooting.IsShooting) && !_isRolling))
             {
                 _defaultRotation = _thirdPersonCamera.transform.forward;
             }
@@ -174,7 +174,7 @@ namespace BSTW.Player
                 return;
             }
 
-            if (PlayerShooting.IsAiming)
+            if (PlayerShooting.IsAiming || PlayerShooting.IsShooting)
                 SetMovementAnimations(_movement.x, _movement.y);
             else
                 SetMovementAnimations(0f, _movement.magnitude);
@@ -246,6 +246,11 @@ namespace BSTW.Player
         {
             _isRolling = true;
             _playerAnimator.SetTrigger("Roll");
+        }
+
+        public void UpdateMovementSpeedOnAiming(bool isPlayerAiming)
+        {
+            _currentSpeed = isPlayerAiming ? _movementData.AimingSpeed : _movementData.MovementSpeed;
         }
     }
 }

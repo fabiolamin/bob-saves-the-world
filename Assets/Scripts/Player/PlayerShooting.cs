@@ -1,44 +1,61 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Cinemachine;
+using UnityEngine.Events;
+using System.Collections;
 
 namespace BSTW.Player
 {
     public class PlayerShooting : MonoBehaviour
     {
-        private float _defaultCameraFOV;
-
-        [SerializeField] private CinemachineFreeLook _cinemachineCamera;
-        [SerializeField] private float _cameraFOVWhenAiming = 30f;
-        [SerializeField] private float _switchCameraFOVSpeed = 10f;
+        private bool _isHoldingShootingTrigger = false;
+       
         [SerializeField] private GameObject _aimImage;
+        [SerializeField] private float _shootingDelay = 1.5f;
+        [SerializeField] private float _weaponDelay = 1.5f;
+        [SerializeField] private float _weaponShootingDistance = 500f;
+        [SerializeField] private UnityEvent<bool> _onPlayerAim;
 
         public static bool IsAiming { get; private set; } = false;
-
-        private void Awake()
-        {
-            _defaultCameraFOV = _cinemachineCamera.m_Lens.FieldOfView;
-        }
-
-        private void Update()
-        {
-            UpdateCameraFOVOnAiming();
-        }
+        public static bool IsShooting { get; private set; } = false;
 
         public void OnAim(InputAction.CallbackContext value)
         {
             IsAiming = value.action.IsPressed();
             _aimImage.SetActive(IsAiming);
+            _onPlayerAim?.Invoke(IsAiming);
         }
 
-        private void UpdateCameraFOVOnAiming()
+        public void OnShoot(InputAction.CallbackContext value)
         {
-            var targetFOV = IsAiming ? _cameraFOVWhenAiming : _defaultCameraFOV;
+            _isHoldingShootingTrigger = value.action.IsPressed();
 
-            _cinemachineCamera.m_Lens.FieldOfView = Mathf.Lerp(
-                _cinemachineCamera.m_Lens.FieldOfView,
-                targetFOV,
-                _switchCameraFOVSpeed * Time.deltaTime);
+            if (!IsShooting && _isHoldingShootingTrigger)
+                StartCoroutine(GetReadyToShoot());
+        }
+
+        private IEnumerator GetReadyToShoot()
+        {
+            IsShooting = true;
+
+            while (_isHoldingShootingTrigger)
+            {
+                Shoot();
+
+                yield return new WaitForSeconds(_weaponDelay);
+            }
+
+            IsShooting = false;
+        }
+
+        private void Shoot()
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, _weaponShootingDistance))
+            {
+                //Hit target
+            }
+
         }
     }
 }

@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 5571951601805222781}
   - component: {fileID: 5157008614702098617}
   - component: {fileID: 6025565614441959701}
+  - component: {fileID: 5871238415937604047}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -436,6 +437,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 70da253a-a1e7-4af3-a1b0-2c839ad88929
     m_ActionName: Player Movement/Aim[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5157008614702098617}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerShooting, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f970950b-7dee-42ff-8574-7c92f9fcab81
+    m_ActionName: Player Movement/Shoot[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard & Mouse
   m_DefaultActionMap: Player Movement
@@ -470,10 +487,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cccbaf3df29b7c94ba95998ebe93fb59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cinemachineCamera: {fileID: 0}
-  _cameraFOVWhenAiming: 30
-  _switchCameraFOVSpeed: 10
   _aimImage: {fileID: 5571951600910468003}
+  _shootingDelay: 1.5
+  _weaponDelay: 0.1
+  _weaponShootingDistance: 500
+  _onPlayerAim:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5871238415937604047}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerCamera, Assembly-CSharp
+        m_MethodName: UpdateCameraSpeedOnAiming
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5571951601805222781}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerMovement, Assembly-CSharp
+        m_MethodName: UpdateMovementSpeedOnAiming
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6025565614441959701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,6 +530,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9055a9cf9bfd8694d8d91e20191806ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5871238415937604047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294626355850845352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2084ee18be714ce43aa51134d2348699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinemachineCamera: {fileID: 0}
+  _cameraFOVOnAiming: 30
+  _switchCameraFOVSpeed: 10
+  _cameraXSpeedOnAiming: 85
+  _cameraYSpeedOnAiming: 0.5
 --- !u!1 &7294626355850845354
 GameObject:
   m_ObjectHideFlags: 0

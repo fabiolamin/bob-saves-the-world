@@ -17,6 +17,7 @@ MonoBehaviour:
   _jumpingSpeed: 16
   _rotationSpeed: 6
   _flySpeed: 7
+  _aimingSpeed: 2
   _delayJumpingToFly: 0.2
   _delayToMove: 1
   _maxPlayerHeight: 90
