@@ -2,21 +2,53 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using BSTW.Equipments.Weapons;
 
 namespace BSTW.Player
 {
+    [System.Serializable]
+    public struct WeaponController
+    {
+        public Weapon Weapon;
+        public Transform WeaponHandPosition;
+    }
+
     public class PlayerShooting : MonoBehaviour
     {
+        private List<Weapon> _weapons = new List<Weapon>();
+
         private bool _isHoldingShootingTrigger = false;
-       
+
+        [SerializeField] private WeaponController[] _weaponControllers;
         [SerializeField] private GameObject _aimImage;
-        [SerializeField] private float _shootingDelay = 1.5f;
-        [SerializeField] private float _weaponDelay = 1.5f;
-        [SerializeField] private float _weaponShootingDistance = 500f;
         [SerializeField] private UnityEvent<bool> _onPlayerAim;
 
         public static bool IsAiming { get; private set; } = false;
         public static bool IsShooting { get; private set; } = false;
+        public Weapon CurrentWeapon { get { return _weapons.FirstOrDefault(w => w.WeaponData.IsSelected); } }
+
+        private void Awake()
+        {
+            InstantiateWeapons();
+        }
+
+        private void InstantiateWeapons()
+        {
+            foreach (var weaponController in _weaponControllers)
+            {
+                Weapon newWeapon = Instantiate(weaponController.Weapon);
+
+                newWeapon.transform.position = weaponController.WeaponHandPosition.position;
+                newWeapon.transform.localRotation = weaponController.WeaponHandPosition.rotation;
+                newWeapon.transform.SetParent(weaponController.WeaponHandPosition);
+
+                newWeapon.gameObject.SetActive(weaponController.Weapon.WeaponData.IsSelected);
+
+                _weapons.Add(newWeapon);
+            }
+        }
 
         public void OnAim(InputAction.CallbackContext value)
         {
@@ -41,7 +73,7 @@ namespace BSTW.Player
             {
                 Shoot();
 
-                yield return new WaitForSeconds(_weaponDelay);
+                yield return new WaitForSeconds(CurrentWeapon.WeaponData.ShootingInterval);
             }
 
             IsShooting = false;
@@ -51,11 +83,20 @@ namespace BSTW.Player
         {
             RaycastHit hit;
 
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, _weaponShootingDistance))
-            {
-                //Hit target
-            }
+            CurrentWeapon.Shoot();
 
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, CurrentWeapon.WeaponData.ShootingDistance))
+            {
+                HitTarget(hit);
+            }
+        }
+
+        private void HitTarget(RaycastHit hit)
+        {
+            var bulletTarget = hit.collider.GetComponent<BulletTarget>();
+            if (bulletTarget is null) return;
+
+            bulletTarget.Hit(CurrentWeapon.WeaponData.BulletDamage, hit.point);
         }
     }
 }

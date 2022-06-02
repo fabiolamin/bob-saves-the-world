@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3074252352415426083}
   - component: {fileID: 3074252352414623235}
   - component: {fileID: 3074252352413525187}
+  - component: {fileID: 3941317414126101850}
   m_Layer: 0
   m_Name: Assault Rifle
   m_TagString: Untagged
@@ -25,14 +26,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3074252352415791619}
-  m_LocalRotation: {x: 0.4809624, y: 0.5167384, z: 0.51656836, w: 0.48457593}
-  m_LocalPosition: {x: 0.077, y: -0.066, z: 0.052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6605332250273487470}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -3.884, y: 89.81, z: 89.79}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3074252352414623235
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -83,3 +85,98 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3941317414126101850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3074252352415791619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b22390f0a68e546a170b0881674449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponData: {fileID: 11400000, guid: 351b03d88a57b5845abfd54a26c80487, type: 2}
+  _onShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6605332250287644462}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1001 &706745995177451861
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3074252352415426083}
+    m_Modifications:
+    - target: {fileID: 5936877989450021691, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450021691, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450021691, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450021691, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.198
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450021691, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.000000295028
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450021691, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 8.792485e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450021691, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450021691, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000029802354
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450021691, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450021691, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450021691, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450442523, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_Name
+      value: Assault Rifle VFX
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+--- !u!4 &6605332250273487470 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5936877989450021691, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+  m_PrefabInstance: {fileID: 706745995177451861}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6605332250287644462 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5936877989469421179, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+  m_PrefabInstance: {fileID: 706745995177451861}
+  m_PrefabAsset: {fileID: 0}

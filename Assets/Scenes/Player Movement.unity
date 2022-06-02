@@ -1072,6 +1072,8 @@ GameObject:
   - component: {fileID: 622334304}
   - component: {fileID: 622334303}
   - component: {fileID: 622334302}
+  - component: {fileID: 622334307}
+  - component: {fileID: 622334306}
   m_Layer: 7
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -1112,7 +1114,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e46c81b3e3725cb4dac2da26ed293cd4, type: 2}
+  - {fileID: 2100000, guid: b325a7534ac6c9646a5e59286a149c8e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1157,6 +1159,36 @@ Transform:
   m_Father: {fileID: 388821414}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &622334306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622334301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e777a8bd777b45b4fb799fe93f2381bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectPrefab: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
+  _amount: 5
+--- !u!114 &622334307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622334301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hitVFXPooling: {fileID: 622334306}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &665460117
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,6 +3237,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5979856350331114515, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0014037554
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351153789142, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.008421251
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351153789142, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.050982397
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351153789142, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00042991
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351387154623, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0014037549
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351505437006, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.11787755
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351505437006, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.050627816
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351505437006, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0060177185
+      objectReference: {fileID: 0}
     - target: {fileID: 5979856351541373928, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_Name
       value: Third Person Camera
