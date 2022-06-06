@@ -19,6 +19,7 @@ namespace BSTW.Player
     {
         private List<Weapon> _weapons = new List<Weapon>();
 
+        private Coroutine _shootingCoroutine;
         private bool _isHoldingShootingTrigger = false;
 
         [SerializeField] private WeaponController[] _weaponControllers;
@@ -44,6 +45,8 @@ namespace BSTW.Player
                 newWeapon.transform.localRotation = weaponController.WeaponHandPosition.rotation;
                 newWeapon.transform.SetParent(weaponController.WeaponHandPosition);
 
+                newWeapon._onWeaponStop += StopShooting;
+
                 newWeapon.gameObject.SetActive(weaponController.Weapon.WeaponData.IsSelected);
 
                 _weapons.Add(newWeapon);
@@ -53,7 +56,7 @@ namespace BSTW.Player
         public void OnAim(InputAction.CallbackContext value)
         {
             IsAiming = value.action.IsPressed();
-            _aimImage.SetActive(IsAiming);
+            _aimImage.SetActive(IsAiming || _isHoldingShootingTrigger);
             _onPlayerAim?.Invoke(IsAiming);
         }
 
@@ -61,8 +64,10 @@ namespace BSTW.Player
         {
             _isHoldingShootingTrigger = value.action.IsPressed();
 
-            if (!IsShooting && _isHoldingShootingTrigger)
-                StartCoroutine(GetReadyToShoot());
+            _aimImage.SetActive(IsAiming || _isHoldingShootingTrigger);
+
+            if (!IsShooting && _isHoldingShootingTrigger && CurrentWeapon.CanShoot)
+                _shootingCoroutine = StartCoroutine(GetReadyToShoot());
         }
 
         private IEnumerator GetReadyToShoot()
@@ -97,6 +102,12 @@ namespace BSTW.Player
             if (bulletTarget is null) return;
 
             bulletTarget.Hit(CurrentWeapon.WeaponData.BulletDamage, hit.point);
+        }
+
+        public void StopShooting()
+        {
+            StopCoroutine(_shootingCoroutine);
+            IsShooting = false;
         }
     }
 }

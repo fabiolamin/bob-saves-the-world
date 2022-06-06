@@ -2,6 +2,7 @@ using BSTW.Data.Player;
 using BSTW.Equipments;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace BSTW.Player
@@ -28,6 +29,7 @@ namespace BSTW.Player
         [SerializeField] private Transform _thirdPersonCamera;
         [SerializeField] private JetBackpackUser _jetBackpackUser;
         [SerializeField] private PlayerMovementData _movementData;
+        [SerializeField] private UnityEvent _onPlayerRoll;
 
         private void Awake()
         {
@@ -246,6 +248,7 @@ namespace BSTW.Player
         {
             _isRolling = true;
             _playerAnimator.SetTrigger("Roll");
+            _onPlayerRoll?.Invoke();
         }
 
         public void UpdateMovementSpeedOnAiming(bool isPlayerAiming)
