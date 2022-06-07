@@ -9,9 +9,9 @@ namespace BSTW.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        private Vector2 _movement;
-        private Vector3 _newMovement;
-        private Vector3 _defaultVelocity;
+        private Vector2 _movement = Vector3.zero;
+        private Vector3 _newMovement = Vector3.zero;
+        private Vector3 _defaultVelocity = Vector3.zero;
         private Vector3 _defaultRotation = Vector3.zero;
 
         private float _currentSpeed = 0f;
