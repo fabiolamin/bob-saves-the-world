@@ -71,7 +71,7 @@ namespace BSTW.Player
                 newWeapon.transform.localRotation = weaponController.WeaponHandPosition.rotation;
                 newWeapon.transform.SetParent(weaponController.WeaponHandPosition);
 
-                newWeapon._onWeaponStop += StopShooting;
+                newWeapon.OnWeaponStop += StopShooting;
 
                 newWeapon.gameObject.SetActive(weaponController.Weapon.WeaponData.IsSelected);
 

@@ -13,7 +13,7 @@ namespace BSTW.Equipments.Weapons
         public WeaponData WeaponData => _weaponData;
         public bool CanShoot { get { return _weaponData.CurrentAmmo > 0; } }
 
-        public event Action _onWeaponStop;
+        public event Action OnWeaponStop;
 
         public void Awake()
         {
@@ -33,7 +33,7 @@ namespace BSTW.Equipments.Weapons
             _weaponData.CurrentAmmo = Mathf.Clamp(_weaponData.CurrentAmmo + amount, 0, _weaponData.MaxAmmo);
 
             if (_weaponData.CurrentAmmo <= 0)
-                _onWeaponStop?.Invoke();
+                OnWeaponStop?.Invoke();
         }
     }
 }
