@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1913705419594945334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6434409793662632558}
+  m_Layer: 0
+  m_Name: Pistol Hand Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6434409793662632558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913705419594945334}
+  m_LocalRotation: {x: 0.313217, y: 0.34140456, z: 0.6288313, w: 0.6244271}
+  m_LocalPosition: {x: 0.111855544, y: -0.064777546, z: 0.029800877}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7294626355851198592}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: -2.19, y: 55.174, z: 89.258}
 --- !u!1 &3661149766828225493
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +121,7 @@ Transform:
   - {fileID: 7294626355851198638}
   - {fileID: 7294626355851198678}
   - {fileID: 7590744270546420176}
-  - {fileID: 3357284344593118886}
+  - {fileID: 6434409793662632558}
   m_Father: {fileID: 7294626355851198646}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -458,7 +489,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5157008614702098617}
         m_TargetAssemblyTypeName: BSTW.Player.PlayerShooting, Assembly-CSharp
-        m_MethodName: OnReload
+        m_MethodName: OnSwitchWeapon
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -468,8 +499,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 3383bd7b-60e5-4106-b9da-d7d8a3ce3f9e
-    m_ActionName: Player Movement/Reload[/Keyboard/r]
+    m_ActionId: 691101f5-1e8e-4fc0-b932-395d16b03461
+    m_ActionName: Player Movement/Switch Weapon[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard & Mouse
   m_DefaultActionMap: Player Movement
@@ -523,6 +554,8 @@ MonoBehaviour:
   _weaponControllers:
   - Weapon: {fileID: 3941317414126101850, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
     WeaponHandPosition: {fileID: 7590744270546420176}
+  - Weapon: {fileID: 6278064590874154936, guid: 6c590bf50a636e142a2cc4b89d1ac74d, type: 3}
+    WeaponHandPosition: {fileID: 6434409793662632558}
   _aimImage: {fileID: 5571951600910468003}
   _onPlayerAim:
     m_PersistentCalls:
@@ -542,21 +575,6 @@ MonoBehaviour:
       - m_Target: {fileID: 5571951601805222781}
         m_TargetAssemblyTypeName: BSTW.Player.PlayerMovement, Assembly-CSharp
         m_MethodName: UpdateMovementSpeedOnAiming
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _onPlayerReload:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5571951601805222781}
-        m_TargetAssemblyTypeName: BSTW.Player.PlayerMovement, Assembly-CSharp
-        m_MethodName: UpdateMovementSpeedOnRealoading
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1991,80 +2009,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7590744270546918896}
-  m_LocalRotation: {x: 0.4809624, y: 0.5167384, z: 0.51656836, w: 0.48457593}
-  m_LocalPosition: {x: 0.077, y: -0.066, z: 0.052}
+  m_LocalRotation: {x: 0.43644434, y: 0.50701773, z: 0.518356, w: 0.53268796}
+  m_LocalPosition: {x: 0.0872799, y: -0.068503425, z: 0.0052055083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7294626355851198592}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -3.884, y: 89.81, z: 89.79}
---- !u!1001 &305831818233548933
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7294626355851198592}
-    m_Modifications:
-    - target: {fileID: 3074252352415426083, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074252352415426083, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.077
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074252352415426083, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.066
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074252352415426083, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.052
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074252352415426083, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.48457593
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074252352415426083, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.4809624
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074252352415426083, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.5167384
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074252352415426083, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.51656836
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074252352415426083, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -3.884
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074252352415426083, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 89.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074252352415426083, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 89.79
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074252352415791619, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-      propertyPath: m_Name
-      value: Assault Rifle Hand Position (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074252352415791619, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
---- !u!4 &3357284344593118886 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3074252352415426083, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
-  m_PrefabInstance: {fileID: 305831818233548933}
-  m_PrefabAsset: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -3.477, y: 83.968, z: 85.308}
 --- !u!1001 &2623015908017065164
 PrefabInstance:
   m_ObjectHideFlags: 0
