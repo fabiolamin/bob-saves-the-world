@@ -7,19 +7,17 @@ namespace BSTW.Equipments.Weapons
 {
     public class Weapon : MonoBehaviour
     {
-        private int _currentAmmo;
-
         [SerializeField] private WeaponData _weaponData;
         [SerializeField] private UnityEvent _onShoot;
 
         public WeaponData WeaponData => _weaponData;
-        public bool CanShoot { get { return _currentAmmo > 0; } }
+        public bool CanShoot { get { return _weaponData.CurrentAmmo > 0; } }
 
         public event Action _onWeaponStop;
 
         public void Awake()
         {
-            _currentAmmo = _weaponData.MaxAmmo;
+            _weaponData.CurrentAmmo = _weaponData.MaxAmmo;
         }
 
         public void Shoot()
@@ -32,9 +30,9 @@ namespace BSTW.Equipments.Weapons
 
         public void UpdateCurrentAmmo(int amount)
         {
-            _currentAmmo = Mathf.Clamp(_currentAmmo + amount, 0, _weaponData.MaxAmmo);
+            _weaponData.CurrentAmmo = Mathf.Clamp(_weaponData.CurrentAmmo + amount, 0, _weaponData.MaxAmmo);
 
-            if (_currentAmmo <= 0)
+            if (_weaponData.CurrentAmmo <= 0)
                 _onWeaponStop?.Invoke();
         }
     }

@@ -584,6 +584,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onCurrentWeaponShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6456503106093782924}
+        m_TargetAssemblyTypeName: BSTW.UI.ValueLimitDisplay, Assembly-CSharp
+        m_MethodName: UpdateLimit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onCurrentWeaponUpdated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4078327231654345375}
+        m_TargetAssemblyTypeName: BSTW.UI.ImageSwitch, Assembly-CSharp
+        m_MethodName: Switch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6025565614441959701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2114,6 +2144,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 422c2d78a8368c7478548735b2d6961a, type: 3}
+--- !u!114 &4078327231654345375 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2089654903948539475, guid: 422c2d78a8368c7478548735b2d6961a, type: 3}
+  m_PrefabInstance: {fileID: 2623015908017065164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29983f96ed78b5b4785780ad1ddc4cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5571951600910468003 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7581070446024347503, guid: 422c2d78a8368c7478548735b2d6961a, type: 3}
@@ -2133,6 +2174,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 015a45ee7caccc542b11b3e472aa3cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6456503106093782924 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9078351194197547840, guid: 422c2d78a8368c7478548735b2d6961a, type: 3}
+  m_PrefabInstance: {fileID: 2623015908017065164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec52573b67bf29c42a2f561eeda78546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5653010992022365734

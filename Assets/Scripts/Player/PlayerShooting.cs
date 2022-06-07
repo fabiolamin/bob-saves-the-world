@@ -26,6 +26,8 @@ namespace BSTW.Player
         [SerializeField] private WeaponController[] _weaponControllers;
         [SerializeField] private GameObject _aimImage;
         [SerializeField] private UnityEvent<bool> _onPlayerAim;
+        [SerializeField] private UnityEvent<float, float> _onCurrentWeaponShoot;
+        [SerializeField] private UnityEvent<Sprite> _onCurrentWeaponUpdated;
 
         public static bool IsAiming { get; private set; } = false;
         public static bool IsShooting { get; private set; } = false;
@@ -90,6 +92,8 @@ namespace BSTW.Player
         {
             CurrentWeapon = weapon;
             _playerAnimator.runtimeAnimatorController = CurrentWeapon.WeaponData.AnimatorController;
+            _onCurrentWeaponUpdated?.Invoke(CurrentWeapon.WeaponData.Icon);
+            _onCurrentWeaponShoot?.Invoke(CurrentWeapon.WeaponData.CurrentAmmo, CurrentWeapon.WeaponData.MaxAmmo);
         }
 
         private IEnumerator GetReadyToShoot()
@@ -111,6 +115,7 @@ namespace BSTW.Player
             RaycastHit hit;
 
             CurrentWeapon.Shoot();
+            _onCurrentWeaponShoot?.Invoke(CurrentWeapon.WeaponData.CurrentAmmo, CurrentWeapon.WeaponData.MaxAmmo);
 
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, CurrentWeapon.WeaponData.ShootingDistance))
             {
