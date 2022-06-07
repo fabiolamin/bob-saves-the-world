@@ -22,35 +22,18 @@ namespace BSTW.Player
         private Coroutine _shootingCoroutine;
         private bool _isHoldingShootingTrigger = false;
 
+        [SerializeField] private Animator _playerAnimator;
         [SerializeField] private WeaponController[] _weaponControllers;
         [SerializeField] private GameObject _aimImage;
         [SerializeField] private UnityEvent<bool> _onPlayerAim;
 
         public static bool IsAiming { get; private set; } = false;
         public static bool IsShooting { get; private set; } = false;
-        public Weapon CurrentWeapon { get { return _weapons.FirstOrDefault(w => w.WeaponData.IsSelected); } }
+        public Weapon CurrentWeapon { get; private set; }
 
         private void Awake()
         {
             InstantiateWeapons();
-        }
-
-        private void InstantiateWeapons()
-        {
-            foreach (var weaponController in _weaponControllers)
-            {
-                Weapon newWeapon = Instantiate(weaponController.Weapon);
-
-                newWeapon.transform.position = weaponController.WeaponHandPosition.position;
-                newWeapon.transform.localRotation = weaponController.WeaponHandPosition.rotation;
-                newWeapon.transform.SetParent(weaponController.WeaponHandPosition);
-
-                newWeapon._onWeaponStop += StopShooting;
-
-                newWeapon.gameObject.SetActive(weaponController.Weapon.WeaponData.IsSelected);
-
-                _weapons.Add(newWeapon);
-            }
         }
 
         public void OnAim(InputAction.CallbackContext value)
@@ -68,6 +51,45 @@ namespace BSTW.Player
 
             if (!IsShooting && _isHoldingShootingTrigger && CurrentWeapon.CanShoot)
                 _shootingCoroutine = StartCoroutine(GetReadyToShoot());
+        }
+
+        public void OnSwitchWeapon(InputAction.CallbackContext value)
+        {
+            if (value.started && !IsShooting)
+                SwitchWeapon();
+        }
+
+        private void InstantiateWeapons()
+        {
+            foreach (var weaponController in _weaponControllers)
+            {
+                Weapon newWeapon = Instantiate(weaponController.Weapon);
+
+                newWeapon.transform.position = weaponController.WeaponHandPosition.position;
+                newWeapon.transform.localRotation = weaponController.WeaponHandPosition.rotation;
+                newWeapon.transform.SetParent(weaponController.WeaponHandPosition);
+
+                newWeapon._onWeaponStop += StopShooting;
+
+                newWeapon.gameObject.SetActive(weaponController.Weapon.WeaponData.IsSelected);
+
+                if (newWeapon.WeaponData.IsSelected)
+                    SetCurrentWeapon(newWeapon);
+
+                _weapons.Add(newWeapon);
+            }
+        }
+
+        public void StopShooting()
+        {
+            StopCoroutine(_shootingCoroutine);
+            IsShooting = false;
+        }
+
+        private void SetCurrentWeapon(Weapon weapon)
+        {
+            CurrentWeapon = weapon;
+            _playerAnimator.runtimeAnimatorController = CurrentWeapon.WeaponData.AnimatorController;
         }
 
         private IEnumerator GetReadyToShoot()
@@ -104,10 +126,21 @@ namespace BSTW.Player
             bulletTarget.Hit(CurrentWeapon.WeaponData.BulletDamage, hit.point);
         }
 
-        public void StopShooting()
+        private void SwitchWeapon()
         {
-            StopCoroutine(_shootingCoroutine);
-            IsShooting = false;
+            var currentWeaponIndex = _weapons.IndexOf(CurrentWeapon);
+            currentWeaponIndex++;
+            currentWeaponIndex %= _weapons.Count;
+
+            ActivateCurrentWeapon(false);
+            SetCurrentWeapon(_weapons[currentWeaponIndex]);
+            ActivateCurrentWeapon(true);
+        }
+
+        private void ActivateCurrentWeapon(bool isActive)
+        {
+            CurrentWeapon.WeaponData.IsSelected = isActive;
+            CurrentWeapon.gameObject.SetActive(isActive);
         }
     }
 }

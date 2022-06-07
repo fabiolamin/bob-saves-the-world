@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074e03d0dd6cc434fb3c41687a91a345, type: 3}
   m_Name: Assault Rifle Data
   m_EditorClassIdentifier: 
-  _maxAmmo: 100
-  _maxBullets: 50
-  _bulletDamage: 20
+  _animatorController: {fileID: 9100000, guid: 08f8fdf72d0f75f4e96813c83888d5b9, type: 2}
+  _maxAmmo: 300
+  _bulletDamage: 8
   _shootingInterval: 0.1
-  _shootingDistance: 700
-  _isSelected: 1
+  _shootingDistance: 1000
+  _isSelected: 0
