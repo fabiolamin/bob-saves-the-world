@@ -24,12 +24,16 @@ namespace BSTW.Player
         private bool _isMovingForward = false;
 
         [SerializeField] private Rigidbody _playerRb;
-        [SerializeField] private Animator _playerAnimator;
         [SerializeField] private Transform _thirdPersonCamera;
         [SerializeField] private JetBackpackUser _jetBackpackUser;
         [SerializeField] private PlayerMovementData _movementData;
+
+        [SerializeField] private UnityEvent<float, float> _onPlayerMove;
+        [SerializeField] private UnityEvent _onPlayerJump;
         [SerializeField] private UnityEvent _onPlayerRoll;
         [SerializeField] private UnityEvent _onPlayerRollFinished;
+        [SerializeField] private UnityEvent<bool> _onPlayerFly;
+        [SerializeField] private UnityEvent<bool> _onPlayerIsGround;
 
         public static bool IsRolling { get; private set; } = false;
 
@@ -43,7 +47,7 @@ namespace BSTW.Player
 
         private void Update()
         {
-            _playerAnimator.SetBool("IsOnTheGround", PlayerFoot.IsOnTheGround);
+            _onPlayerIsGround?.Invoke(PlayerFoot.IsOnTheGround);
             CheckIfPlayerIsFlying();
             CheckPlayerHeight();
         }
@@ -64,14 +68,14 @@ namespace BSTW.Player
 
                 if (_delayJumpingToFlyAux > _movementData.DelayJumpingToFly)
                 {
-                    _playerAnimator.SetBool("IsFlying", true);
+                    _onPlayerFly?.Invoke(true);
                     _jetBackpackUser.IsFlying = true;
                     _currentSpeed = _movementData.FlySpeed;
                 }
             }
             else
             {
-                _playerAnimator.SetBool("IsFlying", false);
+                _onPlayerFly?.Invoke(false);
                 _delayJumpingToFlyAux = 0f;
                 _jetBackpackUser.IsFlying = false;
             }
@@ -184,8 +188,7 @@ namespace BSTW.Player
 
         private void SetMovementAnimations(float posX, float posY)
         {
-            _playerAnimator.SetFloat("Pos X", posX);
-            _playerAnimator.SetFloat("Pos Y", posY);
+            _onPlayerMove?.Invoke(posX, posY);
         }
 
         public void Jump()
@@ -215,7 +218,7 @@ namespace BSTW.Player
             if (CanPlayerJump(value))
             {
                 _isJumping = true;
-                _playerAnimator.SetTrigger("Jump");
+                _onPlayerJump?.Invoke();
             }
 
             _isHoldingJumpKey = value.action.IsPressed();
@@ -257,7 +260,6 @@ namespace BSTW.Player
         private void Roll()
         {
             IsRolling = true;
-            _playerAnimator.SetTrigger("Roll");
             _onPlayerRoll?.Invoke();
         }
 

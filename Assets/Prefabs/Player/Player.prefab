@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 5571951601805222785}
   - component: {fileID: 5571951601805222786}
   - component: {fileID: 5571951601805222782}
+  - component: {fileID: 4917344340799524409}
   - component: {fileID: 5571951601805222781}
   - component: {fileID: 5157008614702098617}
   - component: {fileID: 6025565614441959701}
@@ -536,6 +537,19 @@ MonoBehaviour:
   m_DefaultActionMap: Player Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4917344340799524409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294626355850845352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e69cea68732bf4f92f69103ff06003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 8734364776986975258}
 --- !u!114 &5571951601805222781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,16 +563,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerRb: {fileID: 5571951601805222785}
-  _playerAnimator: {fileID: 8734364776986975258}
   _thirdPersonCamera: {fileID: 0}
   _jetBackpackUser: {fileID: 6025565614441959701}
   _movementData: {fileID: 11400000, guid: fca5e4d0cc557244f9a98c45ba8e93f6, type: 2}
+  _onPlayerMove:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4917344340799524409}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerAnimator, Assembly-CSharp
+        m_MethodName: SetMovementAnimation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onPlayerJump:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4917344340799524409}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerAnimator, Assembly-CSharp
+        m_MethodName: TriggerJumpAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onPlayerRoll:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5157008614702098617}
         m_TargetAssemblyTypeName: BSTW.Player.PlayerShooting, Assembly-CSharp
         m_MethodName: StopShooting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4917344340799524409}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerAnimator, Assembly-CSharp
+        m_MethodName: TriggerRollAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -587,6 +642,36 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: BSTW.Player.PlayerShooting, Assembly-CSharp
         m_MethodName: CheckWeaponSwitch
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onPlayerFly:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4917344340799524409}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerAnimator, Assembly-CSharp
+        m_MethodName: UpdateFlyBool
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onPlayerIsGround:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4917344340799524409}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerAnimator, Assembly-CSharp
+        m_MethodName: UpdateGroundBool
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
