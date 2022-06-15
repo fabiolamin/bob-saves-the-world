@@ -5,10 +5,12 @@ namespace BSTW.Data.Player
     [CreateAssetMenu(fileName = "Player Movement Data", menuName = "Data/Player/new Player Movement Data")]
     public class PlayerMovementData : ScriptableObject
     {
-        [Header("Speed")]
+        [Header("Speed/Force")]
         [SerializeField] private float _movementSpeed = 5f;
         [SerializeField] private float _rollSpeed = 10f;
         [SerializeField] private float _jumpingSpeed = 5f;
+        [SerializeField] private float _bounceSpeed = 5f;
+        [SerializeField] private float _bounceForceModifier = 1000f;
         [SerializeField] private float _rotationSpeed = 5f;
         [SerializeField] private float _flySpeed = 5f;
         [SerializeField] private float _aimingSpeed = 5f;
@@ -25,6 +27,8 @@ namespace BSTW.Data.Player
         public float MovementSpeed => _movementSpeed;
         public float RollSpeed => _rollSpeed;
         public float JumpingSpeed => _jumpingSpeed;
+        public float BounceSpeed => _bounceSpeed;
+        public float BounceForceModifier => _bounceForceModifier;
         public float RotationSpeed => _rotationSpeed;
         public float FlySpeed => _flySpeed;
         public float AimingSpeed => _aimingSpeed;

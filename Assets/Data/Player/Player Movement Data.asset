@@ -15,6 +15,7 @@ MonoBehaviour:
   _movementSpeed: 8
   _rollSpeed: 16
   _jumpingSpeed: 16
+  _bounceSpeed: 25
   _rotationSpeed: 6
   _flySpeed: 7
   _aimingSpeed: 2

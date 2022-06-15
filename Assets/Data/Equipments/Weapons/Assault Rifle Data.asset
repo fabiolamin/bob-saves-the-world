@@ -18,4 +18,4 @@ MonoBehaviour:
   _bulletDamage: 8
   _shootingInterval: 0.1
   _shootingDistance: 1000
-  _isSelected: 0
+  _isSelected: 1

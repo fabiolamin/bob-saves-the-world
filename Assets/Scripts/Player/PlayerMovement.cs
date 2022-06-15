@@ -19,7 +19,6 @@ namespace BSTW.Player
         private float _currentFallForce = 0f;
 
         private bool _isJumping = false;
-        private bool _isRolling = false;
         private bool _isHoldingJumpKey = false;
         private bool _canMove = false;
         private bool _isMovingForward = false;
@@ -30,6 +29,9 @@ namespace BSTW.Player
         [SerializeField] private JetBackpackUser _jetBackpackUser;
         [SerializeField] private PlayerMovementData _movementData;
         [SerializeField] private UnityEvent _onPlayerRoll;
+        [SerializeField] private UnityEvent _onPlayerRollFinished;
+
+        public static bool IsRolling { get; private set; } = false;
 
         private void Awake()
         {
@@ -37,8 +39,6 @@ namespace BSTW.Player
             _defaultVelocity = _playerRb.velocity;
 
             StartCoroutine(WaitToMove(_movementData.DelayToMove));
-
-            PlayerFoot.OnPlayerFall += CheckPlayerFall;
         }
 
         private void Update()
@@ -58,7 +58,7 @@ namespace BSTW.Player
         {
             if (_isHoldingJumpKey && _jetBackpackUser.HasFuel)
             {
-                if (_jetBackpackUser.IsFlying || _isRolling) return;
+                if (_jetBackpackUser.IsFlying || IsRolling) return;
 
                 _delayJumpingToFlyAux += Time.deltaTime;
 
@@ -89,7 +89,7 @@ namespace BSTW.Player
                 _currentFallForce = 0f;
         }
 
-        private void CheckPlayerFall()
+        public void CheckPlayerFall()
         {
             _isJumping = false;
             _isHoldingJumpKey = false;
@@ -109,7 +109,7 @@ namespace BSTW.Player
 
         private void RotatePlayer()
         {
-            if (_isMovingForward || ((PlayerShooting.IsAiming || PlayerShooting.IsShooting) && !_isRolling))
+            if (_isMovingForward || ((PlayerShooting.IsAiming || PlayerShooting.IsShooting) && !IsRolling))
             {
                 _defaultRotation = _thirdPersonCamera.transform.forward;
             }
@@ -193,6 +193,14 @@ namespace BSTW.Player
             _playerRb.velocity += Vector3.up * _movementData.JumpingSpeed;
         }
 
+        public void Bounce()
+        {
+            var calculatedBounceForce = _movementData.BounceSpeed + (_currentFallForce / _movementData.BounceForceModifier);
+            _playerRb.velocity += Vector3.up * calculatedBounceForce;
+
+            Roll();
+        }
+
         public void OnMove(InputAction.CallbackContext value)
         {
             _movement = value.ReadValue<Vector2>();
@@ -201,7 +209,8 @@ namespace BSTW.Player
 
         public void OnJump(InputAction.CallbackContext value)
         {
-            if (_isRolling) return;
+            if (IsRolling)
+                OnRollFinished();
 
             if (CanPlayerJump(value))
             {
@@ -227,26 +236,27 @@ namespace BSTW.Player
 
         public void OnRollFinished()
         {
-            _isRolling = false;
+            IsRolling = false;
             _currentSpeed = _movementData.MovementSpeed;
+            _onPlayerRollFinished?.Invoke();
         }
 
         private bool CanPlayerJump(InputAction.CallbackContext value)
         {
             return value.started && PlayerFoot.IsOnTheGround &&
-            _canMove && !_isJumping && !_isRolling;
+            _canMove && !_isJumping && !IsRolling;
         }
 
         private bool CanPlayerRollOnGround(InputAction.CallbackContext value)
         {
             return value.started && PlayerFoot.IsOnTheGround &&
-            !_isJumping && !_isRolling && !_jetBackpackUser.IsFlying &&
+            !_isJumping && !IsRolling && !_jetBackpackUser.IsFlying &&
             _movement.magnitude != 0f;
         }
 
         private void Roll()
         {
-            _isRolling = true;
+            IsRolling = true;
             _playerAnimator.SetTrigger("Roll");
             _onPlayerRoll?.Invoke();
         }

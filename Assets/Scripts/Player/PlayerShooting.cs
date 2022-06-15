@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using BSTW.Equipments.Weapons;
 
 namespace BSTW.Player
@@ -20,7 +19,9 @@ namespace BSTW.Player
         private List<Weapon> _weapons = new List<Weapon>();
 
         private Coroutine _shootingCoroutine;
+
         private bool _isHoldingShootingTrigger = false;
+        private bool _hasSwitchedWeapon = false;
 
         [SerializeField] private Animator _playerAnimator;
         [SerializeField] private WeaponController[] _weaponControllers;
@@ -48,16 +49,33 @@ namespace BSTW.Player
         public void OnShoot(InputAction.CallbackContext value)
         {
             _isHoldingShootingTrigger = value.action.IsPressed();
+            CheckShooting();
+        }
 
+        public void CheckShooting()
+        {
             _aimImage.SetActive(IsAiming || _isHoldingShootingTrigger);
 
-            if (!IsShooting && _isHoldingShootingTrigger && CurrentWeapon.CanShoot)
+            if (CanShoot())
                 _shootingCoroutine = StartCoroutine(GetReadyToShoot());
+        }
+
+        private bool CanShoot()
+        {
+            return !IsShooting && _isHoldingShootingTrigger && CurrentWeapon.CanShoot && !PlayerMovement.IsRolling;
         }
 
         public void OnSwitchWeapon(InputAction.CallbackContext value)
         {
-            if (value.started && !IsShooting)
+            if (!_hasSwitchedWeapon)
+                _hasSwitchedWeapon = value.started;
+
+            CheckWeaponSwitch();
+        }
+
+        public void CheckWeaponSwitch()
+        {
+            if (_hasSwitchedWeapon && !PlayerMovement.IsRolling)
                 SwitchWeapon();
         }
 
@@ -84,7 +102,9 @@ namespace BSTW.Player
 
         public void StopShooting()
         {
-            StopCoroutine(_shootingCoroutine);
+            if (_shootingCoroutine != null)
+                StopCoroutine(_shootingCoroutine);
+
             IsShooting = false;
         }
 
@@ -140,6 +160,11 @@ namespace BSTW.Player
             ActivateCurrentWeapon(false);
             SetCurrentWeapon(_weapons[currentWeaponIndex]);
             ActivateCurrentWeapon(true);
+
+            if (!CurrentWeapon.CanShoot)
+                StopShooting();
+
+            _hasSwitchedWeapon = false;
         }
 
         private void ActivateCurrentWeapon(bool isActive)

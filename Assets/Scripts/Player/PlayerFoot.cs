@@ -1,18 +1,26 @@
-using System;
+using BSTW.Environment;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace BSTW.Player
 {
     public class PlayerFoot : MonoBehaviour
     {
+        [SerializeField] private UnityEvent _onPlayerFall;
+        [SerializeField] private UnityEvent _onPlayerBounce;
         public static bool IsOnTheGround { get; private set; } = true;
-
-        public static event Action OnPlayerFall;
 
         private void OnTriggerEnter(Collider other)
         {
-            OnPlayerFall?.Invoke();
             IsOnTheGround = true;
+
+            if (other.GetComponent<BouncySurface>() != null)
+            {
+                _onPlayerBounce?.Invoke();
+                return;
+            }
+
+            _onPlayerFall?.Invoke();
         }
 
         private void OnTriggerStay(Collider other)
