@@ -6,28 +6,18 @@ namespace BSTW.Player
     {
         [SerializeField] private Animator _animator;
 
-        public void TriggerJumpAnimation()
-        {
-            _animator.SetTrigger("Jump");    
-        }
-
-        public void TriggerRollAnimation()
-        {
-            _animator.SetTrigger("Roll");
-        }
-
-        public void SetMovementAnimation(float posX, float posY)
+        public void SetMovementParameters(float posX, float posY)
         {
             _animator.SetFloat("Pos X", posX);
             _animator.SetFloat("Pos Y", posY);
         }
 
-        public void UpdateFlyBool(bool isFlying)
+        public void SetFlyingParameter(bool isFlying)
         {
             _animator.SetBool("IsFlying", isFlying);
         }
 
-        public void UpdateGroundBool(bool isOnTheGround)
+        public void SetGroundParameter(bool isOnTheGround)
         {
             _animator.SetBool("IsOnTheGround", isOnTheGround);
         }

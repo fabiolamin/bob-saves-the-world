@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 5157008614702098617}
   - component: {fileID: 6025565614441959701}
   - component: {fileID: 5871238415937604047}
+  - component: {fileID: 1403642880342658752}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -532,6 +533,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 691101f5-1e8e-4fc0-b932-395d16b03461
     m_ActionName: Player Movement/Switch Weapon[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1403642880342658752}
+        m_TargetAssemblyTypeName: BSTW.Utils.Health, Assembly-CSharp
+        m_MethodName: AddHealth
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cde36215-862e-476a-bb4e-f3a2380db12e
+    m_ActionName: Player Movement/Add[/Keyboard/1]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1403642880342658752}
+        m_TargetAssemblyTypeName: BSTW.Utils.Health, Assembly-CSharp
+        m_MethodName: Hit
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f4329b03-7f76-4424-8f50-15b4b93d7366
+    m_ActionName: Player Movement/Hit[/Keyboard/2]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard & Mouse
   m_DefaultActionMap: Player Movement
@@ -571,7 +604,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4917344340799524409}
         m_TargetAssemblyTypeName: BSTW.Player.PlayerAnimator, Assembly-CSharp
-        m_MethodName: SetMovementAnimation
+        m_MethodName: SetMovementParameters
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -584,9 +617,9 @@ MonoBehaviour:
   _onPlayerJump:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4917344340799524409}
-        m_TargetAssemblyTypeName: BSTW.Player.PlayerAnimator, Assembly-CSharp
-        m_MethodName: TriggerJumpAnimation
+      - m_Target: {fileID: 5571951601805222781}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerMovement, Assembly-CSharp
+        m_MethodName: OnRollFinished
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -594,6 +627,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8734364776986975258}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Jump
           m_BoolArgument: 0
         m_CallState: 2
   _onPlayerRoll:
@@ -611,16 +656,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4917344340799524409}
-        m_TargetAssemblyTypeName: BSTW.Player.PlayerAnimator, Assembly-CSharp
-        m_MethodName: TriggerRollAnimation
-        m_Mode: 1
+      - m_Target: {fileID: 8734364776986975258}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Roll
           m_BoolArgument: 0
         m_CallState: 2
   _onPlayerRollFinished:
@@ -655,7 +700,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4917344340799524409}
         m_TargetAssemblyTypeName: BSTW.Player.PlayerAnimator, Assembly-CSharp
-        m_MethodName: UpdateFlyBool
+        m_MethodName: SetFlyingParameter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -670,7 +715,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4917344340799524409}
         m_TargetAssemblyTypeName: BSTW.Player.PlayerAnimator, Assembly-CSharp
-        m_MethodName: UpdateGroundBool
+        m_MethodName: SetGroundParameter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -785,6 +830,95 @@ MonoBehaviour:
   _switchCameraFOVSpeed: 10
   _cameraXSpeedOnAiming: 85
   _cameraYSpeedOnAiming: 0.5
+--- !u!114 &1403642880342658752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294626355850845352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2306ad37b34ea1e438b4772287ebd375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _knockDownPercentage: 0.5
+  _onHealthUpdated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3643031939335244511}
+        m_TargetAssemblyTypeName: BSTW.UI.BarDisplay, Assembly-CSharp
+        m_MethodName: UpdateBar
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5571951601805222781}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerMovement, Assembly-CSharp
+        m_MethodName: OnRollFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8734364776986975258}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Hit
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onKnockDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5571951601805222781}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerMovement, Assembly-CSharp
+        m_MethodName: OnRollFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8734364776986975258}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Knockdown
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onHealthAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7294626355850845354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,6 +2420,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 422c2d78a8368c7478548735b2d6961a, type: 3}
+--- !u!114 &3643031939335244511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1650698101259011603, guid: 422c2d78a8368c7478548735b2d6961a, type: 3}
+  m_PrefabInstance: {fileID: 2623015908017065164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015a45ee7caccc542b11b3e472aa3cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4078327231654345375 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2089654903948539475, guid: 422c2d78a8368c7478548735b2d6961a, type: 3}

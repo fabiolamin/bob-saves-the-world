@@ -212,9 +212,6 @@ namespace BSTW.Player
 
         public void OnJump(InputAction.CallbackContext value)
         {
-            if (IsRolling)
-                OnRollFinished();
-
             if (CanPlayerJump(value))
             {
                 _isJumping = true;
