@@ -48,12 +48,17 @@ namespace BSTW.Player
         private void Update()
         {
             _onPlayerIsGround?.Invoke(PlayerFoot.IsOnTheGround);
+
+            if (!_canMove) return;
+
             CheckIfPlayerIsFlying();
             CheckPlayerHeight();
         }
 
         private void FixedUpdate()
         {
+            if (!_canMove) return;
+
             RotatePlayer();
             MovePlayer();
         }
@@ -62,7 +67,7 @@ namespace BSTW.Player
         {
             if (_isHoldingJumpKey && _jetBackpackUser.HasFuel)
             {
-                if (_jetBackpackUser.IsFlying || IsRolling) return;
+                if (_jetBackpackUser.IsFlying) return;
 
                 _delayJumpingToFlyAux += Time.deltaTime;
 
@@ -137,11 +142,8 @@ namespace BSTW.Player
 
         private void MovePlayer()
         {
-            if (_canMove)
-            {
-                UpdateMovement();
-                CheckMovementAnimations();
-            }
+            UpdateMovement();
+            CheckMovementAnimations();
         }
 
         private void UpdateMovement()
@@ -236,6 +238,8 @@ namespace BSTW.Player
 
         public void OnRollFinished()
         {
+            if (!IsRolling) return;
+
             IsRolling = false;
             _currentSpeed = _movementData.MovementSpeed;
             _onPlayerRollFinished?.Invoke();
@@ -244,12 +248,12 @@ namespace BSTW.Player
         private bool CanPlayerJump(InputAction.CallbackContext value)
         {
             return value.started && PlayerFoot.IsOnTheGround &&
-            _canMove && !_isJumping && !IsRolling;
+            _canMove && !_isJumping;
         }
 
         private bool CanPlayerRollOnGround(InputAction.CallbackContext value)
         {
-            return value.started && PlayerFoot.IsOnTheGround &&
+            return value.started && PlayerFoot.IsOnTheGround && _canMove &&
             !_isJumping && !IsRolling && !_jetBackpackUser.IsFlying &&
             _movement.magnitude != 0f;
         }
@@ -263,6 +267,14 @@ namespace BSTW.Player
         public void UpdateMovementSpeedOnAiming(bool isPlayerAiming)
         {
             _currentSpeed = isPlayerAiming ? _movementData.AimingSpeed : _movementData.MovementSpeed;
+        }
+
+        public void EnablePlayerMovement(bool isEnabled)
+        {
+            _canMove = isEnabled;
+
+            if (!isEnabled)
+                _playerRb.velocity = Vector3.zero;
         }
     }
 }

@@ -35,7 +35,7 @@ namespace BSTW.Player
 
         private void UpdateCameraFOVOnAiming()
         {
-            var targetFOV = PlayerShooting.IsAiming ? _cameraFOVOnAiming : _defaultCameraFOV;
+            var targetFOV = PlayerShooting.IsAiming && PlayerShooting.IsReadyToShoot ? _cameraFOVOnAiming : _defaultCameraFOV;
 
             _cinemachineCamera.m_Lens.FieldOfView = Mathf.Lerp(
                 _cinemachineCamera.m_Lens.FieldOfView,

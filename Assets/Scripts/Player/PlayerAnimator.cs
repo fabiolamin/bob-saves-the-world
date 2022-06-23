@@ -21,6 +21,25 @@ namespace BSTW.Player
         {
             _animator.SetBool("IsOnTheGround", isOnTheGround);
         }
+
+        public void SetHitParameter(bool gotHit)
+        {
+            var hitParamName = "GotHit";
+
+            if (_animator.GetBool(hitParamName) == gotHit) return;
+
+            _animator.SetBool(hitParamName, gotHit);
+        }
+
+        public void SetKnockdownParameter(bool isKnocked)
+        {
+            _animator.SetBool("IsKnocked", isKnocked);
+        }
+
+        public void SetAliveParameter(bool isAlive)
+        {
+            _animator.SetBool("IsAlive", isAlive);
+        }
     }
 }
 

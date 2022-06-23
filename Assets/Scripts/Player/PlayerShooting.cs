@@ -32,6 +32,8 @@ namespace BSTW.Player
 
         public static bool IsAiming { get; private set; } = false;
         public static bool IsShooting { get; private set; } = false;
+        public static bool IsReadyToShoot { get; private set; } = true;
+
         public Weapon CurrentWeapon { get; private set; }
 
         private void Awake()
@@ -42,6 +44,9 @@ namespace BSTW.Player
         public void OnAim(InputAction.CallbackContext value)
         {
             IsAiming = value.action.IsPressed();
+
+            if (!IsReadyToShoot) return;
+
             _aimImage.SetActive(IsAiming || _isHoldingShootingTrigger);
             _onPlayerAim?.Invoke(IsAiming);
         }
@@ -49,6 +54,9 @@ namespace BSTW.Player
         public void OnShoot(InputAction.CallbackContext value)
         {
             _isHoldingShootingTrigger = value.action.IsPressed();
+
+            if (!IsReadyToShoot) return;
+
             CheckShooting();
         }
 
@@ -62,11 +70,13 @@ namespace BSTW.Player
 
         private bool CanShoot()
         {
-            return !IsShooting && _isHoldingShootingTrigger && CurrentWeapon.CanShoot && !PlayerMovement.IsRolling;
+            return IsReadyToShoot && !IsShooting && _isHoldingShootingTrigger && CurrentWeapon.CanShoot;
         }
 
         public void OnSwitchWeapon(InputAction.CallbackContext value)
         {
+            if (!IsReadyToShoot) return;
+
             if (!_hasSwitchedWeapon)
                 _hasSwitchedWeapon = value.started;
 
@@ -171,6 +181,13 @@ namespace BSTW.Player
         {
             CurrentWeapon.WeaponData.IsSelected = isActive;
             CurrentWeapon.gameObject.SetActive(isActive);
+        }
+
+        public void EnablePlayerShooting(bool isEnabled)
+        {
+            IsReadyToShoot = isEnabled;
+            _aimImage.SetActive(false);
+            _onPlayerAim?.Invoke(enabled && IsAiming);
         }
     }
 }
