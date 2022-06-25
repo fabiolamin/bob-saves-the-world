@@ -9,8 +9,11 @@ namespace BSTW.Health
         private float _currentHealth;
 
         [SerializeField] private float _maxHealth = 100f;
+        [SerializeField] private float _criticalHealth = 30f;
         [SerializeField] private float _knockDownPercentage = 0.5f;
         [SerializeField] private float _healthUpdateDelay = 0.5f;
+
+        [SerializeField] private UnityEvent _onCriticalHealth;
 
         [SerializeField] private UnityEvent<float, float> _onHealthUpdated;
 
@@ -46,6 +49,11 @@ namespace BSTW.Health
             UpdateHealth(_maxHealth);
         }
 
+        private void Update()
+        {
+            CheckCriticalHealth();
+        }
+
         private void UpdateHealth(float value)
         {
             CanUpdateHealth = false;
@@ -54,6 +62,12 @@ namespace BSTW.Health
             _onHealthUpdated?.Invoke(_currentHealth, _maxHealth);
 
             StartCoroutine(SetDelayToUpdateHealth());
+        }
+
+        private void CheckCriticalHealth()
+        {
+            if (_currentHealth <= _criticalHealth && IsAlive)
+                _onCriticalHealth?.Invoke();
         }
 
         public void Hit(float damage)
