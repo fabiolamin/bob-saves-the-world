@@ -65,7 +65,12 @@ namespace BSTW.Player
             _aimImage.SetActive(IsAiming || _isHoldingShootingTrigger);
 
             if (CanShoot())
+            {
+                if (_shootingCoroutine is not null)
+                    StopCoroutine(_shootingCoroutine);
+
                 _shootingCoroutine = StartCoroutine(GetReadyToShoot());
+            }
         }
 
         private bool CanShoot()

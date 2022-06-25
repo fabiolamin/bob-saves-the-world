@@ -24,11 +24,7 @@ namespace BSTW.Player
 
         public void SetHitParameter(bool gotHit)
         {
-            var hitParamName = "GotHit";
-
-            if (_animator.GetBool(hitParamName) == gotHit) return;
-
-            _animator.SetBool(hitParamName, gotHit);
+            _animator.SetBool("GotHit", gotHit);
         }
 
         public void SetKnockdownParameter(bool isKnocked)
