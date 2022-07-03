@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3074252352414623235}
   - component: {fileID: 3074252352413525187}
   - component: {fileID: 3941317414126101850}
-  m_Layer: 0
+  - component: {fileID: 9180227932651460979}
+  m_Layer: 9
   m_Name: Assault Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,6 +114,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _projectilePooling: {fileID: 9180227932651460979}
+  _projectileOrigin: {fileID: 6605332250273487464}
+--- !u!114 &9180227932651460979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3074252352415791619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e777a8bd777b45b4fb799fe93f2381bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectPrefab: {fileID: 6016646442890573232, guid: 6d7e2d0595fad914ebf93f687109f7c7, type: 3}
+  _amount: 50
 --- !u!1001 &706745995177451861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,12 +181,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450442521, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5936877989450442523, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
       propertyPath: m_Name
       value: Assault Rifle VFX
       objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450442523, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450442525, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450442527, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+--- !u!4 &6605332250273487464 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5936877989450021693, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+  m_PrefabInstance: {fileID: 706745995177451861}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6605332250273487470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5936877989450021691, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}

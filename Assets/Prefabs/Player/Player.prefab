@@ -153,6 +153,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &6794517514483383929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1715129136812411413}
+  m_Layer: 0
+  m_Name: Rocket Launcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1715129136812411413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6794517514483383929}
+  m_LocalRotation: {x: -0.035508163, y: 0.030376416, z: 0.015082544, w: -0.9987938}
+  m_LocalPosition: {x: 0.181, y: -0.01, z: 0.098}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7294626355851198592}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: -184.015, y: -183.549, z: -901.855}
 --- !u!1 &7294626355850845344
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +217,7 @@ Transform:
   - {fileID: 7294626355851198678}
   - {fileID: 7590744270546420176}
   - {fileID: 6434409793662632558}
+  - {fileID: 1715129136812411413}
   m_Father: {fileID: 7294626355851198646}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -568,54 +600,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 691101f5-1e8e-4fc0-b932-395d16b03461
     m_ActionName: Player Movement/Switch Weapon[/Keyboard/tab]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6993374090152357404}
-        m_TargetAssemblyTypeName: BSTW.Health.Health, Assembly-CSharp
-        m_MethodName: AddHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 10
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 5ff8348d-6891-4c47-8f76-7a99dfb6a18d
-    m_ActionName: Player Movement/Add[/Keyboard/1]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6993374090152357404}
-        m_TargetAssemblyTypeName: BSTW.Health.Health, Assembly-CSharp
-        m_MethodName: Hit
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 10
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: d4e680ab-a535-4b1c-8172-2a7089590042
-    m_ActionName: Player Movement/Hit[/Keyboard/2]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6993374090152357404}
-        m_TargetAssemblyTypeName: BSTW.Health.Health, Assembly-CSharp
-        m_MethodName: Hit
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 35
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 5a4a127b-6a36-4405-b6e7-61e2efadf712
-    m_ActionName: Player Movement/Knockdown[/Keyboard/3]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard & Mouse
   m_DefaultActionMap: Player Movement
@@ -818,6 +802,8 @@ MonoBehaviour:
     WeaponHandPosition: {fileID: 7590744270546420176}
   - Weapon: {fileID: 6278064590874154936, guid: 6c590bf50a636e142a2cc4b89d1ac74d, type: 3}
     WeaponHandPosition: {fileID: 6434409793662632558}
+  - Weapon: {fileID: 7756808887045012431, guid: 0a8e772be4806eb4db19e6e178a6c760, type: 3}
+    WeaponHandPosition: {fileID: 1715129136812411413}
   _aimImage: {fileID: 5571951600910468003}
   _onPlayerAim:
     m_PersistentCalls:

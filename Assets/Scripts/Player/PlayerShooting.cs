@@ -36,7 +36,7 @@ namespace BSTW.Player
 
         public Weapon CurrentWeapon { get; private set; }
 
-        private void Awake()
+        private void Start()
         {
             InstantiateWeapons();
         }
@@ -100,9 +100,7 @@ namespace BSTW.Player
             {
                 Weapon newWeapon = Instantiate(weaponController.Weapon);
 
-                newWeapon.transform.position = weaponController.WeaponHandPosition.position;
-                newWeapon.transform.localRotation = weaponController.WeaponHandPosition.rotation;
-                newWeapon.transform.SetParent(weaponController.WeaponHandPosition);
+                newWeapon.SetUpWeapon(weaponController);
 
                 newWeapon.OnWeaponStop += StopShooting;
 
@@ -147,23 +145,8 @@ namespace BSTW.Player
 
         private void Shoot()
         {
-            RaycastHit hit;
-
-            CurrentWeapon.Shoot();
+            CurrentWeapon.Shoot(Camera.main.transform.position, Camera.main.transform.forward);
             _onCurrentWeaponShoot?.Invoke(CurrentWeapon.WeaponData.CurrentAmmo, CurrentWeapon.WeaponData.MaxAmmo);
-
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, CurrentWeapon.WeaponData.ShootingDistance))
-            {
-                HitTarget(hit);
-            }
-        }
-
-        private void HitTarget(RaycastHit hit)
-        {
-            var bulletTarget = hit.collider.GetComponent<BulletTarget>();
-            if (bulletTarget is null) return;
-
-            bulletTarget.Hit(CurrentWeapon.WeaponData.BulletDamage, hit.point);
         }
 
         private void SwitchWeapon()
