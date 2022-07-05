@@ -20,6 +20,8 @@ namespace BSTW.Equipments.Weapons
 
         protected Projectile currentProjectile;
         protected Queue<Projectile> projectiles = new Queue<Projectile>();
+        protected bool isProjectileLoaded = true;
+        protected Coroutine projectileLoadingCoroutine;
 
         public WeaponData WeaponData => _weaponData;
         public bool CanShoot { get { return _weaponData.CurrentAmmo > 0; } }
@@ -57,7 +59,7 @@ namespace BSTW.Equipments.Weapons
 
         public void Shoot(Vector3 origin, Vector3 direction)
         {
-            if (!_weaponData.IsSelected) return;
+            if (!_weaponData.IsSelected || !isProjectileLoaded) return;
 
             RaycastHit target;
 
@@ -84,13 +86,26 @@ namespace BSTW.Equipments.Weapons
             currentProjectile.EnablePhysics(true);
             currentProjectile.MoveTowards(_projectileOrigin.position, target.point);
 
-            StartCoroutine(LoadProjectile());
+            StartProjectileLoading();
+        }
+
+        private void StartProjectileLoading()
+        {
+            if (projectileLoadingCoroutine != null)
+            {
+                StopCoroutine(projectileLoadingCoroutine);
+            }
+
+            projectileLoadingCoroutine = StartCoroutine(LoadProjectile());
         }
 
         protected virtual IEnumerator LoadProjectile()
         {
+            isProjectileLoaded = false;
+
             yield return new WaitUntil(() => !currentProjectile.gameObject.activeSelf);
 
+            isProjectileLoaded = true;
             SetProjectile();
         }
 
@@ -106,6 +121,13 @@ namespace BSTW.Equipments.Weapons
         {
             UpdateCurrentAmmo(amount);
             FillProjectilesQueue();
+        }
+
+        public void CheckProjectileLoading()
+        {
+            if (isProjectileLoaded) return;
+
+            StartProjectileLoading();
         }
     }
 }

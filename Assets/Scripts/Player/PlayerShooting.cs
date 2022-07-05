@@ -159,6 +159,8 @@ namespace BSTW.Player
             SetCurrentWeapon(_weapons[currentWeaponIndex]);
             ActivateCurrentWeapon(true);
 
+            CurrentWeapon.CheckProjectileLoading();
+
             if (!CurrentWeapon.CanShoot)
                 StopShooting();
 
