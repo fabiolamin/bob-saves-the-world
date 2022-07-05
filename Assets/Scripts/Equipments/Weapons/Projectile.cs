@@ -7,7 +7,8 @@ namespace BSTW.Equipments.Weapons
 {
     public class Projectile : MonoBehaviour
     {
-        [SerializeField] private WeaponData _weaponData;
+        protected float damage;
+
         [SerializeField] private Rigidbody _projectileRb;
         [SerializeField] private Collider _projectileCollider;
         [SerializeField] private ObjectPooling _hitVFXPooling;
@@ -28,13 +29,23 @@ namespace BSTW.Equipments.Weapons
             var projectileTarget = collision.collider.GetComponent<ProjectileTarget>();
             if (projectileTarget is null) return;
 
-            HitTarget(projectileTarget, _weaponData.BulletDamage, _hitVFXPooling != null ? _hitVFXPooling.GetObject() : null,
+            HitTarget(projectileTarget, damage, _hitVFXPooling != null ? _hitVFXPooling.GetObject() : null,
             transform.position);
         }
 
         protected virtual void HitTarget(ProjectileTarget projectileTarget, float damage, GameObject vfxGO, Vector3 point)
         {
             projectileTarget.Hit(damage, vfxGO, point);
+        }
+
+        public void SetUpProjectile(float damage, Transform origin)
+        {
+            this.damage = damage;
+
+            EnablePhysics(false);
+            transform.SetParent(origin);
+            transform.position = origin.position;
+            transform.rotation = origin.localRotation;
         }
 
         public void MoveTowards(Vector3 origin, Vector3 target)
