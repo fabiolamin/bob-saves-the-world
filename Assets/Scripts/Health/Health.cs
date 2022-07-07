@@ -72,7 +72,7 @@ namespace BSTW.Health
 
         public void Hit(float damage)
         {
-            if (!IsAlive || !CanUpdateHealth || GotHit) return;
+            if (!IsAlive || !CanUpdateHealth || GotHit || Mathf.Approximately(damage, 0f)) return;
 
 
             UpdateHealth(-damage);

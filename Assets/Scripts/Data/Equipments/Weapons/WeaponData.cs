@@ -8,6 +8,7 @@ namespace BSTW.Data.Equipments.Weapons
         [SerializeField] private RuntimeAnimatorController _animatorController;
         [SerializeField] private Sprite _icon;
         [SerializeField] private int _maxAmmo = 150;
+        [SerializeField] private string _targetName;
         [SerializeField] private float _bulletDamage = 20f;
         [SerializeField] private float _shootingInterval = 0.5f;
         [SerializeField] private float _shootingDistance = 500f;
@@ -17,6 +18,7 @@ namespace BSTW.Data.Equipments.Weapons
         public Sprite Icon => _icon;
         public int CurrentAmmo { get; set; }
         public int MaxAmmo => _maxAmmo;
+        public string TargetName => _targetName;
         public float BulletDamage => _bulletDamage;
         public float ShootingInterval => _shootingInterval;
 
