@@ -47,7 +47,7 @@ namespace BSTW.Equipments.Weapons
                 var projectile = _projectilePooling.GetObject().GetComponent<Projectile>();
 
                 projectiles.Enqueue(projectile);
-                projectile.SetUpProjectile(WeaponData.TargetName, WeaponData.BulletDamage, _projectileOrigin);
+                projectile.SetUpProjectile(gameObject.layer, WeaponData.Targets, WeaponData.BulletDamage, _projectileOrigin);
             }
 
             projectiles.ToList().ForEach(p => p.gameObject.SetActive(false));
@@ -62,27 +62,19 @@ namespace BSTW.Equipments.Weapons
             if (Physics.Raycast(origin, direction, out target, _weaponData.ShootingDistance))
             {
                 _onShoot?.Invoke();
-                ShootProjectile(target);
+                currentProjectile.GetReadyToMove(_projectileOrigin.position, target.point);
+                isProjectileLoaded = false;
                 UpdateCurrentAmmo(-1);
             }
         }
 
-        protected virtual void SetProjectile()
+        public virtual void SetProjectile()
         {
             if (projectiles.Count > 0)
             {
                 currentProjectile = projectiles.Dequeue();
+                isProjectileLoaded = true;
             }
-        }
-
-        private void ShootProjectile(RaycastHit target)
-        {
-            currentProjectile.gameObject.SetActive(true);
-            currentProjectile.transform.SetParent(null);
-            currentProjectile.EnablePhysics(true);
-            currentProjectile.MoveTowards(_projectileOrigin.position, target.point);
-
-            StartProjectileLoading();
         }
 
         private void StartProjectileLoading()
@@ -99,7 +91,7 @@ namespace BSTW.Equipments.Weapons
         {
             isProjectileLoaded = false;
 
-            yield return new WaitUntil(() => !currentProjectile.gameObject.activeSelf);
+            yield return new WaitForSeconds(WeaponData.ShootingInterval);
 
             isProjectileLoaded = true;
             SetProjectile();
@@ -117,6 +109,7 @@ namespace BSTW.Equipments.Weapons
         {
             UpdateCurrentAmmo(amount);
             FillProjectilesQueue();
+            SetProjectile();
         }
 
         public void CheckProjectileLoading()

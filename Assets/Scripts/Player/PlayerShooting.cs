@@ -138,6 +138,8 @@ namespace BSTW.Player
                 Shoot();
 
                 yield return new WaitForSeconds(CurrentWeapon.WeaponData.ShootingInterval);
+
+                CurrentWeapon.SetProjectile();
             }
 
             IsShooting = false;

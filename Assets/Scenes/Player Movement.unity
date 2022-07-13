@@ -187,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1703692}
   _onHit:
     m_PersistentCalls:
@@ -381,6 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 139981559}
   _onHit:
     m_PersistentCalls:
@@ -512,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 201450061}
   _onHit:
     m_PersistentCalls:
@@ -643,6 +646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 214552848}
   _onHit:
     m_PersistentCalls:
@@ -716,6 +720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 233280428}
   _onHit:
     m_PersistentCalls:
@@ -860,6 +865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 286006042}
   _onHit:
     m_PersistentCalls:
@@ -1054,6 +1060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 298067184}
   _onHit:
     m_PersistentCalls:
@@ -1185,6 +1192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 343862257}
   _onHit:
     m_PersistentCalls:
@@ -1263,6 +1271,7 @@ Transform:
   - {fileID: 534905327}
   - {fileID: 1687792257}
   - {fileID: 1163432045}
+  - {fileID: 1309775587}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1393,6 +1402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 399124817}
   _onHit:
     m_PersistentCalls:
@@ -1524,6 +1534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 436786397}
   _onHit:
     m_PersistentCalls:
@@ -1655,6 +1666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 447111882}
   _onHit:
     m_PersistentCalls:
@@ -1786,6 +1798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 483373768}
   _onHit:
     m_PersistentCalls:
@@ -1871,6 +1884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 534905328}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 534905327}
   _onHit:
     m_PersistentCalls:
@@ -2019,6 +2033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 600767104}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 600767103}
   _onHit:
     m_PersistentCalls:
@@ -2213,6 +2228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 622334305}
   _onHit:
     m_PersistentCalls:
@@ -2294,6 +2310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 648441286}
   _onHit:
     m_PersistentCalls:
@@ -2488,6 +2505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 665460121}
   _onHit:
     m_PersistentCalls:
@@ -2650,6 +2668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 710821414}
   _onHit:
     m_PersistentCalls:
@@ -2855,6 +2874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 810263690}
   _onHit:
     m_PersistentCalls:
@@ -2986,6 +3006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 819771379}
   _onHit:
     m_PersistentCalls:
@@ -3067,6 +3088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 945084191}
   _onHit:
     m_PersistentCalls:
@@ -3261,6 +3283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 959934996}
   _onHit:
     m_PersistentCalls:
@@ -3397,6 +3420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 993333875}
   _onHit:
     m_PersistentCalls:
@@ -3528,6 +3552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1043644742}
   _onHit:
     m_PersistentCalls:
@@ -3613,6 +3638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 1163432046}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1163432045}
   _onHit:
     m_PersistentCalls:
@@ -3883,10 +3909,160 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1275005314}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1309775586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1309775587}
+  - component: {fileID: 1309775593}
+  - component: {fileID: 1309775592}
+  - component: {fileID: 1309775591}
+  - component: {fileID: 1309775590}
+  - component: {fileID: 1309775589}
+  - component: {fileID: 1309775588}
+  m_Layer: 7
+  m_Name: Green (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1309775587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309775586}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.9874, y: 3.4698, z: -0.0705}
+  m_LocalScale: {x: 4.8909326, y: 3.5494783, z: 4.2587934}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 388821414}
+  m_RootOrder: 46
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1309775588
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309775586}
+  serializedVersion: 2
+  m_Mass: 1.5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &1309775589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309775586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e777a8bd777b45b4fb799fe93f2381bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
+  _amount: 5
+--- !u!114 &1309775590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309775586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 0}
+  _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
+  _defaultHitPoint: {fileID: 1309775587}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &1309775591
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309775586}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1309775592
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309775586}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 0e371365594310c4187dee5fd60ffa45, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1309775593
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309775586}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1412086097
 GameObject:
   m_ObjectHideFlags: 0
@@ -3968,6 +4144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 1412086099}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1412086098}
   _onHit:
     m_PersistentCalls:
@@ -4116,6 +4293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 1433438309}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1433438308}
   _onHit:
     m_PersistentCalls:
@@ -4310,6 +4488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1442181854}
   _onHit:
     m_PersistentCalls:
@@ -4379,6 +4558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1455165041}
   _onHit:
     m_PersistentCalls:
@@ -4570,7 +4750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
-  _amount: 5
+  _amount: 100
 --- !u!114 &1456080045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4584,7 +4764,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
+  _hitVFXPooling: {fileID: 1456080044}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1456080043}
   _onHit:
     m_PersistentCalls:
@@ -4716,6 +4897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1464907163}
   _onHit:
     m_PersistentCalls:
@@ -4847,6 +5029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 1557232627}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1557232626}
   _onHit:
     m_PersistentCalls:
@@ -4978,6 +5161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1574096990}
   _onHit:
     m_PersistentCalls:
@@ -5109,6 +5293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1581412871}
   _onHit:
     m_PersistentCalls:
@@ -5182,6 +5367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1666001051}
   _onHit:
     m_PersistentCalls:
@@ -5330,6 +5516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 1687792258}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1687792257}
   _onHit:
     m_PersistentCalls:
@@ -5474,6 +5661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1805601369}
   _onHit:
     m_PersistentCalls:
@@ -5668,6 +5856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1812015943}
   _onHit:
     m_PersistentCalls:
@@ -5737,6 +5926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 1817130715}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1817130709}
   _onHit:
     m_PersistentCalls:
@@ -5947,6 +6137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1832465596}
   _onHit:
     m_PersistentCalls:
@@ -6032,6 +6223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 1923893210}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1923893209}
   _onHit:
     m_PersistentCalls:
@@ -6226,6 +6418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 1957163647}
   _onHit:
     m_PersistentCalls:
@@ -6357,6 +6550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 2037032767}
   _onHit:
     m_PersistentCalls:
@@ -6488,6 +6682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 2067041684}
   _onHit:
     m_PersistentCalls:
@@ -6573,6 +6768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 2110706944}
   _hitVFXPooling: {fileID: 139981563}
+  _enableVFX: 1
   _defaultHitPoint: {fileID: 2110706943}
   _onHit:
     m_PersistentCalls:
@@ -6747,6 +6943,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7294626355851198620, guid: d3a6c21f130ec0843ba59e6b88ca193b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.94
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3a6c21f130ec0843ba59e6b88ca193b, type: 3}
 --- !u!1001 &5979856351251183975
@@ -6766,7 +6966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5979856350331114515, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0014037559
+      value: -0.0014037545
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351153789142, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6790,11 +6990,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351153789142, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.09182331
+      value: 0.09182332
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351153789142, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.010017191
+      value: -0.010017192
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351387154623, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6822,15 +7022,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351505437006, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.117877565
+      value: 0.11787755
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351505437006, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.05062781
+      value: 0.050627787
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351505437006, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0060177185
+      value: -0.006017715
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351541373928, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_Name

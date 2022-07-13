@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3643330809812258341}
   - component: {fileID: 4012740357295852485}
   - component: {fileID: 6612460172313182881}
-  - component: {fileID: 5120929954211930703}
+  - component: {fileID: 1244372127063562558}
   - component: {fileID: 2752147153377741372}
   m_Layer: 8
   m_Name: Rocket Projectile
@@ -51,7 +51,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &6612460172313182881
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -61,11 +61,11 @@ SphereCollider:
   m_GameObject: {fileID: 1026560227270490092}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5120929954211930703
+--- !u!114 &1244372127063562558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1026560227270490092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 477a472545cefa04685d19c386429fdb, type: 3}
+  m_Script: {fileID: 11500000, guid: a9a392384dda7264586b32f9bd7050a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileData: {fileID: 11400000, guid: 957f981b1259cb8469f4d9dbda484fe1, type: 2}
@@ -419,6 +419,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198385969350522728, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
+      propertyPath: emitterVelocityMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198385969350522728, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
       propertyPath: useRigidbodyForVelocity
       value: 0
       objectReference: {fileID: 0}
@@ -429,6 +433,10 @@ PrefabInstance:
     - target: {fileID: 198878074453378804, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
       propertyPath: ColorModule.enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198878074453378804, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
+      propertyPath: emitterVelocityMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198878074453378804, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
       propertyPath: useRigidbodyForVelocity

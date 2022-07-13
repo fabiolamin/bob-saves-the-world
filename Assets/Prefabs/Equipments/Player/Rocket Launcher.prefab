@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3025853900972197459}
   - component: {fileID: 7756808887045012431}
   - component: {fileID: 422063360818297785}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Rocket Launcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,6 @@ MonoBehaviour:
       m_Calls: []
   _projectilePooling: {fileID: 422063360818297785}
   _projectileOrigin: {fileID: 5085863265054186389}
-  _loadingDelay: 2
 --- !u!114 &422063360818297785
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,5 @@
 using BSTW.Data.Equipments.Weapons;
 using BSTW.Utils;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,9 +7,14 @@ namespace BSTW.Equipments.Weapons
 {
     public class Projectile : MonoBehaviour
     {
-        protected string targetName;
+        private bool _canMove = false;
+        private Vector3 _targetPosition;
+
+        protected ProjectileData projectileData => _projectileData;
+        protected ProjectileTarget projectileTarget;
+        protected ObjectPooling hitVFXPooling => _hitVFXPooling;
+        protected string[] targetNames;
         protected float damage;
-        protected List<ProjectileTarget> targets = new List<ProjectileTarget>();
 
         [SerializeField] private ProjectileData _projectileData;
         [SerializeField] private Rigidbody _projectileRb;
@@ -23,83 +27,37 @@ namespace BSTW.Equipments.Weapons
 
         private void OnCollisionEnter(Collision collision)
         {
+            projectileTarget = collision.collider.GetComponent<ProjectileTarget>();
+            if (projectileTarget == null) return;
+
             CheckTarget(collision);
 
+            _canMove = false;
             gameObject.SetActive(false);
         }
 
-        private void CheckTarget(Collision collision)
+        private void Update()
         {
-            var projectileTarget = collision.collider.GetComponent<ProjectileTarget>();
-            if (projectileTarget is null) return;
-
-            targets.Clear();
-            targets.Add(projectileTarget);
-
-            if (_projectileData.HitRadius > 0f)
-            {
-                SetTargets(transform.position);
-            }
-
-            ApplyHitForce(transform.position);
-
-            HitTarget(projectileTarget, damage, _hitVFXPooling != null ? _hitVFXPooling.GetObject() : null,
-            transform.position);
+            MoveTowardsTarget();
         }
 
-        protected virtual void HitTarget(ProjectileTarget projectileTarget, float damage, GameObject vfxGO, Vector3 point)
+        protected virtual void CheckTarget(Collision collision)
         {
-            if (_projectileData.HitRadius > 0f)
-            {
-                projectileTarget.Hit(0f, vfxGO, point);
-
-                foreach (ProjectileTarget target in targets)
-                {
-                    if (target.tag.Equals(targetName))
-                    {
-                        target.Hit(damage, null, Vector3.zero);
-                    }
-                }
-
-                return;
-            }
-
-            var hitDamage = projectileTarget.tag.Equals(targetName) ? damage : 0f;
-            projectileTarget.Hit(hitDamage, vfxGO, point);
+            projectileTarget.Hit(damage, transform.position);
         }
 
-        private void SetTargets(Vector3 point)
+        private void MoveTowardsTarget()
         {
-            var colliders = Physics.OverlapSphere(point, _projectileData.HitRadius);
-
-            foreach (Collider collider in colliders)
+            if (_canMove)
             {
-                var target = collider.GetComponent<ProjectileTarget>();
-
-                if (target == null) return;
-                if (targets.Contains(target)) return;
-
-                targets.Add(target);
+                transform.position = Vector3.MoveTowards(transform.position, _targetPosition, Time.deltaTime * projectileData.Speed);
             }
         }
 
-        private void ApplyHitForce(Vector3 point)
+        public void SetUpProjectile(int layer, string[] targetNames, float damage, Transform origin)
         {
-            foreach (ProjectileTarget target in targets)
-            {
-                if (target.ProjectileTargetRb != null)
-                {
-                    target.ProjectileTargetRb.AddExplosionForce(
-                    _projectileData.HitForce,
-                    point, _projectileData.HitRadius,
-                    _projectileData.HitUpwards);
-                }
-            }
-        }
-
-        public void SetUpProjectile(string targetName, float damage, Transform origin)
-        {
-            this.targetName = targetName;
+            gameObject.layer = layer;
+            this.targetNames = targetNames;
             this.damage = damage;
 
             EnablePhysics(false);
@@ -108,14 +66,22 @@ namespace BSTW.Equipments.Weapons
             transform.rotation = origin.localRotation;
         }
 
-        public void MoveTowards(Vector3 origin, Vector3 target)
+        public void GetReadyToMove(Vector3 origin, Vector3 target)
         {
+            EnablePhysics(true);
+            gameObject.SetActive(true);
+            transform.SetParent(null);
+
             _onShot?.Invoke();
+
             transform.LookAt(target);
-            _projectileRb.velocity = (target - origin).normalized * _projectileData.Speed;
+            transform.position = origin;
+
+            _targetPosition = target;
+            _canMove = true;
         }
 
-        public void EnablePhysics(bool isEnabled)
+        private void EnablePhysics(bool isEnabled)
         {
             _projectileCollider.enabled = isEnabled;
             _projectileRb.isKinematic = !isEnabled;
