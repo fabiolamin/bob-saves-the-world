@@ -3,27 +3,29 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace BSTW.Equipments.Weapons
+namespace BSTW.Equipments.Weapons.Shooting
 {
     public class ProjectileTarget : MonoBehaviour
     {
         [SerializeField] private Rigidbody _projectileTargetRb = null;
         [SerializeField] private ObjectPooling _hitVFXPooling;
-        [SerializeField] private Transform _defaultHitPoint;
         [SerializeField] private UnityEvent<float> _onHit;
+
+        protected UnityEvent<float> OnHit => _onHit;
 
         public Rigidbody ProjectileTargetRb => _projectileTargetRb;
 
-        public void Hit(float damage, GameObject vfx, Vector3 point)
+        public virtual void Hit(float damage, GameObject vfx, Vector3 point)
         {
             _onHit?.Invoke(damage);
+
             PlayHitVFXOnPoint(vfx, point);
         }
 
-        private void PlayHitVFXOnPoint(GameObject vfx, Vector3 point)
+        protected void PlayHitVFXOnPoint(GameObject vfx, Vector3 point)
         {
             var vfxGO = vfx == null ? _hitVFXPooling.GetObject() : vfx;
-            vfxGO.transform.position = point == Vector3.zero ? _defaultHitPoint.position : point;
+            vfxGO.transform.position = point;
 
             var particles = vfxGO.GetComponent<ParticleSystem>();
             particles.Play();

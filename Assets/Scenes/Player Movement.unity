@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 1703697}
   - component: {fileID: 1703696}
   - component: {fileID: 1703695}
-  - component: {fileID: 1703694}
   - component: {fileID: 1703693}
+  - component: {fileID: 1703698}
   m_Layer: 7
   m_Name: Ground (4)
   m_TagString: Untagged
@@ -173,25 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &1703694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1703692}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &1703695
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -255,6 +236,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703691}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1703698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 0}
+  _hitVFXPooling: {fileID: 1703693}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &139981558
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,8 +265,8 @@ GameObject:
   - component: {fileID: 139981562}
   - component: {fileID: 139981561}
   - component: {fileID: 139981560}
-  - component: {fileID: 139981564}
   - component: {fileID: 139981563}
+  - component: {fileID: 139981564}
   m_Layer: 7
   m_Name: Cube (14)
   m_TagString: Untagged
@@ -377,13 +375,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 139981558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 139981559}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -399,8 +395,8 @@ GameObject:
   - component: {fileID: 201450060}
   - component: {fileID: 201450059}
   - component: {fileID: 201450058}
-  - component: {fileID: 201450063}
   - component: {fileID: 201450062}
+  - component: {fileID: 201450063}
   m_Layer: 7
   m_Name: Cube (6)
   m_TagString: Untagged
@@ -509,13 +505,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 201450057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 201450061}
+  _hitVFXPooling: {fileID: 201450062}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -531,8 +525,8 @@ GameObject:
   - component: {fileID: 214552851}
   - component: {fileID: 214552850}
   - component: {fileID: 214552849}
-  - component: {fileID: 214552853}
   - component: {fileID: 214552852}
+  - component: {fileID: 214552853}
   m_Layer: 7
   m_Name: Cube (21)
   m_TagString: Untagged
@@ -641,13 +635,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 214552847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 214552848}
+  _hitVFXPooling: {fileID: 214552852}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -668,8 +660,8 @@ GameObject:
   - component: {fileID: 233280433}
   - component: {fileID: 233280432}
   - component: {fileID: 233280431}
-  - component: {fileID: 233280430}
   - component: {fileID: 233280429}
+  - component: {fileID: 233280434}
   m_Layer: 7
   m_Name: Ground (2)
   m_TagString: Untagged
@@ -706,25 +698,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &233280430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233280427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 233280428}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &233280431
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -788,6 +761,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233280427}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &233280434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233280427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 0}
+  _hitVFXPooling: {fileID: 233280429}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &286006041
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,9 +790,9 @@ GameObject:
   - component: {fileID: 286006048}
   - component: {fileID: 286006047}
   - component: {fileID: 286006046}
-  - component: {fileID: 286006045}
   - component: {fileID: 286006044}
   - component: {fileID: 286006043}
+  - component: {fileID: 286006049}
   m_Layer: 7
   m_Name: Cube (26)
   m_TagString: Untagged
@@ -851,25 +841,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &286006045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286006041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 286006042}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &286006046
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -933,6 +904,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286006041}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &286006049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286006041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 0}
+  _hitVFXPooling: {fileID: 286006044}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &298067183
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,8 +933,8 @@ GameObject:
   - component: {fileID: 298067187}
   - component: {fileID: 298067186}
   - component: {fileID: 298067185}
-  - component: {fileID: 298067189}
   - component: {fileID: 298067188}
+  - component: {fileID: 298067189}
   m_Layer: 7
   m_Name: Yellow
   m_TagString: Untagged
@@ -1055,13 +1043,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 298067183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 298067184}
+  _hitVFXPooling: {fileID: 298067188}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -1077,8 +1063,8 @@ GameObject:
   - component: {fileID: 343862260}
   - component: {fileID: 343862259}
   - component: {fileID: 343862258}
-  - component: {fileID: 343862262}
   - component: {fileID: 343862261}
+  - component: {fileID: 343862262}
   m_Layer: 7
   m_Name: Red
   m_TagString: Untagged
@@ -1187,13 +1173,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 343862256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 343862257}
+  _hitVFXPooling: {fileID: 343862261}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -1287,8 +1271,8 @@ GameObject:
   - component: {fileID: 399124816}
   - component: {fileID: 399124815}
   - component: {fileID: 399124814}
-  - component: {fileID: 399124819}
   - component: {fileID: 399124818}
+  - component: {fileID: 399124819}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
@@ -1397,13 +1381,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 399124813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 399124817}
+  _hitVFXPooling: {fileID: 399124818}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -1419,8 +1401,8 @@ GameObject:
   - component: {fileID: 436786396}
   - component: {fileID: 436786395}
   - component: {fileID: 436786394}
-  - component: {fileID: 436786399}
   - component: {fileID: 436786398}
+  - component: {fileID: 436786399}
   m_Layer: 7
   m_Name: Cube (8)
   m_TagString: Untagged
@@ -1529,13 +1511,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 436786393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 436786397}
+  _hitVFXPooling: {fileID: 436786398}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -1551,8 +1531,8 @@ GameObject:
   - component: {fileID: 447111881}
   - component: {fileID: 447111880}
   - component: {fileID: 447111879}
-  - component: {fileID: 447111884}
   - component: {fileID: 447111883}
+  - component: {fileID: 447111884}
   m_Layer: 7
   m_Name: Cube (9)
   m_TagString: Untagged
@@ -1661,13 +1641,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 447111878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 447111882}
+  _hitVFXPooling: {fileID: 447111883}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -1683,8 +1661,8 @@ GameObject:
   - component: {fileID: 483373767}
   - component: {fileID: 483373766}
   - component: {fileID: 483373765}
-  - component: {fileID: 483373770}
   - component: {fileID: 483373769}
+  - component: {fileID: 483373770}
   m_Layer: 7
   m_Name: Cube (10)
   m_TagString: Untagged
@@ -1793,13 +1771,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 483373764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 483373768}
+  _hitVFXPooling: {fileID: 483373769}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -1815,9 +1791,9 @@ GameObject:
   - component: {fileID: 534905333}
   - component: {fileID: 534905332}
   - component: {fileID: 534905331}
-  - component: {fileID: 534905330}
   - component: {fileID: 534905329}
   - component: {fileID: 534905328}
+  - component: {fileID: 534905334}
   m_Layer: 7
   m_Name: Green (7)
   m_TagString: Untagged
@@ -1870,25 +1846,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &534905330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534905326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 534905328}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 534905327}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &534905331
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1952,6 +1909,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534905326}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &534905334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534905326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 534905328}
+  _hitVFXPooling: {fileID: 534905329}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &600767102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,9 +1938,9 @@ GameObject:
   - component: {fileID: 600767109}
   - component: {fileID: 600767108}
   - component: {fileID: 600767107}
-  - component: {fileID: 600767106}
   - component: {fileID: 600767105}
   - component: {fileID: 600767104}
+  - component: {fileID: 600767110}
   m_Layer: 7
   m_Name: Green (2)
   m_TagString: Untagged
@@ -2019,25 +1993,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &600767106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600767102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 600767104}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 600767103}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &600767107
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2101,6 +2056,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600767102}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &600767110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600767102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 600767104}
+  _hitVFXPooling: {fileID: 600767105}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &622334301
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,8 +2085,8 @@ GameObject:
   - component: {fileID: 622334304}
   - component: {fileID: 622334303}
   - component: {fileID: 622334302}
-  - component: {fileID: 622334307}
   - component: {fileID: 622334306}
+  - component: {fileID: 622334307}
   m_Layer: 7
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -2223,13 +2195,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 622334301}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 622334305}
+  _hitVFXPooling: {fileID: 622334306}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -2245,9 +2215,9 @@ GameObject:
   - component: {fileID: 648441292}
   - component: {fileID: 648441291}
   - component: {fileID: 648441290}
-  - component: {fileID: 648441289}
   - component: {fileID: 648441288}
   - component: {fileID: 648441287}
+  - component: {fileID: 648441293}
   m_Layer: 7
   m_Name: Cube (25)
   m_TagString: Untagged
@@ -2296,25 +2266,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &648441289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648441285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 648441286}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &648441290
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2378,6 +2329,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648441285}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &648441293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648441285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 0}
+  _hitVFXPooling: {fileID: 648441288}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &665460117
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,8 +2358,8 @@ GameObject:
   - component: {fileID: 665460120}
   - component: {fileID: 665460119}
   - component: {fileID: 665460118}
-  - component: {fileID: 665460123}
   - component: {fileID: 665460122}
+  - component: {fileID: 665460123}
   m_Layer: 7
   m_Name: Cube (11)
   m_TagString: Untagged
@@ -2500,13 +2468,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 665460117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 665460121}
+  _hitVFXPooling: {fileID: 665460122}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -2616,8 +2582,8 @@ GameObject:
   - component: {fileID: 710821419}
   - component: {fileID: 710821418}
   - component: {fileID: 710821417}
-  - component: {fileID: 710821416}
   - component: {fileID: 710821415}
+  - component: {fileID: 710821420}
   m_Layer: 7
   m_Name: Ground (1)
   m_TagString: Untagged
@@ -2654,25 +2620,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &710821416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710821413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 710821414}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &710821417
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2736,6 +2683,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710821413}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &710821420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710821413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 0}
+  _hitVFXPooling: {fileID: 710821415}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &789519902 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5979856351700351733, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
@@ -2759,8 +2723,8 @@ GameObject:
   - component: {fileID: 810263693}
   - component: {fileID: 810263692}
   - component: {fileID: 810263691}
-  - component: {fileID: 810263695}
   - component: {fileID: 810263694}
+  - component: {fileID: 810263695}
   m_Layer: 7
   m_Name: Cube (17)
   m_TagString: Untagged
@@ -2869,13 +2833,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 810263689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 810263690}
+  _hitVFXPooling: {fileID: 810263694}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -2891,8 +2853,8 @@ GameObject:
   - component: {fileID: 819771382}
   - component: {fileID: 819771381}
   - component: {fileID: 819771380}
-  - component: {fileID: 819771384}
   - component: {fileID: 819771383}
+  - component: {fileID: 819771384}
   m_Layer: 7
   m_Name: Cube (22)
   m_TagString: Untagged
@@ -3001,13 +2963,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 819771378}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 819771379}
+  _hitVFXPooling: {fileID: 819771383}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -3023,9 +2983,9 @@ GameObject:
   - component: {fileID: 945084197}
   - component: {fileID: 945084196}
   - component: {fileID: 945084195}
-  - component: {fileID: 945084194}
   - component: {fileID: 945084193}
   - component: {fileID: 945084192}
+  - component: {fileID: 945084198}
   m_Layer: 7
   m_Name: Cube (28)
   m_TagString: Untagged
@@ -3074,25 +3034,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &945084194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945084190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 945084191}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &945084195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3156,6 +3097,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945084190}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &945084198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945084190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 0}
+  _hitVFXPooling: {fileID: 945084193}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &959934995
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,8 +3126,8 @@ GameObject:
   - component: {fileID: 959934999}
   - component: {fileID: 959934998}
   - component: {fileID: 959934997}
-  - component: {fileID: 959935001}
   - component: {fileID: 959935000}
+  - component: {fileID: 959935001}
   m_Layer: 7
   m_Name: Cube (18)
   m_TagString: Untagged
@@ -3278,13 +3236,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 959934995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 959934996}
+  _hitVFXPooling: {fileID: 959935000}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -3305,8 +3261,8 @@ GameObject:
   - component: {fileID: 993333874}
   - component: {fileID: 993333873}
   - component: {fileID: 993333872}
-  - component: {fileID: 993333877}
   - component: {fileID: 993333876}
+  - component: {fileID: 993333877}
   m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -3415,13 +3371,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 993333871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 993333875}
+  _hitVFXPooling: {fileID: 993333876}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -3437,8 +3391,8 @@ GameObject:
   - component: {fileID: 1043644745}
   - component: {fileID: 1043644744}
   - component: {fileID: 1043644743}
-  - component: {fileID: 1043644747}
   - component: {fileID: 1043644746}
+  - component: {fileID: 1043644747}
   m_Layer: 7
   m_Name: Cube (23)
   m_TagString: Untagged
@@ -3547,13 +3501,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1043644741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1043644742}
+  _hitVFXPooling: {fileID: 1043644746}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -3569,9 +3521,9 @@ GameObject:
   - component: {fileID: 1163432051}
   - component: {fileID: 1163432050}
   - component: {fileID: 1163432049}
-  - component: {fileID: 1163432048}
   - component: {fileID: 1163432047}
   - component: {fileID: 1163432046}
+  - component: {fileID: 1163432052}
   m_Layer: 7
   m_Name: Green (9)
   m_TagString: Untagged
@@ -3624,25 +3576,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &1163432048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163432044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 1163432046}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1163432045}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &1163432049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3706,6 +3639,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163432044}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1163432052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163432044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 1163432046}
+  _hitVFXPooling: {fileID: 1163432047}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1228514533
 GameObject:
   m_ObjectHideFlags: 0
@@ -3794,8 +3744,8 @@ GameObject:
   - component: {fileID: 1275005317}
   - component: {fileID: 1275005316}
   - component: {fileID: 1275005315}
-  - component: {fileID: 1275005319}
   - component: {fileID: 1275005318}
+  - component: {fileID: 1275005319}
   m_Layer: 7
   m_Name: Green
   m_TagString: Untagged
@@ -3904,13 +3854,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1275005313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1275005314}
+  _hitVFXPooling: {fileID: 1275005318}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -3926,9 +3874,9 @@ GameObject:
   - component: {fileID: 1309775593}
   - component: {fileID: 1309775592}
   - component: {fileID: 1309775591}
-  - component: {fileID: 1309775590}
   - component: {fileID: 1309775589}
   - component: {fileID: 1309775588}
+  - component: {fileID: 1309775594}
   m_Layer: 7
   m_Name: Green (10)
   m_TagString: Untagged
@@ -3981,25 +3929,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &1309775590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309775586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1309775587}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &1309775591
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4063,6 +3992,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309775586}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1309775594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309775586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 1309775588}
+  _hitVFXPooling: {fileID: 1309775589}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1412086097
 GameObject:
   m_ObjectHideFlags: 0
@@ -4075,9 +4021,9 @@ GameObject:
   - component: {fileID: 1412086104}
   - component: {fileID: 1412086103}
   - component: {fileID: 1412086102}
-  - component: {fileID: 1412086101}
   - component: {fileID: 1412086100}
   - component: {fileID: 1412086099}
+  - component: {fileID: 1412086105}
   m_Layer: 7
   m_Name: Green (5)
   m_TagString: Untagged
@@ -4130,25 +4076,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &1412086101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412086097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 1412086099}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1412086098}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &1412086102
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4212,6 +4139,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412086097}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1412086105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412086097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 1412086099}
+  _hitVFXPooling: {fileID: 1412086100}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1433438307
 GameObject:
   m_ObjectHideFlags: 0
@@ -4224,9 +4168,9 @@ GameObject:
   - component: {fileID: 1433438314}
   - component: {fileID: 1433438313}
   - component: {fileID: 1433438312}
-  - component: {fileID: 1433438311}
   - component: {fileID: 1433438310}
   - component: {fileID: 1433438309}
+  - component: {fileID: 1433438315}
   m_Layer: 7
   m_Name: Green (6)
   m_TagString: Untagged
@@ -4279,25 +4223,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &1433438311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1433438307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 1433438309}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1433438308}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &1433438312
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4361,6 +4286,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433438307}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1433438315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433438307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 1433438309}
+  _hitVFXPooling: {fileID: 1433438310}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1442181853
 GameObject:
   m_ObjectHideFlags: 0
@@ -4373,8 +4315,8 @@ GameObject:
   - component: {fileID: 1442181857}
   - component: {fileID: 1442181856}
   - component: {fileID: 1442181855}
-  - component: {fileID: 1442181859}
   - component: {fileID: 1442181858}
+  - component: {fileID: 1442181859}
   m_Layer: 7
   m_Name: Cube (16)
   m_TagString: Untagged
@@ -4483,13 +4425,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1442181853}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1442181854}
+  _hitVFXPooling: {fileID: 1442181858}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -4505,9 +4445,9 @@ GameObject:
   - component: {fileID: 1455165046}
   - component: {fileID: 1455165045}
   - component: {fileID: 1455165044}
-  - component: {fileID: 1455165043}
   - component: {fileID: 1455165042}
   - component: {fileID: 1455165047}
+  - component: {fileID: 1455165048}
   m_Layer: 7
   m_Name: Cube (24)
   m_TagString: Untagged
@@ -4544,25 +4484,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &1455165043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455165040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1455165041}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &1455165044
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4638,6 +4559,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74dceea958a984c4ea70b9526c93cbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1455165048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455165040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 0}
+  _hitVFXPooling: {fileID: 1455165042}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1456080039
 GameObject:
   m_ObjectHideFlags: 0
@@ -4650,8 +4588,8 @@ GameObject:
   - component: {fileID: 1456080042}
   - component: {fileID: 1456080041}
   - component: {fileID: 1456080040}
-  - component: {fileID: 1456080045}
   - component: {fileID: 1456080044}
+  - component: {fileID: 1456080045}
   m_Layer: 7
   m_Name: Cube (13)
   m_TagString: Untagged
@@ -4760,13 +4698,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1456080039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 1456080044}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1456080043}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -4782,8 +4718,8 @@ GameObject:
   - component: {fileID: 1464907166}
   - component: {fileID: 1464907165}
   - component: {fileID: 1464907164}
-  - component: {fileID: 1464907168}
   - component: {fileID: 1464907167}
+  - component: {fileID: 1464907168}
   m_Layer: 7
   m_Name: Cube (15)
   m_TagString: Untagged
@@ -4892,13 +4828,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1464907162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1464907163}
+  _hitVFXPooling: {fileID: 1464907167}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -4914,8 +4848,8 @@ GameObject:
   - component: {fileID: 1557232625}
   - component: {fileID: 1557232624}
   - component: {fileID: 1557232623}
-  - component: {fileID: 1557232628}
   - component: {fileID: 1557232627}
+  - component: {fileID: 1557232628}
   m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
@@ -5024,13 +4958,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1557232622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
   _hitVFXPooling: {fileID: 1557232627}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1557232626}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -5046,8 +4978,8 @@ GameObject:
   - component: {fileID: 1574096989}
   - component: {fileID: 1574096988}
   - component: {fileID: 1574096987}
-  - component: {fileID: 1574096992}
   - component: {fileID: 1574096991}
+  - component: {fileID: 1574096992}
   m_Layer: 7
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -5156,13 +5088,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1574096986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1574096990}
+  _hitVFXPooling: {fileID: 1574096991}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -5178,8 +5108,8 @@ GameObject:
   - component: {fileID: 1581412870}
   - component: {fileID: 1581412869}
   - component: {fileID: 1581412868}
-  - component: {fileID: 1581412873}
   - component: {fileID: 1581412872}
+  - component: {fileID: 1581412873}
   m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -5288,13 +5218,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1581412867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1581412871}
+  _hitVFXPooling: {fileID: 1581412872}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -5315,8 +5243,8 @@ GameObject:
   - component: {fileID: 1666001056}
   - component: {fileID: 1666001055}
   - component: {fileID: 1666001054}
-  - component: {fileID: 1666001053}
   - component: {fileID: 1666001052}
+  - component: {fileID: 1666001057}
   m_Layer: 7
   m_Name: Ground (3)
   m_TagString: Untagged
@@ -5353,25 +5281,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &1666001053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666001050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1666001051}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &1666001054
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5435,6 +5344,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666001050}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1666001057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666001050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 0}
+  _hitVFXPooling: {fileID: 1666001052}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1687792256
 GameObject:
   m_ObjectHideFlags: 0
@@ -5447,9 +5373,9 @@ GameObject:
   - component: {fileID: 1687792263}
   - component: {fileID: 1687792262}
   - component: {fileID: 1687792261}
-  - component: {fileID: 1687792260}
   - component: {fileID: 1687792259}
   - component: {fileID: 1687792258}
+  - component: {fileID: 1687792264}
   m_Layer: 7
   m_Name: Green (8)
   m_TagString: Untagged
@@ -5502,25 +5428,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &1687792260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687792256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 1687792258}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1687792257}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &1687792261
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5584,6 +5491,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687792256}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1687792264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687792256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 1687792258}
+  _hitVFXPooling: {fileID: 1687792259}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1805601368
 GameObject:
   m_ObjectHideFlags: 0
@@ -5596,9 +5520,9 @@ GameObject:
   - component: {fileID: 1805601375}
   - component: {fileID: 1805601374}
   - component: {fileID: 1805601373}
-  - component: {fileID: 1805601372}
   - component: {fileID: 1805601371}
   - component: {fileID: 1805601370}
+  - component: {fileID: 1805601376}
   m_Layer: 7
   m_Name: Cube (27)
   m_TagString: Untagged
@@ -5647,25 +5571,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &1805601372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805601368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1805601369}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &1805601373
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5729,6 +5634,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805601368}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1805601376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805601368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 0}
+  _hitVFXPooling: {fileID: 1805601371}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1812015942
 GameObject:
   m_ObjectHideFlags: 0
@@ -5741,8 +5663,8 @@ GameObject:
   - component: {fileID: 1812015946}
   - component: {fileID: 1812015945}
   - component: {fileID: 1812015944}
-  - component: {fileID: 1812015948}
   - component: {fileID: 1812015947}
+  - component: {fileID: 1812015948}
   m_Layer: 7
   m_Name: Cube (19)
   m_TagString: Untagged
@@ -5851,13 +5773,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1812015942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1812015943}
+  _hitVFXPooling: {fileID: 1812015947}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -5873,9 +5793,9 @@ GameObject:
   - component: {fileID: 1817130714}
   - component: {fileID: 1817130713}
   - component: {fileID: 1817130712}
-  - component: {fileID: 1817130711}
   - component: {fileID: 1817130710}
   - component: {fileID: 1817130715}
+  - component: {fileID: 1817130716}
   m_Layer: 7
   m_Name: Green (1)
   m_TagString: Untagged
@@ -5912,25 +5832,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &1817130711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817130708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 1817130715}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1817130709}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &1817130712
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6010,6 +5911,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1817130716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817130708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 1817130715}
+  _hitVFXPooling: {fileID: 1817130710}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1832465592
 GameObject:
   m_ObjectHideFlags: 0
@@ -6022,8 +5940,8 @@ GameObject:
   - component: {fileID: 1832465595}
   - component: {fileID: 1832465594}
   - component: {fileID: 1832465593}
-  - component: {fileID: 1832465598}
   - component: {fileID: 1832465597}
+  - component: {fileID: 1832465598}
   m_Layer: 7
   m_Name: Cube (7)
   m_TagString: Untagged
@@ -6132,13 +6050,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1832465592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1832465596}
+  _hitVFXPooling: {fileID: 1832465597}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -6154,9 +6070,9 @@ GameObject:
   - component: {fileID: 1923893215}
   - component: {fileID: 1923893214}
   - component: {fileID: 1923893213}
-  - component: {fileID: 1923893212}
   - component: {fileID: 1923893211}
   - component: {fileID: 1923893210}
+  - component: {fileID: 1923893216}
   m_Layer: 7
   m_Name: Green (3)
   m_TagString: Untagged
@@ -6209,25 +6125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &1923893212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923893208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 1923893210}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1923893209}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &1923893213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6291,6 +6188,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923893208}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1923893216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923893208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 1923893210}
+  _hitVFXPooling: {fileID: 1923893211}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1957163646
 GameObject:
   m_ObjectHideFlags: 0
@@ -6303,8 +6217,8 @@ GameObject:
   - component: {fileID: 1957163650}
   - component: {fileID: 1957163649}
   - component: {fileID: 1957163648}
-  - component: {fileID: 1957163652}
   - component: {fileID: 1957163651}
+  - component: {fileID: 1957163652}
   m_Layer: 7
   m_Name: Cube (20)
   m_TagString: Untagged
@@ -6413,13 +6327,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1957163646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 1957163647}
+  _hitVFXPooling: {fileID: 1957163651}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -6435,8 +6347,8 @@ GameObject:
   - component: {fileID: 2037032766}
   - component: {fileID: 2037032765}
   - component: {fileID: 2037032764}
-  - component: {fileID: 2037032769}
   - component: {fileID: 2037032768}
+  - component: {fileID: 2037032769}
   m_Layer: 7
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -6545,13 +6457,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2037032763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 2037032767}
+  _hitVFXPooling: {fileID: 2037032768}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -6567,8 +6477,8 @@ GameObject:
   - component: {fileID: 2067041687}
   - component: {fileID: 2067041686}
   - component: {fileID: 2067041685}
-  - component: {fileID: 2067041689}
   - component: {fileID: 2067041688}
+  - component: {fileID: 2067041689}
   m_Layer: 7
   m_Name: Cube (12)
   m_TagString: Untagged
@@ -6677,13 +6587,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2067041683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 2067041684}
+  _hitVFXPooling: {fileID: 2067041688}
   _onHit:
     m_PersistentCalls:
       m_Calls: []
@@ -6699,9 +6607,9 @@ GameObject:
   - component: {fileID: 2110706949}
   - component: {fileID: 2110706948}
   - component: {fileID: 2110706947}
-  - component: {fileID: 2110706946}
   - component: {fileID: 2110706945}
   - component: {fileID: 2110706944}
+  - component: {fileID: 2110706950}
   m_Layer: 7
   m_Name: Green (4)
   m_TagString: Untagged
@@ -6754,25 +6662,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
---- !u!114 &2110706946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110706942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c2478ef8f48a04ea7b36bf865c3fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 2110706944}
-  _hitVFXPooling: {fileID: 139981563}
-  _enableVFX: 1
-  _defaultHitPoint: {fileID: 2110706943}
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &2110706947
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6836,6 +6725,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110706942}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2110706950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110706942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileTargetRb: {fileID: 2110706944}
+  _hitVFXPooling: {fileID: 2110706945}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &5571951601805222779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6966,7 +6872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5979856350331114515, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0014037545
+      value: -0.0014037559
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351153789142, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6990,11 +6896,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351153789142, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.09182332
+      value: 0.09182331
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351153789142, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.010017192
+      value: -0.010017191
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351387154623, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7022,15 +6928,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351505437006, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.11787755
+      value: 0.117877565
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351505437006, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.050627787
+      value: 0.05062781
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351505437006, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.006017715
+      value: -0.0060177185
       objectReference: {fileID: 0}
     - target: {fileID: 5979856351541373928, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_Name

@@ -1,4 +1,5 @@
 using BSTW.Data.Equipments.Weapons;
+using BSTW.Equipments.Weapons.Shooting;
 using BSTW.Utils;
 using UnityEngine;
 using UnityEngine.Events;
@@ -43,7 +44,7 @@ namespace BSTW.Equipments.Weapons
 
         protected virtual void CheckTarget(Collision collision)
         {
-            projectileTarget.Hit(damage, transform.position);
+            projectileTarget.Hit(damage, null, transform.position);
         }
 
         private void MoveTowardsTarget()

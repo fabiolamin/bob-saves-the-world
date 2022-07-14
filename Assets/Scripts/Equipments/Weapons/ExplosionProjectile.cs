@@ -1,3 +1,4 @@
+using BSTW.Equipments.Weapons.Shooting;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,10 +14,10 @@ namespace BSTW.Equipments.Weapons
 
             SetTargets(transform.position);
 
-            projectileTarget.Hit(hitVFXPooling?.GetObject(), transform.position);
+            projectileTarget.Hit(0f, hitVFXPooling?.GetObject(), transform.position);
 
             foreach (var target in targets)
-                target.Hit(damage);
+                target.Hit(damage, null, Vector3.zero);
 
             ApplyHitForce(transform.position);
         }
