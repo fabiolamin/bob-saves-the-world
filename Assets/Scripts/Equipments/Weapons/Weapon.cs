@@ -1,4 +1,5 @@
 using BSTW.Data.Equipments.Weapons;
+using BSTW.Equipments.Weapons.Shooting;
 using BSTW.Player;
 using BSTW.Utils;
 using System;

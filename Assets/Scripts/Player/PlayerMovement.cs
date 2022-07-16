@@ -1,5 +1,6 @@
 using BSTW.Data.Player;
 using BSTW.Equipments;
+using BSTW.Equipments.Weapons.Shooting;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -27,6 +28,7 @@ namespace BSTW.Player
         [SerializeField] private Transform _thirdPersonCamera;
         [SerializeField] private JetBackpackUser _jetBackpackUser;
         [SerializeField] private PlayerMovementData _movementData;
+        [SerializeField] private PlayerShooting _playerShooting;
 
         [SerializeField] private UnityEvent<float, float> _onPlayerMove;
         [SerializeField] private UnityEvent _onPlayerJump;
@@ -118,7 +120,7 @@ namespace BSTW.Player
 
         private void RotatePlayer()
         {
-            if (_isMovingForward || ((PlayerShooting.IsAiming || PlayerShooting.IsShooting) && !IsRolling))
+            if (_isMovingForward || ((_playerShooting.IsAiming || _playerShooting.IsShooting) && !IsRolling))
             {
                 _defaultRotation = _thirdPersonCamera.transform.forward;
             }
@@ -182,7 +184,7 @@ namespace BSTW.Player
                 return;
             }
 
-            if (PlayerShooting.IsAiming || PlayerShooting.IsShooting)
+            if (_playerShooting.IsAiming || _playerShooting.IsShooting)
                 SetMovementAnimations(_movement.x, _movement.y);
             else
                 SetMovementAnimations(0f, _movement.magnitude);

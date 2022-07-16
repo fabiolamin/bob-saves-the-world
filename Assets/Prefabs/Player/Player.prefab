@@ -635,6 +635,7 @@ MonoBehaviour:
   _thirdPersonCamera: {fileID: 0}
   _jetBackpackUser: {fileID: 6025565614441959701}
   _movementData: {fileID: 11400000, guid: fca5e4d0cc557244f9a98c45ba8e93f6, type: 2}
+  _playerShooting: {fileID: 5157008614702098617}
   _onPlayerMove:
     m_PersistentCalls:
       m_Calls:
@@ -797,7 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cccbaf3df29b7c94ba95998ebe93fb59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: 8734364776986975258}
+  _characterAnimator: {fileID: 8734364776986975258}
   _weaponControllers:
   - Weapon: {fileID: 3941317414126101850, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
     WeaponHandPosition: {fileID: 7590744270546420176}
@@ -805,34 +806,6 @@ MonoBehaviour:
     WeaponHandPosition: {fileID: 6434409793662632558}
   - Weapon: {fileID: 7756808887045012431, guid: 0a8e772be4806eb4db19e6e178a6c760, type: 3}
     WeaponHandPosition: {fileID: 1715129136812411413}
-  _aimImage: {fileID: 5571951600910468003}
-  _onPlayerAim:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5871238415937604047}
-        m_TargetAssemblyTypeName: BSTW.Player.PlayerCamera, Assembly-CSharp
-        m_MethodName: UpdateCameraSpeedOnAiming
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5571951601805222781}
-        m_TargetAssemblyTypeName: BSTW.Player.PlayerMovement, Assembly-CSharp
-        m_MethodName: UpdateMovementSpeedOnAiming
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _onCurrentWeaponShoot:
     m_PersistentCalls:
       m_Calls:
@@ -854,6 +827,34 @@ MonoBehaviour:
       - m_Target: {fileID: 4078327231654345375}
         m_TargetAssemblyTypeName: BSTW.UI.ImageSwitch, Assembly-CSharp
         m_MethodName: Switch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _aimImage: {fileID: 5571951600910468003}
+  _onPlayerAim:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5871238415937604047}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerCamera, Assembly-CSharp
+        m_MethodName: UpdateCameraSpeedOnAiming
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5571951601805222781}
+        m_TargetAssemblyTypeName: BSTW.Player.PlayerMovement, Assembly-CSharp
+        m_MethodName: UpdateMovementSpeedOnAiming
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -887,6 +888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2084ee18be714ce43aa51134d2348699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerShooting: {fileID: 5157008614702098617}
   _cinemachineCamera: {fileID: 0}
   _cameraFOVOnAiming: 30
   _switchCameraFOVSpeed: 10
@@ -1242,7 +1244,19 @@ MonoBehaviour:
   _hitVFXPooling: {fileID: 0}
   _onHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6993374090152357404}
+        m_TargetAssemblyTypeName: BSTW.Health.Health, Assembly-CSharp
+        m_MethodName: Hit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7294626355850845354
 GameObject:
   m_ObjectHideFlags: 0

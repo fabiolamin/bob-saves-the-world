@@ -1,3 +1,4 @@
+using BSTW.Equipments.Weapons.Shooting;
 using Cinemachine;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace BSTW.Player
         private float _defaultCameraXSpeed;
         private float _defaultCameraYSpeed;
 
+        [SerializeField] private PlayerShooting _playerShooting; 
         [SerializeField] private CinemachineFreeLook _cinemachineCamera;
         [SerializeField] private float _cameraFOVOnAiming = 30f;
         [SerializeField] private float _switchCameraFOVSpeed = 10f;
@@ -35,7 +37,7 @@ namespace BSTW.Player
 
         private void UpdateCameraFOVOnAiming()
         {
-            var targetFOV = PlayerShooting.IsAiming && PlayerShooting.IsReadyToShoot ? _cameraFOVOnAiming : _defaultCameraFOV;
+            var targetFOV = _playerShooting.IsAiming && _playerShooting.IsReadyToShoot ? _cameraFOVOnAiming : _defaultCameraFOV;
 
             _cinemachineCamera.m_Lens.FieldOfView = Mathf.Lerp(
                 _cinemachineCamera.m_Lens.FieldOfView,
