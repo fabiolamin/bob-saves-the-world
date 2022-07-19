@@ -1,6 +1,5 @@
 using BSTW.Data.Equipments.Weapons;
 using BSTW.Equipments.Weapons.Shooting;
-using BSTW.Player;
 using BSTW.Utils;
 using System;
 using System.Collections;
@@ -19,13 +18,14 @@ namespace BSTW.Equipments.Weapons
         [SerializeField] private ObjectPooling _projectilePooling;
         [SerializeField] private Transform _projectileOrigin;
 
-        protected Projectile currentProjectile;
         protected Queue<Projectile> projectiles = new Queue<Projectile>();
         protected bool isProjectileLoaded = true;
         protected Coroutine projectileLoadingCoroutine;
 
         public WeaponData WeaponData => _weaponData;
         public bool CanShoot { get { return _weaponData.CurrentAmmo > 0; } }
+
+        public Projectile CurrentProjectile { get; protected set; }
 
         public event Action OnWeaponStop;
 
@@ -60,10 +60,11 @@ namespace BSTW.Equipments.Weapons
 
             RaycastHit target;
 
-            if (Physics.Raycast(origin, direction, out target, _weaponData.ShootingDistance))
+            if (Physics.Raycast(origin, direction, out target, _weaponData.ShootingDistance, LayerMask.GetMask(_weaponData.Targets)))
             {
                 _onShoot?.Invoke();
-                currentProjectile.GetReadyToMove(_projectileOrigin.position, target.point);
+                CurrentProjectile.GetReadyToMove(_projectileOrigin.position, target.point);
+                CurrentProjectile = null;
                 isProjectileLoaded = false;
                 UpdateCurrentAmmo(-1);
             }
@@ -73,7 +74,7 @@ namespace BSTW.Equipments.Weapons
         {
             if (projectiles.Count > 0)
             {
-                currentProjectile = projectiles.Dequeue();
+                CurrentProjectile = projectiles.Dequeue();
                 isProjectileLoaded = true;
             }
         }

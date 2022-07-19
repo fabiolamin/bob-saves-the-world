@@ -8,7 +8,7 @@ namespace BSTW.Equipments.Weapons
     {
         private List<ProjectileTarget> targets = new List<ProjectileTarget>();
 
-        protected override void CheckTarget(Collision collision)
+        protected override void HitTarget()
         {
             targets.Clear();
 
@@ -30,9 +30,8 @@ namespace BSTW.Equipments.Weapons
             {
                 var target = collider.GetComponent<ProjectileTarget>();
 
-                if (target == null && targets.Contains(target)) return;
-
-                targets.Add(target);
+                if (target != null && !targets.Contains(target))
+                    targets.Add(target);
             }
         }
 

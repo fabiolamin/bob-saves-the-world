@@ -21,7 +21,6 @@ namespace BSTW.Equipments.Weapons
         [SerializeField] private Rigidbody _projectileRb;
         [SerializeField] private Collider _projectileCollider;
         [SerializeField] private ObjectPooling _hitVFXPooling;
-
         [SerializeField] private UnityEvent _onShot;
 
         protected Rigidbody projectileRb => _projectileRb;
@@ -31,9 +30,10 @@ namespace BSTW.Equipments.Weapons
             projectileTarget = collision.collider.GetComponent<ProjectileTarget>();
             if (projectileTarget == null) return;
 
-            CheckTarget(collision);
-
             _canMove = false;
+
+            HitTarget();
+
             gameObject.SetActive(false);
         }
 
@@ -42,7 +42,7 @@ namespace BSTW.Equipments.Weapons
             MoveTowardsTarget();
         }
 
-        protected virtual void CheckTarget(Collision collision)
+        protected virtual void HitTarget()
         {
             projectileTarget.Hit(damage, null, transform.position);
         }
@@ -52,11 +52,15 @@ namespace BSTW.Equipments.Weapons
             if (_canMove)
             {
                 transform.position = Vector3.MoveTowards(transform.position, _targetPosition, Time.deltaTime * projectileData.Speed);
+
+                if (!_projectileData.RapidFire)
+                    _targetPosition += transform.forward * projectileData.Speed;
             }
         }
 
         public void SetUpProjectile(int layer, string[] targetNames, float damage, Transform origin)
         {
+            _canMove = false;
             gameObject.layer = layer;
             this.targetNames = targetNames;
             this.damage = damage;

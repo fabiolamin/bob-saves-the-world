@@ -6,8 +6,8 @@ namespace BSTW.Equipments.Weapons
         {
             if (projectiles.Count > 0)
             {
-                currentProjectile = projectiles.Dequeue();
-                currentProjectile.gameObject.SetActive(true);
+                CurrentProjectile = projectiles.Dequeue();
+                CurrentProjectile.gameObject.SetActive(true);
                 isProjectileLoaded = true;
             }
         }

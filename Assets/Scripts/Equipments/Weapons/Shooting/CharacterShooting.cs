@@ -96,7 +96,8 @@ namespace BSTW.Equipments.Weapons.Shooting
 
                 yield return new WaitForSeconds(CurrentWeapon.WeaponData.ShootingInterval);
 
-                CurrentWeapon.SetProjectile();
+                if (CurrentWeapon.CurrentProjectile == null)
+                    CurrentWeapon.SetProjectile();
             }
 
             IsShooting = false;
