@@ -61,12 +61,12 @@
                 },
                 {
                     "name": "Switch Weapon",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "691101f5-1e8e-4fc0-b932-395d16b03461",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -293,7 +293,7 @@
                 {
                     "name": "",
                     "id": "22bc8a67-cb2a-4264-ba18-9533fedabe61",
-                    "path": "<Keyboard>/tab",
+                    "path": "<Mouse>/scroll",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
@@ -304,7 +304,7 @@
                 {
                     "name": "",
                     "id": "d237f636-657e-4c0b-99c0-6e59e2fefecd",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/dpad",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

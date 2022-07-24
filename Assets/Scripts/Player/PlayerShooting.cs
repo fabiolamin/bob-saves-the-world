@@ -35,12 +35,13 @@ namespace BSTW.Player
 
         public void OnSwitchWeapon(InputAction.CallbackContext value)
         {
-            if (!IsReadyToShoot) return;
+            if (value.started && IsReadyToShoot)
+            {
+                int deltaPos = (int)value.ReadValue<Vector2>().normalized.y;
 
-            if (!hasSwitchedWeapon)
-                hasSwitchedWeapon = value.started;
-
-            CheckWeaponSwitch();
+                if (!PlayerMovement.IsRolling)
+                    SwitchWeapon(deltaPos);
+            }
         }
 
         protected override void CheckShooting()
@@ -48,12 +49,6 @@ namespace BSTW.Player
             _aimImage.SetActive(IsAiming || isHoldingShootingTrigger);
 
             base.CheckShooting();
-        }
-
-        private void CheckWeaponSwitch()
-        {
-            if (hasSwitchedWeapon && !PlayerMovement.IsRolling)
-                SwitchWeapon();
         }
 
         public void EnablePlayerShooting(bool isEnabled)

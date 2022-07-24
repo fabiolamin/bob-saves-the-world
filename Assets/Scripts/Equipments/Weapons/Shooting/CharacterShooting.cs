@@ -24,7 +24,6 @@ namespace BSTW.Equipments.Weapons.Shooting
         [SerializeField] private UnityEvent<Sprite> _onCurrentWeaponUpdated;
 
         protected bool isHoldingShootingTrigger = false;
-        protected bool hasSwitchedWeapon = false;
 
         public bool IsShooting { get; protected set; } = false;
         public bool IsReadyToShoot { get; protected set; } = true;
@@ -109,13 +108,17 @@ namespace BSTW.Equipments.Weapons.Shooting
             _onCurrentWeaponShoot?.Invoke(CurrentWeapon.WeaponData.CurrentAmmo, CurrentWeapon.WeaponData.MaxAmmo);
         }
 
-        public void SwitchWeapon()
+        public void SwitchWeapon(int deltaPos)
         {
             if (IsShooting) return;
 
             var currentWeaponIndex = _weapons.IndexOf(CurrentWeapon);
-            currentWeaponIndex++;
-            currentWeaponIndex %= _weapons.Count;
+            currentWeaponIndex += deltaPos;
+
+            if (currentWeaponIndex > _weapons.Count - 1)
+                currentWeaponIndex = 0;
+            else if (currentWeaponIndex < 0)
+                currentWeaponIndex = _weapons.Count - 1;
 
             ActivateCurrentWeapon(false);
             SetCurrentWeapon(_weapons[currentWeaponIndex]);
@@ -125,8 +128,6 @@ namespace BSTW.Equipments.Weapons.Shooting
 
             if (!CurrentWeapon.CanShoot)
                 StopShooting();
-
-            hasSwitchedWeapon = false;
         }
 
         private void ActivateCurrentWeapon(bool isActive)
