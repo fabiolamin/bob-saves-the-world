@@ -7,6 +7,7 @@ namespace BSTW.Data.Equipments.Weapons
     {
         [SerializeField] private RuntimeAnimatorController _animatorController;
         [SerializeField] private Sprite _icon;
+        [SerializeField] private AudioClip _audioClip;
         [SerializeField] private int _maxAmmo = 150;
         [SerializeField] private string[] _targets;
         [SerializeField] private float _bulletDamage = 20f;
@@ -16,6 +17,7 @@ namespace BSTW.Data.Equipments.Weapons
 
         public RuntimeAnimatorController AnimatorController => _animatorController;
         public Sprite Icon => _icon;
+        public AudioClip AudioClip => _audioClip;
         public int CurrentAmmo { get; set; }
         public int MaxAmmo => _maxAmmo;
         public string[] Targets => _targets;

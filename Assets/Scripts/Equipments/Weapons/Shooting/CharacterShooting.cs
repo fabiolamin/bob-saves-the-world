@@ -103,7 +103,7 @@ namespace BSTW.Equipments.Weapons.Shooting
             IsShooting = false;
         }
 
-        private void Shoot()
+        protected virtual void Shoot()
         {
             CurrentWeapon.Shoot(GetShootingOrigin(), GetShootingDirection());
             _onCurrentWeaponShoot?.Invoke(CurrentWeapon.WeaponData.CurrentAmmo, CurrentWeapon.WeaponData.MaxAmmo);
@@ -111,6 +111,8 @@ namespace BSTW.Equipments.Weapons.Shooting
 
         public void SwitchWeapon()
         {
+            if (IsShooting) return;
+
             var currentWeaponIndex = _weapons.IndexOf(CurrentWeapon);
             currentWeaponIndex++;
             currentWeaponIndex %= _weapons.Count;

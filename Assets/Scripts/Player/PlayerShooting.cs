@@ -9,6 +9,8 @@ namespace BSTW.Player
     {
         [SerializeField] private GameObject _aimImage;
         [SerializeField] private UnityEvent<bool> _onPlayerAim;
+        [SerializeField] private AudioSource _audioSource;
+
 
         public bool IsAiming { get; private set; } = false;
 
@@ -69,6 +71,16 @@ namespace BSTW.Player
         protected override Vector3 GetShootingDirection()
         {
             return Camera.main.transform.forward;
+        }
+
+        protected override void Shoot()
+        {
+            base.Shoot();
+
+            if (CurrentWeapon.WeaponData.AudioClip != null)
+            {
+                _audioSource.PlayOneShot(CurrentWeapon.WeaponData.AudioClip);
+            }
         }
     }
 }
