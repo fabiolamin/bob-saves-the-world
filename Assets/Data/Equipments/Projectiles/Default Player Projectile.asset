@@ -15,5 +15,5 @@ MonoBehaviour:
   _speed: 700
   _rapidFire: 1
   _hitRadius: 0
-  _hitForce: 0
+  _hitForce: 50
   _hitUpwards: 0

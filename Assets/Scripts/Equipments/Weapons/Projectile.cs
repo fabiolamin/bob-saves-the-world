@@ -44,6 +44,9 @@ namespace BSTW.Equipments.Weapons
 
         protected virtual void HitTarget()
         {
+            if (projectileTarget.ProjectileTargetRb != null)
+                projectileTarget.ProjectileTargetRb.AddForceAtPosition(transform.forward * projectileData.HitForce, transform.position);
+
             projectileTarget.Hit(damage, null, transform.position);
         }
 
