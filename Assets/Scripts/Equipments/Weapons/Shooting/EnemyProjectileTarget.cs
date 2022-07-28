@@ -10,7 +10,7 @@ namespace BSTW.Equipments.Weapons.Shooting
         {
             OnHit?.Invoke(damage);
 
-            PlayHitVFXOnPoint(vfx, point == Vector3.zero ? _defaultHitPoint.position : point);
+            PlayHitEffects(vfx, point == Vector3.zero ? _defaultHitPoint.position : point);
         }
     }
 }

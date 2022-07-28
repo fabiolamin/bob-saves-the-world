@@ -8,7 +8,7 @@ namespace BSTW.Equipments.Weapons.Shooting
         {
             if (point == Vector3.zero) return;
 
-            PlayHitVFXOnPoint(vfx, point);
+            PlayHitEffects(vfx, point);
         }
     }
 }

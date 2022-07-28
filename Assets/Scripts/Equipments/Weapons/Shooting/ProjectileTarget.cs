@@ -9,6 +9,11 @@ namespace BSTW.Equipments.Weapons.Shooting
     {
         [SerializeField] private Rigidbody _projectileTargetRb = null;
         [SerializeField] private ObjectPooling _hitVFXPooling;
+
+        [SerializeField] private ObjectPooling _audioSourcePooling;
+
+        [SerializeField] private AudioClip[] _audioHitClips;
+
         [SerializeField] private UnityEvent<float> _onHit;
 
         protected UnityEvent<float> OnHit => _onHit;
@@ -19,10 +24,16 @@ namespace BSTW.Equipments.Weapons.Shooting
         {
             _onHit?.Invoke(damage);
 
-            PlayHitVFXOnPoint(vfx, point);
+            PlayHitEffects(vfx, point);
         }
 
-        protected void PlayHitVFXOnPoint(GameObject vfx, Vector3 point)
+        protected void PlayHitEffects(GameObject vfx, Vector3 point)
+        {
+            PlayHitVFX(vfx, point);
+            PlayHitSFX(point);
+        }
+
+        private void PlayHitVFX(GameObject vfx, Vector3 point)
         {
             var vfxGO = vfx == null ? _hitVFXPooling.GetObject() : vfx;
             vfxGO.transform.position = point;
@@ -39,6 +50,27 @@ namespace BSTW.Equipments.Weapons.Shooting
 
             particles.gameObject.SetActive(false);
         }
+
+        private void PlayHitSFX(Vector3 point)
+        {
+            if (_audioSourcePooling == null || _audioHitClips.Length == 0) return;
+
+            var randomSFX = _audioHitClips[Random.Range(0, _audioHitClips.Length)];
+
+            var audioSource = _audioSourcePooling.GetObject().GetComponent<AudioSource>();
+            audioSource.transform.position = point;
+            audioSource.PlayOneShot(randomSFX);
+
+            StartCoroutine(DisableSFX(audioSource));
+        }
+
+        private IEnumerator DisableSFX(AudioSource audioSource)
+        {
+            yield return new WaitUntil(() => !audioSource.isPlaying);
+
+            audioSource.gameObject.SetActive(false);
+        }
     }
 }
+
 

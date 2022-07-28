@@ -44,13 +44,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.296
+  m_Volume: 0.109
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 148
+  Priority: 55
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1404,6 +1404,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileTargetRb: {fileID: 5571951601805222785}
   _hitVFXPooling: {fileID: 0}
+  _audioSourcePooling: {fileID: 0}
+  _audioHitClips: []
   _onHit:
     m_PersistentCalls:
       m_Calls:
@@ -1732,7 +1734,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7294626355850845372}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 1.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3097,7 +3099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2681910059010698025, guid: ab8b54bcc57c6a843903c4f4d479b05a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.889
       objectReference: {fileID: 0}
     - target: {fileID: 2681910059010698025, guid: ab8b54bcc57c6a843903c4f4d479b05a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3134,6 +3136,18 @@ PrefabInstance:
     - target: {fileID: 2681910059011061513, guid: ab8b54bcc57c6a843903c4f4d479b05a, type: 3}
       propertyPath: m_Name
       value: Player Heal VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681910059025903211, guid: ab8b54bcc57c6a843903c4f4d479b05a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0.39607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681910059025903211, guid: ab8b54bcc57c6a843903c4f4d479b05a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681910059025903211, guid: ab8b54bcc57c6a843903c4f4d479b05a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab8b54bcc57c6a843903c4f4d479b05a, type: 3}
