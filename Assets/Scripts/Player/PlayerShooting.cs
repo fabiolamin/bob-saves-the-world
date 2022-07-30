@@ -10,7 +10,7 @@ namespace BSTW.Player
         [SerializeField] private GameObject _aimImage;
         [SerializeField] private UnityEvent<bool> _onPlayerAim;
         [SerializeField] private AudioSource _audioSource;
-
+        [SerializeField] private PlayerCameraShake _playerCameraShake;
 
         public bool IsAiming { get; private set; } = false;
 
@@ -70,6 +70,8 @@ namespace BSTW.Player
 
         protected override void Shoot()
         {
+            _playerCameraShake.StartShakeCamera(CurrentWeapon.WeaponData.CameraShakeData);
+
             base.Shoot();
 
             if (CurrentWeapon.WeaponData.AudioClip != null)

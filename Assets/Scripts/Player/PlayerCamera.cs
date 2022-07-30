@@ -1,4 +1,3 @@
-using BSTW.Equipments.Weapons.Shooting;
 using Cinemachine;
 using UnityEngine;
 

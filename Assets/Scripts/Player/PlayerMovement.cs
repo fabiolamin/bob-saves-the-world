@@ -1,6 +1,5 @@
 using BSTW.Data.Player;
 using BSTW.Equipments;
-using BSTW.Equipments.Weapons.Shooting;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -30,12 +29,19 @@ namespace BSTW.Player
         [SerializeField] private PlayerMovementData _movementData;
         [SerializeField] private PlayerShooting _playerShooting;
 
+        [Header("Events")]
         [SerializeField] private UnityEvent<float, float> _onPlayerMove;
         [SerializeField] private UnityEvent _onPlayerJump;
         [SerializeField] private UnityEvent _onPlayerRoll;
         [SerializeField] private UnityEvent _onPlayerRollFinished;
         [SerializeField] private UnityEvent<bool> _onPlayerFly;
         [SerializeField] private UnityEvent<bool> _onPlayerIsGround;
+
+        [Header("Camera Shake")]
+        [SerializeField] private PlayerCameraShake _playerCameraShake;
+        [SerializeField] private CameraShakeData _shakeOnFlying;
+        [SerializeField] private CameraShakeData _shakeOnFalling;
+        [SerializeField] private float _minFallForceToShakeCamera = 2000f;
 
         public static bool IsRolling { get; private set; } = false;
 
@@ -95,9 +101,19 @@ namespace BSTW.Player
             transform.position = currentPosition;
 
             if (_playerRb.velocity.y < 0f)
+            {
                 _currentFallForce += Mathf.Abs(_playerRb.velocity.y);
+
+                if (_currentFallForce >= _minFallForceToShakeCamera)
+                    _playerCameraShake.StartShakeCamera(_shakeOnFalling);
+            }
             else if (_playerRb.velocity.y > 0f)
+            {
                 _currentFallForce = 0f;
+
+                if (_jetBackpackUser.IsFlying)
+                    _playerCameraShake.StartShakeCamera(_shakeOnFlying);
+            }
         }
 
         public void CheckPlayerFall()

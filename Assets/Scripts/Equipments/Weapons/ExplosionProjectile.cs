@@ -1,4 +1,5 @@
 using BSTW.Equipments.Weapons.Shooting;
+using BSTW.Player;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,10 +7,18 @@ namespace BSTW.Equipments.Weapons
 {
     public class ExplosionProjectile : Projectile
     {
+        private PlayerCameraShake _playerCameraShake;
         private List<ProjectileTarget> targets = new List<ProjectileTarget>();
+
+        private void Awake()
+        {
+            _playerCameraShake = FindObjectOfType<PlayerCameraShake>();
+        }
 
         protected override void HitTarget()
         {
+            _playerCameraShake.CalculateShakeBasedOnDistance(transform.position);
+
             targets.Clear();
 
             SetTargets(transform.position);
