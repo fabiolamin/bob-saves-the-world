@@ -6982,6 +6982,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5979856350331114515, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.050964836
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856350331114515, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0014037547
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351153789142, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.09182331
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351153789142, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.010017191
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351387154623, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.05096483
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351387154623, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.001403754
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351505437006, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.11787755
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351505437006, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.050627787
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351505437006, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.006017715
+      objectReference: {fileID: 0}
     - target: {fileID: 5979856351541373928, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_Name
       value: Third Person Camera

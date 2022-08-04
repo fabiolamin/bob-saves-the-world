@@ -16,7 +16,9 @@ namespace BSTW.Equipments.Weapons
         [SerializeField] private UnityEvent _onShoot;
 
         [SerializeField] private ObjectPooling _projectilePooling;
+        [SerializeField] private ObjectPooling _bulletShellPooling;
         [SerializeField] private Transform _projectileOrigin;
+        [SerializeField] private Transform _bulletShellOrigin;
 
         protected Queue<Projectile> projectiles = new Queue<Projectile>();
         protected bool isProjectileLoaded = true;
@@ -67,6 +69,15 @@ namespace BSTW.Equipments.Weapons
                 CurrentProjectile = null;
                 isProjectileLoaded = false;
                 UpdateCurrentAmmo(-1);
+
+                if (_bulletShellPooling != null && _bulletShellOrigin != null)
+                {
+                    var bulletShell = _bulletShellPooling.GetObject().GetComponent<BulletShell>();
+                    bulletShell.gameObject.SetActive(true);
+                    bulletShell.Weapon = transform;
+                    bulletShell.transform.position = _bulletShellOrigin.position;
+                    bulletShell.MoveBulletShell();
+                }
             }
         }
 
