@@ -9,7 +9,10 @@ namespace BSTW.Player
     {
         [SerializeField] private GameObject _aimImage;
         [SerializeField] private UnityEvent<bool> _onPlayerAim;
+
         [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _emptyGunSFX;
+
         [SerializeField] private PlayerCameraShake _playerCameraShake;
 
         public bool IsAiming { get; private set; } = false;
@@ -27,6 +30,9 @@ namespace BSTW.Player
         public void OnShoot(InputAction.CallbackContext value)
         {
             isHoldingShootingTrigger = value.action.IsPressed();
+
+            if (CurrentWeapon.WeaponData.CurrentAmmo <= 0f /*&& !_audioSource.isPlaying*/ && value.started)
+                _audioSource.PlayOneShot(_emptyGunSFX);
 
             if (!IsReadyToShoot) return;
 

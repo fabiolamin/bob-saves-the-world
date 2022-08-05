@@ -1019,6 +1019,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _audioSource: {fileID: 560022454336516974}
+  _emptyGunSFX: {fileID: 8300000, guid: 4a6394f9036cc2e408ac888c0b7cdf76, type: 3}
   _playerCameraShake: {fileID: 1888885557654356219}
 --- !u!114 &6025565614441959701
 MonoBehaviour:
