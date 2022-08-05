@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 7695960858038657137}
   - component: {fileID: 7695960858028323187}
-  - component: {fileID: 7695960858028902835}
+  - component: {fileID: 3316815121995574990}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7695960858038657137
 Transform:
   m_ObjectHideFlags: 0
@@ -44,14 +44,14 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.84135276, b: 0.4029851, a: 1}
-  m_Intensity: 12.4
-  m_Range: 2
+  m_Color: {r: 1, g: 0.84313726, b: 0.39215687, a: 1}
+  m_Intensity: 4
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -84,7 +84,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -95,7 +95,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &7695960858028902835
+--- !u!114 &3316815121995574990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,10 +104,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7695960858038631505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96d332ab3dbfaaf40bdd9745ff0b19f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 0103a04255ef1de4ab4d789d145a80c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.05
+  _light: {fileID: 7695960858028323187}
+  _time: 0.06
 --- !u!1 &7695960858038631507
 GameObject:
   m_ObjectHideFlags: 0

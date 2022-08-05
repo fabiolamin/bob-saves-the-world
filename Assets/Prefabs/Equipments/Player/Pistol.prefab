@@ -199,6 +199,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3188347168909760977}
+        m_TargetAssemblyTypeName: BSTW.Utils.LightFlicker, Assembly-CSharp
+        m_MethodName: StartFlick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _projectilePooling: {fileID: 945039052712553406}
   _bulletShellPooling: {fileID: 7613777759029919227}
   _projectileOrigin: {fileID: 7563077301688719210}
@@ -288,6 +300,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b68c3343b7b77049b348b7855cba0a6, type: 3}
+--- !u!114 &3188347168909760977 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3316815121995574990, guid: 9b68c3343b7b77049b348b7855cba0a6, type: 3}
+  m_PrefabInstance: {fileID: 160151686421002015}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0103a04255ef1de4ab4d789d145a80c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &7563077301669319212 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7695960858053862707, guid: 9b68c3343b7b77049b348b7855cba0a6, type: 3}

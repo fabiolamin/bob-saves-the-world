@@ -116,6 +116,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 9114867142964898105}
+        m_TargetAssemblyTypeName: BSTW.Utils.LightFlicker, Assembly-CSharp
+        m_MethodName: StartFlick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _projectilePooling: {fileID: 9180227932651460979}
   _bulletShellPooling: {fileID: 562259231713066096}
   _projectileOrigin: {fileID: 6605332250273487464}
@@ -300,6 +312,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5936877989450442521, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5936877989450442523, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
       propertyPath: m_Name
       value: Assault Rifle VFX
@@ -333,3 +349,14 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5936877989469421179, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
   m_PrefabInstance: {fileID: 706745995177451861}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9114867142964898105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8624497616601090156, guid: 1644c0fc112d790418db2ec5aaef0c2a, type: 3}
+  m_PrefabInstance: {fileID: 706745995177451861}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0103a04255ef1de4ab4d789d145a80c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
