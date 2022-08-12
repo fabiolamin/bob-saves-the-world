@@ -1,6 +1,6 @@
-using BSTW.Player;
+using BSTW.Utils;
 
-namespace BSTW.Health
+namespace BSTW.Player
 {
     public class PlayerHealth : Health
     {
@@ -16,6 +16,11 @@ namespace BSTW.Health
                 OnHitStarted?.Invoke();
 
             GotHit = true;
+        }
+
+        protected override bool CanGotHit(float damage)
+        {
+            return IsAlive || !GotHit || CanUpdateHealth || damage != 0f;
         }
     }
 }

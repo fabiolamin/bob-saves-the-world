@@ -2,6 +2,7 @@ using UnityEngine;
 using Cinemachine;
 using System.Collections.Generic;
 using BSTW.Data.Player;
+using BSTW.Utils;
 
 namespace BSTW.Player
 {
@@ -21,7 +22,7 @@ namespace BSTW.Player
 
         [Header("Shake based on distance")]
         [SerializeField] private float _intensityDistanceConstant = 50f;
-        [SerializeField] private float _timerDistanceConstant = 25f;
+        [SerializeField] private float _timerDistanceConstant = 50f;
         [SerializeField] private float _maxShakeDistance = 50f;
 
         private void Awake()
@@ -65,12 +66,8 @@ namespace BSTW.Player
 
         public void CalculateShakeBasedOnDistance(Vector3 origin)
         {
-            var distance = Vector3.Distance(origin, transform.position);
-
-            if (distance > _maxShakeDistance) return;
-
-            var intensity = _intensityDistanceConstant * (1 / distance);
-            var timer = _timerDistanceConstant * (1 / distance);
+            var intensity = Utilities.GetValueBasedOnDistace(transform.position, origin, _intensityDistanceConstant, _maxIntensity, _maxShakeDistance);
+            var timer = Utilities.GetValueBasedOnDistace(transform.position, origin, _timerDistanceConstant, _maxTimer, _maxShakeDistance);
 
             StartShakeCamera(intensity, timer);
         }

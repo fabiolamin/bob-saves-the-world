@@ -20,7 +20,8 @@ MonoBehaviour:
   _targets:
   - Ground
   - Enemy
+  - Prop
   _bulletDamage: 8
   _shootingInterval: 0.15
   _shootingDistance: 1000
-  _isSelected: 1
+  _isSelected: 0

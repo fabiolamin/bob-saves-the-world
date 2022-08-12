@@ -2,14 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace BSTW.Health
+namespace BSTW.Utils
 {
     public class Health : MonoBehaviour
     {
         private float _currentHealth;
 
         [SerializeField] private float _maxHealth = 100f;
-        [SerializeField] private float _criticalHealth = 30f;
+        [Tooltip("Decimal value.")][SerializeField] private float _criticalHealthPercentage = 0.3f;
         [SerializeField] private float _knockDownPercentage = 0.5f;
         [SerializeField] private float _healthUpdateDelay = 0.5f;
 
@@ -66,18 +66,18 @@ namespace BSTW.Health
 
         private void CheckCriticalHealth()
         {
-            if (_currentHealth <= _criticalHealth && IsAlive)
+            if (_currentHealth <= (_criticalHealthPercentage * _maxHealth) && IsAlive)
                 _onCriticalHealth?.Invoke();
         }
 
         public void Hit(float damage)
         {
-            if (!IsAlive || !CanUpdateHealth || GotHit || Mathf.Approximately(damage, 0f)) return;
-
-
-            UpdateHealth(-damage);
-            CheckHealth();
-            CheckHit(damage);
+            if (CanGotHit(damage))
+            {
+                UpdateHealth(-damage);
+                CheckHealth();
+                CheckHit(damage);
+            }
         }
 
         protected virtual void CheckHit(float damage)
@@ -129,6 +129,11 @@ namespace BSTW.Health
             GotHit = false;
 
             _onDamageFinished?.Invoke();
+        }
+
+        protected virtual bool CanGotHit(float damage)
+        {
+            return IsAlive || CanUpdateHealth || damage != 0f;
         }
     }
 }
