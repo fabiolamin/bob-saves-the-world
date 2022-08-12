@@ -1049,8 +1049,8 @@ MonoBehaviour:
   _cinemachineCamera: {fileID: 0}
   _cameraFOVOnAiming: 30
   _switchCameraFOVSpeed: 10
-  _cameraXSpeedOnAiming: 85
-  _cameraYSpeedOnAiming: 0.5
+  _cameraXSpeedOnAiming: 30
+  _cameraYSpeedOnAiming: 0.2
 --- !u!114 &6993374090152357404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _criticalHealth: 30
+  _criticalHealthPercentage: 0.3
   _knockDownPercentage: 0.3
   _healthUpdateDelay: 0.5
   _onCriticalHealth:
