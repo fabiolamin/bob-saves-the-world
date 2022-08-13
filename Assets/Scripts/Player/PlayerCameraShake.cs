@@ -25,6 +25,9 @@ namespace BSTW.Player
         [SerializeField] private float _timerDistanceConstant = 50f;
         [SerializeField] private float _maxShakeDistance = 50f;
 
+        public float MaxIntensity => _maxIntensity;
+        public float MaxTimer => _maxTimer;
+
         private void Awake()
         {
             for (int i = 0; i < _rigsAmount; i++)
