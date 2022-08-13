@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace BSTW.Equipments.Weapons
 {
     public class RocketLauncherWeapon : Weapon
@@ -12,7 +10,7 @@ namespace BSTW.Equipments.Weapons
                 CurrentProjectile.gameObject.SetActive(true);
                 isProjectileLoaded = true;
 
-                characterShooting.ShootingAudioSource.PlayOneShot(WeaponData.ReloadSFX);
+                characterShooting.PlayReloadSFX();
             }
         }
     }

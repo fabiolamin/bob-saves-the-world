@@ -127,7 +127,7 @@ namespace BSTW.Equipments.Weapons
             FillProjectilesQueue();
             SetProjectile();
 
-            characterShooting.ShootingAudioSource.PlayOneShot(WeaponData.ReloadSFX);
+            characterShooting.PlayReloadSFX();
         }
 
         public void CheckProjectileLoading()

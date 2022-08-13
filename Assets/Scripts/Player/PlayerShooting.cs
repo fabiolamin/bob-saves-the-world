@@ -31,7 +31,7 @@ namespace BSTW.Player
             isHoldingShootingTrigger = value.action.IsPressed();
 
             if (CurrentWeapon.WeaponData.CurrentAmmo <= 0f && value.started)
-                ShootingAudioSource.PlayOneShot(_emptyGunSFX);
+                shootingAudioSource.PlayOneShot(_emptyGunSFX);
 
             if (!IsReadyToShoot) return;
 

@@ -25,8 +25,8 @@ namespace BSTW.Equipments.Weapons.Shooting
         [SerializeField] private UnityEvent<Sprite> _onCurrentWeaponUpdated;
 
         protected bool isHoldingShootingTrigger = false;
+        protected AudioSource shootingAudioSource => _shootingAudioSource;
 
-        public AudioSource ShootingAudioSource { get { return _shootingAudioSource; } }
         public bool IsShooting { get; protected set; } = false;
         public bool IsReadyToShoot { get; protected set; } = true;
         public Weapon CurrentWeapon { get; private set; }
@@ -109,10 +109,7 @@ namespace BSTW.Equipments.Weapons.Shooting
             CurrentWeapon.Shoot(GetShootingOrigin(), GetShootingDirection());
             _onCurrentWeaponShoot?.Invoke(CurrentWeapon.WeaponData.CurrentAmmo, CurrentWeapon.WeaponData.MaxAmmo);
 
-            if (CurrentWeapon.WeaponData.ShootSFX != null)
-            {
-                _shootingAudioSource.PlayOneShot(CurrentWeapon.WeaponData.ShootSFX);
-            }
+            PlayShootSFX();
         }
 
         public void SwitchWeapon(int deltaPos)
@@ -141,6 +138,22 @@ namespace BSTW.Equipments.Weapons.Shooting
         {
             CurrentWeapon.WeaponData.IsSelected = isActive;
             CurrentWeapon.gameObject.SetActive(isActive);
+        }
+
+        public void PlayShootSFX()
+        {
+            if (CurrentWeapon != null && CurrentWeapon.WeaponData.ShootSFX != null)
+            {
+                _shootingAudioSource.PlayOneShot(CurrentWeapon.WeaponData.ShootSFX);
+            }
+        }
+
+        public void PlayReloadSFX()
+        {
+            if (CurrentWeapon != null && CurrentWeapon.WeaponData.ReloadSFX != null && CurrentWeapon.WeaponData.IsSelected)
+            {
+                _shootingAudioSource.PlayOneShot(CurrentWeapon.WeaponData.ReloadSFX);
+            }
         }
 
         protected abstract Vector3 GetShootingOrigin();
