@@ -12,11 +12,13 @@ namespace BSTW.Utils
     {
         public HitType HitType;
         public float Damage;
+        public bool CanKnockDown;
 
-        public Hit(HitType hitType, float damage)
+        public Hit(HitType hitType, float damage, bool canKnockDown)
         {
             HitType = hitType;
             Damage = damage;
+            CanKnockDown = canKnockDown;
         }
     }
 }

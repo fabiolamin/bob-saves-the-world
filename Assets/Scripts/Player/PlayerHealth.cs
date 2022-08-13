@@ -28,7 +28,7 @@ namespace BSTW.Player
 
         private bool HasBeenKnockDown(Hit hit)
         {
-            return hit.Damage >= (MaxHealth * KnockDownPercentage) && PlayerFoot.IsOnTheGround;
+            return hit.CanKnockDown && hit.Damage >= (MaxHealth * KnockDownPercentage) && PlayerFoot.IsOnTheGround;
         }
 
         protected override bool CanGotHit(Hit hit)

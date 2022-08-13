@@ -45,7 +45,7 @@ namespace BSTW.Environment
                 target.transform.position,
                 _damageDistanceConstant,
                 damage,
-                _maxDamageDistance)),
+                _maxDamageDistance), true),
                 null,
                 Vector3.zero);
 

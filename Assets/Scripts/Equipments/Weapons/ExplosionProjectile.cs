@@ -11,7 +11,7 @@ namespace BSTW.Equipments.Weapons
         protected override void HitTarget()
         {
             _explosion.SetExplosion(targetNames, hit.Damage, projectileData.HitRadius, projectileData.HitForce, projectileData.HitUpwards);
-            projectileTarget.Hit(new Hit(HitType.Explosion, 0f), hitVFXPooling?.GetObject(), transform.position);
+            projectileTarget.Hit(new Hit(HitType.Explosion, 0f, true), hitVFXPooling?.GetObject(), transform.position);
         }
     }
 }
