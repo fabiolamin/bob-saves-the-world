@@ -40,7 +40,12 @@ namespace BSTW.Environment
             foreach (ProjectileTarget target in _targets)
             {
                 target.Hit(
-                Utilities.GetValueBasedOnDistace(transform.position, target.transform.position, _damageDistanceConstant, damage, _maxDamageDistance),
+                new Hit(HitType.Explosion, Utilities.GetValueBasedOnDistace(
+                transform.position,
+                target.transform.position,
+                _damageDistanceConstant,
+                damage,
+                _maxDamageDistance)),
                 null,
                 Vector3.zero);
 

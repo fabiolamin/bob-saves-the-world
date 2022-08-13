@@ -22,6 +22,9 @@ MonoBehaviour:
   - Enemy
   - Prop
   _bulletDamage: 8
+  _hitDamage:
+    HitType: 1
+    Damage: 8
   _shootingInterval: 0.15
   _shootingDistance: 1000
   _isSelected: 0

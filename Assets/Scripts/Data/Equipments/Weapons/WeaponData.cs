@@ -1,4 +1,5 @@
 using BSTW.Data.Player;
+using BSTW.Utils;
 using UnityEngine;
 
 namespace BSTW.Data.Equipments.Weapons
@@ -12,7 +13,7 @@ namespace BSTW.Data.Equipments.Weapons
         [SerializeField] private CameraShakeData _cameraShakeData;
         [SerializeField] private int _maxAmmo = 150;
         [SerializeField] private string[] _targets;
-        [SerializeField] private float _bulletDamage = 20f;
+        [SerializeField] private Hit _hitDamage;
         [SerializeField] private float _shootingInterval = 0.5f;
         [SerializeField] private float _shootingDistance = 500f;
         [SerializeField] private bool _isSelected = false;
@@ -24,7 +25,7 @@ namespace BSTW.Data.Equipments.Weapons
         public int CurrentAmmo { get; set; }
         public int MaxAmmo => _maxAmmo;
         public string[] Targets => _targets;
-        public float BulletDamage => _bulletDamage;
+        public Hit HitDamage => _hitDamage;
         public float ShootingInterval => _shootingInterval;
 
         public float ShootingDistance => _shootingDistance;

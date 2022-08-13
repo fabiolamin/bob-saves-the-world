@@ -70,17 +70,17 @@ namespace BSTW.Utils
                 _onCriticalHealth?.Invoke();
         }
 
-        public void Hit(float damage)
+        public void Hit(Hit hit)
         {
-            if (CanGotHit(damage))
+            if (CanGotHit(hit))
             {
-                UpdateHealth(-damage);
+                UpdateHealth(-hit.Damage);
                 CheckHealth();
-                CheckHit(damage);
+                CheckHit(hit);
             }
         }
 
-        protected virtual void CheckHit(float damage)
+        protected virtual void CheckHit(Hit hit)
         {
             GotHit = true;
             _onDamageStarted?.Invoke();
@@ -131,9 +131,9 @@ namespace BSTW.Utils
             _onDamageFinished?.Invoke();
         }
 
-        protected virtual bool CanGotHit(float damage)
+        protected virtual bool CanGotHit(Hit hit)
         {
-            return IsAlive || CanUpdateHealth || damage != 0f;
+            return IsAlive || CanUpdateHealth || hit.Damage != 0f;
         }
     }
 }

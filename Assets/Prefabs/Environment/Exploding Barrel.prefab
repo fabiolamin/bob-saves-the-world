@@ -10018,6 +10018,9 @@ MonoBehaviour:
         m_CallState: 2
   _timeToExplodeOnCritical: 5
   _damage: 30
+  _hitDamage:
+    HitType: 2
+    Damage: 30
   _radius: 20
   _force: 800
   _upwardsForce: 500

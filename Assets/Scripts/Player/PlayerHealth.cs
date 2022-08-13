@@ -4,9 +4,9 @@ namespace BSTW.Player
 {
     public class PlayerHealth : Health
     {
-        protected override void CheckHit(float damage)
+        protected override void CheckHit(Hit hit)
         {
-            var hasBeenKnockDown = damage >= (MaxHealth * KnockDownPercentage);
+            var hasBeenKnockDown = hit.Damage >= (MaxHealth * KnockDownPercentage);
 
             OnDamageStarted?.Invoke();
 
@@ -18,9 +18,9 @@ namespace BSTW.Player
             GotHit = true;
         }
 
-        protected override bool CanGotHit(float damage)
+        protected override bool CanGotHit(Hit hit)
         {
-            return IsAlive || !GotHit || CanUpdateHealth || damage != 0f;
+            return IsAlive || !GotHit || CanUpdateHealth || hit.Damage != 0f;
         }
     }
 }

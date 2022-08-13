@@ -1,4 +1,5 @@
 using BSTW.Environment;
+using BSTW.Utils;
 using UnityEngine;
 
 namespace BSTW.Equipments.Weapons
@@ -9,8 +10,8 @@ namespace BSTW.Equipments.Weapons
 
         protected override void HitTarget()
         {
-            _explosion.SetExplosion(targetNames, damage, projectileData.HitRadius, projectileData.HitForce, projectileData.HitUpwards);
-            projectileTarget.Hit(0f, hitVFXPooling?.GetObject(), transform.position);
+            _explosion.SetExplosion(targetNames, hit.Damage, projectileData.HitRadius, projectileData.HitForce, projectileData.HitUpwards);
+            projectileTarget.Hit(new Hit(HitType.Explosion, 0f), hitVFXPooling?.GetObject(), transform.position);
         }
     }
 }

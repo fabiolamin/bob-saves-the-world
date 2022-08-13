@@ -1,3 +1,4 @@
+using BSTW.Utils;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,7 +16,7 @@ namespace BSTW.Environment
         [SerializeField] private UnityEvent _onExplosion;
 
         [SerializeField] private float _timeToExplodeOnCritical = 2f;
-        [SerializeField] private float _damage = 30f;
+        [SerializeField] private Hit _hitDamage;
         [SerializeField] private float _radius = 5f;
         [SerializeField] private float _force = 50f;
         [SerializeField] private float _upwardsForce = 50f;
@@ -27,7 +28,7 @@ namespace BSTW.Environment
             vfx.Play();
 
             _onExplosion?.Invoke();
-            _explosion.SetExplosion(_damage, _radius, _force, _upwardsForce);
+            _explosion.SetExplosion(_hitDamage.Damage, _radius, _force, _upwardsForce);
 
             if (_explodeOnCriticalCoroutine != null)
                 StopCoroutine(_explodeOnCriticalCoroutine);

@@ -50,7 +50,7 @@ namespace BSTW.Equipments.Weapons
                 var projectile = _projectilePooling.GetObject().GetComponent<Projectile>();
 
                 projectiles.Enqueue(projectile);
-                projectile.SetUpProjectile(gameObject.layer, WeaponData.Targets, WeaponData.BulletDamage, _projectileOrigin);
+                projectile.SetUpProjectile(gameObject.layer, WeaponData.Targets, WeaponData.HitDamage, _projectileOrigin);
             }
 
             projectiles.ToList().ForEach(p => p.gameObject.SetActive(false));

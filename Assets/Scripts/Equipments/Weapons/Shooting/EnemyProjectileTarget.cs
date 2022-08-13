@@ -1,3 +1,4 @@
+using BSTW.Utils;
 using UnityEngine;
 
 namespace BSTW.Equipments.Weapons.Shooting
@@ -6,9 +7,9 @@ namespace BSTW.Equipments.Weapons.Shooting
     {
         [SerializeField] private Transform _defaultHitPoint;
 
-        public override void Hit(float damage, GameObject vfx, Vector3 point)
+        public override void Hit(Hit hit, GameObject vfx, Vector3 point)
         {
-            OnHit?.Invoke(damage);
+            OnHit?.Invoke(hit);
 
             PlayHitEffects(vfx, point == Vector3.zero ? _defaultHitPoint.position : point);
         }

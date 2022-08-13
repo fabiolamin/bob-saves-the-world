@@ -14,15 +14,15 @@ namespace BSTW.Equipments.Weapons.Shooting
 
         [SerializeField] private AudioClip[] _audioHitClips;
 
-        [SerializeField] private UnityEvent<float> _onHit;
+        [SerializeField] private UnityEvent<Hit> _onHit;
 
-        protected UnityEvent<float> OnHit => _onHit;
+        protected UnityEvent<Hit> OnHit => _onHit;
 
         public Rigidbody ProjectileTargetRb => _projectileTargetRb;
 
-        public virtual void Hit(float damage, GameObject vfx, Vector3 point)
+        public virtual void Hit(Hit hit, GameObject vfx, Vector3 point)
         {
-            _onHit?.Invoke(damage);
+            _onHit?.Invoke(hit);
 
             PlayHitEffects(vfx, point);
         }

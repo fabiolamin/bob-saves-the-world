@@ -21,7 +21,9 @@ MonoBehaviour:
   - Ground
   - Enemy
   - Prop
-  _bulletDamage: 5
+  _hitDamage:
+    HitType: 1
+    Damage: 5
   _shootingInterval: 0.4
   _shootingDistance: 800
-  _isSelected: 1
+  _isSelected: 0

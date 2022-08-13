@@ -15,7 +15,8 @@ namespace BSTW.Equipments.Weapons
         protected ProjectileTarget projectileTarget;
         protected ObjectPooling hitVFXPooling => _hitVFXPooling;
         protected string[] targetNames;
-        protected float damage;
+        protected Hit hit;
+
 
         [SerializeField] private ProjectileData _projectileData;
         [SerializeField] private Rigidbody _projectileRb;
@@ -47,7 +48,7 @@ namespace BSTW.Equipments.Weapons
             if (projectileTarget.ProjectileTargetRb != null)
                 projectileTarget.ProjectileTargetRb.AddForceAtPosition(transform.forward * projectileData.HitForce, transform.position);
 
-            projectileTarget.Hit(damage, null, transform.position);
+            projectileTarget.Hit(hit, null, transform.position);
         }
 
         private void MoveTowardsTarget()
@@ -61,12 +62,12 @@ namespace BSTW.Equipments.Weapons
             }
         }
 
-        public void SetUpProjectile(int layer, string[] targetNames, float damage, Transform origin)
+        public void SetUpProjectile(int layer, string[] targetNames, Hit hit, Transform origin)
         {
             _canMove = false;
             gameObject.layer = layer;
             this.targetNames = targetNames;
-            this.damage = damage;
+            this.hit = hit;
 
             EnablePhysics(false);
             transform.SetParent(origin);
