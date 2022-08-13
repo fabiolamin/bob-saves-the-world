@@ -44,13 +44,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.109
+  m_Volume: 0.136
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 55
+  Priority: 110
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -953,6 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterAnimator: {fileID: 8734364776986975258}
+  _shootingAudioSource: {fileID: 560022454336516974}
   _weaponControllers:
   - Weapon: {fileID: 3941317414126101850, guid: f54b4234a31449e4595378959aa49a6f, type: 3}
     WeaponHandPosition: {fileID: 7590744270546420176}
@@ -1018,7 +1019,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _audioSource: {fileID: 560022454336516974}
   _emptyGunSFX: {fileID: 8300000, guid: 4a6394f9036cc2e408ac888c0b7cdf76, type: 3}
   _playerCameraShake: {fileID: 1888885557654356219}
 --- !u!114 &6025565614441959701

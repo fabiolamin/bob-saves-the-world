@@ -19,12 +19,14 @@ namespace BSTW.Equipments.Weapons.Shooting
         private Coroutine _shootingCoroutine;
 
         [SerializeField] private Animator _characterAnimator;
+        [SerializeField] private AudioSource _shootingAudioSource;
         [SerializeField] private WeaponController[] _weaponControllers;
         [SerializeField] private UnityEvent<float, float> _onCurrentWeaponShoot;
         [SerializeField] private UnityEvent<Sprite> _onCurrentWeaponUpdated;
 
         protected bool isHoldingShootingTrigger = false;
 
+        public AudioSource ShootingAudioSource { get { return _shootingAudioSource; } }
         public bool IsShooting { get; protected set; } = false;
         public bool IsReadyToShoot { get; protected set; } = true;
         public Weapon CurrentWeapon { get; private set; }
@@ -40,7 +42,7 @@ namespace BSTW.Equipments.Weapons.Shooting
             {
                 Weapon newWeapon = Instantiate(weaponController.Weapon);
 
-                newWeapon.SetUpWeapon(weaponController);
+                newWeapon.SetUpWeapon(this, weaponController);
 
                 newWeapon.OnWeaponStop += StopShooting;
 
@@ -106,6 +108,11 @@ namespace BSTW.Equipments.Weapons.Shooting
         {
             CurrentWeapon.Shoot(GetShootingOrigin(), GetShootingDirection());
             _onCurrentWeaponShoot?.Invoke(CurrentWeapon.WeaponData.CurrentAmmo, CurrentWeapon.WeaponData.MaxAmmo);
+
+            if (CurrentWeapon.WeaponData.ShootSFX != null)
+            {
+                _shootingAudioSource.PlayOneShot(CurrentWeapon.WeaponData.ShootSFX);
+            }
         }
 
         public void SwitchWeapon(int deltaPos)

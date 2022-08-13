@@ -20,6 +20,7 @@ namespace BSTW.Equipments.Weapons
         [SerializeField] private Transform _projectileOrigin;
         [SerializeField] private Transform _bulletShellOrigin;
 
+        protected CharacterShooting characterShooting;
         protected Queue<Projectile> projectiles = new Queue<Projectile>();
         protected bool isProjectileLoaded = true;
         protected Coroutine projectileLoadingCoroutine;
@@ -31,8 +32,10 @@ namespace BSTW.Equipments.Weapons
 
         public event Action OnWeaponStop;
 
-        public void SetUpWeapon(WeaponController weaponController)
+        public void SetUpWeapon(CharacterShooting characterShooting, WeaponController weaponController)
         {
+            this.characterShooting = characterShooting;
+
             _weaponData.CurrentAmmo = _weaponData.MaxAmmo;
 
             transform.position = weaponController.WeaponHandPosition.position;
@@ -123,6 +126,8 @@ namespace BSTW.Equipments.Weapons
             UpdateCurrentAmmo(amount);
             FillProjectilesQueue();
             SetProjectile();
+
+            characterShooting.ShootingAudioSource.PlayOneShot(WeaponData.ReloadSFX);
         }
 
         public void CheckProjectileLoading()

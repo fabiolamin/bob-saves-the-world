@@ -136,7 +136,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _projectilePooling: {fileID: 422063360818297785}
+  _bulletShellPooling: {fileID: 0}
   _projectileOrigin: {fileID: 5085863265054186389}
+  _bulletShellOrigin: {fileID: 0}
+  _reloadSFX: {fileID: 8300000, guid: c3430338b7987524d96ce1f63db280cd, type: 3}
 --- !u!114 &422063360818297785
 MonoBehaviour:
   m_ObjectHideFlags: 0

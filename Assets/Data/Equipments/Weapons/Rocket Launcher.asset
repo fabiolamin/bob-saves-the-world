@@ -15,13 +15,14 @@ MonoBehaviour:
   _animatorController: {fileID: 9100000, guid: 08f8fdf72d0f75f4e96813c83888d5b9, type: 2}
   _icon: {fileID: 21300000, guid: 773bbff8a18347041951def7969ca07c, type: 3}
   _audioClip: {fileID: 0}
+  _shootSFX: {fileID: 0}
+  _reloadSFX: {fileID: 8300000, guid: c3430338b7987524d96ce1f63db280cd, type: 3}
   _cameraShakeData: {fileID: 11400000, guid: 4ad6baaaaf05f304ab75eedd82e4fab8, type: 2}
   _maxAmmo: 100
   _targets:
   - Ground
   - Enemy
   - Prop
-  _bulletDamage: 50
   _hitDamage:
     HitType: 1
     Damage: 50
