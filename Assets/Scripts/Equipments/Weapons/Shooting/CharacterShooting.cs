@@ -130,6 +130,8 @@ namespace BSTW.Equipments.Weapons.Shooting
 
             CurrentWeapon.CheckProjectileLoading();
 
+            PlayReloadSFX();
+
             if (!CurrentWeapon.CanShoot)
                 StopShooting();
         }
@@ -152,6 +154,7 @@ namespace BSTW.Equipments.Weapons.Shooting
         {
             if (CurrentWeapon != null && CurrentWeapon.WeaponData.ReloadSFX != null && CurrentWeapon.WeaponData.IsSelected)
             {
+                _shootingAudioSource.Stop();
                 _shootingAudioSource.PlayOneShot(CurrentWeapon.WeaponData.ReloadSFX);
             }
         }

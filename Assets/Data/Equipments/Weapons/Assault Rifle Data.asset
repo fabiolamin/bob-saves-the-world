@@ -15,7 +15,7 @@ MonoBehaviour:
   _animatorController: {fileID: 9100000, guid: 08f8fdf72d0f75f4e96813c83888d5b9, type: 2}
   _icon: {fileID: 21300000, guid: e664f731d2b91e44b99b779668978c52, type: 3}
   _shootSFX: {fileID: 8300000, guid: 7b60f1906733aef4281705ad91cd92bf, type: 3}
-  _reloadSFX: {fileID: 8300000, guid: 7ba93033c9e6f9c48aaa343211492540, type: 3}
+  _reloadSFX: {fileID: 8300000, guid: 270ffee0b3256db409651c2c0fd97c2a, type: 3}
   _cameraShakeData: {fileID: 11400000, guid: a42263bd528ba0c40a11e991a1877d2b, type: 2}
   _maxAmmo: 300
   _targets:
@@ -25,6 +25,7 @@ MonoBehaviour:
   _hitDamage:
     HitType: 1
     Damage: 8
+    CanKnockDown: 0
   _shootingInterval: 0.15
   _shootingDistance: 1000
-  _isSelected: 0
+  _isSelected: 1
