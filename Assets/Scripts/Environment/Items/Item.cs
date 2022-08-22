@@ -6,12 +6,13 @@ namespace BSTW.Environment.Items
 {
     public abstract class Item<T> : MonoBehaviour
     {
+        private GameObject _collector;
         private Coroutine _activateItemCoroutine;
         private bool _hasInvokedFollowingEvent = false;
 
         [SerializeField] private Rigidbody _itemRb;
         [SerializeField] private Collider _itemCollider;
-        [SerializeField] private GameObject _collector;
+        [SerializeField] private string _collectorTag;
         [SerializeField] private GameObject _itemGO;
         [SerializeField] private UnityEvent _onItemCollected;
         [SerializeField] private UnityEvent _onItemFollowing;
@@ -29,14 +30,19 @@ namespace BSTW.Environment.Items
 
         private void Awake()
         {
+            _collector = GameObject.FindGameObjectWithTag(_collectorTag);
             collectorPerk = _collector.GetComponent<T>();
-            ActivateItem(true);
         }
 
         private void Update()
         {
             RotateItem();
             CheckRadius();
+        }
+
+        private void OnEnable()
+        {
+            Spawn();
         }
 
         private void OnDisable()

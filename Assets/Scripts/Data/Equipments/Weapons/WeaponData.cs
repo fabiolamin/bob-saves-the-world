@@ -32,6 +32,7 @@ namespace BSTW.Data.Equipments.Weapons
 
         public float ShootingDistance => _shootingDistance;
         public bool IsSelected { get { return _isSelected; } set { _isSelected = value; } }
+        public bool CanLoadWeapon { get { return CurrentAmmo < MaxAmmo; } }
     }
 }
 

@@ -1,8 +1,8 @@
-using BSTW.Utils;
+using BSTW.Player;
 
 namespace BSTW.Environment.Items
 {
-    public class HealthItem : Item<Health>
+    public class HealthItem : Item<PlayerHealth>
     {
         protected override bool CanBeCollected()
         {

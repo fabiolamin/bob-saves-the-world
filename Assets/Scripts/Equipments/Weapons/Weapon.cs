@@ -117,17 +117,18 @@ namespace BSTW.Equipments.Weapons
         {
             _weaponData.CurrentAmmo = Mathf.Clamp(_weaponData.CurrentAmmo + amount, 0, _weaponData.MaxAmmo);
 
+            characterShooting.OnWeaponAmmoUpdated();
+
             if (_weaponData.CurrentAmmo <= 0)
                 OnWeaponStop?.Invoke();
         }
 
         public virtual void LoadCurrentAmmo(int amount)
         {
+            if (!_weaponData.CanLoadWeapon) return;
+
             UpdateCurrentAmmo(amount);
             FillProjectilesQueue();
-            SetProjectile();
-
-            characterShooting.PlayReloadSFX();
         }
 
         public void CheckProjectileLoading()

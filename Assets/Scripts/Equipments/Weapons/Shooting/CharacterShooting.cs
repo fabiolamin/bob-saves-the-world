@@ -14,14 +14,12 @@ namespace BSTW.Equipments.Weapons.Shooting
 
     public abstract class CharacterShooting : MonoBehaviour
     {
-        private List<Weapon> _weapons = new List<Weapon>();
-
         private Coroutine _shootingCoroutine;
 
         [SerializeField] private Animator _characterAnimator;
         [SerializeField] private AudioSource _shootingAudioSource;
         [SerializeField] private WeaponController[] _weaponControllers;
-        [SerializeField] private UnityEvent<float, float> _onCurrentWeaponShoot;
+        [SerializeField] private UnityEvent<float, float> _onCurrentWeaponAmmoUpdated;
         [SerializeField] private UnityEvent<Sprite> _onCurrentWeaponUpdated;
 
         protected bool isHoldingShootingTrigger = false;
@@ -30,8 +28,9 @@ namespace BSTW.Equipments.Weapons.Shooting
         public bool IsShooting { get; protected set; } = false;
         public bool IsReadyToShoot { get; protected set; } = true;
         public Weapon CurrentWeapon { get; private set; }
+        public List<Weapon> Weapons { get; private set; } = new List<Weapon>();
 
-        private void Start()
+        private void Awake()
         {
             InstantiateWeapons();
         }
@@ -51,7 +50,7 @@ namespace BSTW.Equipments.Weapons.Shooting
                 if (newWeapon.WeaponData.IsSelected)
                     SetCurrentWeapon(newWeapon);
 
-                _weapons.Add(newWeapon);
+                Weapons.Add(newWeapon);
             }
         }
 
@@ -68,7 +67,7 @@ namespace BSTW.Equipments.Weapons.Shooting
             CurrentWeapon = weapon;
             _characterAnimator.runtimeAnimatorController = CurrentWeapon.WeaponData.AnimatorController;
             _onCurrentWeaponUpdated?.Invoke(CurrentWeapon.WeaponData.Icon);
-            _onCurrentWeaponShoot?.Invoke(CurrentWeapon.WeaponData.CurrentAmmo, CurrentWeapon.WeaponData.MaxAmmo);
+            OnWeaponAmmoUpdated();
         }
 
         protected virtual void CheckShooting()
@@ -107,7 +106,6 @@ namespace BSTW.Equipments.Weapons.Shooting
         protected virtual void Shoot()
         {
             CurrentWeapon.Shoot(GetShootingOrigin(), GetShootingDirection());
-            _onCurrentWeaponShoot?.Invoke(CurrentWeapon.WeaponData.CurrentAmmo, CurrentWeapon.WeaponData.MaxAmmo);
 
             PlayShootSFX();
         }
@@ -116,16 +114,16 @@ namespace BSTW.Equipments.Weapons.Shooting
         {
             if (IsShooting) return;
 
-            var currentWeaponIndex = _weapons.IndexOf(CurrentWeapon);
+            var currentWeaponIndex = Weapons.IndexOf(CurrentWeapon);
             currentWeaponIndex += deltaPos;
 
-            if (currentWeaponIndex > _weapons.Count - 1)
+            if (currentWeaponIndex > Weapons.Count - 1)
                 currentWeaponIndex = 0;
             else if (currentWeaponIndex < 0)
-                currentWeaponIndex = _weapons.Count - 1;
+                currentWeaponIndex = Weapons.Count - 1;
 
             ActivateCurrentWeapon(false);
-            SetCurrentWeapon(_weapons[currentWeaponIndex]);
+            SetCurrentWeapon(Weapons[currentWeaponIndex]);
             ActivateCurrentWeapon(true);
 
             CurrentWeapon.CheckProjectileLoading();
@@ -157,6 +155,11 @@ namespace BSTW.Equipments.Weapons.Shooting
                 _shootingAudioSource.Stop();
                 _shootingAudioSource.PlayOneShot(CurrentWeapon.WeaponData.ReloadSFX);
             }
+        }
+
+        public void OnWeaponAmmoUpdated()
+        {
+            _onCurrentWeaponAmmoUpdated?.Invoke(CurrentWeapon.WeaponData.CurrentAmmo, CurrentWeapon.WeaponData.MaxAmmo);
         }
 
         protected abstract Vector3 GetShootingOrigin();
