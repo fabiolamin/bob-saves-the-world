@@ -1,57 +1,78 @@
+using BSTW.Player;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace BSTW.Environment.Items
 {
-    public abstract class Item<T> : MonoBehaviour
+    public abstract class Item : MonoBehaviour
     {
-        private GameObject _collector;
+        private Vector3 _startPosition;
         private Coroutine _activateItemCoroutine;
         private bool _hasInvokedFollowingEvent = false;
+        private bool _respawnStarted = false;
+
+        private bool _isOnAutoRespawn => AutoRespawn && _respawnStarted;
 
         [SerializeField] private Rigidbody _itemRb;
         [SerializeField] private Collider _itemCollider;
-        [SerializeField] private string _collectorTag;
         [SerializeField] private GameObject _itemGO;
-        [SerializeField] private UnityEvent _onItemCollected;
+        [SerializeField] private GameObject _itemParticles;
         [SerializeField] private UnityEvent _onItemFollowing;
 
         [SerializeField] private float _bonusAmount;
 
+        [Header("Movement")]
         [SerializeField] private float _followSpeed = 10f;
         [SerializeField] private float _rotationSpeed = 10f;
         [SerializeField] private float _spawnForce = 10f;
-
         [SerializeField] private float _radius = 10f;
 
-        protected T collectorPerk;
+        [Header("Respawn")]
+        [SerializeField] private float _minRespawnTimer = 5f;
+        [SerializeField] private float _maxRespawnTimer = 7f;
+
+        protected GameObject collector;
         protected float bonusAmount => _bonusAmount;
+
+        public bool AutoRespawn = false;
 
         private void Awake()
         {
-            _collector = GameObject.FindGameObjectWithTag(_collectorTag);
-            collectorPerk = _collector.GetComponent<T>();
+            collector = FindObjectOfType<PlayerMovement>().gameObject;
+            _startPosition = transform.position;
         }
-
-        private void Update()
-        {
-            RotateItem();
-            CheckRadius();
-        }
-
         private void OnEnable()
         {
-            Spawn();
+            if (AutoRespawn)
+            {
+                ActivateItem(true);
+                ActivateItemPhysics(true);
+            }
+            else
+            {
+                SpawnOnLoot();
+            }
         }
 
         private void OnDisable()
         {
-            ActivateItem(false);
+            if (!AutoRespawn)
+                ActivateItemPhysics(false);
+        }
+
+        private void Update()
+        {
+            if (_isOnAutoRespawn) return;
+
+            RotateItem();
+            CheckRadius();
         }
 
         private void OnTriggerEnter(Collider other)
         {
+            if (_isOnAutoRespawn) return;
+
             CheckIfItemCanBeCollected(other);
         }
 
@@ -62,11 +83,11 @@ namespace BSTW.Environment.Items
 
         private void CheckRadius()
         {
-            var distance = Vector3.Distance(transform.position, _collector.transform.position);
+            var distance = Vector3.Distance(transform.position, collector.transform.position);
 
             if (distance <= _radius && CanBeCollected())
             {
-                transform.position = Vector3.MoveTowards(transform.position, _collector.transform.position, _followSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, collector.transform.position, _followSpeed * Time.deltaTime);
 
                 if (!_hasInvokedFollowingEvent)
                 {
@@ -76,7 +97,7 @@ namespace BSTW.Environment.Items
 
                 if (!_itemRb.isKinematic && !_itemCollider.isTrigger)
                 {
-                    ActivateItem(true);
+                    ActivateItemPhysics(true);
 
                     if (_activateItemCoroutine != null)
                         StopCoroutine(_activateItemCoroutine);
@@ -84,25 +105,36 @@ namespace BSTW.Environment.Items
             }
         }
 
-        public void ActivateItem(bool isActive)
+        public void ActivateItemPhysics(bool isActive)
         {
             _itemRb.isKinematic = isActive;
             _itemCollider.isTrigger = isActive;
             _hasInvokedFollowingEvent = !isActive;
         }
 
+        public void ActivateItem(bool isActive)
+        {
+            _itemGO.SetActive(isActive);
+            _itemParticles.SetActive(isActive);
+        }
+
         private void CheckIfItemCanBeCollected(Collider other)
         {
-            if (CanBeCollected() && other.gameObject == _collector)
+            if (CanBeCollected() && other.gameObject == collector)
             {
-                _onItemCollected?.Invoke();
                 OnCollected();
-                gameObject.SetActive(false);
+
+                if (AutoRespawn)
+                    StartAutoRespawn();
+                else
+                    gameObject.SetActive(false);
             }
         }
 
-        public void Spawn()
+        public void SpawnOnLoot()
         {
+            _hasInvokedFollowingEvent = false;
+
             var randomDirection = new Vector3(Mathf.Round(Random.Range(-1f, 1f)), 1f, Mathf.Round(Random.Range(-1f, 1f))) * _spawnForce;
             _itemRb.AddForce(randomDirection);
 
@@ -116,7 +148,26 @@ namespace BSTW.Environment.Items
         {
             yield return new WaitUntil(() => _itemRb.IsSleeping());
 
+            ActivateItemPhysics(true);
+        }
+
+        private void StartAutoRespawn()
+        {
+            _respawnStarted = true;
+
+            ActivateItem(false);
+            StartCoroutine(WaitRespawn());
+        }
+
+        private IEnumerator WaitRespawn()
+        {
+            yield return new WaitForSeconds(Random.Range(_minRespawnTimer, _maxRespawnTimer));
+
+            transform.position = _startPosition;
+            _respawnStarted = false;
+
             ActivateItem(true);
+            ActivateItemPhysics(true);
         }
 
         protected abstract bool CanBeCollected();

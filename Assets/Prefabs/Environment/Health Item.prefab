@@ -51,11 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemRb: {fileID: 3412376949745134444}
   _itemCollider: {fileID: 3412376949745134445}
-  _collectorTag: Player
   _itemGO: {fileID: 3412669760997378460}
-  _onItemCollected:
-    m_PersistentCalls:
-      m_Calls: []
+  _itemParticles: {fileID: 3412376951143276017}
   _onItemFollowing:
     m_PersistentCalls:
       m_Calls:
@@ -76,6 +73,9 @@ MonoBehaviour:
   _rotationSpeed: 1
   _spawnForce: 40
   _radius: 10
+  _autoRespawn: 1
+  _minRespawnTimer: 5
+  _maxRespawnTimer: 7
 --- !u!65 &3412376949745134445
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -421,6 +421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+--- !u!1 &3412376951143276017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
+  m_PrefabInstance: {fileID: 3412376951143373653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3412376951143760337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}

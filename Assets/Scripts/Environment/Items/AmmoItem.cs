@@ -6,15 +6,18 @@ using BSTW.Data.Equipments.Weapons;
 
 namespace BSTW.Environment.Items
 {
-    public class AmmoItem : Item<PlayerShooting>
+    public class AmmoItem : Item
     {
+        private PlayerShooting _playerShooting;
         private Weapon _characterSelectedWeapon;
 
         [SerializeField] private WeaponData _weaponData;
 
         private void Start()
         {
-            _characterSelectedWeapon = collectorPerk.Weapons.FirstOrDefault(w => w.WeaponData == _weaponData);
+            _playerShooting = collector.GetComponent<PlayerShooting>();
+
+            _characterSelectedWeapon = _playerShooting.Weapons.FirstOrDefault(w => w.WeaponData == _weaponData);
         }
 
         protected override bool CanBeCollected()
@@ -24,7 +27,7 @@ namespace BSTW.Environment.Items
 
         protected override void OnCollected()
         {
-            AudioSource.PlayClipAtPoint(_weaponData.ReloadSFX, collectorPerk.transform.position, 1f);
+            AudioSource.PlayClipAtPoint(_weaponData.ReloadSFX, collector.transform.position, 1f);
             _characterSelectedWeapon.LoadCurrentAmmo((int)bonusAmount);
         }
     }
