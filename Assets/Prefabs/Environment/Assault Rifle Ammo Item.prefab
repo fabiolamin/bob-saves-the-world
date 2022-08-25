@@ -19,6 +19,22 @@ PrefabInstance:
       propertyPath: _bonusAmount
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 5469989538491209572, guid: 0a800ba2096109340be58950258a79ca, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6559545
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469989538491209572, guid: 0a800ba2096109340be58950258a79ca, type: 3}
+      propertyPath: m_Size.z
+      value: 1.0220801
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469989538491209572, guid: 0a800ba2096109340be58950258a79ca, type: 3}
+      propertyPath: m_Center.x
+      value: -0.22521287
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469989538491209572, guid: 0a800ba2096109340be58950258a79ca, type: 3}
+      propertyPath: m_Center.z
+      value: -0.37251496
+      objectReference: {fileID: 0}
     - target: {fileID: 5469989538491209575, guid: 0a800ba2096109340be58950258a79ca, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -65,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5469989538491209577, guid: 0a800ba2096109340be58950258a79ca, type: 3}
       propertyPath: m_Name
-      value: Assault Rifle Ammo Item Variant
+      value: Assault Rifle Ammo Item
       objectReference: {fileID: 0}
     - target: {fileID: 6447130050744139392, guid: 0a800ba2096109340be58950258a79ca, type: 3}
       propertyPath: m_IsActive

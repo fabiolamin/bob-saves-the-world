@@ -73,9 +73,9 @@ MonoBehaviour:
   _rotationSpeed: 1
   _spawnForce: 40
   _radius: 10
-  _autoRespawn: 1
   _minRespawnTimer: 5
   _maxRespawnTimer: 7
+  AutoRespawn: 0
 --- !u!65 &3412376949745134445
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87,8 +87,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.05838, z: 1.0079422}
-  m_Center: {x: 0, y: -0.029742181, z: -0.0039711}
+  m_Size: {x: 1.0723531, y: 0.69661486, z: 0.76676506}
+  m_Center: {x: -0.13264728, y: 0.15114039, z: -0.29338345}
 --- !u!54 &3412376949745134444
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -129,6 +129,8 @@ namespace BSTW.Environment.Items
                 else
                     gameObject.SetActive(false);
             }
+
+            _hasInvokedFollowingEvent = false;
         }
 
         public void SpawnOnLoot()
