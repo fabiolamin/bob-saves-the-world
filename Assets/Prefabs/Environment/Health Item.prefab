@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3412376949745134445}
   - component: {fileID: 3412376949745134444}
   - component: {fileID: 3412376949745134443}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Health Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,8 +103,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!82 &3412376949745134443
 AudioSource:
   m_ObjectHideFlags: 0
