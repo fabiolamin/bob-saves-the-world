@@ -34,6 +34,7 @@ namespace BSTW.Player
         [SerializeField] private UnityEvent _onPlayerJump;
         [SerializeField] private UnityEvent _onPlayerRoll;
         [SerializeField] private UnityEvent _onPlayerRollFinished;
+        [SerializeField] private UnityEvent _onPlayerFall;
         [SerializeField] private UnityEvent<bool> _onPlayerFly;
         [SerializeField] private UnityEvent<bool> _onPlayerIsGround;
 
@@ -123,6 +124,7 @@ namespace BSTW.Player
 
             if (CanPlayerRollOnFall())
             {
+                _onPlayerFall?.Invoke();
                 Roll();
             }
 
