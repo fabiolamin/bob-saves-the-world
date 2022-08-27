@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace BSTW.Utils
+namespace BSTW.Audio
 {
     public class AudioFade : MonoBehaviour
     {
