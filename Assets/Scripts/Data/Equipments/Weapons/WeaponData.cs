@@ -13,6 +13,7 @@ namespace BSTW.Data.Equipments.Weapons
         [SerializeField] private AudioClip _reloadSFX;
         [SerializeField] private CameraShakeData _cameraShakeData;
         [SerializeField] private int _maxAmmo = 150;
+        [Tooltip("Decimal value.")][SerializeField] private float _criticalAmmoPercentage = 0.3f;
         [SerializeField] private string[] _targets;
         [SerializeField] private Hit _hitDamage;
         [SerializeField] private float _shootingInterval = 0.5f;
@@ -26,6 +27,7 @@ namespace BSTW.Data.Equipments.Weapons
         public CameraShakeData CameraShakeData => _cameraShakeData;
         public int CurrentAmmo { get; set; }
         public int MaxAmmo => _maxAmmo;
+        public float CriticalAmmoPercentage => _criticalAmmoPercentage;
         public string[] Targets => _targets;
         public Hit HitDamage => _hitDamage;
         public float ShootingInterval => _shootingInterval;

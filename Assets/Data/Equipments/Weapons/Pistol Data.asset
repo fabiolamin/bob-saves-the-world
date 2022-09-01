@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistol Data
   m_EditorClassIdentifier: 
   _animatorController: {fileID: 22100000, guid: abb9e808f211f2b4fae7bfcda6dac9e5, type: 2}
-  _icon: {fileID: 21300000, guid: 55ebf49ebd3edfc4b87325e05fbab33d, type: 3}
+  _icon: {fileID: 21300000, guid: 9830e4ce5d183d145bdcb9b155a046cd, type: 3}
   _shootSFX: {fileID: 8300000, guid: 9d92b97d824fd5d45bdd696285941240, type: 3}
   _reloadSFX: {fileID: 8300000, guid: c849b50e13bcea847ae2ebe343b0f49f, type: 3}
   _cameraShakeData: {fileID: 11400000, guid: a42263bd528ba0c40a11e991a1877d2b, type: 2}

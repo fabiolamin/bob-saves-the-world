@@ -21,6 +21,8 @@ namespace BSTW.Equipments.Weapons.Shooting
         [SerializeField] private WeaponController[] _weaponControllers;
         [SerializeField] private UnityEvent<float, float> _onCurrentWeaponAmmoUpdated;
         [SerializeField] private UnityEvent<Sprite> _onCurrentWeaponUpdated;
+        [SerializeField] private UnityEvent _onCriticalAmmoStarted;
+        [SerializeField] private UnityEvent _onCriticalAmmoFinished;
 
         protected bool isHoldingShootingTrigger = false;
         protected AudioSource shootingAudioSource => _shootingAudioSource;
@@ -110,6 +112,14 @@ namespace BSTW.Equipments.Weapons.Shooting
             PlayShootSFX();
         }
 
+        private void CheckCriticalAmmo()
+        {
+            if (CurrentWeapon.WeaponData.CurrentAmmo <= (CurrentWeapon.WeaponData.MaxAmmo * CurrentWeapon.WeaponData.CriticalAmmoPercentage))
+                _onCriticalAmmoStarted?.Invoke();
+            else
+                _onCriticalAmmoFinished?.Invoke();
+        }
+
         public void SwitchWeapon(int deltaPos)
         {
             if (IsShooting) return;
@@ -129,6 +139,7 @@ namespace BSTW.Equipments.Weapons.Shooting
             CurrentWeapon.CheckProjectileLoading();
 
             PlayReloadSFX();
+            CheckCriticalAmmo();
 
             if (!CurrentWeapon.CanShoot)
                 StopShooting();
@@ -160,6 +171,8 @@ namespace BSTW.Equipments.Weapons.Shooting
         public void OnWeaponAmmoUpdated()
         {
             _onCurrentWeaponAmmoUpdated?.Invoke(CurrentWeapon.WeaponData.CurrentAmmo, CurrentWeapon.WeaponData.MaxAmmo);
+
+            CheckCriticalAmmo();
         }
 
         protected abstract Vector3 GetShootingOrigin();

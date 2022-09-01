@@ -1692,6 +1692,48 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onCriticalAmmoStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8225055791934625800}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: ResetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Stop
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8225055791934625800}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Start
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onCriticalAmmoFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8225055791934625800}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Stop
+          m_BoolArgument: 0
+        m_CallState: 2
   _aimImage: {fileID: 5571951600910468003}
   _onPlayerAim:
     m_PersistentCalls:
@@ -4307,6 +4349,11 @@ MonoBehaviour:
 --- !u!95 &6976904933615331976 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4950618175516550724, guid: 422c2d78a8368c7478548735b2d6961a, type: 3}
+  m_PrefabInstance: {fileID: 2623015908017065164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8225055791934625800 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6215978727458084036, guid: 422c2d78a8368c7478548735b2d6961a, type: 3}
   m_PrefabInstance: {fileID: 2623015908017065164}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5097480758474538927
