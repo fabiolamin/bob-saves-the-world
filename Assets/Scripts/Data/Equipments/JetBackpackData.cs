@@ -15,6 +15,12 @@ namespace BSTW.Data.Equipments
         public float FuelIncreaseSpeed => _fuelIncreaseSpeed;
         public float FuelDecreaseSpeed => _fuelDecreaseSpeed;
         public float RechargeDuration => _rechargeDuration;
+        public bool FullFuel => Mathf.Approximately(CurrentFuelAmount, MaxFuelAmount);
+
+        public void UpdateFuel(float amount)
+        {
+            CurrentFuelAmount = Mathf.Clamp(CurrentFuelAmount + amount, 0f, _maxFuelAmount);
+        }
     }
 }
 

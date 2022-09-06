@@ -16,6 +16,9 @@ namespace BSTW.Equipments
         [SerializeField] private UnityEvent<float, float> _onJetBackpackFuelUpdated;
         [SerializeField] private UnityEvent _onJetBackpackActivated;
         [SerializeField] private UnityEvent _onJetBackpackDeactivate;
+        [SerializeField] private UnityEvent _onFuelObtained;
+
+        public JetBackpackData JetBackpackData => _jetBackpackData;
 
         private void Awake()
         {
@@ -31,13 +34,13 @@ namespace BSTW.Equipments
         {
             if (_jetBackpackUser.IsFlying)
             {
-                UpdateJetBackpackFuel();
+                SetFuelSpeed();
             }
             else
             {
                 if (_canBeFueled)
                 {
-                    UpdateJetBackpackFuel(false);
+                    SetFuelSpeed(false);
                 }
             }
 
@@ -48,7 +51,7 @@ namespace BSTW.Equipments
             ActivateJetBackpackFlame(_jetBackpackUser.HasFuel && _jetBackpackUser.IsFlying);
         }
 
-        private void UpdateJetBackpackFuel(bool isFlying = true)
+        private void SetFuelSpeed(bool isFlying = true)
         {
             var modifier = -1;
             var speed = _jetBackpackData.FuelDecreaseSpeed;
@@ -59,13 +62,7 @@ namespace BSTW.Equipments
                 speed = _jetBackpackData.FuelIncreaseSpeed;
             }
 
-
-            _jetBackpackData.CurrentFuelAmount = Mathf.Clamp(
-                _jetBackpackData.CurrentFuelAmount + Time.deltaTime * speed * modifier,
-                0f,
-                _jetBackpackData.MaxFuelAmount);
-
-            _onJetBackpackFuelUpdated?.Invoke(_jetBackpackData.CurrentFuelAmount, _jetBackpackData.MaxFuelAmount);
+            UpdateFuel(Time.deltaTime * speed * modifier);
         }
 
         private void CheckJatBackpackRecharge()
@@ -91,6 +88,20 @@ namespace BSTW.Equipments
                 _onJetBackpackActivated.Invoke();
             else
                 _onJetBackpackDeactivate.Invoke();
+        }
+
+        private void UpdateFuel(float amount)
+        {
+            _jetBackpackData.UpdateFuel(amount);
+
+            _onJetBackpackFuelUpdated?.Invoke(_jetBackpackData.CurrentFuelAmount, _jetBackpackData.MaxFuelAmount);
+        }
+
+        public void GetFuel(float amount)
+        {
+            _canBeFueled = true;
+            _onFuelObtained?.Invoke();
+            UpdateFuel(amount);
         }
     }
 }
