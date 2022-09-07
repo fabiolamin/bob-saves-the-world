@@ -13,7 +13,8 @@ namespace BSTW.Utils
         [SerializeField] private float _knockDownPercentage = 0.5f;
         [SerializeField] private float _healthUpdateDelay = 0.5f;
 
-        [SerializeField] private UnityEvent _onCriticalHealth;
+        [SerializeField] private UnityEvent _onCriticalHealthStarted;
+        [SerializeField] private UnityEvent _onCriticalHealthFinished;
 
         [SerializeField] private UnityEvent<float, float> _onHealthUpdated;
 
@@ -36,6 +37,7 @@ namespace BSTW.Utils
         protected float MaxHealth => _maxHealth;
         protected float KnockDownPercentage => _knockDownPercentage;
         protected bool GotHit = false;
+        protected bool HasBeenOnCriticalHealth => _currentHealth <= (_criticalHealthPercentage * _maxHealth) && IsAlive;
 
         protected UnityEvent OnDamageStarted => _onDamageStarted;
         protected UnityEvent OnDamageFinished => _onDamageFinished;
@@ -49,11 +51,6 @@ namespace BSTW.Utils
             UpdateHealth(_maxHealth);
         }
 
-        private void Update()
-        {
-            CheckCriticalHealth();
-        }
-
         private void UpdateHealth(float value)
         {
             CanUpdateHealth = false;
@@ -64,12 +61,6 @@ namespace BSTW.Utils
             StartCoroutine(SetDelayToUpdateHealth());
         }
 
-        private void CheckCriticalHealth()
-        {
-            if (_currentHealth <= (_criticalHealthPercentage * _maxHealth) && IsAlive)
-                _onCriticalHealth?.Invoke();
-        }
-
         public void Hit(Hit hit)
         {
             if (CanGotHit(hit))
@@ -77,6 +68,9 @@ namespace BSTW.Utils
                 UpdateHealth(-hit.Damage);
                 CheckHealth();
                 CheckHit(hit);
+
+                if (HasBeenOnCriticalHealth)
+                    _onCriticalHealthStarted?.Invoke();
             }
         }
 
@@ -99,6 +93,9 @@ namespace BSTW.Utils
         public void AddHealth(float value)
         {
             if (!IsAlive || !CanUpdateHealth || IsHealthFull) return;
+
+            if (!HasBeenOnCriticalHealth)
+                _onCriticalHealthFinished?.Invoke();
 
             _onHealthAdded?.Invoke();
             UpdateHealth(value);
