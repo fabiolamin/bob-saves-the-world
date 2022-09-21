@@ -1,15 +1,24 @@
+using UnityEngine;
+
 namespace BSTW.Enemy.AI.States
 {
     public class FlyEnemyAIAttackState : EnemyAIState
     {
-        public override void EnterState(EnemyAIController enemyAIController)
+        [SerializeField] private EnemyShooting _enemyShooting;
+
+        public override void EnterState()
         {
-            throw new System.NotImplementedException();
+            _enemyShooting.StartEnemyShooting();
         }
 
-        public override void UpdateState(EnemyAIController enemyAIController)
+        public override void UpdateState()
         {
-            throw new System.NotImplementedException();
+            EnemyController.RotateEnemy(EnemyController.CurrentTarget.transform.position);
+        }
+
+        public override void ExitState()
+        {
+            _enemyShooting.StopShooting();
         }
     }
 }

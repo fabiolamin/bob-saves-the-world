@@ -18,7 +18,10 @@ namespace BSTW.Equipments.Weapons.Shooting
 
         [SerializeField] private Animator _characterAnimator;
         [SerializeField] private AudioSource _shootingAudioSource;
+
         [SerializeField] private WeaponController[] _weaponControllers;
+
+        [SerializeField] private UnityEvent _onShot;
         [SerializeField] private UnityEvent<float, float> _onCurrentWeaponAmmoUpdated;
         [SerializeField] private UnityEvent<Sprite> _onCurrentWeaponUpdated;
         [SerializeField] private UnityEvent _onCriticalAmmoStarted;
@@ -67,7 +70,10 @@ namespace BSTW.Equipments.Weapons.Shooting
         private void SetCurrentWeapon(Weapon weapon)
         {
             CurrentWeapon = weapon;
-            _characterAnimator.runtimeAnimatorController = CurrentWeapon.WeaponData.AnimatorController;
+
+            if (_characterAnimator != null)
+                _characterAnimator.runtimeAnimatorController = CurrentWeapon.WeaponData.AnimatorController;
+
             _onCurrentWeaponUpdated?.Invoke(CurrentWeapon.WeaponData.Icon);
             OnWeaponAmmoUpdated();
         }
@@ -107,6 +113,8 @@ namespace BSTW.Equipments.Weapons.Shooting
 
         protected virtual void Shoot()
         {
+            _onShot?.Invoke();
+
             CurrentWeapon.Shoot(GetShootingOrigin(), GetShootingDirection());
 
             PlayShootSFX();

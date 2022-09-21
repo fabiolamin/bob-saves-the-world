@@ -20,13 +20,15 @@ namespace BSTW.Equipments.Weapons
         [SerializeField] private Transform _projectileOrigin;
         [SerializeField] private Transform _bulletShellOrigin;
 
+        [SerializeField] private bool _infiniteAmmo = false;
+
         protected CharacterShooting characterShooting;
         protected Queue<Projectile> projectiles = new Queue<Projectile>();
         protected bool isProjectileLoaded = true;
         protected Coroutine projectileLoadingCoroutine;
 
         public WeaponData WeaponData => _weaponData;
-        public bool CanShoot { get { return _weaponData.CurrentAmmo > 0; } }
+        public bool CanShoot { get { return _weaponData.CurrentAmmo > 0 || _infiniteAmmo; } }
 
         public Projectile CurrentProjectile { get; protected set; }
 
