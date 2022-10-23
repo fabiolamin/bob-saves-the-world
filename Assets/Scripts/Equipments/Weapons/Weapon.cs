@@ -56,6 +56,9 @@ namespace BSTW.Equipments.Weapons
 
                 projectiles.Enqueue(projectile);
                 projectile.SetUpProjectile(gameObject.layer, WeaponData.Targets, WeaponData.HitDamage, _projectileOrigin);
+
+                if (projectile.OnProjectileHit == null || projectile.OnProjectileHit.GetInvocationList().Length == 0)
+                    projectile.OnProjectileHit += characterShooting.OnCharacterHitTarget;
             }
 
             projectiles.ToList().ForEach(p => p.gameObject.SetActive(false));

@@ -1791,6 +1791,9 @@ MonoBehaviour:
     WeaponHandPosition: {fileID: 6434409793662632558}
   - Weapon: {fileID: 7756808887045012431, guid: 0a8e772be4806eb4db19e6e178a6c760, type: 3}
     WeaponHandPosition: {fileID: 1715129136812411413}
+  _onShot:
+    m_PersistentCalls:
+      m_Calls: []
   _onCurrentWeaponAmmoUpdated:
     m_PersistentCalls:
       m_Calls:
@@ -1863,7 +1866,11 @@ MonoBehaviour:
           m_StringArgument: Stop
           m_BoolArgument: 0
         m_CallState: 2
+  _onCharacterHitTarget:
+    m_PersistentCalls:
+      m_Calls: []
   _aimImage: {fileID: 5571951600910468003}
+  _hitMarker: {fileID: 5571951601244729464}
   _onPlayerAim:
     m_PersistentCalls:
       m_Calls:
@@ -4322,6 +4329,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 871603bfff6217c4d942278a478e6c31, type: 3}
   - {fileID: 8300000, guid: 4ae332eb06c03b447be2483dd5f2021e, type: 3}
   - {fileID: 8300000, guid: c354d199c8e72124bb7778a4dd2413fb, type: 3}
+  _hasInterval: 0
 --- !u!1001 &2297948671025180388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4558,6 +4566,11 @@ MonoBehaviour:
 --- !u!1 &5571951600910468003 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7581070446024347503, guid: 422c2d78a8368c7478548735b2d6961a, type: 3}
+  m_PrefabInstance: {fileID: 2623015908017065164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5571951601244729464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7581070446222785716, guid: 422c2d78a8368c7478548735b2d6961a, type: 3}
   m_PrefabInstance: {fileID: 2623015908017065164}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &5571951601520046583 stripped

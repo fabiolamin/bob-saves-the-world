@@ -14,11 +14,15 @@ namespace BSTW.UI
 
         public void UpdateBar(float currentValue, float maxValue)
         {
+            if (!Bar.gameObject.activeSelf) return;
+
             Bar.fillAmount = currentValue / maxValue;
         }
 
         public void UpdateBarSmoothly(float currentValue, float maxValue)
         {
+            if (!Bar.gameObject.activeSelf) return;
+
             if(_updateBarSmoothlyCoroutine is not null)
             {
                 StopCoroutine(_updateBarSmoothlyCoroutine);

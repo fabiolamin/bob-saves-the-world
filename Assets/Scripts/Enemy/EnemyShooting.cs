@@ -10,7 +10,7 @@ namespace BSTW.Enemy
 
         protected override Vector3 GetShootingDirection()
         {
-            return _enemyController.CurrentTarget.transform.position;
+            return transform.position - _enemyController.CurrentTarget.transform.position;
         }
 
         protected override Vector3 GetShootingOrigin()

@@ -20,23 +20,26 @@ namespace BSTW.Equipments.Weapons.Shooting
 
         public Rigidbody ProjectileTargetRb => _projectileTargetRb;
 
-        public virtual void Hit(Hit hit, GameObject vfx, Vector3 point)
+        public virtual void Hit(Hit hit, GameObject vfx, Vector3 point, Projectile projectile)
         {
             _onHit?.Invoke(hit);
 
-            PlayHitEffects(vfx, point);
+            PlayHitEffects(vfx, point, projectile);
         }
 
-        protected void PlayHitEffects(GameObject vfx, Vector3 point)
+        protected void PlayHitEffects(GameObject vfx, Vector3 point, Projectile projectile)
         {
-            PlayHitVFX(vfx, point);
+            PlayHitVFX(vfx, point, projectile);
             PlayHitSFX(point);
         }
 
-        private void PlayHitVFX(GameObject vfx, Vector3 point)
+        private void PlayHitVFX(GameObject vfx, Vector3 point, Projectile projectile)
         {
             var vfxGO = vfx == null ? _hitVFXPooling.GetObject() : vfx;
+
             vfxGO.transform.position = point;
+            if (projectile != null)
+                vfxGO.transform.forward += -projectile.transform.forward;
 
             var particles = vfxGO.GetComponent<ParticleSystem>();
             particles.Play();

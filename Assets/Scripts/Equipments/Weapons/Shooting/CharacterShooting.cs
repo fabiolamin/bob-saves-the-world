@@ -26,6 +26,8 @@ namespace BSTW.Equipments.Weapons.Shooting
         [SerializeField] private UnityEvent<Sprite> _onCurrentWeaponUpdated;
         [SerializeField] private UnityEvent _onCriticalAmmoStarted;
         [SerializeField] private UnityEvent _onCriticalAmmoFinished;
+        [SerializeField] public UnityEvent _onCharacterHitTarget;
+
 
         protected bool isHoldingShootingTrigger = false;
         protected AudioSource shootingAudioSource => _shootingAudioSource;
@@ -181,6 +183,11 @@ namespace BSTW.Equipments.Weapons.Shooting
             _onCurrentWeaponAmmoUpdated?.Invoke(CurrentWeapon.WeaponData.CurrentAmmo, CurrentWeapon.WeaponData.MaxAmmo);
 
             CheckCriticalAmmo();
+        }
+
+        public virtual void OnCharacterHitTarget()
+        {
+            _onCharacterHitTarget?.Invoke();
         }
 
         protected abstract Vector3 GetShootingOrigin();

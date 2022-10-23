@@ -71,7 +71,7 @@ MonoBehaviour:
   _bonusAmount: 10
   _followSpeed: 50
   _rotationSpeed: 1
-  _spawnForce: 40
+  _spawnForce: 35
   _radius: 10
   _minRespawnTimer: 5
   _maxRespawnTimer: 7

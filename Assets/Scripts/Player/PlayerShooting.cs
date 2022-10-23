@@ -2,12 +2,18 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using BSTW.Equipments.Weapons.Shooting;
+using System.Collections;
 
 namespace BSTW.Player
 {
     public class PlayerShooting : CharacterShooting
     {
+        private Coroutine _hitMarkerCoroutine;
+
         [SerializeField] private GameObject _aimImage;
+        [SerializeField] private GameObject _hitMarker;
+        [SerializeField] private float _hitMarkerDuration = 0.1f;
+
         [SerializeField] private UnityEvent<bool> _onPlayerAim;
 
         [SerializeField] private AudioClip _emptyGunSFX;
@@ -78,6 +84,33 @@ namespace BSTW.Player
             _playerCameraShake.StartShakeCamera(CurrentWeapon.WeaponData.CameraShakeData);
 
             base.Shoot();
+        }
+
+        public override void OnCharacterHitTarget()
+        {
+            base.OnCharacterHitTarget();
+
+            _hitMarker.SetActive(true);
+
+            if(_hitMarkerCoroutine != null)
+            {
+                StopCoroutine(_hitMarkerCoroutine);
+            }
+
+            _hitMarkerCoroutine = StartCoroutine(DisableHitMarker());
+        }
+
+        private IEnumerator DisableHitMarker()
+        {
+            var currenteDuration = 0f;
+
+            while(currenteDuration < _hitMarkerDuration)
+            {
+                currenteDuration += Time.deltaTime;
+                yield return null;
+            }
+
+            _hitMarker.SetActive(false);
         }
     }
 }

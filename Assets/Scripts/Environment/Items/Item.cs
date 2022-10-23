@@ -132,7 +132,13 @@ namespace BSTW.Environment.Items
             _itemRb.mass = _startMass;
             _hasInvokedFollowingEvent = false;
 
-            var randomDirection = new Vector3(Mathf.Round(Random.Range(-1f, 1f)), 1f, Mathf.Round(Random.Range(-1f, 1f))) * _spawnForce;
+            var directions = new int[] { -1, 1 };
+
+            var randomDirection = new Vector3(
+            directions[Random.Range(0, directions.Length)],
+            1f,
+            directions[Random.Range(0, directions.Length)]) * _spawnForce;
+
             _itemRb.AddForce(randomDirection);
         }
 

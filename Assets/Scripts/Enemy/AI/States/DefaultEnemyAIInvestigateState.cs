@@ -14,27 +14,44 @@ namespace BSTW.Enemy.AI.States
 
         public override void EnterState()
         {
+            base.EnterState();
+
+            EnemyController.NavMeshAgent.isStopped = false;
             EnemyController.NavMeshAgent.speed = MovementSpeed;
             _waitToInvestigateCoroutine = StartCoroutine(WaitToInvestigate());
         }
 
         public override void UpdateState()
         {
+            base.UpdateState();
+
             CheckEnemyDestination();
         }
 
         public override void ExitState()
         {
+            base.ExitState();
+
             if (_waitToInvestigateCoroutine != null)
                 StopCoroutine(_waitToInvestigateCoroutine);
+        }
+
+        public override void RestartState()
+        {
+            base.RestartState();
+
+            EnemyController.NavMeshAgent.isStopped = false;
+            EnemyController.NavMeshAgent.speed = MovementSpeed;
+            _waitToInvestigateCoroutine = StartCoroutine(WaitToInvestigate());
         }
 
         private IEnumerator WaitToInvestigate()
         {
             yield return new WaitForSeconds(Random.Range(_minTimeNewInvestigation, _maxTimeNewInvestigation));
 
-            (EnemyController as DefaultEnemyAIController).MoveTowardsArea(_investigateRadius, transform.position);
+            (EnemyController as DefaultEnemyAIController).MoveNavMeshAgentTowardsArea(_investigateRadius, transform.position);
 
+            EnemyController.NavMeshAgent.speed = MovementSpeed;
             _hasStopped = false;
         }
 

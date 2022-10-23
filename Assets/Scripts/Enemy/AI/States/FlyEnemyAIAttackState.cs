@@ -8,17 +8,30 @@ namespace BSTW.Enemy.AI.States
 
         public override void EnterState()
         {
+            base.EnterState();
+
             _enemyShooting.StartEnemyShooting();
         }
 
         public override void UpdateState()
         {
+            base.UpdateState();
+
             EnemyController.RotateEnemy(EnemyController.CurrentTarget.transform.position);
         }
 
         public override void ExitState()
         {
+            base.ExitState();
+
             _enemyShooting.StopShooting();
+        }
+
+        public override void RestartState()
+        {
+            base.RestartState();
+
+            _enemyShooting.StartEnemyShooting();
         }
     }
 }

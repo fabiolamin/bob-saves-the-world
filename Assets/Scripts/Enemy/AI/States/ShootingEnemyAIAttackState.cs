@@ -15,13 +15,17 @@ namespace BSTW.Enemy.AI.States
 
         public override void EnterState()
         {
+            base.EnterState();
+
             EnemyController.NavMeshAgent.speed = MovementSpeed;
 
-            (EnemyController as DefaultEnemyAIController).MoveTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
+            (EnemyController as DefaultEnemyAIController).MoveNavMeshAgentTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
         }
 
         public override void UpdateState()
         {
+            base.UpdateState();
+
             if (_startedShooting)
             {
                 EnemyController.RotateEnemy(EnemyController.CurrentTarget.transform.position);
@@ -35,10 +39,21 @@ namespace BSTW.Enemy.AI.States
 
         public override void ExitState()
         {
+            base.ExitState();
+
             if (_shootingCoroutine != null)
                 StopCoroutine(_shootingCoroutine);
 
             _enemyShooting.StopEnemyShooting();
+        }
+
+        public override void RestartState()
+        {
+            base.RestartState();
+
+            EnemyController.NavMeshAgent.speed = MovementSpeed;
+
+            (EnemyController as DefaultEnemyAIController).MoveNavMeshAgentTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
         }
 
         protected virtual IEnumerator StartShooting()
@@ -51,7 +66,7 @@ namespace BSTW.Enemy.AI.States
 
             _enemyShooting.StopShooting();
 
-            (EnemyController as DefaultEnemyAIController).MoveTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
+            (EnemyController as DefaultEnemyAIController).MoveNavMeshAgentTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
 
             _startedShooting = false;
         }

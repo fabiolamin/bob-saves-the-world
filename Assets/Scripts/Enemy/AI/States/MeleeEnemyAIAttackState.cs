@@ -1,58 +1,103 @@
 using System.Collections;
 using UnityEngine;
-using System.Linq;
 using UnityEngine.Events;
 
 namespace BSTW.Enemy.AI.States
 {
     public class MeleeEnemyAIAttackState : EnemyAIState
     {
+        private Coroutine _enterMeleeAttackStateCoroutine;
         private Coroutine _attackCoroutine;
-        private bool _hasAttacked;
+        private bool _canAttack;
 
         [SerializeField] private GameObject[] _meleeAttacks;
         [SerializeField] private UnityEvent _onAttack;
 
+        [SerializeField] private float _minDistanceToAttack = 0.5f;
+
         public override void EnterState()
         {
-            EnemyController.NavMeshAgent.speed = MovementSpeed;
-            _hasAttacked = false;
-            EnemyController.NavMeshAgent.SetDestination(EnemyController.CurrentTarget.transform.position);
+            base.EnterState();
+
+            _canAttack = false;
+
+            EnemyController.StopEnemy();
+
+            _enterMeleeAttackStateCoroutine = StartCoroutine(EnterMeleeAttackState());
         }
 
         public override void UpdateState()
         {
-            if (!_hasAttacked)
-            {
-                EnemyController.RotateEnemy(EnemyController.CurrentTarget.transform.position);
-            }
+            base.UpdateState();
 
-            if (EnemyController.HasNavMeshAgentReachedDestination() && !_hasAttacked)
+            EnemyController.RotateEnemy(EnemyController.CurrentTarget.transform.position);
+
+            if (_canAttack)
             {
-                _attackCoroutine = StartCoroutine(StartAttack());
+                EnemyController.NavMeshAgent.destination = EnemyController.CurrentTarget.transform.position;
+                EnemyController.NavMeshAgent.speed = MovementSpeed;
+
+                if (IsNearTarget())
+                {
+                    _attackCoroutine = StartCoroutine(StartAttack());
+                }
             }
         }
 
         public override void ExitState()
         {
+            base.ExitState();
+
             if (_attackCoroutine != null)
                 StopCoroutine(_attackCoroutine);
+
+            if (_enterMeleeAttackStateCoroutine != null)
+                StopCoroutine(_enterMeleeAttackStateCoroutine);
+
+            (EnemyController as MeleeEnemyAIController).ActivateRightHandAttack(0);
+            (EnemyController as MeleeEnemyAIController).ActivateLeftHandAttack(0);
+        }
+
+        public override void RestartState()
+        {
+            base.RestartState();
+
+            if (_canAttack)
+            {
+                EnemyController.NavMeshAgent.isStopped = false;
+
+                return;
+            }
+
+            _enterMeleeAttackStateCoroutine = StartCoroutine(EnterMeleeAttackState());
+        }
+
+        private IEnumerator EnterMeleeAttackState()
+        {
+            yield return new WaitForSeconds(EnemyController.EnemyAnimator.GetCurrentAnimationDuration());
+
+            _canAttack = true;
+            EnemyController.NavMeshAgent.isStopped = false;
         }
 
         private IEnumerator StartAttack()
         {
-            _hasAttacked = true;
+            _canAttack = false;
+
+            EnemyController.StopEnemy();
+
             _onAttack?.Invoke();
 
-            yield return new WaitForSeconds(EnemyController.EnemyAnimator.GetCurrentAnimationDuration() + 0.5f);
+            yield return new WaitForSeconds(EnemyController.EnemyAnimator.GetCurrentAnimationDuration());
 
-            _hasAttacked = false;
-            EnemyController.NavMeshAgent.SetDestination(EnemyController.CurrentTarget.transform.position);
+            EnemyController.NavMeshAgent.isStopped = false;
+            EnemyController.NavMeshAgent.speed = MovementSpeed;
+            _canAttack = true;
         }
 
-        public void ActivateMeleeAttack(int isActive)
+        private bool IsNearTarget()
         {
-            _meleeAttacks.ToList().ForEach(c => c.SetActive(isActive == 1));
+            return Vector3.Distance(EnemyController.transform.position, EnemyController.CurrentTarget.transform.position) <= _minDistanceToAttack;
         }
     }
 }

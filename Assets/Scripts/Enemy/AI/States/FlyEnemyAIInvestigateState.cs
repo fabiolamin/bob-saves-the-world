@@ -11,16 +11,22 @@ namespace BSTW.Enemy.AI.States
 
         public override void EnterState()
         {
-            EnemyController.EnemyAnimator.SetMovementParameter(true);
+            base.EnterState();
+
+            EnemyController.EnemyAnimator.SetMovementParameter(1);
         }
 
         public override void ExitState()
         {
-            EnemyController.EnemyAnimator.SetMovementParameter(false);
+            base.ExitState();
+
+            EnemyController.EnemyAnimator.SetMovementParameter(0);
         }
 
         public override void UpdateState()
         {
+            base.UpdateState();
+
             EnemyController.RotateEnemy(_path.GetWaypoint(_currentWaypointIndex));
 
             transform.position = Vector3.MoveTowards(
@@ -32,6 +38,13 @@ namespace BSTW.Enemy.AI.States
             {
                 _currentWaypointIndex = _path.GetNextWaypointIndex(_currentWaypointIndex);
             }
+        }
+
+        public override void RestartState()
+        {
+            base.RestartState();
+
+            EnemyController.EnemyAnimator.SetMovementParameter(1);
         }
     }
 }

@@ -132,5 +132,12 @@ namespace BSTW.Utils
         {
             return IsAlive || CanUpdateHealth || hit.Damage != 0f;
         }
+
+        public void RestoreHealth()
+        {
+            IsAlive = true;
+
+            UpdateHealth(_maxHealth);
+        }
     }
 }

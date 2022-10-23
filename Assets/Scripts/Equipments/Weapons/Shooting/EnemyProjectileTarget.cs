@@ -7,11 +7,14 @@ namespace BSTW.Equipments.Weapons.Shooting
     {
         [SerializeField] private Transform _defaultHitPoint;
 
-        public override void Hit(Hit hit, GameObject vfx, Vector3 point)
+        public override void Hit(Hit hit, GameObject vfx, Vector3 point, Projectile projectile)
         {
             OnHit?.Invoke(hit);
 
-            PlayHitEffects(vfx, point == Vector3.zero ? _defaultHitPoint.position : point);
+            if (projectile != null)
+                projectile.OnProjectileHit?.Invoke();
+
+            PlayHitEffects(vfx, point == Vector3.zero ? _defaultHitPoint.position : point, projectile);
         }
     }
 }

@@ -1,6 +1,7 @@
 using BSTW.Data.Equipments.Weapons;
 using BSTW.Equipments.Weapons.Shooting;
 using BSTW.Utils;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,6 +24,8 @@ namespace BSTW.Equipments.Weapons
         [SerializeField] private Collider _projectileCollider;
         [SerializeField] private ObjectPooling _hitVFXPooling;
         [SerializeField] private UnityEvent _onShot;
+
+        public Action OnProjectileHit;
 
         protected Rigidbody projectileRb => _projectileRb;
 
@@ -48,7 +51,7 @@ namespace BSTW.Equipments.Weapons
             if (projectileTarget.ProjectileTargetRb != null)
                 projectileTarget.ProjectileTargetRb.AddForceAtPosition(transform.forward * projectileData.HitForce, transform.position);
 
-            projectileTarget.Hit(hit, null, transform.position);
+            projectileTarget.Hit(hit, null, transform.position, this);
         }
 
         private void MoveTowardsTarget()

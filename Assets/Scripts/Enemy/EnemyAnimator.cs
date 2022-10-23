@@ -8,14 +8,26 @@ namespace BSTW.Enemy
     {
         [SerializeField] private Animator _animator;
 
-        public void SetMovementParameter(bool isMoving)
+        [SerializeField] private RuntimeAnimatorController[] _attacks;
+
+        public void SetMovementParameter(float speed)
         {
-            _animator.SetBool("IsMoving", isMoving);
+            _animator.SetFloat("Speed Float", speed);
         }
 
         public float GetCurrentAnimationDuration()
         {
             return _animator.GetCurrentAnimatorClipInfo(0).Length;
+        }
+
+        public void TriggerAnimationAttack(string attackTrigger)
+        {
+            if(_attacks.Length > 0)
+            {
+                _animator.runtimeAnimatorController = _attacks[Random.Range(0, _attacks.Length)];
+            }
+
+            _animator.SetTrigger(attackTrigger);
         }
     }
 }

@@ -1,8 +1,8 @@
-using BSTW.Enemy.AI.States;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.AI;
+using BSTW.Utils;
 
 namespace BSTW.Enemy.AI
 {
@@ -17,56 +17,15 @@ namespace BSTW.Enemy.AI
     {
         private List<GameObject> _targets = new List<GameObject>();
 
-        public EnemyTargetPriority[] TargetPriorities;
+        [SerializeField] private EnemySight _enemySight;
 
-        public EnemyAIState InvestigateState;
-        public EnemyAIState AttackState;
+        public EnemyTargetPriority[] TargetPriorities;
 
         protected override void Start()
         {
             base.Start();
 
             SwitchState(InvestigateState);
-        }
-
-        protected override void OnTriggerEnter(Collider other)
-        {
-            if (TargetPriorities.Any(t => t.TargetTag == other.gameObject.tag))
-            {
-                _targets.Add(other.gameObject);
-
-                SetNewTarget();
-            }
-        }
-
-        protected override void OnTriggerExit(Collider other)
-        {
-            if (TargetPriorities.Any(t => t.TargetTag == other.gameObject.tag))
-            {
-                _targets.Remove(other.gameObject);
-
-                if (_targets.Count == 0)
-                {
-                    SwitchState(InvestigateState);
-
-                    return;
-                }
-
-                SetNewTarget();
-            }
-        }
-
-        private void SetNewTarget()
-        {
-            var newCurrentTarget = _targets.Count == 1 ? _targets[0] : _targets.
-            Where(t => IsAPriorityTarget(t.gameObject.tag)).
-                OrderBy(t => Vector3.Distance(t.transform.position, transform.position)).ElementAt(0);
-
-            if (currentState != AttackState)
-            {
-                CurrentTarget = newCurrentTarget;
-                SwitchState(AttackState);
-            }
         }
 
         private bool IsAPriorityTarget(string tag)
@@ -76,16 +35,18 @@ namespace BSTW.Enemy.AI
 
         public override void OnHit()
         {
-            base.OnHit();
-
-            if (IsAPriorityTarget(player.tag) && currentState != AttackState)
+            if (CanAttackPlayerOnHit())
             {
-                CurrentTarget = player;
-                SwitchState(AttackState);
+                AddTarget(player);
             }
         }
 
-        public void MoveTowardsArea(float radius, Vector3 center)
+        private bool CanAttackPlayerOnHit()
+        {
+            return !AttackState.IsActive && !_enemySight.IsTargetFarAway(player.transform);
+        }
+
+        public void MoveNavMeshAgentTowardsArea(float radius, Vector3 center)
         {
             NavMeshHit hit;
 
@@ -109,6 +70,52 @@ namespace BSTW.Enemy.AI
             var newPosition = center + new Vector3(x, 0f, z);
 
             return newPosition;
+        }
+
+        public void RemoveTarget(GameObject target)
+        {
+            if (TargetPriorities.Any(t => t.TargetTag == target.tag) && _targets.Contains(target))
+            {
+                CurrentTarget = null;
+                _targets.Remove(target);
+
+                if (_targets.Count == 0)
+                {
+                    SwitchState(InvestigateState);
+
+                    return;
+                }
+
+                if (AttackState.IsActive)
+                    CurrentTarget = GetNewTarget();
+                else
+                    AttackTarget();
+            }
+        }
+
+        public void AddTarget(GameObject newTarget)
+        {
+            if (TargetPriorities.Any(t => t.TargetTag == newTarget.tag) && !_targets.Contains(newTarget))
+            {
+                _targets.Add(newTarget);
+
+                if (!AttackState.IsActive)
+                    AttackTarget();
+            }
+        }
+
+        private Health GetNewTarget()
+        {
+            return _targets.Count == 1 ? _targets[0].GetComponent<Health>() : _targets.
+            Where(t => IsAPriorityTarget(t.gameObject.tag)).
+                OrderBy(t => Vector3.Distance(t.transform.position, transform.position)).ElementAt(0).GetComponent<Health>();
+        }
+
+        private void AttackTarget()
+        {
+            CurrentTarget = GetNewTarget();
+
+            SwitchState(AttackState);
         }
     }
 }

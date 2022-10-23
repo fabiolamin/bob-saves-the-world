@@ -1,44 +1,80 @@
 using BSTW.Enemy.AI.States;
 using BSTW.Player;
+using BSTW.Utils;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 namespace BSTW.Enemy.AI
 {
-    public class EnemyAIController : MonoBehaviour
+    public abstract class EnemyAIController : MonoBehaviour
     {
-        [SerializeField] private float _rotationSpeed = 10f;
+        [SerializeField] private UnityEvent _onTargetDeath;
 
-        protected GameObject player;
         protected EnemyAIState currentState;
+        protected GameObject player;
 
+        public EnemyHealth EnemyHealth;
         public NavMeshAgent NavMeshAgent;
         public EnemyAnimator EnemyAnimator;
 
-        [HideInInspector] public GameObject CurrentTarget;
+        public EnemyAIState InvestigateState;
+        public EnemyAIState AttackState;
+        public EnemyAIState DeathState;
+
+        [Header("Speed")]
+        [SerializeField] private float _rotationSpeed = 10f;
+        [SerializeField] private float _decreaseSpeed = 5f;
+        [SerializeField] private float _minSpeedOnDecrease = 0.5f;
+        [SerializeField] private float _minDecreaseDistance = 1f;
+
+        [HideInInspector] public Health CurrentTarget;
 
         protected virtual void Start()
         {
             player = FindObjectOfType<PlayerMovement>().gameObject;
         }
 
-        private void Update()
+        protected virtual void Update()
+        {
+            CheckTargetHealth();
+            UpdateCurrentState();
+            CheckNavMeshAgentMovement();
+        }
+
+        private void CheckTargetHealth()
+        {
+            if (CurrentTarget != null && !CurrentTarget.IsAlive && AttackState.IsActive && EnemyHealth.IsAlive)
+            {
+                _onTargetDeath?.Invoke();
+            }
+        }
+
+        private void UpdateCurrentState()
         {
             if (currentState != null)
                 currentState.UpdateState();
+        }
 
+        private void CheckNavMeshAgentMovement()
+        {
             if (NavMeshAgent != null)
-                EnemyAnimator.SetMovementParameter(!HasNavMeshAgentReachedDestination());
+            {
+                DecreaseNavMeshAgentSpeedAsHeReachesDestination();
+
+                EnemyAnimator.SetMovementParameter(NavMeshAgent.velocity.magnitude);
+            }
         }
 
-        protected virtual void OnTriggerEnter(Collider other)
+        private void DecreaseNavMeshAgentSpeedAsHeReachesDestination()
         {
+            if (NavMeshAgent.hasPath && !NavMeshAgent.isStopped)
+            {
+                var distanceFromDestination = Vector3.Distance(transform.position, NavMeshAgent.destination);
 
-        }
-
-        protected virtual void OnTriggerExit(Collider other)
-        {
-
+                if (distanceFromDestination <= _minDecreaseDistance)
+                    NavMeshAgent.speed = Mathf.Lerp(NavMeshAgent.speed, _minSpeedOnDecrease, _decreaseSpeed * Time.deltaTime * (1 / distanceFromDestination));
+            }
         }
 
         public void SwitchState(EnemyAIState enemyAIState)
@@ -67,10 +103,25 @@ namespace BSTW.Enemy.AI
             transform.rotation = newRotation;
         }
 
-        public virtual void OnHit()
+        public void RestoreEnemy()
         {
+            EnemyHealth.RestoreHealth();
 
+            SwitchState(InvestigateState);
         }
+
+        public virtual void StopEnemy()
+        {
+            NavMeshAgent.speed = 0f;
+            NavMeshAgent.isStopped = true;
+        }
+
+        public void RestartCurrentState()
+        {
+            currentState.RestartState();
+        }
+
+        public abstract void OnHit();
     }
 }
 

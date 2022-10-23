@@ -5,9 +5,9 @@ namespace BSTW.Equipments.Weapons.Shooting
 {
     public class PropProjectileTarget : ProjectileTarget
     {
-        public override void Hit(Hit hit, GameObject vfx, Vector3 point)
+        public override void Hit(Hit hit, GameObject vfx, Vector3 point, Projectile projectile)
         {
-            PlayHitEffects(vfx, point);
+            PlayHitEffects(vfx, point, projectile);
             OnHit?.Invoke(hit);
         }
     }

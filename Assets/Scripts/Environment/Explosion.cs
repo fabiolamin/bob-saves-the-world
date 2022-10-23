@@ -47,7 +47,7 @@ namespace BSTW.Environment
                 damage,
                 _maxDamageDistance), true),
                 null,
-                Vector3.zero);
+                Vector3.zero, null);
 
                 if (target.ProjectileTargetRb != null)
                 {
@@ -75,6 +75,7 @@ namespace BSTW.Environment
 
             foreach (Collider collider in colliders)
             {
+                Debug.Log(collider.name);
                 var target = collider.GetComponent<ProjectileTarget>();
 
                 if (target != null && !_targets.Contains(target))

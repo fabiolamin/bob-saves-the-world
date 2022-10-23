@@ -12,6 +12,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6731378510097553432}
     - target: {fileID: 5469989538491209558, guid: 0a800ba2096109340be58950258a79ca, type: 3}
+      propertyPath: _spawnForce
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469989538491209558, guid: 0a800ba2096109340be58950258a79ca, type: 3}
       propertyPath: _weaponData
       value: 
       objectReference: {fileID: 11400000, guid: 351b03d88a57b5845abfd54a26c80487, type: 2}
