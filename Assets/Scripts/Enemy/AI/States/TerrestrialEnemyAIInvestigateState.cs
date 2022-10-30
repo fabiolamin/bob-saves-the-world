@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace BSTW.Enemy.AI.States
 {
-    public class DefaultEnemyAIInvestigateState : EnemyAIState
+    public class TerrestrialEnemyAIInvestigateState : EnemyAIState
     {
         private bool _hasStopped = false;
         private Coroutine _waitToInvestigateCoroutine;
@@ -16,8 +16,8 @@ namespace BSTW.Enemy.AI.States
         {
             base.EnterState();
 
-            EnemyController.NavMeshAgent.isStopped = false;
-            EnemyController.NavMeshAgent.speed = MovementSpeed;
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = false;
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
             _waitToInvestigateCoroutine = StartCoroutine(WaitToInvestigate());
         }
 
@@ -40,8 +40,8 @@ namespace BSTW.Enemy.AI.States
         {
             base.RestartState();
 
-            EnemyController.NavMeshAgent.isStopped = false;
-            EnemyController.NavMeshAgent.speed = MovementSpeed;
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = false;
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
             _waitToInvestigateCoroutine = StartCoroutine(WaitToInvestigate());
         }
 
@@ -49,15 +49,15 @@ namespace BSTW.Enemy.AI.States
         {
             yield return new WaitForSeconds(Random.Range(_minTimeNewInvestigation, _maxTimeNewInvestigation));
 
-            (EnemyController as DefaultEnemyAIController).MoveNavMeshAgentTowardsArea(_investigateRadius, transform.position);
+            (EnemyController as TerrestrialEnemyAIController).MoveTowardsArea(_investigateRadius, transform.position);
 
-            EnemyController.NavMeshAgent.speed = MovementSpeed;
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
             _hasStopped = false;
         }
 
         private void CheckEnemyDestination()
         {
-            if (EnemyController.HasNavMeshAgentReachedDestination() && !_hasStopped)
+            if ((EnemyController as TerrestrialEnemyAIController).HasReachedDestination() && !_hasStopped)
             {
                 _hasStopped = true;
                 _waitToInvestigateCoroutine = StartCoroutine(WaitToInvestigate());

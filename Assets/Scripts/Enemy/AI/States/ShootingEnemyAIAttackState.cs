@@ -17,9 +17,9 @@ namespace BSTW.Enemy.AI.States
         {
             base.EnterState();
 
-            EnemyController.NavMeshAgent.speed = MovementSpeed;
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
 
-            (EnemyController as DefaultEnemyAIController).MoveNavMeshAgentTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
+            (EnemyController as TerrestrialEnemyAIController).MoveTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
         }
 
         public override void UpdateState()
@@ -28,10 +28,10 @@ namespace BSTW.Enemy.AI.States
 
             if (_startedShooting)
             {
-                EnemyController.RotateEnemy(EnemyController.CurrentTarget.transform.position);
+                (EnemyController as DefaultEnemyAIController).RotateEnemy(EnemyController.CurrentTarget.transform.position);
             }
 
-            if (EnemyController.HasNavMeshAgentReachedDestination() && !_startedShooting)
+            if ((EnemyController as TerrestrialEnemyAIController).HasReachedDestination() && !_startedShooting)
             {
                 _shootingCoroutine = StartCoroutine(StartShooting());
             }
@@ -51,9 +51,10 @@ namespace BSTW.Enemy.AI.States
         {
             base.RestartState();
 
-            EnemyController.NavMeshAgent.speed = MovementSpeed;
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
 
-            (EnemyController as DefaultEnemyAIController).MoveNavMeshAgentTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
+            (EnemyController as TerrestrialEnemyAIController).
+            MoveTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
         }
 
         protected virtual IEnumerator StartShooting()
@@ -66,7 +67,8 @@ namespace BSTW.Enemy.AI.States
 
             _enemyShooting.StopShooting();
 
-            (EnemyController as DefaultEnemyAIController).MoveNavMeshAgentTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
+            (EnemyController as TerrestrialEnemyAIController).
+            MoveTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
 
             _startedShooting = false;
         }

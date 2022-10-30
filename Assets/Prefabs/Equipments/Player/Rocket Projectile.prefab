@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3643330809812258341}
   - component: {fileID: 4012740357295852485}
-  - component: {fileID: 3576820220722383616}
+  - component: {fileID: 117822287807736846}
   - component: {fileID: 1244372127063562558}
   - component: {fileID: 2752147153377741372}
   - component: {fileID: 6427903325663977023}
@@ -53,8 +53,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!65 &3576820220722383616
-BoxCollider:
+--- !u!135 &117822287807736846
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -64,8 +64,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4086125, y: 1.1953864, z: 2.2043324}
-  m_Center: {x: -0.009210308, y: 0.0046646595, z: 0.04639536}
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1244372127063562558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +80,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileData: {fileID: 11400000, guid: 957f981b1259cb8469f4d9dbda484fe1, type: 2}
   _projectileRb: {fileID: 4012740357295852485}
-  _projectileCollider: {fileID: 3576820220722383616}
   _hitVFXPooling: {fileID: 2752147153377741372}
   _onShot:
     m_PersistentCalls:
@@ -133,6 +132,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _projectileCollider: {fileID: 117822287807736846}
+  _increaseColliderDist: 2
+  _defaultColliderRadius: 1
+  _maxColliderRadius: 1
   _explosion: {fileID: 6427903325663977023}
 --- !u!114 &2752147153377741372
 MonoBehaviour:

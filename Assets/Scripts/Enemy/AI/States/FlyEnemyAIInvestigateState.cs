@@ -27,7 +27,7 @@ namespace BSTW.Enemy.AI.States
         {
             base.UpdateState();
 
-            EnemyController.RotateEnemy(_path.GetWaypoint(_currentWaypointIndex));
+            (EnemyController as DefaultEnemyAIController).RotateEnemy(_path.GetWaypoint(_currentWaypointIndex));
 
             transform.position = Vector3.MoveTowards(
             transform.position,

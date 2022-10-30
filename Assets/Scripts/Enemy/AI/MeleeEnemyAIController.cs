@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace BSTW.Enemy.AI
 {
-    public class MeleeEnemyAIController : DefaultEnemyAIController
+    public class MeleeEnemyAIController : TerrestrialEnemyAIController
     {
         [Header("SFX")]
         [SerializeField] private AudioSource _audioSource;

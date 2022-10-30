@@ -224,20 +224,8 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 0
-      - m_Target: {fileID: 4615351639795206866}
-        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2609474285484766936, guid: dbda489ef448bf04aaa911c58a58db91, type: 3}
+      - m_Target: {fileID: 4615351639795206866}
         m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -375,18 +363,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2609474285484766936, guid: dbda489ef448bf04aaa911c58a58db91, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 0
       - m_Target: {fileID: 4843989316638119340}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1100,9 +1076,9 @@ MonoBehaviour:
           m_StringArgument: Attack
           m_BoolArgument: 0
         m_CallState: 2
+  _enterMeleeAtackDelay: 0.5
+  _attackDelay: 0.5
   _minDistanceToAttack: 3
-  _attackEnterDelay: 2
-  _attackDelay: 0.2
 --- !u!1 &4749466926035450207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,8 +1193,8 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 2
+  m_IsKinematic: 1
+  m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 2
 --- !u!136 &4615351639795206866
@@ -1231,10 +1207,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 6.8446755
-  m_Height: 44.760212
+  m_Radius: 15.110302
+  m_Height: 46.66468
   m_Direction: 1
-  m_Center: {x: -0.22757734, y: 21.880108, z: -1.4377339}
+  m_Center: {x: 0.060156412, y: 22.498508, z: -0.26721272}
 --- !u!114 &5675533187566437063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,21 +1238,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onEnemyStop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2201155478300816129}
+        m_TargetAssemblyTypeName: UnityEngine.AI.NavMeshAgent, UnityEngine
+        m_MethodName: set_isStopped
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   EnemyHealth: {fileID: 8368905634000368457}
-  NavMeshAgent: {fileID: 2201155478300816129}
   EnemyAnimator: {fileID: 3156242094662251909}
+  CurrentTarget: {fileID: 0}
+  _enemySight: {fileID: 3418423640319576825}
+  _rotationSpeed: 20
   InvestigateState: {fileID: 2765708840552132253}
   AttackState: {fileID: 4749466925563236817}
   DeathState: {fileID: 3908726240467966053}
-  _rotationSpeed: 20
-  _decreaseSpeed: 1.5
-  _minSpeedOnDecrease: 0.5
-  _minDecreaseDistance: 1.5
-  CurrentTarget: {fileID: 0}
-  _enemySight: {fileID: 3418423640319576825}
   TargetPriorities:
   - Priority: 1
     TargetTag: Player
+  _decreaseSpeed: 1.5
+  _minSpeedOnDecrease: 0.5
+  _minDecreaseDistance: 1.5
+  NavMeshAgent: {fileID: 2201155478300816129}
   _audioSource: {fileID: 2029836549165144458}
   _screamSFX: {fileID: 8300000, guid: ee496f31de964fb41ae2ca8e23d026a0, type: 3}
   _leftHand: {fileID: 7885675105885484668}
@@ -3870,7 +3861,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6741299026250399596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3906,7 +3897,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6741299026297756569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

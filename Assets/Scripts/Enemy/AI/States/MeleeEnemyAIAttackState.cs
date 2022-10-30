@@ -13,15 +13,18 @@ namespace BSTW.Enemy.AI.States
         [SerializeField] private GameObject[] _meleeAttacks;
         [SerializeField] private UnityEvent _onAttack;
 
+        [SerializeField] private float _enterMeleeAtackDelay = 0.4f;
+        [SerializeField] private float _attackDelay = 1f;
         [SerializeField] private float _minDistanceToAttack = 0.5f;
 
         public override void EnterState()
         {
-            base.EnterState();
-
             _canAttack = false;
 
-            EnemyController.StopEnemy();
+            base.EnterState();
+
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = true;
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = 0f;
 
             _enterMeleeAttackStateCoroutine = StartCoroutine(EnterMeleeAttackState());
         }
@@ -30,12 +33,12 @@ namespace BSTW.Enemy.AI.States
         {
             base.UpdateState();
 
-            EnemyController.RotateEnemy(EnemyController.CurrentTarget.transform.position);
+            (EnemyController as DefaultEnemyAIController).RotateEnemy(EnemyController.CurrentTarget.transform.position);
 
             if (_canAttack)
             {
-                EnemyController.NavMeshAgent.destination = EnemyController.CurrentTarget.transform.position;
-                EnemyController.NavMeshAgent.speed = MovementSpeed;
+                (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.destination = EnemyController.CurrentTarget.transform.position;
+                (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
 
                 if (IsNearTarget())
                 {
@@ -64,7 +67,7 @@ namespace BSTW.Enemy.AI.States
 
             if (_canAttack)
             {
-                EnemyController.NavMeshAgent.isStopped = false;
+                (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = false;
 
                 return;
             }
@@ -74,24 +77,24 @@ namespace BSTW.Enemy.AI.States
 
         private IEnumerator EnterMeleeAttackState()
         {
-            yield return new WaitForSeconds(EnemyController.EnemyAnimator.GetCurrentAnimationDuration());
+            yield return new WaitForSeconds(EnemyController.EnemyAnimator.GetCurrentAnimationDuration() + _enterMeleeAtackDelay);
 
             _canAttack = true;
-            EnemyController.NavMeshAgent.isStopped = false;
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = false;
         }
 
         private IEnumerator StartAttack()
         {
             _canAttack = false;
 
-            EnemyController.StopEnemy();
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = true;
 
             _onAttack?.Invoke();
 
-            yield return new WaitForSeconds(EnemyController.EnemyAnimator.GetCurrentAnimationDuration());
+            yield return new WaitForSeconds(EnemyController.EnemyAnimator.GetCurrentAnimationDuration() + _attackDelay);
 
-            EnemyController.NavMeshAgent.isStopped = false;
-            EnemyController.NavMeshAgent.speed = MovementSpeed;
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = false;
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
             _canAttack = true;
         }
 

@@ -75,7 +75,6 @@ namespace BSTW.Environment
 
             foreach (Collider collider in colliders)
             {
-                Debug.Log(collider.name);
                 var target = collider.GetComponent<ProjectileTarget>();
 
                 if (target != null && !_targets.Contains(target))

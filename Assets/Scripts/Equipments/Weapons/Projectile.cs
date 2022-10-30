@@ -18,12 +18,16 @@ namespace BSTW.Equipments.Weapons
         protected string[] targetNames;
         protected Hit hit;
 
-
         [SerializeField] private ProjectileData _projectileData;
         [SerializeField] private Rigidbody _projectileRb;
-        [SerializeField] private Collider _projectileCollider;
         [SerializeField] private ObjectPooling _hitVFXPooling;
         [SerializeField] private UnityEvent _onShot;
+
+        [Header("Collider")]
+        [SerializeField] private SphereCollider _projectileCollider;
+        [SerializeField] private float _increaseColliderDist = 2f;
+        [SerializeField] private float _defaultColliderRadius = 0.5f;
+        [SerializeField] private float _maxColliderRadius = 2f;
 
         public Action OnProjectileHit;
 
@@ -60,9 +64,19 @@ namespace BSTW.Equipments.Weapons
             {
                 transform.position = Vector3.MoveTowards(transform.position, _targetPosition, Time.deltaTime * projectileData.Speed);
 
+                if (IsProjectileNearTarget())
+                {
+                    _projectileCollider.radius = _maxColliderRadius;
+                }
+
                 if (!_projectileData.RapidFire)
                     _targetPosition += transform.forward * projectileData.Speed;
             }
+        }
+
+        private bool IsProjectileNearTarget()
+        {
+            return Vector3.Distance(transform.position, _targetPosition) < _increaseColliderDist;
         }
 
         public void SetUpProjectile(int layer, string[] targetNames, Hit hit, Transform origin)
@@ -80,6 +94,8 @@ namespace BSTW.Equipments.Weapons
 
         public void GetReadyToMove(Vector3 origin, Vector3 target)
         {
+            _projectileCollider.radius = _defaultColliderRadius;
+
             EnablePhysics(true);
             gameObject.SetActive(true);
             transform.SetParent(null);

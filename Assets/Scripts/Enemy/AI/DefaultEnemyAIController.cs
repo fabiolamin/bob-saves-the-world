@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using UnityEngine.AI;
 using BSTW.Utils;
+using BSTW.Enemy.AI.States;
 
 namespace BSTW.Enemy.AI
 {
@@ -18,6 +18,11 @@ namespace BSTW.Enemy.AI
         private List<GameObject> _targets = new List<GameObject>();
 
         [SerializeField] private EnemySight _enemySight;
+        [SerializeField] private float _rotationSpeed = 10f;
+
+        public EnemyAIState InvestigateState;
+        public EnemyAIState AttackState;
+        public EnemyAIState DeathState;
 
         public EnemyTargetPriority[] TargetPriorities;
 
@@ -44,32 +49,6 @@ namespace BSTW.Enemy.AI
         private bool CanAttackPlayerOnHit()
         {
             return !AttackState.IsActive && !_enemySight.IsTargetFarAway(player.transform);
-        }
-
-        public void MoveNavMeshAgentTowardsArea(float radius, Vector3 center)
-        {
-            NavMeshHit hit;
-
-            var newPosition = GetArea(radius, center);
-
-            while (!NavMesh.SamplePosition(newPosition, out hit, radius, 1))
-            {
-                newPosition = GetArea(radius, center);
-            }
-
-            NavMeshAgent.SetDestination(hit.position);
-        }
-
-        private Vector3 GetArea(float radius, Vector3 center)
-        {
-            var randomAngle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
-
-            var x = Mathf.Cos(randomAngle) * radius;
-            var z = Mathf.Sin(randomAngle) * radius;
-
-            var newPosition = center + new Vector3(x, 0f, z);
-
-            return newPosition;
         }
 
         public void RemoveTarget(GameObject target)
@@ -117,6 +96,27 @@ namespace BSTW.Enemy.AI
 
             SwitchState(AttackState);
         }
+
+        public void RotateEnemy(Vector3 target)
+        {
+            var newRotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(target - transform.position), Time.deltaTime * _rotationSpeed);
+
+            newRotation.x = 0f;
+            newRotation.z = 0f;
+
+            transform.rotation = newRotation;
+        }
+
+        public void RestoreEnemy()
+        {
+            EnemyHealth.RestoreHealth();
+
+            SwitchState(InvestigateState);
+        }
+
+        protected override bool IsTargetAlive()
+        {
+            return CurrentTarget != null && !CurrentTarget.IsAlive && AttackState.IsActive && EnemyHealth.IsAlive;
+        }
     }
 }
-
