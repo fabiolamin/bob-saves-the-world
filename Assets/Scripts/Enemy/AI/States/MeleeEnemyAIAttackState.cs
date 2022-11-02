@@ -10,7 +10,6 @@ namespace BSTW.Enemy.AI.States
         private Coroutine _attackCoroutine;
         private bool _canAttack;
 
-        [SerializeField] private GameObject[] _meleeAttacks;
         [SerializeField] private UnityEvent _onAttack;
 
         [SerializeField] private float _enterMeleeAtackDelay = 0.4f;

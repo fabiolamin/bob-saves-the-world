@@ -921,16 +921,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lootItems:
-  - ItemPool: {fileID: 4735917877434957722}
-    Probability: 0.1
-  - ItemPool: {fileID: 2033505951850216381}
-    Probability: 0.4
   - ItemPool: {fileID: 4760437146525922039}
-    Probability: 0.7
+    Probability: 0.8
   - ItemPool: {fileID: 2590214138701806346}
+    Probability: 0.5
+  - ItemPool: {fileID: 4735917877434957722}
     Probability: 0.4
+  - ItemPool: {fileID: 2033505951850216381}
+    Probability: 0.6
   - ItemPool: {fileID: 1543684159874694380}
-    Probability: 0.1
+    Probability: 0.4
   _timeToClear: 60
   _itemsLimit: 2
 --- !u!1 &4749466925424748760
@@ -1058,9 +1058,6 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
-  _meleeAttacks:
-  - {fileID: 4843989316638119358}
-  - {fileID: 4843989316638119350}
   _onAttack:
     m_PersistentCalls:
       m_Calls:
@@ -4020,6 +4017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bar: {fileID: 6996264137860959005}
   _smoothlySpeed: 0.4
+  _maxValue: 100
 --- !u!1 &8814807425040391956
 GameObject:
   m_ObjectHideFlags: 0

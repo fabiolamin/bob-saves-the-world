@@ -1,3 +1,4 @@
+using BSTW.Enemy.AI;
 using BSTW.Utils;
 using UnityEngine;
 
@@ -21,8 +22,11 @@ namespace BSTW.Enemy
         private void HitTarget(Collider other)
         {
             var targetHealth = other.GetComponent<Health>();
+            var isCollidingEnemy = other.GetComponent<EnemyAIController>() != null;
 
-            if (targetHealth != null)
+            var canHitTarget = targetHealth != null && !isCollidingEnemy;
+
+            if (canHitTarget)
                 targetHealth.Hit(_hit);
         }
     }

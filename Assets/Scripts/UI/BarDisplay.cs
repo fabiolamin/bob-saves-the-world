@@ -11,6 +11,7 @@ namespace BSTW.UI
         public Image Bar;
 
         [SerializeField] private float _smoothlySpeed = 5f;
+        [SerializeField] private float _maxValue = 100f;
 
         public void UpdateBar(float currentValue, float maxValue)
         {
@@ -28,7 +29,7 @@ namespace BSTW.UI
                 StopCoroutine(_updateBarSmoothlyCoroutine);
             }
 
-            _updateBarSmoothlyCoroutine = StartCoroutine(StartUpdateBarSmoothly(Bar.fillAmount, currentValue/100));
+            _updateBarSmoothlyCoroutine = StartCoroutine(StartUpdateBarSmoothly(Bar.fillAmount, currentValue/ _maxValue));
         }
 
         private IEnumerator StartUpdateBarSmoothly(float startValue, float endValue)
