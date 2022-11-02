@@ -412,6 +412,21 @@ MonoBehaviour:
     Damage: 32
     CanKnockDown: 1
   _audioSource: {fileID: 711152829635180918}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2835547349576316716}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &711152829635180918
 AudioSource:
   m_ObjectHideFlags: 0
@@ -604,6 +619,21 @@ MonoBehaviour:
     Damage: 32
     CanKnockDown: 1
   _audioSource: {fileID: 7716412029905831319}
+  _onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2835547349576316716}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &7716412029905831319
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1645,6 +1675,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e777a8bd777b45b4fb799fe93f2381bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &2835547349576316716 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1214250991587807988, guid: 2052f036503368646b68ac5827797157, type: 3}
+  m_PrefabInstance: {fileID: 3999198244781041112}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3150399325786775141 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2033505951850216381, guid: 2052f036503368646b68ac5827797157, type: 3}
