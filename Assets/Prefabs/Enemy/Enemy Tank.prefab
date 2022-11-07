@@ -1344,7 +1344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2201155478300816129, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: m_Radius
-      value: 2
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 2201155478300816129, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: m_BaseOffset
@@ -1364,7 +1364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2765708840552132253, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: MovementSpeed
-      value: 1.8
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 3156242094662251909, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _attacks.Array.data[0]
@@ -1480,7 +1480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4749466925563236817, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: MovementSpeed
-      value: 1.8
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 4843989316638119316, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: m_Name

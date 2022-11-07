@@ -5,11 +5,6 @@ namespace BSTW.Enemy.AI
 {
     public class TerrestrialEnemyAIController : DefaultEnemyAIController
     {
-        [Header("Speed")]
-        [SerializeField] private float _decreaseSpeed = 5f;
-        [SerializeField] private float _minSpeedOnDecrease = 0.5f;
-        [SerializeField] private float _minDecreaseDistance = 1f;
-
         public NavMeshAgent NavMeshAgent;
 
         protected override void Update()
@@ -23,20 +18,7 @@ namespace BSTW.Enemy.AI
         {
             if (NavMeshAgent != null)
             {
-                DecreaseSpeedAsHeReachesDestination();
-
                 EnemyAnimator.SetMovementParameter(NavMeshAgent.velocity.magnitude);
-            }
-        }
-
-        private void DecreaseSpeedAsHeReachesDestination()
-        {
-            if (NavMeshAgent.hasPath && !NavMeshAgent.isStopped)
-            {
-                var distanceFromDestination = Vector3.Distance(transform.position, NavMeshAgent.destination);
-
-                if (distanceFromDestination <= _minDecreaseDistance)
-                    NavMeshAgent.speed = Mathf.Lerp(NavMeshAgent.speed, _minSpeedOnDecrease, _decreaseSpeed * Time.deltaTime * (1 / distanceFromDestination));
             }
         }
 
