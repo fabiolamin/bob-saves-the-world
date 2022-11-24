@@ -1285,6 +1285,15 @@ MonoBehaviour:
   TargetPriorities:
   - Priority: 1
     TargetTag: Player
+  _center: {fileID: 6741299026250399595}
+  _onMovementStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  _onMovementFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  _avoidanceObstacleDistance: 2
+  _obstacleLayer: Obstacle
   NavMeshAgent: {fileID: 2201155478300816129}
   _audioSource: {fileID: 2029836549165144458}
   _screamSFX: {fileID: 8300000, guid: ee496f31de964fb41ae2ca8e23d026a0, type: 3}

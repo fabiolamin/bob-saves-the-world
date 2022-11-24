@@ -20,7 +20,7 @@ namespace BSTW.Enemy
             return _animator.GetCurrentAnimatorClipInfo(0).Length;
         }
 
-        public void TriggerAnimationAttack(string attackTrigger)
+        public void TriggerAnimationAttack(string attackTrigger = "Attack")
         {
             if(_attacks.Length > 0)
             {

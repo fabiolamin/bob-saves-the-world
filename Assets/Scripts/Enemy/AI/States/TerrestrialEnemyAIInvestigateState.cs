@@ -40,9 +40,7 @@ namespace BSTW.Enemy.AI.States
         {
             base.RestartState();
 
-            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = false;
-            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
-            _waitToInvestigateCoroutine = StartCoroutine(WaitToInvestigate());
+            EnterState();
         }
 
         private IEnumerator WaitToInvestigate()

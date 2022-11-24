@@ -6,20 +6,27 @@ namespace BSTW.Enemy.AI.States
     public class ShootingEnemyAIAttackState : EnemyAIState
     {
         private bool _startedShooting;
+        private float _currentShootingTime = 0f;
         private Coroutine _shootingCoroutine;
 
         [SerializeField] private EnemyShooting _enemyShooting;
+
         [SerializeField] private float _attackPositionRadius = 10f;
-        [SerializeField] private float _minAttackDelay = 3f;
-        [SerializeField] private float _maxAttackDelay = 5f;
+        [SerializeField] private float _minAttackDuration = 3f;
+        [SerializeField] private float _maxAttackDuration = 5f;
+
+        [Header("Obstacle avoidance")]
+        [SerializeField] private Transform _center;
+        [SerializeField] private float _obstacleAvoidanceDistance = 5f;
+        [SerializeField] private string[] _obstacleLayers;
 
         public override void EnterState()
         {
             base.EnterState();
 
-            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
+            _startedShooting = false;
 
-            (EnemyController as TerrestrialEnemyAIController).MoveTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
+            Move();
         }
 
         public override void UpdateState()
@@ -29,11 +36,26 @@ namespace BSTW.Enemy.AI.States
             if (_startedShooting)
             {
                 (EnemyController as DefaultEnemyAIController).RotateEnemy(EnemyController.CurrentTarget.transform.position);
-            }
 
-            if ((EnemyController as TerrestrialEnemyAIController).HasReachedDestination() && !_startedShooting)
+                _currentShootingTime += Time.deltaTime;
+            }
+            else
             {
-                _shootingCoroutine = StartCoroutine(StartShooting());
+                if ((EnemyController as TerrestrialEnemyAIController).HasReachedDestination())
+                {
+                    (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = true;
+                    (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = 0f;
+
+                    (EnemyController as TerrestrialEnemyAIController).LookAtTarget();
+
+                    if (_shootingCoroutine != null)
+                        StopCoroutine(_shootingCoroutine);
+
+                    if (IsFrontOfObstacle())
+                        Move();
+                    else
+                        _shootingCoroutine = StartCoroutine(StartShooting());
+                }
             }
         }
 
@@ -43,35 +65,53 @@ namespace BSTW.Enemy.AI.States
 
             if (_shootingCoroutine != null)
                 StopCoroutine(_shootingCoroutine);
-
-            _enemyShooting.StopEnemyShooting();
         }
 
         public override void RestartState()
         {
             base.RestartState();
 
-            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
+            EnterState();
+        }
 
-            (EnemyController as TerrestrialEnemyAIController).
-            MoveTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
+        private void Move()
+        {
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = false;
+            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
+            (EnemyController as TerrestrialEnemyAIController).MoveTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
         }
 
         protected virtual IEnumerator StartShooting()
         {
             _startedShooting = true;
 
-            _enemyShooting.StartEnemyShooting();
+            yield return new WaitUntil(() =>
+            Mathf.Approximately((EnemyController as TerrestrialEnemyAIController).NavMeshAgent.velocity.magnitude, 0f));
 
-            yield return new WaitForSeconds(Random.Range(_minAttackDelay, _maxAttackDelay));
+            var shootingDuration = Random.Range(_minAttackDuration, _maxAttackDuration);
 
-            _enemyShooting.StopShooting();
+            _currentShootingTime = 0f;
 
-            (EnemyController as TerrestrialEnemyAIController).
-            MoveTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
+            while (_currentShootingTime < shootingDuration)
+            {
+                EnemyController.EnemyAnimator.TriggerAnimationAttack();
+
+                yield return new WaitForSeconds(_enemyShooting.CurrentWeapon.WeaponData.ShootingInterval);
+            }
+
+            Move();
 
             _startedShooting = false;
+
+            yield return null;
+        }
+
+        private bool IsFrontOfObstacle()
+        {
+            return Physics.Raycast(_center.transform.position,
+            _center.transform.forward,
+            _obstacleAvoidanceDistance,
+            LayerMask.GetMask(_obstacleLayers));
         }
     }
 }
-

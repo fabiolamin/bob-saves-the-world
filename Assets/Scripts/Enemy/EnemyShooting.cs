@@ -7,10 +7,19 @@ namespace BSTW.Enemy
     public class EnemyShooting : CharacterShooting
     {
         [SerializeField] private EnemyAIController _enemyController;
+        [SerializeField] private Transform _center;
 
         protected override Vector3 GetShootingDirection()
         {
-            return transform.position - _enemyController.CurrentTarget.transform.position;
+            if (_enemyController.CurrentTarget == null) return Vector3.zero;
+
+            var direction = _enemyController.CurrentTarget.transform.position - transform.position;
+
+            direction.y = _enemyController.CurrentTarget.transform.position.y > transform.position.y ?
+            ((_enemyController.CurrentTarget.transform.position.y - transform.position.y) + 0.1f) :
+            _center.position.y;
+
+            return direction;
         }
 
         protected override Vector3 GetShootingOrigin()
@@ -20,14 +29,10 @@ namespace BSTW.Enemy
 
         public void StartEnemyShooting()
         {
-            isHoldingShootingTrigger = true;
-            CheckShooting();
-        }
+            Shoot();
 
-        public void StopEnemyShooting()
-        {
-            isHoldingShootingTrigger = false;
-            StopShooting();
+            if (CurrentWeapon.CurrentProjectile == null)
+                CurrentWeapon.SetProjectile();
         }
     }
 }

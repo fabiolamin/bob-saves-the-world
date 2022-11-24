@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 namespace BSTW.Enemy.AI
 {
     public class TerrestrialEnemyAIController : DefaultEnemyAIController
     {
+        [SerializeField] private UnityEvent _onMovementStarted;
+        [SerializeField] private UnityEvent _onMovementFinished;
+
         public NavMeshAgent NavMeshAgent;
 
         protected override void Update()
@@ -24,12 +28,19 @@ namespace BSTW.Enemy.AI
 
         public bool HasReachedDestination()
         {
-            return !NavMeshAgent.pathPending && NavMeshAgent.remainingDistance <= NavMeshAgent.stoppingDistance;
+            var hasReachedDestination = !NavMeshAgent.pathPending && NavMeshAgent.remainingDistance <= NavMeshAgent.stoppingDistance;
+
+            if (hasReachedDestination)
+                _onMovementFinished?.Invoke();
+
+            return hasReachedDestination;
         }
 
         public void MoveTowardsArea(float radius, Vector3 center)
         {
             NavMeshHit hit;
+
+            center.y = transform.position.y;
 
             var newPosition = GetArea(radius, center);
 
@@ -38,6 +49,7 @@ namespace BSTW.Enemy.AI
                 newPosition = GetArea(radius, center);
             }
 
+            _onMovementStarted?.Invoke();
             NavMeshAgent.SetDestination(hit.position);
         }
 
@@ -51,6 +63,17 @@ namespace BSTW.Enemy.AI
             var newPosition = center + new Vector3(x, 0f, z);
 
             return newPosition;
+        }
+
+        public void LookAtTarget()
+        {
+            if (CurrentTarget == null) return;
+
+            var targetPosition = new Vector3(CurrentTarget.transform.position.x,
+            transform.position.y,
+            CurrentTarget.transform.position.z);
+
+            transform.LookAt(targetPosition);
         }
     }
 }

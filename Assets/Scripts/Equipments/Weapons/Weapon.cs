@@ -120,6 +120,8 @@ namespace BSTW.Equipments.Weapons
 
         private void UpdateCurrentAmmo(int amount)
         {
+            if (_infiniteAmmo) return;
+
             _weaponData.CurrentAmmo = Mathf.Clamp(_weaponData.CurrentAmmo + amount, 0, _weaponData.MaxAmmo);
 
             characterShooting.OnWeaponAmmoUpdated();
