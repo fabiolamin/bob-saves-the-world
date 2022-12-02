@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Linq;
 using BSTW.Utils;
 using BSTW.Enemy.AI.States;
+using UnityEngine.Events;
 
 namespace BSTW.Enemy.AI
 {
@@ -19,6 +20,9 @@ namespace BSTW.Enemy.AI
 
         [SerializeField] private EnemySight _enemySight;
         [SerializeField] private float _rotationSpeed = 10f;
+
+        public UnityEvent OnMovementStarted;
+        public UnityEvent OnMovementFinished;
 
         public EnemyAIState InvestigateState;
         public EnemyAIState AttackState;
@@ -97,12 +101,15 @@ namespace BSTW.Enemy.AI
             SwitchState(AttackState);
         }
 
-        public void RotateEnemy(Vector3 target)
+        public void RotateEnemy(Vector3 target, bool lockYAxis = true)
         {
             var newRotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(target - transform.position), Time.deltaTime * _rotationSpeed);
 
-            newRotation.x = 0f;
-            newRotation.z = 0f;
+            if (lockYAxis)
+            {
+                newRotation.x = 0f;
+                newRotation.z = 0f;
+            }
 
             transform.rotation = newRotation;
         }

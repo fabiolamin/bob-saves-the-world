@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074e03d0dd6cc434fb3c41687a91a345, type: 3}
+  m_Name: Enemy Flying Weapon
+  m_EditorClassIdentifier: 
+  _animatorController: {fileID: 22100000, guid: bfcc86852eac3714abb128dd3e0148e5, type: 2}
+  _icon: {fileID: 0}
+  _shootSFX: {fileID: 8300000, guid: 880c0dd6a03ae4a41b40294d0734cddc, type: 3}
+  _reloadSFX: {fileID: 0}
+  _cameraShakeData: {fileID: 0}
+  _maxAmmo: 150
+  _criticalAmmoPercentage: 0.3
+  _targets:
+  - Player
+  - Prop
+  - Environment
+  _hitDamage:
+    HitType: 1
+    Damage: 10
+    CanKnockDown: 0
+  _shootingInterval: 1
+  _shootingDistance: 5000
+  _isSelected: 1

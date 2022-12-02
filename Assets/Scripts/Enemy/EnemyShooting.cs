@@ -8,16 +8,17 @@ namespace BSTW.Enemy
     {
         [SerializeField] private EnemyAIController _enemyController;
         [SerializeField] private Transform _center;
+        [SerializeField] private Vector3 _shootingDirectionOffset;
+
+        [Header("Obstacle avoidance")]
+        [SerializeField] private float _obstacleAvoidanceDistance = 5f;
+        [SerializeField] private string[] _obstacleLayers;
 
         protected override Vector3 GetShootingDirection()
         {
             if (_enemyController.CurrentTarget == null) return Vector3.zero;
 
-            var direction = _enemyController.CurrentTarget.transform.position - transform.position;
-
-            direction.y = _enemyController.CurrentTarget.transform.position.y > transform.position.y ?
-            ((_enemyController.CurrentTarget.transform.position.y - transform.position.y) + 0.1f) :
-            _center.position.y;
+            var direction = (_enemyController.CurrentTarget.transform.position - transform.position) + _shootingDirectionOffset;
 
             return direction;
         }
@@ -33,6 +34,14 @@ namespace BSTW.Enemy
 
             if (CurrentWeapon.CurrentProjectile == null)
                 CurrentWeapon.SetProjectile();
+        }
+
+        public bool IsFrontOfObstacle()
+        {
+            return Physics.Raycast(_center.transform.position,
+            _center.transform.forward,
+            _obstacleAvoidanceDistance,
+            LayerMask.GetMask(_obstacleLayers));
         }
     }
 }

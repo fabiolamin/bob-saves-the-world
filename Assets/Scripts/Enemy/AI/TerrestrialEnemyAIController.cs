@@ -6,9 +6,6 @@ namespace BSTW.Enemy.AI
 {
     public class TerrestrialEnemyAIController : DefaultEnemyAIController
     {
-        [SerializeField] private UnityEvent _onMovementStarted;
-        [SerializeField] private UnityEvent _onMovementFinished;
-
         public NavMeshAgent NavMeshAgent;
 
         protected override void Update()
@@ -31,7 +28,7 @@ namespace BSTW.Enemy.AI
             var hasReachedDestination = !NavMeshAgent.pathPending && NavMeshAgent.remainingDistance <= NavMeshAgent.stoppingDistance;
 
             if (hasReachedDestination)
-                _onMovementFinished?.Invoke();
+                OnMovementFinished?.Invoke();
 
             return hasReachedDestination;
         }
@@ -49,7 +46,7 @@ namespace BSTW.Enemy.AI
                 newPosition = GetArea(radius, center);
             }
 
-            _onMovementStarted?.Invoke();
+            OnMovementStarted?.Invoke();
             NavMeshAgent.SetDestination(hit.position);
         }
 

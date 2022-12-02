@@ -15,11 +15,6 @@ namespace BSTW.Enemy.AI.States
         [SerializeField] private float _minAttackDuration = 3f;
         [SerializeField] private float _maxAttackDuration = 5f;
 
-        [Header("Obstacle avoidance")]
-        [SerializeField] private Transform _center;
-        [SerializeField] private float _obstacleAvoidanceDistance = 5f;
-        [SerializeField] private string[] _obstacleLayers;
-
         public override void EnterState()
         {
             base.EnterState();
@@ -48,10 +43,9 @@ namespace BSTW.Enemy.AI.States
 
                     (EnemyController as TerrestrialEnemyAIController).LookAtTarget();
 
-                    if (_shootingCoroutine != null)
-                        StopCoroutine(_shootingCoroutine);
+                    StopShootingCoroutine();
 
-                    if (IsFrontOfObstacle())
+                    if (_enemyShooting.IsFrontOfObstacle())
                         Move();
                     else
                         _shootingCoroutine = StartCoroutine(StartShooting());
@@ -63,8 +57,7 @@ namespace BSTW.Enemy.AI.States
         {
             base.ExitState();
 
-            if (_shootingCoroutine != null)
-                StopCoroutine(_shootingCoroutine);
+            StopShootingCoroutine();
         }
 
         public override void RestartState()
@@ -74,6 +67,12 @@ namespace BSTW.Enemy.AI.States
             EnterState();
         }
 
+        private void StopShootingCoroutine()
+        {
+            if (_shootingCoroutine != null)
+                StopCoroutine(_shootingCoroutine);
+        }
+
         private void Move()
         {
             (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = false;
@@ -81,7 +80,7 @@ namespace BSTW.Enemy.AI.States
             (EnemyController as TerrestrialEnemyAIController).MoveTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
         }
 
-        protected virtual IEnumerator StartShooting()
+        private IEnumerator StartShooting()
         {
             _startedShooting = true;
 
@@ -104,14 +103,6 @@ namespace BSTW.Enemy.AI.States
             _startedShooting = false;
 
             yield return null;
-        }
-
-        private bool IsFrontOfObstacle()
-        {
-            return Physics.Raycast(_center.transform.position,
-            _center.transform.forward,
-            _obstacleAvoidanceDistance,
-            LayerMask.GetMask(_obstacleLayers));
         }
     }
 }

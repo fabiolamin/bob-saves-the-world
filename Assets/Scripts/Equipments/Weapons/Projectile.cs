@@ -11,6 +11,7 @@ namespace BSTW.Equipments.Weapons
     {
         private bool _canMove = false;
         private Vector3 _targetPosition;
+        private int _shooterLayer;
 
         protected ProjectileData projectileData => _projectileData;
         protected ProjectileTarget projectileTarget;
@@ -36,7 +37,7 @@ namespace BSTW.Equipments.Weapons
         private void OnCollisionEnter(Collision collision)
         {
             projectileTarget = collision.collider.GetComponent<ProjectileTarget>();
-            if (projectileTarget == null) return;
+            if (projectileTarget == null || collision.gameObject.layer == _shooterLayer) return;
 
             _canMove = false;
 
@@ -82,7 +83,7 @@ namespace BSTW.Equipments.Weapons
         public void SetUpProjectile(int layer, string[] targetNames, Hit hit, Transform origin)
         {
             _canMove = false;
-            gameObject.layer = layer;
+            _shooterLayer = layer;
             this.targetNames = targetNames;
             this.hit = hit;
 
