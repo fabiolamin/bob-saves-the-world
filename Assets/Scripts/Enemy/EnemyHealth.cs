@@ -20,7 +20,8 @@ namespace BSTW.Enemy
 
         private void UpdateHealthBarTransform()
         {
-            _healthBar.transform.LookAt(Camera.main.transform);
+            if (_healthBar != null)
+                _healthBar.transform.LookAt(Camera.main.transform);
         }
 
         protected override void CheckHit(Hit hit)

@@ -19,7 +19,6 @@ namespace BSTW.Enemy.AI
         private List<GameObject> _targets = new List<GameObject>();
 
         [SerializeField] private EnemySight _enemySight;
-        [SerializeField] private float _rotationSpeed = 10f;
 
         public UnityEvent OnMovementStarted;
         public UnityEvent OnMovementFinished;
@@ -101,19 +100,6 @@ namespace BSTW.Enemy.AI
             SwitchState(AttackState);
         }
 
-        public void RotateEnemy(Vector3 target, bool lockYAxis = true)
-        {
-            var newRotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(target - transform.position), Time.deltaTime * _rotationSpeed);
-
-            if (lockYAxis)
-            {
-                newRotation.x = 0f;
-                newRotation.z = 0f;
-            }
-
-            transform.rotation = newRotation;
-        }
-
         public void RestoreEnemy()
         {
             EnemyHealth.RestoreHealth();
@@ -121,7 +107,7 @@ namespace BSTW.Enemy.AI
             SwitchState(InvestigateState);
         }
 
-        protected override bool IsTargetAlive()
+        protected override bool IsTargetDead()
         {
             return CurrentTarget != null && !CurrentTarget.IsAlive && AttackState.IsActive && EnemyHealth.IsAlive;
         }

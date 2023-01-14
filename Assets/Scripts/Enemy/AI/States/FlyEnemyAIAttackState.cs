@@ -26,7 +26,7 @@ namespace BSTW.Enemy.AI.States
         {
             base.UpdateState();
 
-            (EnemyController as DefaultEnemyAIController).RotateEnemy(EnemyController.CurrentTarget.transform.position, false);
+            (EnemyController as DefaultEnemyAIController).RotateEnemySmoothly(EnemyController.CurrentTarget.transform.position, false);
         }
 
         public override void ExitState()

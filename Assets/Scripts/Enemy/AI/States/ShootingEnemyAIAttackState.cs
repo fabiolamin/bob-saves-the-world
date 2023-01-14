@@ -30,7 +30,7 @@ namespace BSTW.Enemy.AI.States
 
             if (_startedShooting)
             {
-                (EnemyController as DefaultEnemyAIController).RotateEnemy(EnemyController.CurrentTarget.transform.position);
+                (EnemyController as DefaultEnemyAIController).RotateEnemySmoothly(EnemyController.CurrentTarget.transform.position);
 
                 _currentShootingTime += Time.deltaTime;
             }

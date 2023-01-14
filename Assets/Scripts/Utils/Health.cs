@@ -31,10 +31,13 @@ namespace BSTW.Utils
 
         [SerializeField] private UnityEvent _onDeath;
 
+        [SerializeField] private UnityEvent _onElectricalHit;
+
         public bool IsAlive { get; private set; } = true;
         public bool CanUpdateHealth { get; protected set; } = true;
         public bool IsHealthFull { get { return _currentHealth >= _maxHealth; } }
-        protected float MaxHealth => _maxHealth;
+        public float CurrentHealth => _currentHealth;
+        public float MaxHealth => _maxHealth;
         protected float KnockDownPercentage => _knockDownPercentage;
         protected bool GotHit = false;
         protected bool HasBeenOnCriticalHealth => _currentHealth <= (_criticalHealthPercentage * _maxHealth) && IsAlive;
@@ -138,6 +141,12 @@ namespace BSTW.Utils
             IsAlive = true;
 
             UpdateHealth(_maxHealth);
+        }
+
+        public void GetElectricalHit(Hit hit)
+        {
+            Hit(hit);
+            _onElectricalHit.Invoke();
         }
     }
 }

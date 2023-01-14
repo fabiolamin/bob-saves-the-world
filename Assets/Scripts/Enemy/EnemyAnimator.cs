@@ -8,7 +8,7 @@ namespace BSTW.Enemy
     {
         [SerializeField] private Animator _animator;
 
-        [SerializeField] private RuntimeAnimatorController[] _attacks;
+        [SerializeField] private List<RuntimeAnimatorController> _attacks;
 
         public void SetMovementParameter(float speed)
         {
@@ -22,12 +22,24 @@ namespace BSTW.Enemy
 
         public void TriggerAnimationAttack(string attackTrigger = "Attack")
         {
-            if(_attacks.Length > 0)
+            if (_attacks.Count > 0)
             {
-                _animator.runtimeAnimatorController = _attacks[Random.Range(0, _attacks.Length)];
+                SetAnimatorController(_attacks[Random.Range(0, _attacks.Count)]);
             }
 
             _animator.SetTrigger(attackTrigger);
+        }
+
+        public void SetAnimatorController(RuntimeAnimatorController animatorController)
+        {
+            _animator.runtimeAnimatorController = animatorController;
+        }
+
+        public void AddAttackAnimatorController(RuntimeAnimatorController attack)
+        {
+            if (_attacks.Contains(attack)) return;
+
+            _attacks.Add(attack);
         }
     }
 }

@@ -48,7 +48,7 @@ namespace BSTW.Enemy.AI.States
         {
             if (!_canMove) return;
 
-            (EnemyController as DefaultEnemyAIController).RotateEnemy(_path.GetWaypoint(_currentWaypointIndex), false);
+            (EnemyController as DefaultEnemyAIController).RotateEnemySmoothly(_path.GetWaypoint(_currentWaypointIndex), false);
 
             EnemyController.transform.position = Vector3.MoveTowards(
             EnemyController.transform.position,

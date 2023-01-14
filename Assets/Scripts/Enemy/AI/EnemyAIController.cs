@@ -14,6 +14,8 @@ namespace BSTW.Enemy.AI
         [SerializeField] private UnityEvent _onTargetDeath;
         [SerializeField] private UnityEvent _onEnemyStop;
 
+        [SerializeField] private float _rotationSpeed = 10f;
+
         public EnemyHealth EnemyHealth;
         public EnemyAnimator EnemyAnimator;
 
@@ -32,7 +34,7 @@ namespace BSTW.Enemy.AI
 
         private void CheckTargetHealth()
         {
-            if (IsTargetAlive())
+            if (IsTargetDead())
             {
                 _onTargetDeath?.Invoke();
             }
@@ -65,8 +67,31 @@ namespace BSTW.Enemy.AI
             _onEnemyStop?.Invoke();
         }
 
+        public void RotateEnemySmoothly(Vector3 target, bool lockYAxis = true)
+        {
+            var newRotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(target - transform.position), Time.deltaTime * _rotationSpeed);
+
+            if (lockYAxis)
+            {
+                newRotation.x = 0f;
+                newRotation.z = 0f;
+            }
+
+            transform.rotation = newRotation;
+        }
+
+        public void RotateEnemyQuickly(Vector3 target, bool lockYAxis = true)
+        {
+            if (lockYAxis)
+            {
+                target.y = transform.position.y;
+            }
+
+            transform.LookAt(target);
+        }
+
         public abstract void OnHit();
-        protected abstract bool IsTargetAlive();
+        protected abstract bool IsTargetDead();
     }
 }
 
