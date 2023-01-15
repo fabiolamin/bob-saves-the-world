@@ -30,7 +30,7 @@ namespace BSTW.Equipments.Weapons
         [SerializeField] private float _defaultColliderRadius = 0.5f;
         [SerializeField] private float _maxColliderRadius = 2f;
 
-        public Action OnProjectileHit;
+        public Action<bool> OnProjectileHit;
 
         protected Rigidbody projectileRb => _projectileRb;
 

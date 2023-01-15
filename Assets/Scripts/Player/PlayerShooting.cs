@@ -86,9 +86,9 @@ namespace BSTW.Player
             base.Shoot();
         }
 
-        public override void OnCharacterHitTarget()
+        public override void OnCharacterHitTarget(bool isTargetAlive)
         {
-            base.OnCharacterHitTarget();
+            base.OnCharacterHitTarget(isTargetAlive);
 
             _hitMarker.SetActive(true);
 

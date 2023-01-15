@@ -3093,6 +3093,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _defaultHitPoint: {fileID: 192614831417930356}
+  _enemyHealth: {fileID: 192614830696067978}
   _additionalHitDamage: 0
 --- !u!114 &192614831417930358
 MonoBehaviour:
@@ -3303,6 +3304,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _defaultHitPoint: {fileID: 192614831599190924}
+  _enemyHealth: {fileID: 192614830696067978}
   _additionalHitDamage: 5
 --- !u!114 &192614831599190926
 MonoBehaviour:
@@ -3386,7 +3388,7 @@ MonoBehaviour:
   _electricityVFX: {fileID: 3499183107659927161}
   _sphereCollider: {fileID: 192614831624594641}
   _currentRadius: 3
-  _maxRadius: 10
+  _maxRadius: 9
   _electricityRadiusConst: 100
   _onActivated:
     m_PersistentCalls:

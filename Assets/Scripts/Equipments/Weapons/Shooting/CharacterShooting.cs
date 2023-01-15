@@ -27,6 +27,7 @@ namespace BSTW.Equipments.Weapons.Shooting
         [SerializeField] private UnityEvent _onCriticalAmmoStarted;
         [SerializeField] private UnityEvent _onCriticalAmmoFinished;
         [SerializeField] public UnityEvent _onCharacterHitTarget;
+        [SerializeField] public UnityEvent _onTargetKilled;
 
 
         protected bool isHoldingShootingTrigger = false;
@@ -185,9 +186,14 @@ namespace BSTW.Equipments.Weapons.Shooting
             CheckCriticalAmmo();
         }
 
-        public virtual void OnCharacterHitTarget()
+        public virtual void OnCharacterHitTarget(bool isTargetAlive)
         {
             _onCharacterHitTarget?.Invoke();
+
+            if (!isTargetAlive)
+            {
+                _onTargetKilled?.Invoke();
+            }
         }
 
         protected abstract Vector3 GetShootingOrigin();
