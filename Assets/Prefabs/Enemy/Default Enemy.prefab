@@ -333,6 +333,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5675533187566437063}
+        m_TargetAssemblyTypeName: BSTW.Enemy.AI.EnemyAIController, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnUpdate:
     m_PersistentCalls:
       m_Calls: []
@@ -1275,6 +1287,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   _rotationSpeed: 20
+  _deactivationInterval: 5
   EnemyHealth: {fileID: 8368905634000368457}
   EnemyAnimator: {fileID: 3156242094662251909}
   CurrentTarget: {fileID: 0}
@@ -1291,7 +1304,9 @@ MonoBehaviour:
   TargetPriorities:
   - Priority: 1
     TargetTag: Player
+  EnemySpawner: {fileID: 0}
   NavMeshAgent: {fileID: 2201155478300816129}
+  Id: 1
   _audioSource: {fileID: 2029836549165144458}
   _screamSFX: {fileID: 8300000, guid: ee496f31de964fb41ae2ca8e23d026a0, type: 3}
   _leftHand: {fileID: 7885675105885484668}
@@ -1576,7 +1591,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: -4
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &3156242094662251909

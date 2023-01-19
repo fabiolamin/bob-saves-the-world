@@ -1,6 +1,7 @@
 using BSTW.Enemy.AI.States;
 using BSTW.Player;
 using BSTW.Utils;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,8 @@ namespace BSTW.Enemy.AI
 {
     public abstract class EnemyAIController : MonoBehaviour
     {
+        private Coroutine _deactivationEnemyCoroutine;
+
         protected EnemyAIState currentState;
         protected GameObject player;
 
@@ -15,6 +18,8 @@ namespace BSTW.Enemy.AI
         [SerializeField] private UnityEvent _onEnemyStop;
 
         [SerializeField] private float _rotationSpeed = 10f;
+
+        [SerializeField] private float _deactivationInterval = 5f;
 
         public EnemyHealth EnemyHealth;
         public EnemyAnimator EnemyAnimator;
@@ -88,6 +93,23 @@ namespace BSTW.Enemy.AI
             }
 
             transform.LookAt(target);
+        }
+
+        public virtual void OnDeath()
+        {
+            if (_deactivationEnemyCoroutine != null)
+            {
+                StopCoroutine(_deactivationEnemyCoroutine);
+            }
+
+            _deactivationEnemyCoroutine = StartCoroutine(DeactivateEnemy());
+        }
+
+        private IEnumerator DeactivateEnemy()
+        {
+            yield return new WaitForSeconds(_deactivationInterval);
+
+            gameObject.SetActive(false);
         }
 
         public abstract void OnHit();

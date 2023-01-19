@@ -6,7 +6,11 @@ namespace BSTW.Enemy.AI
 {
     public class TerrestrialEnemyAIController : DefaultEnemyAIController
     {
+        public EnemySpawner EnemySpawner;
+
         public NavMeshAgent NavMeshAgent;
+
+        public string Id;
 
         protected override void Update()
         {
@@ -71,6 +75,13 @@ namespace BSTW.Enemy.AI
             CurrentTarget.transform.position.z);
 
             transform.LookAt(targetPosition);
+        }
+
+        public override void OnDeath()
+        {
+            base.OnDeath();
+
+            EnemySpawner.RemoveEnemyAlive(this);
         }
     }
 }

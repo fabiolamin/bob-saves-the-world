@@ -102,9 +102,9 @@ namespace BSTW.Enemy.AI
 
         public void RestoreEnemy()
         {
-            EnemyHealth.RestoreHealth();
-
             SwitchState(InvestigateState);
+
+            EnemyHealth.RestoreHealth();
         }
 
         protected override bool IsTargetDead()
