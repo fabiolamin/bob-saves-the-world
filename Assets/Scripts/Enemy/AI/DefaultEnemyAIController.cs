@@ -16,7 +16,7 @@ namespace BSTW.Enemy.AI
 
     public class DefaultEnemyAIController : EnemyAIController
     {
-        private List<GameObject> _targets = new List<GameObject>();
+        protected List<GameObject> targets = new List<GameObject>();
 
         [SerializeField] private EnemySight _enemySight;
 
@@ -34,6 +34,12 @@ namespace BSTW.Enemy.AI
             base.Start();
 
             SwitchState(InvestigateState);
+        }
+
+        private void OnDisable()
+        {
+            targets.Clear();
+            CurrentTarget = null;
         }
 
         private bool IsAPriorityTarget(string tag)
@@ -56,12 +62,12 @@ namespace BSTW.Enemy.AI
 
         public void RemoveTarget(GameObject target)
         {
-            if (TargetPriorities.Any(t => t.TargetTag == target.tag) && _targets.Contains(target))
+            if (TargetPriorities.Any(t => t.TargetTag == target.tag) && targets.Contains(target))
             {
                 CurrentTarget = null;
-                _targets.Remove(target);
+                targets.Remove(target);
 
-                if (_targets.Count == 0)
+                if (targets.Count == 0)
                 {
                     SwitchState(InvestigateState);
 
@@ -77,9 +83,9 @@ namespace BSTW.Enemy.AI
 
         public void AddTarget(GameObject newTarget)
         {
-            if (TargetPriorities.Any(t => t.TargetTag == newTarget.tag) && !_targets.Contains(newTarget))
+            if (TargetPriorities.Any(t => t.TargetTag == newTarget.tag) && !targets.Contains(newTarget))
             {
-                _targets.Add(newTarget);
+                targets.Add(newTarget);
 
                 if (!AttackState.IsActive)
                     AttackTarget();
@@ -88,7 +94,7 @@ namespace BSTW.Enemy.AI
 
         private Health GetNewTarget()
         {
-            return _targets.Count == 1 ? _targets[0].GetComponent<Health>() : _targets.
+            return targets.Count == 1 ? targets[0].GetComponent<Health>() : targets.
             Where(t => IsAPriorityTarget(t.gameObject.tag)).
                 OrderBy(t => Vector3.Distance(t.transform.position, transform.position)).ElementAt(0).GetComponent<Health>();
         }
