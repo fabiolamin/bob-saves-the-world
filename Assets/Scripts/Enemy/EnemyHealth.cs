@@ -26,9 +26,11 @@ namespace BSTW.Enemy
 
         protected override void CheckHit(Hit hit)
         {
-            _enemyController.StopEnemy();
-
             base.CheckHit(hit);
+
+            if (_enemyController == null) return;
+
+            _enemyController.StopEnemy();
 
             if (_checkHitAnimationCoroutine != null)
             {
