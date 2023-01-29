@@ -16,11 +16,12 @@ MonoBehaviour:
   _rollSpeed: 16
   _jumpingSpeed: 16
   _bounceSpeed: 25
+  _bounceForceModifier: 1000
   _rotationSpeed: 6
   _flySpeed: 7
   _aimingSpeed: 2
   _delayJumpingToFly: 0.2
   _delayToMove: 1
-  _maxPlayerHeight: 90
+  _maxPlayerHeight: 80
   _minPlayerHeight: -1
   _minFallForceToRoll: 1500
