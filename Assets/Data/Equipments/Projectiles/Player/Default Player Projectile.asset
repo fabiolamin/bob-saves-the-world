@@ -16,4 +16,4 @@ MonoBehaviour:
   _rapidFire: 1
   _hitRadius: 0
   _hitForce: 50
-  _hitUpwards: 0
+  _hitUpwards: 5

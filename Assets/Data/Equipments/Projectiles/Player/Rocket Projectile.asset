@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Rocket Projectile
   m_EditorClassIdentifier: 
   _speed: 60
+  _rapidFire: 0
   _hitRadius: 15
   _hitForce: 650
   _hitUpwards: 200
