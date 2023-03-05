@@ -16,6 +16,7 @@ namespace BSTW.Enemy.AI
 
         [SerializeField] private UnityEvent _onTargetDeath;
         [SerializeField] private UnityEvent _onEnemyStop;
+        [SerializeField] private UnityEvent _onDeathActivated;
 
         [SerializeField] private float _rotationSpeed = 10f;
 
@@ -108,6 +109,8 @@ namespace BSTW.Enemy.AI
         private IEnumerator DeactivateEnemy()
         {
             yield return new WaitForSeconds(_deactivationInterval);
+
+            _onDeathActivated?.Invoke();
 
             gameObject.SetActive(false);
         }

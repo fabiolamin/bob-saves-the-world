@@ -10029,12 +10029,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _timeToExplodeOnCritical: 5
+  _timeToExplodeOnCritical: 3
   _hitDamage:
     HitType: 2
     Damage: 40
     CanKnockDown: 1
-  _radius: 20
+  _radius: 15
   _force: 800
   _upwardsForce: 500
 --- !u!114 &557433014217859919
@@ -10049,7 +10049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2306ad37b34ea1e438b4772287ebd375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 50
   _criticalHealthPercentage: 0.3
   _knockDownPercentage: 0
   _healthUpdateDelay: 0
@@ -10146,6 +10146,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onElectricalHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7176192674282731727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10173,7 +10176,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
-  _amount: 5
+  _amount: 3
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!114 &7176192674282731720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10187,7 +10192,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 6223564182415242466, guid: 04819a7300656f44fb266a5b4d904eb2, type: 3}
-  _amount: 5
+  _amount: 3
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!1 &9167547704254271978
 GameObject:
   m_ObjectHideFlags: 0

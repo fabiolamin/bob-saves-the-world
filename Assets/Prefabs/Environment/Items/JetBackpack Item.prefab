@@ -193,7 +193,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _bonusAmount: 5
+  _bonusAmount: 25
   _followSpeed: 50
   _rotationSpeed: 1
   _spawnForce: 40

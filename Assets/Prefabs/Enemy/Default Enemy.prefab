@@ -516,7 +516,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 2723662980642253362, guid: 668ae24cc6a325e49922c0216cfaa7b9, type: 3}
-  _amount: 10
+  _amount: 2
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!1 &3745996911235611731
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +711,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 3412376949745134432, guid: d38524fe0868a304baf3bf9b9aa6dfb4, type: 3}
-  _amount: 10
+  _amount: 2
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!1 &4655030729587041208
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,15 +767,15 @@ MonoBehaviour:
   - ItemPool: {fileID: 4760437146525922039}
     Probability: 0.8
   - ItemPool: {fileID: 2590214138701806346}
-    Probability: 0.5
+    Probability: 0.7
   - ItemPool: {fileID: 4735917877434957722}
-    Probability: 0.4
+    Probability: 0.6
   - ItemPool: {fileID: 2033505951850216381}
     Probability: 0.6
   - ItemPool: {fileID: 1543684159874694380}
     Probability: 0.4
-  _timeToClear: 60
-  _itemsLimit: 2
+  _timeToClear: 7
+  _itemsLimit: 3
 --- !u!1 &4749466925424748760
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +855,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
-  _investigateRadius: 20
+  _investigateRadius: 7
   _minTimeNewInvestigation: 3
   _maxTimeNewInvestigation: 5
 --- !u!1 &4749466925563236814
@@ -995,7 +999,7 @@ GameObject:
   m_Layer: 14
   m_Name: Default Enemy
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1113,8 +1117,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  _onDeathActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6596921859701344815}
+        m_TargetAssemblyTypeName: BSTW.Utils.LootGenerator, Assembly-CSharp
+        m_MethodName: ClearLootItems
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _rotationSpeed: 20
-  _deactivationInterval: 5
+  _deactivationInterval: 10
   EnemyHealth: {fileID: 8368905634000368457}
   EnemyAnimator: {fileID: 3156242094662251909}
   CurrentTarget: {fileID: 0}
@@ -1152,6 +1171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100000, guid: 5b7620055cbbfcb4c904779e082611ac, type: 3}
   _amount: 5
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!114 &5102016051724037441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1166,6 +1187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 6223564182415242466, guid: 9fa26021b51155943936f8a297cd2f8b, type: 3}
   _amount: 5
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!114 &8368905634000368457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1418,7 +1441,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: -4
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &3156242094662251909
@@ -3612,7 +3635,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 5469989538491209577, guid: 0a800ba2096109340be58950258a79ca, type: 3}
-  _amount: 10
+  _amount: 2
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!1 &5546675906811768787
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,7 +3683,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 406165581323790152, guid: 2c6868afba6c234408cf1a3260b0fb90, type: 3}
-  _amount: 10
+  _amount: 2
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!1 &5991745833666054044
 GameObject:
   m_ObjectHideFlags: 0
@@ -3867,7 +3894,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 4781893804813992885, guid: 803fb7ff7759fc246ae273c850b63047, type: 3}
-  _amount: 10
+  _amount: 2
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!1 &6741299026250399596
 GameObject:
   m_ObjectHideFlags: 0
@@ -3980,8 +4009,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 40, y: 1, z: 40}
-  m_Center: {x: -0.2600002, y: 1.5479956, z: 0.6806869}
+  m_Size: {x: 50.625637, y: 0.9999999, z: 45.35053}
+  m_Center: {x: -0.078382485, y: 1.5479956, z: -0.18717192}
 --- !u!114 &3418423640319576825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3995,7 +4024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultEnemyAIController: {fileID: 5675533187566437063}
-  _chasingDistace: 70
+  _chasingDistace: 50
   _maxAttackHeightRange: 5
   _checkAttackHeight: 1
 --- !u!1001 &1921039920023964582

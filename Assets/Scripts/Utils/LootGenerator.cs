@@ -12,34 +12,13 @@ namespace BSTW.Utils
 
     public class LootGenerator : MonoBehaviour
     {
-        private float _timeToClearAux = 0f;
         private List<GameObject> _currentLootItems = new List<GameObject>();
 
         [SerializeField] private LootItem[] _lootItems;
 
-        [SerializeField] private float _timeToClear = 10f;
-
         [SerializeField] private int _itemsLimit = 2;
 
-        private void Update()
-        {
-            CheckTimeToClear();
-        }
-
-        private void CheckTimeToClear()
-        {
-            if (_timeToClearAux > 0f)
-            {
-                _timeToClearAux -= Time.deltaTime;
-
-                if (_timeToClearAux <= 0f)
-                {
-                    ClearLootItems();
-                }
-            }
-        }
-
-        private void ClearLootItems()
+        public void ClearLootItems()
         {
             if (_currentLootItems.Count > 0)
             {
@@ -62,8 +41,6 @@ namespace BSTW.Utils
                     item.transform.position = transform.position;
 
                     _currentLootItems.Add(item);
-
-                    _timeToClearAux = _timeToClear;
                 }
             }
         }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: JetBackpack Data
   m_EditorClassIdentifier: 
   _maxFuelAmount: 20
-  _fuelIncreaseSpeed: 3
-  _fuelDecreaseSpeed: 8
-  _rechargeDuration: 1.2
+  _fuelIncreaseSpeed: 4
+  _fuelDecreaseSpeed: 9
+  _rechargeDuration: 1.5

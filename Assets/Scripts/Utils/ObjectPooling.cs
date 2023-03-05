@@ -9,8 +9,9 @@ namespace BSTW.Utils
     {
         [SerializeField] private GameObject _objectPrefab;
         [SerializeField] private int _amount = 5;
+        [SerializeField] private Transform _origin;
 
-        private List<GameObject> _pooledObjects = new List<GameObject>();
+        public List<GameObject> _pooledObjects = new List<GameObject>();
 
         private void Awake()
         {
@@ -22,6 +23,12 @@ namespace BSTW.Utils
             for (int i = 0; i < _amount; i++)
             {
                 GameObject pooledObject = Instantiate(_objectPrefab);
+
+                if(_origin != null)
+                {
+                    pooledObject.transform.position = _origin.position;
+                }
+
                 pooledObject.SetActive(false);
                 _pooledObjects.Add(pooledObject);
             }

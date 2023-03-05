@@ -1350,7 +1350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2201155478300816129, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: m_BaseOffset
-      value: -4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2201155478300816129, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: m_AgentTypeID
@@ -1617,10 +1617,6 @@ PrefabInstance:
       value: 29.95687
       objectReference: {fileID: 0}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
-      propertyPath: _itemsLimit
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[0].ItemPool
       value: 
       objectReference: {fileID: 2516462217758529844}
@@ -1646,11 +1642,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[1].Probability
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[2].Probability
-      value: 0.7
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[3].Probability

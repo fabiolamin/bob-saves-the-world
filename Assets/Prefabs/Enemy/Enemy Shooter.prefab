@@ -45,13 +45,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1dbcc62e5d8b7c44db39427717ed106f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.323
+  m_Volume: 0.18
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 174
+  Priority: 199
   DopplerLevel: 1
   MinDistance: 20
   MaxDistance: 80
@@ -2376,6 +2376,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.794
       objectReference: {fileID: 0}
+    - target: {fileID: 2201155478300816129, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: m_BaseOffset
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2388851097173040345, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2397,16 +2401,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 8c35fbf742448b846ab264241c4fe475, type: 2}
     - target: {fileID: 3418423640319576825, guid: 2052f036503368646b68ac5827797157, type: 3}
-      propertyPath: _chasingDistace
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418423640319576825, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _checkAttackHeight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3418423640319576825, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _maxAttackHeightRange
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3418423640319576825, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _defaultEnemyAIController
@@ -2899,15 +2899,15 @@ PrefabInstance:
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[1].ItemPool
       value: 
-      objectReference: {fileID: 6505896236350986792}
+      objectReference: {fileID: 6476372265376061253}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[2].ItemPool
       value: 
-      objectReference: {fileID: 951854793255179315}
+      objectReference: {fileID: 6505896236350986792}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[3].ItemPool
       value: 
-      objectReference: {fileID: 6476372265376061253}
+      objectReference: {fileID: 951854793255179315}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[4].ItemPool
       value: 
@@ -2922,11 +2922,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[2].Probability
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[3].Probability
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[4].Probability
@@ -3236,7 +3236,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _enemyShooting: {fileID: 5037982571182111679}
-  _attackPositionRadius: 10
+  _attackPositionRadius: 12
   _minAttackDuration: 2.5
   _maxAttackDuration: 3.5
 --- !u!114 &6476372265376061253 stripped
@@ -3306,9 +3306,11 @@ MonoBehaviour:
       m_Calls: []
   _enemyController: {fileID: 5122388786604819290}
   _center: {fileID: 5833846127733084361}
-  _shootingDirectionOffset: {x: 0, y: 0.5, z: 0}
+  _shootingDirectionOffset: {x: 0, y: 0.7, z: 0}
   _obstacleAvoidanceDistance: 5
-  _obstacleLayers: []
+  _obstacleLayers:
+  - Environment
+  - Prop
 --- !u!114 &5122388786604819290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3351,9 +3353,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  _onDeathActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4887838319972590320}
+        m_TargetAssemblyTypeName: BSTW.Utils.LootGenerator, Assembly-CSharp
+        m_MethodName: ClearLootItems
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _rotationSpeed: 20
-  _deactivationInterval: 5
-  Id: 3
+  _deactivationInterval: 10
   EnemyHealth: {fileID: 7817612481212930966}
   EnemyAnimator: {fileID: 3716831999474425178}
   CurrentTarget: {fileID: 0}
@@ -3396,6 +3412,7 @@ MonoBehaviour:
     TargetTag: Player
   EnemySpawner: {fileID: 0}
   NavMeshAgent: {fileID: 492578230357089246}
+  Id: 3
 --- !u!95 &6584439585681559241 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4843989316647642646, guid: 2052f036503368646b68ac5827797157, type: 3}

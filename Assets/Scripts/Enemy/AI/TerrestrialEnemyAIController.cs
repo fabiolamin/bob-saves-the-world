@@ -81,7 +81,8 @@ namespace BSTW.Enemy.AI
         {
             base.OnDeath();
 
-            EnemySpawner.RemoveEnemyAlive(this);
+            if (EnemySpawner != null)
+                EnemySpawner.RemoveEnemyAlive(this);
         }
     }
 }

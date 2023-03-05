@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 2825305908616113582}
   - component: {fileID: 1998682277117251492}
   - component: {fileID: 4891822029108306723}
+  - component: {fileID: 522198349065377029}
   m_Layer: 7
   m_Name: Prop Jump
   m_TagString: Untagged
@@ -194,6 +195,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
   _amount: 5
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!114 &2825305908616113569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 6223564182415242466, guid: 04819a7300656f44fb266a5b4d904eb2, type: 3}
   _amount: 5
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!114 &4891822029108306723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +261,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 0.3
+--- !u!208 &522198349065377029
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2825305908616113574}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.4, y: 0.4, z: 0.4}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.066, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4110987126402501733
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,6 +689,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
   _amount: 5
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!114 &4068180499147042153
 MonoBehaviour:
   m_ObjectHideFlags: 0

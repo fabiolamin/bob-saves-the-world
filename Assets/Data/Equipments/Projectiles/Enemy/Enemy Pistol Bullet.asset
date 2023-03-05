@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57bdc50c02393d74aac5fbe0a6da83ea, type: 3}
   m_Name: Enemy Pistol Bullet
   m_EditorClassIdentifier: 
-  _speed: 50
+  _speed: 25
   _rapidFire: 0
   _hitRadius: 0
   _hitForce: 0

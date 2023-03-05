@@ -28,8 +28,6 @@ namespace BSTW.Enemy
 
         [SerializeField] private EnemySpawnInfo[] _enemySpawnInfos;
 
-        [SerializeField] private Transform _spawnPosition;
-
         [Tooltip("In seconds.")]
         [SerializeField] private float _spawnInterval = 60f;
 
@@ -82,7 +80,7 @@ namespace BSTW.Enemy
             AddEnemyAlive(newEnemy);
 
             NavMeshHit navMeshHit;
-            NavMesh.SamplePosition(_spawnPosition.position, out navMeshHit, Mathf.Infinity, 1);
+            NavMesh.SamplePosition(transform.position, out navMeshHit, Mathf.Infinity, 1);
 
             newEnemy.gameObject.SetActive(true);
             newEnemy.transform.position = navMeshHit.position;
