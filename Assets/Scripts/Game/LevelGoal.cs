@@ -11,9 +11,6 @@ namespace BSTW.Game
         [SerializeField] private UnityEvent _onGoalAchieved;
         [SerializeField] private UnityEvent _onGoalFailed;
 
-        [TextArea(4, 6)]
-        public string GoalText;
-
         protected virtual void Awake()
         {
             UpdateGoalText();

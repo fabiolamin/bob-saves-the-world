@@ -8,6 +8,8 @@ namespace BSTW.Utils
     {
         private float _currentHealth;
 
+        [SerializeField] private GameObject _healthBar;
+
         [SerializeField] private float _maxHealth = 100f;
         [Tooltip("Decimal value.")][SerializeField] private float _criticalHealthPercentage = 0.3f;
         [SerializeField] private float _knockDownPercentage = 0.5f;
@@ -52,6 +54,17 @@ namespace BSTW.Utils
         private void Awake()
         {
             UpdateHealth(_maxHealth);
+        }
+
+        private void Update()
+        {
+            RotateHealthBarTowardsMainCamera();
+        }
+
+        private void RotateHealthBarTowardsMainCamera()
+        {
+            if (_healthBar != null)
+                _healthBar.transform.LookAt(Camera.main.transform);
         }
 
         private void UpdateHealth(float value)
