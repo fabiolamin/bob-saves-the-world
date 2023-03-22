@@ -144,6 +144,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _targetPriorities:
+  - Priority: 1
+    TargetTag: Player
 --- !u!1 &4755675833096576686
 GameObject:
   m_ObjectHideFlags: 0

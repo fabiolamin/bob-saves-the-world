@@ -33,6 +33,8 @@ namespace BSTW.Enemy
 
         [SerializeField] private UnityEvent _onEnemySpawned;
 
+        [SerializeField] private EnemyTargetPriority[] _targetPriorities;
+
         private void Start()
         {
             _maxEnemiesAlive = _enemySpawnInfos.Sum(e => e.MaxEnemiesAlive);
@@ -76,6 +78,7 @@ namespace BSTW.Enemy
             var newEnemy = newSpawn.EnemyPooling.GetObject().GetComponent<TerrestrialEnemyAIController>();
 
             newEnemy.EnemySpawner = this;
+            newEnemy.TargetPriorities = _targetPriorities;
 
             AddEnemyAlive(newEnemy);
 

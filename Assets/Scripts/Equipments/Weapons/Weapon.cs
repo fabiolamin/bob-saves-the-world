@@ -66,7 +66,7 @@ namespace BSTW.Equipments.Weapons
 
         public void Shoot(Vector3 origin, Vector3 direction)
         {
-            if (!_weaponData.IsSelected || !isProjectileLoaded) return;
+            if (CurrentProjectile == null || !_weaponData.IsSelected || !isProjectileLoaded) return;
 
             RaycastHit target;
 

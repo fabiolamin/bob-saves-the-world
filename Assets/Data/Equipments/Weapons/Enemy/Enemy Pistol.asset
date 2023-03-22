@@ -23,6 +23,7 @@ MonoBehaviour:
   - Player
   - Prop
   - Environment
+  - Humans
   _hitDamage:
     HitType: 1
     Damage: 10

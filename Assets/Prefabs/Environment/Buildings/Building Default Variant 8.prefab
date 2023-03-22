@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2120326821143766770, guid: 7e06d435f1f775842a287711ec99ed6b, type: 3}
       propertyPath: m_Name
-      value: Building Default
+      value: Building Default Variant 8
       objectReference: {fileID: 0}
     - target: {fileID: 2120326821143766799, guid: 7e06d435f1f775842a287711ec99ed6b, type: 3}
       propertyPath: m_RootOrder
@@ -69,3 +69,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e06d435f1f775842a287711ec99ed6b, type: 3}
+--- !u!1 &5879791448242259648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2120326821143766770, guid: 7e06d435f1f775842a287711ec99ed6b, type: 3}
+  m_PrefabInstance: {fileID: 5545581688498544690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &9165476182512060179
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5879791448242259648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4931517, y: 1.8003639, z: 1.9685595}
+  m_Center: {x: -0.5720494, y: 0.9819936, z: -1.8112046}
