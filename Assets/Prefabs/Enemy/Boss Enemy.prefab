@@ -383,6 +383,9 @@ MonoBehaviour:
   _onEnemyStop:
     m_PersistentCalls:
       m_Calls: []
+  _onDeathActivated:
+    m_PersistentCalls:
+      m_Calls: []
   _rotationSpeed: 10
   _deactivationInterval: 5
   EnemyHealth: {fileID: 192614830696067978}
@@ -422,6 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b2c55f52a1497498afa5bfeb3054d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthBar: {fileID: 0}
   _maxHealth: 3000
   _criticalHealthPercentage: 0.3
   _knockDownPercentage: 0.5
@@ -548,7 +552,6 @@ MonoBehaviour:
       m_Calls: []
   _enemyController: {fileID: 192614830696067984}
   _enemyAnimator: {fileID: 192614830696067974}
-  _healthBar: {fileID: 0}
 --- !u!114 &192614830696067974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3016,6 +3019,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
   _amount: 5
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!114 &192614831417930357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3030,6 +3035,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 6223564182415242466, guid: 9fa26021b51155943936f8a297cd2f8b, type: 3}
   _amount: 5
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!1 &192614831421721217
 GameObject:
   m_ObjectHideFlags: 0
@@ -3227,6 +3234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 100000, guid: 5b7620055cbbfcb4c904779e082611ac, type: 3}
   _amount: 5
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!114 &192614831599190925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3241,6 +3250,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 6223564182415242466, guid: 9fa26021b51155943936f8a297cd2f8b, type: 3}
   _amount: 5
+  _origin: {fileID: 0}
+  _pooledObjects: []
 --- !u!1 &192614831691605765
 GameObject:
   m_ObjectHideFlags: 0
