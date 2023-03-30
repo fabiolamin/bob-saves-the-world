@@ -11,7 +11,7 @@ namespace BSTW.Utils
         [SerializeField] private int _amount = 5;
         [SerializeField] private Transform _origin;
 
-        public List<GameObject> _pooledObjects = new List<GameObject>();
+        private List<GameObject> _pooledObjects = new List<GameObject>();
 
         private void Awake()
         {

@@ -1664,6 +1664,10 @@ PrefabInstance:
       propertyPath: _maxHealth
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 8760440680908169532, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 41.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2052f036503368646b68ac5827797157, type: 3}
 --- !u!1 &323262786281052555 stripped
