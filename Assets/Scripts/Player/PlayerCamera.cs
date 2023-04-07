@@ -11,6 +11,7 @@ namespace BSTW.Player
 
         [SerializeField] private PlayerShooting _playerShooting; 
         [SerializeField] private CinemachineFreeLook _cinemachineCamera;
+        [SerializeField] private CinemachineBrain _cinemachineBrain;
         [SerializeField] private float _cameraFOVOnAiming = 30f;
         [SerializeField] private float _switchCameraFOVSpeed = 10f;
         [SerializeField] private float _cameraXSpeedOnAiming = 2f;
@@ -42,6 +43,16 @@ namespace BSTW.Player
                 _cinemachineCamera.m_Lens.FieldOfView,
                 targetFOV,
                 _switchCameraFOVSpeed * Time.deltaTime);
+        }
+
+        public void SetLateUpdateOnCamera()
+        {
+            _cinemachineBrain.m_UpdateMethod = CinemachineBrain.UpdateMethod.LateUpdate;
+        }
+
+        public void SetFixedUpdateOnCamera()
+        {
+            _cinemachineBrain.m_UpdateMethod = CinemachineBrain.UpdateMethod.FixedUpdate;
         }
     }
 }
