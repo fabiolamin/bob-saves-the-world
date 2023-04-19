@@ -29,4 +29,4 @@ MonoBehaviour:
     CanKnockDown: 0
   _shootingInterval: 0.7
   _shootingDistance: 800
-  _isSelected: 1
+  _isSelected: 0
