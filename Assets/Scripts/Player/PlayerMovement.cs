@@ -48,10 +48,13 @@ namespace BSTW.Player
 
         private void Awake()
         {
-            _currentSpeed = _movementData.MovementSpeed;
-            _defaultVelocity = _playerRb.velocity;
+            if (_movementData != null && _playerRb != null)
+            {
+                _currentSpeed = _movementData.MovementSpeed;
+                _defaultVelocity = _playerRb.velocity;
 
-            StartCoroutine(WaitToMove(_movementData.DelayToMove));
+                StartCoroutine(WaitToMove(_movementData.DelayToMove));
+            }
         }
 
         private void Update()
