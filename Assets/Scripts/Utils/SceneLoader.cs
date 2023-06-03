@@ -7,12 +7,11 @@ namespace BSTW.Utils
 {
     public class SceneLoader : MonoBehaviour
     {
-        private const int MAIN_MENU = 0;
-        private const int INTRO = 1;
-        private const int LEVEL_1 = 2;
-        private const int LEVEL_2 = 3;
-        private const int LEVEL_3 = 4;
-        private const int CREDITS = 5;
+        private const int MainMenuIndex = 0;
+        private const int IntroIndex = 1;
+        private const int Level1Index = 2;
+        private const int Level2Index = 3;
+        private const int Level3Index = 4;
 
         [SerializeField] private GameObject _loadingBg;
         [SerializeField] private float _loadingDelay = 2f;
@@ -35,32 +34,32 @@ namespace BSTW.Utils
 
         public void LoadMainMenu()
         {
-            StartCoroutine(LoadScene(MAIN_MENU));
+            StartCoroutine(LoadScene(MainMenuIndex));
         }
 
         public void LoadIntro()
         {
-            StartCoroutine(LoadScene(INTRO));
+            StartCoroutine(LoadScene(IntroIndex));
         }
 
         public void LoadLevel1()
         {
-            StartCoroutine(LoadScene(LEVEL_1));
+            StartCoroutine(LoadScene(Level1Index));
         }
 
         public void LoadLevel2()
         {
-            StartCoroutine(LoadScene(LEVEL_2));
+            StartCoroutine(LoadScene(Level2Index));
         }
 
         public void LoadLevel3()
         {
-            StartCoroutine(LoadScene(LEVEL_3));
+            StartCoroutine(LoadScene(Level3Index));
         }
 
-        public void LoadCredits()
+        public void QuitGame()
         {
-            StartCoroutine(LoadScene(CREDITS));
+            Application.Quit();
         }
     }
 }
