@@ -79,7 +79,7 @@ namespace BSTW.Environment.Items
 
         private void RotateItem()
         {
-            _itemGO.transform.Rotate(Vector3.up * _rotationSpeed, Space.World);
+            _itemGO.transform.Rotate(Vector3.up * _rotationSpeed * Time.deltaTime, Space.World);
         }
 
         private void CheckRadius()

@@ -8,7 +8,7 @@ namespace BSTW.UI
 {
     public class SettingsMenu : MonoBehaviour
     {
-        private const string AudioVolumeName = "AudioVolume";
+        public static readonly string AudioVolumeName = "AudioVolume";
 
         private int _selectedQualityIndex;
         private int _selectedResolutionIndex;
@@ -21,15 +21,14 @@ namespace BSTW.UI
 
         private void Awake()
         {
+            AudioListener.volume = PlayerPrefs.GetFloat(AudioVolumeName, 1f);
+
+            GetResolutions();
             GetSettings();
         }
 
-        private void GetSettings()
+        public void GetSettings()
         {
-            GetResolutions();
-
-            AudioListener.volume = PlayerPrefs.GetFloat(AudioVolumeName, 1f);
-
             _selectedQualityIndex = QualitySettings.GetQualityLevel();
 
             var currentResolution = Screen.currentResolution;
@@ -43,6 +42,8 @@ namespace BSTW.UI
 
         private void GetResolutions()
         {
+            _resolutions.Clear();
+
             foreach (var resolution in Screen.resolutions)
             {
                 if (_resolutions.Any(r => r.width == resolution.width && r.height == resolution.height)) continue;

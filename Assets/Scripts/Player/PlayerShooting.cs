@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using BSTW.Equipments.Weapons.Shooting;
 using System.Collections;
+using BSTW.Game;
 
 namespace BSTW.Player
 {
@@ -24,6 +25,8 @@ namespace BSTW.Player
 
         public void OnAim(InputAction.CallbackContext value)
         {
+            if (GameManager.IsGamePaused) return;
+
             IsAiming = value.action.IsPressed();
 
             if (!IsReadyToShoot) return;
@@ -34,6 +37,8 @@ namespace BSTW.Player
 
         public void OnShoot(InputAction.CallbackContext value)
         {
+            if (GameManager.IsGamePaused) return;
+
             isHoldingShootingTrigger = value.action.IsPressed();
 
             if (CurrentWeapon.WeaponData.CurrentAmmo <= 0f && value.started)
@@ -46,6 +51,8 @@ namespace BSTW.Player
 
         public void OnSwitchWeapon(InputAction.CallbackContext value)
         {
+            if (GameManager.IsGamePaused) return;
+
             if (value.started && IsReadyToShoot)
             {
                 int deltaPos = (int)value.ReadValue<Vector2>().normalized.y;
@@ -66,7 +73,7 @@ namespace BSTW.Player
         {
             IsReadyToShoot = isEnabled;
             _aimImage.SetActive(false);
-            _onPlayerAim?.Invoke(enabled && IsAiming);
+            _onPlayerAim?.Invoke(isEnabled && IsAiming);
         }
 
         protected override Vector3 GetShootingOrigin()
@@ -92,7 +99,7 @@ namespace BSTW.Player
 
             _hitMarker.SetActive(true);
 
-            if(_hitMarkerCoroutine != null)
+            if (_hitMarkerCoroutine != null)
             {
                 StopCoroutine(_hitMarkerCoroutine);
             }
@@ -104,13 +111,24 @@ namespace BSTW.Player
         {
             var currenteDuration = 0f;
 
-            while(currenteDuration < _hitMarkerDuration)
+            while (currenteDuration < _hitMarkerDuration)
             {
                 currenteDuration += Time.deltaTime;
                 yield return null;
             }
 
             _hitMarker.SetActive(false);
+        }
+
+        public void ResetPlayerShooting()
+        {
+            IsAiming = false;
+            IsShooting = false;
+            isHoldingShootingTrigger = false;
+            IsReadyToShoot = true;
+
+            _aimImage.SetActive(IsAiming);
+            _onPlayerAim?.Invoke(IsAiming);
         }
     }
 }

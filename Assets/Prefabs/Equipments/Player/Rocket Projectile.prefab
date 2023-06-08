@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileData: {fileID: 11400000, guid: 957f981b1259cb8469f4d9dbda484fe1, type: 2}
   _projectileRb: {fileID: 4012740357295852485}
+  _audioSource: {fileID: 3967700376097701501}
   _hitVFXPooling: {fileID: 2752147153377741372}
   _onShot:
     m_PersistentCalls:
@@ -151,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 1764654978243476, guid: a98b15aa948478849b54661e4d9a317e, type: 3}
   _amount: 5
+  _origin: {fileID: 0}
 --- !u!114 &6427903325663977023
 MonoBehaviour:
   m_ObjectHideFlags: 0

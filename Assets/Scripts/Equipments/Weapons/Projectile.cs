@@ -1,5 +1,6 @@
 using BSTW.Data.Equipments.Weapons;
 using BSTW.Equipments.Weapons.Shooting;
+using BSTW.Game;
 using BSTW.Utils;
 using System;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace BSTW.Equipments.Weapons
 
         [SerializeField] private ProjectileData _projectileData;
         [SerializeField] private Rigidbody _projectileRb;
+        [SerializeField] private AudioSource _audioSource;
         [SerializeField] private ObjectPooling _hitVFXPooling;
         [SerializeField] private UnityEvent _onShot;
 
@@ -33,6 +35,11 @@ namespace BSTW.Equipments.Weapons
         public Action<bool> OnProjectileHit;
 
         protected Rigidbody projectileRb => _projectileRb;
+
+        private void Awake()
+        {
+            GameManager.OnGameResumed += EnableProjectileAudio;
+        }
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -115,6 +122,16 @@ namespace BSTW.Equipments.Weapons
             _projectileCollider.enabled = isEnabled;
             _projectileRb.isKinematic = !isEnabled;
             _projectileRb.constraints = isEnabled ? RigidbodyConstraints.None : RigidbodyConstraints.FreezeAll;
+        }
+
+        private void EnableProjectileAudio(bool isEnabled)
+        {
+            if (_audioSource == null || !_canMove) return;
+
+            if (isEnabled)
+                _audioSource.Play();
+            else
+                _audioSource.Stop();
         }
     }
 }

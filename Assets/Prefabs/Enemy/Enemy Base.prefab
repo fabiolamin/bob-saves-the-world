@@ -4806,6 +4806,7 @@ GameObject:
   - component: {fileID: 3957154194079623527}
   - component: {fileID: 3957154194079623524}
   - component: {fileID: 1566327959849535126}
+  - component: {fileID: 1978103855645596018}
   m_Layer: 14
   m_Name: Enemy Base
   m_TagString: Untagged
@@ -4898,7 +4899,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1.5
+          m_FloatArgument: 300
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -5347,6 +5348,96 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1978103855645596018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3957154194079624861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05f8b8f18bf64c4c8abe103efa8f8dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onGamePause:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3957154194079623524}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2402263939754046877}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3957154194243329292}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onGameResume:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3957154194079623524}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: UnPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2402263939754046877}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: UnPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3957154194243329292}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: UnPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6614259886339950252
 GameObject:
   m_ObjectHideFlags: 0
@@ -10677,6 +10768,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c3e10aa77681245ac303a6a71931a6, type: 3}
+--- !u!82 &2402263939754046877 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1710290978189777768, guid: 70c3e10aa77681245ac303a6a71931a6, type: 3}
+  m_PrefabInstance: {fileID: 3957154194293239541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7032667716452944900 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6301570249066193649, guid: 70c3e10aa77681245ac303a6a71931a6, type: 3}
@@ -10793,7 +10889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2208c769d3c41a4eadca99059d37665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 0.2
+  _rotationSpeed: 30
 --- !u!1001 &3957154195088283913
 PrefabInstance:
   m_ObjectHideFlags: 0

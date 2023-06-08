@@ -19,6 +19,8 @@ namespace BSTW.Utils
 
         private IEnumerator LoadScene(int index)
         {
+            Time.timeScale = 1f;
+
             _onLoadingStart?.Invoke();
 
             yield return new WaitForSeconds(_loadingDelay);

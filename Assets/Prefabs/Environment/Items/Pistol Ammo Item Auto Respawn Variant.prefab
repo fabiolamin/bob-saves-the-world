@@ -16,6 +16,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5469989538491209558, guid: 0a800ba2096109340be58950258a79ca, type: 3}
+      propertyPath: _rotationSpeed
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469989538491209558, guid: 0a800ba2096109340be58950258a79ca, type: 3}
       propertyPath: _maxRespawnTimer
       value: 10
       objectReference: {fileID: 0}
@@ -93,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5469989538491209577, guid: 0a800ba2096109340be58950258a79ca, type: 3}
       propertyPath: m_Name
-      value: Pistol Ammo Item Auto Respawn
+      value: Pistol Ammo Item Auto Respawn Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a800ba2096109340be58950258a79ca, type: 3}

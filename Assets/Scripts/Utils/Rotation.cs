@@ -13,7 +13,7 @@ namespace BSTW.Utils
 
         private void Rotate()
         {
-            transform.Rotate(Vector3.up * _rotationSpeed, Space.World);
+            transform.Rotate(Vector3.up * _rotationSpeed * Time.deltaTime, Space.World);
         }
 
         public void SetRotatationSpeed(float speed)

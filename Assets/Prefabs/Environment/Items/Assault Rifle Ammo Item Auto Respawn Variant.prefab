@@ -16,6 +16,10 @@ PrefabInstance:
       value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4781893804813992842, guid: 803fb7ff7759fc246ae273c850b63047, type: 3}
+      propertyPath: _rotationSpeed
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 4781893804813992842, guid: 803fb7ff7759fc246ae273c850b63047, type: 3}
       propertyPath: _maxRespawnTimer
       value: 20
       objectReference: {fileID: 0}
@@ -25,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4781893804813992885, guid: 803fb7ff7759fc246ae273c850b63047, type: 3}
       propertyPath: m_Name
-      value: Assault Rifle Ammo Item Auto Respawn
+      value: Assault Rifle Ammo Item Auto Respawn Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4781893804813992888, guid: 803fb7ff7759fc246ae273c850b63047, type: 3}
       propertyPath: m_Size.y

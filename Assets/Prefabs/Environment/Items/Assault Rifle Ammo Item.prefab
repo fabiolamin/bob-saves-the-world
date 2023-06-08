@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: _bonusAmount
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 5469989538491209558, guid: 0a800ba2096109340be58950258a79ca, type: 3}
+      propertyPath: _rotationSpeed
+      value: 220
+      objectReference: {fileID: 0}
     - target: {fileID: 5469989538491209572, guid: 0a800ba2096109340be58950258a79ca, type: 3}
       propertyPath: m_Size.x
       value: 0.6559545

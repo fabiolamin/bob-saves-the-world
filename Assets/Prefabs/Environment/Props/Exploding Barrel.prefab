@@ -9728,6 +9728,7 @@ GameObject:
   - component: {fileID: 7176192674282731727}
   - component: {fileID: 7176192674282731723}
   - component: {fileID: 7176192674282731720}
+  - component: {fileID: 6639524963440192506}
   m_Layer: 8
   m_Name: Exploding Barrel
   m_TagString: Untagged
@@ -10179,7 +10180,6 @@ MonoBehaviour:
   _objectPrefab: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
   _amount: 3
   _origin: {fileID: 0}
-  _pooledObjects: []
 --- !u!114 &7176192674282731720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10195,7 +10195,48 @@ MonoBehaviour:
   _objectPrefab: {fileID: 6223564182415242466, guid: 04819a7300656f44fb266a5b4d904eb2, type: 3}
   _amount: 3
   _origin: {fileID: 0}
-  _pooledObjects: []
+--- !u!114 &6639524963440192506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176192674281694406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05f8b8f18bf64c4c8abe103efa8f8dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onGamePause:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 439558315116610102}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onGameResume:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 439558315116610102}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: UnPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9167547704254271978
 GameObject:
   m_ObjectHideFlags: 0
