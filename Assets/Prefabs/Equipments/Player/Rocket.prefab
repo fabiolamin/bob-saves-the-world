@@ -82,6 +82,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onFuelObtained:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &4253459843649309424
 PrefabInstance:
   m_ObjectHideFlags: 0

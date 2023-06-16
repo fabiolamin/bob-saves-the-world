@@ -36,6 +36,11 @@ namespace BSTW.Player
         {
             _animator.SetBool("IsAlive", isAlive);
         }
+
+        public void ResetMovementParameter()
+        {
+            SetMovementParameters(0f, 0f);
+        }
     }
 }
 

@@ -6,6 +6,8 @@ namespace BSTW.Utils
 {
     public class LoopInterval : MonoBehaviour
     {
+        private Coroutine _loopIntervalCoroutine;
+
         [SerializeField] private float _minInterval;
         [SerializeField] private float _maxInterval;
 
@@ -15,7 +17,7 @@ namespace BSTW.Utils
 
         private void Awake()
         {
-            StartCoroutine(StartAudioInterval());
+            _loopIntervalCoroutine = StartCoroutine(StartAudioInterval());
         }
 
         private IEnumerator StartAudioInterval()
@@ -27,6 +29,14 @@ namespace BSTW.Utils
                 yield return new WaitForSeconds(interval);
 
                 _onIntervalEnded.Invoke();
+            }
+        }
+
+        public void StopLoopInterval()
+        {
+            if(_loopIntervalCoroutine != null)
+            {
+                StopCoroutine(_loopIntervalCoroutine);
             }
         }
     }

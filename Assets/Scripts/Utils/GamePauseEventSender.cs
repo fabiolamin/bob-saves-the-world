@@ -9,9 +9,14 @@ namespace BSTW.Utils
         [SerializeField] private UnityEvent _onGamePause;
         [SerializeField] private UnityEvent _onGameResume;
 
-        private void Awake()
+        private void OnEnable()
         {
             GameManager.OnGameResumed += OnGameResumed;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.OnGameResumed -= OnGameResumed;
         }
 
         private void OnGameResumed(bool isResumed)

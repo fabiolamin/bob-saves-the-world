@@ -97,9 +97,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a800ba2096109340be58950258a79ca, type: 3}
+--- !u!198 &4781893802863488066 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5469989540290279582, guid: 0a800ba2096109340be58950258a79ca, type: 3}
+  m_PrefabInstance: {fileID: 699744135452251356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4781893804813992842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5469989538491209558, guid: 0a800ba2096109340be58950258a79ca, type: 3}
+  m_PrefabInstance: {fileID: 699744135452251356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781893804813992885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224f87ea9c9a6e54394d05bc6c9ac88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4781893804813992885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5469989538491209577, guid: 0a800ba2096109340be58950258a79ca, type: 3}
+  m_PrefabInstance: {fileID: 699744135452251356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3093262315906804709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781893804813992885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b963961385ac51f46a9362280524521f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onGameFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4781893804813992894}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4781893804813992842}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4781893802863488066}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Pause
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!4 &4781893804813992891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5469989538491209575, guid: 0a800ba2096109340be58950258a79ca, type: 3}
+  m_PrefabInstance: {fileID: 699744135452251356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &4781893804813992894 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5469989538491209570, guid: 0a800ba2096109340be58950258a79ca, type: 3}
   m_PrefabInstance: {fileID: 699744135452251356}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6731378510097653432

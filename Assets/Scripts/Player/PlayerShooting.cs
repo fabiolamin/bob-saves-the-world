@@ -10,6 +10,7 @@ namespace BSTW.Player
     public class PlayerShooting : CharacterShooting
     {
         private Coroutine _hitMarkerCoroutine;
+        private GameManager _gameManager;
 
         [SerializeField] private GameObject _aimImage;
         [SerializeField] private GameObject _hitMarker;
@@ -23,9 +24,14 @@ namespace BSTW.Player
 
         public bool IsAiming { get; private set; } = false;
 
+        private void Start()
+        {
+            _gameManager = FindObjectOfType<GameManager>();
+        }
+
         public void OnAim(InputAction.CallbackContext value)
         {
-            if (GameManager.IsGamePaused) return;
+            if (_gameManager.IsGamePaused || _gameManager.IsGameFinished) return;
 
             IsAiming = value.action.IsPressed();
 
@@ -37,7 +43,7 @@ namespace BSTW.Player
 
         public void OnShoot(InputAction.CallbackContext value)
         {
-            if (GameManager.IsGamePaused) return;
+            if (_gameManager.IsGamePaused || _gameManager.IsGameFinished) return;
 
             isHoldingShootingTrigger = value.action.IsPressed();
 
@@ -51,7 +57,7 @@ namespace BSTW.Player
 
         public void OnSwitchWeapon(InputAction.CallbackContext value)
         {
-            if (GameManager.IsGamePaused) return;
+            if (_gameManager.IsGamePaused || _gameManager.IsGameFinished) return;
 
             if (value.started && IsReadyToShoot)
             {

@@ -63,7 +63,7 @@ MonoBehaviour:
   _onGoalFailed:
     m_PersistentCalls:
       m_Calls: []
-  GoalText: Destroy {0} enemy bases
+  _goalAchievementDelay: 1
   _enemyBases:
   - {fileID: 0}
   - {fileID: 0}

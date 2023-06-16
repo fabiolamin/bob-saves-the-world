@@ -1592,6 +1592,26 @@ PrefabInstance:
       propertyPath: _rotationSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1219970227395668146}
+    - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1197670917841308163}
+    - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6219913273278044096, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: m_Center.x
       value: 0.5314793

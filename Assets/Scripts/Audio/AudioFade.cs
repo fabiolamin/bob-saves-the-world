@@ -21,22 +21,14 @@ namespace BSTW.Audio
 
         public void StartFadeOut()
         {
-            if (_fadeOutCoroutine != null)
-                StopCoroutine(_fadeOutCoroutine);
-
-            if (_fadeInCoroutine != null)
-                StopCoroutine(_fadeInCoroutine);
+            StopAudioFadeCoroutines();
 
             _fadeOutCoroutine = StartCoroutine(FadeOut());
         }
 
         public void StartFadeIn()
         {
-            if (_fadeOutCoroutine != null)
-                StopCoroutine(_fadeOutCoroutine);
-
-            if (_fadeInCoroutine != null)
-                StopCoroutine(_fadeInCoroutine);
+            StopAudioFadeCoroutines();
 
             _fadeInCoroutine = StartCoroutine(FadeIn());
         }
@@ -67,6 +59,15 @@ namespace BSTW.Audio
             }
 
             _audioSource.volume = _startVolume;
+        }
+
+        private void StopAudioFadeCoroutines()
+        {
+            if (_fadeOutCoroutine != null)
+                StopCoroutine(_fadeOutCoroutine);
+
+            if (_fadeInCoroutine != null)
+                StopCoroutine(_fadeInCoroutine);
         }
     }
 }

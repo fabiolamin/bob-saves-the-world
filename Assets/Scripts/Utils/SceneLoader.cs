@@ -1,3 +1,4 @@
+using BSTW.Game;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,12 +14,18 @@ namespace BSTW.Utils
         private const int Level2Index = 3;
         private const int Level3Index = 4;
 
+        private bool _isLoading;
+
         [SerializeField] private GameObject _loadingBg;
         [SerializeField] private float _loadingDelay = 2f;
         [SerializeField] private UnityEvent _onLoadingStart;
 
         private IEnumerator LoadScene(int index)
         {
+            if(_isLoading) yield break;
+
+            _isLoading = true;
+
             Time.timeScale = 1f;
 
             _onLoadingStart?.Invoke();
@@ -36,6 +43,7 @@ namespace BSTW.Utils
 
         public void LoadMainMenu()
         {
+
             StartCoroutine(LoadScene(MainMenuIndex));
         }
 

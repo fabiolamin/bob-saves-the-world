@@ -1,5 +1,6 @@
 using BSTW.Data.Player;
 using BSTW.Equipments;
+using BSTW.Game;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -22,6 +23,8 @@ namespace BSTW.Player
         private bool _isHoldingJumpKey = false;
         private bool _canMove = false;
         private bool _isMovingForward = false;
+
+        private GameManager _gameManager;
 
         [SerializeField] private Rigidbody _playerRb;
         [SerializeField] private Transform _thirdPersonCamera;
@@ -55,13 +58,15 @@ namespace BSTW.Player
 
                 StartCoroutine(WaitToMove(_movementData.DelayToMove));
             }
+
+            _gameManager = FindObjectOfType<GameManager>();
         }
 
         private void Update()
         {
             _onPlayerIsGround?.Invoke(PlayerFoot.IsOnTheGround);
 
-            if (!_canMove) return;
+            if (!_canMove || _gameManager.IsGamePaused || _gameManager.IsGameFinished) return;
 
             CheckIfPlayerIsFlying();
             CheckPlayerHeight();
@@ -69,7 +74,7 @@ namespace BSTW.Player
 
         private void FixedUpdate()
         {
-            if (!_canMove) return;
+            if (!_canMove || _gameManager.IsGamePaused || _gameManager.IsGameFinished) return;
 
             RotatePlayer();
             MovePlayer();
@@ -271,14 +276,14 @@ namespace BSTW.Player
         private bool CanPlayerJump(InputAction.CallbackContext value)
         {
             return value.started && PlayerFoot.IsOnTheGround &&
-            _canMove && !_isJumping;
+            _canMove && !_isJumping && !_gameManager.IsGamePaused && !_gameManager.IsGameFinished;
         }
 
         private bool CanPlayerRollOnGround(InputAction.CallbackContext value)
         {
             return value.started && PlayerFoot.IsOnTheGround && _canMove &&
             !_isJumping && !IsRolling && !_jetBackpackUser.IsFlying &&
-            _movement.magnitude != 0f;
+            _movement.magnitude != 0f && !_gameManager.IsGamePaused && !_gameManager.IsGameFinished;
         }
 
         private void Roll()

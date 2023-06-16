@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1998682277117251492}
   - component: {fileID: 4891822029108306723}
   - component: {fileID: 522198349065377029}
-  - component: {fileID: 2810561546012388529}
+  - component: {fileID: 5242111996471152477}
   m_Layer: 7
   m_Name: Prop Jump
   m_TagString: Untagged
@@ -276,7 +276,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.066, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &2810561546012388529
+--- !u!114 &5242111996471152477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,15 +285,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 2825305908616113574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f05f8b8f18bf64c4c8abe103efa8f8dd, type: 3}
+  m_Script: {fileID: 11500000, guid: b963961385ac51f46a9362280524521f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onGamePause:
+  _onGameFinish:
     m_PersistentCalls:
-      m_Calls: []
-  _onGameResume:
-    m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4891822029108306723}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3633289885896130891}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: set_speed
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4110987126402501733
 GameObject:
   m_ObjectHideFlags: 0

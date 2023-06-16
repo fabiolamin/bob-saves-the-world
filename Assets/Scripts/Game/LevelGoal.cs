@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using System.Collections;
 
 namespace BSTW.Game
 {
@@ -11,6 +12,8 @@ namespace BSTW.Game
         [SerializeField] private UnityEvent _onGoalAchieved;
         [SerializeField] private UnityEvent _onGoalFailed;
 
+        [SerializeField] private float _transitionDelay = 1f;
+
         protected virtual void Awake()
         {
             UpdateGoalText();
@@ -20,7 +23,7 @@ namespace BSTW.Game
         {
             if (IsGoalAchieved())
             {
-                _onGoalAchieved?.Invoke();
+                StartCoroutine(StartGoalAchievement());
             }
         }
 
@@ -34,7 +37,21 @@ namespace BSTW.Game
 
         public void SetGoalFailed()
         {
+            StartCoroutine(StartGoalFailed());
+        }
+
+        private IEnumerator StartGoalFailed()
+        {
+            yield return new WaitForSeconds(_transitionDelay);
+
             _onGoalFailed?.Invoke();
+        }
+
+        private IEnumerator StartGoalAchievement()
+        {
+            yield return new WaitForSeconds(_transitionDelay);
+
+            _onGoalAchieved?.Invoke();
         }
     }
 }

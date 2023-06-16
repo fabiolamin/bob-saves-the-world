@@ -24,12 +24,12 @@ namespace BSTW.UI
         {
             if (!Bar.gameObject.activeSelf) return;
 
-            if(_updateBarSmoothlyCoroutine is not null)
+            if (_updateBarSmoothlyCoroutine is not null)
             {
                 StopCoroutine(_updateBarSmoothlyCoroutine);
             }
 
-            _updateBarSmoothlyCoroutine = StartCoroutine(StartUpdateBarSmoothly(Bar.fillAmount, currentValue/ _maxValue));
+            _updateBarSmoothlyCoroutine = StartCoroutine(StartUpdateBarSmoothly(Bar.fillAmount, currentValue / _maxValue));
         }
 
         private IEnumerator StartUpdateBarSmoothly(float startValue, float endValue)

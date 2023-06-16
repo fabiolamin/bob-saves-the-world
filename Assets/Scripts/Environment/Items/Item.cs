@@ -7,9 +7,9 @@ namespace BSTW.Environment.Items
 {
     public abstract class Item : MonoBehaviour
     {
+        private Coroutine _autoRespawnCoroutine;
         private Vector3 _startPosition;
         private float _startMass;
-        private Coroutine _activateItemCoroutine;
         private bool _hasInvokedFollowingEvent = false;
         private bool _respawnStarted = false;
         private const int CollectableLayer = 11;
@@ -147,7 +147,7 @@ namespace BSTW.Environment.Items
             _respawnStarted = true;
 
             ActivateItemVisualEffects(false);
-            StartCoroutine(WaitRespawn());
+            _autoRespawnCoroutine = StartCoroutine(WaitRespawn());
         }
 
         private IEnumerator WaitRespawn()
@@ -159,6 +159,14 @@ namespace BSTW.Environment.Items
             _respawnStarted = false;
 
             ActivateItemVisualEffects(true);
+        }
+
+        public void StopAutoRespawn()
+        {
+            if(_autoRespawnCoroutine != null)
+            {
+                StopCoroutine(_autoRespawnCoroutine);
+            }
         }
 
         protected abstract bool CanBeCollected();
