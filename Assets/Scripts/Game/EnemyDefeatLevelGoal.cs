@@ -1,4 +1,5 @@
 using BSTW.Enemy;
+using BSTW.Utils;
 using UnityEngine;
 
 namespace BSTW.Game
@@ -20,6 +21,11 @@ namespace BSTW.Game
         public void OnEnemyHit()
         {
             CheckGoalAchievement(); 
+        }
+
+        protected override void SaveAchievement()
+        {
+            PlayerPrefs.SetInt(SceneLoader.CurrentLevelSavingName, SceneLoader.MainMenuIndex);
         }
     }
 }

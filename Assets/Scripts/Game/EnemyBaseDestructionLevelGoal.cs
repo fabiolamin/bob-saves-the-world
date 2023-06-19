@@ -1,3 +1,4 @@
+using BSTW.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -41,6 +42,11 @@ namespace BSTW.Game
         protected override string GetGoalText()
         {
             return string.Format("{0}/{1}", _enemyBases.Count, _maxEnemyBases);
+        }
+
+        protected override void SaveAchievement()
+        {
+            PlayerPrefs.SetInt(SceneLoader.CurrentLevelSavingName, SceneLoader.Level2Index);
         }
     }
 }

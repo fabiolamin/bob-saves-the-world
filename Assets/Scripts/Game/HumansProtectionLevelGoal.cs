@@ -37,6 +37,11 @@ namespace BSTW.Game
                 CheckGoalAchievement();
             }
         }
+
+        protected override void SaveAchievement()
+        {
+            PlayerPrefs.SetInt(SceneLoader.CurrentLevelSavingName, SceneLoader.Level3Index);
+        }
     }
 
 }

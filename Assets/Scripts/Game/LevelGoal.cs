@@ -34,6 +34,7 @@ namespace BSTW.Game
 
         protected abstract string GetGoalText();
         protected abstract bool IsGoalAchieved();
+        protected abstract void SaveAchievement();
 
         public void SetGoalFailed()
         {
@@ -51,6 +52,7 @@ namespace BSTW.Game
         {
             yield return new WaitForSeconds(_transitionDelay);
 
+            SaveAchievement();
             _onGoalAchieved?.Invoke();
         }
     }

@@ -70,6 +70,8 @@ namespace BSTW.UI
 
         public void SetResolution(int resolutionIndex)
         {
+            if (_resolutions.Count == 0) return;
+
             _selectedResolutionIndex = resolutionIndex;
             _selectedResolution = _resolutions[_selectedResolutionIndex];
         }

@@ -1,4 +1,3 @@
-using BSTW.Game;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,21 +7,23 @@ namespace BSTW.Utils
 {
     public class SceneLoader : MonoBehaviour
     {
-        private const int MainMenuIndex = 0;
-        private const int IntroIndex = 1;
-        private const int Level1Index = 2;
-        private const int Level2Index = 3;
-        private const int Level3Index = 4;
-
         private bool _isLoading;
 
         [SerializeField] private GameObject _loadingBg;
         [SerializeField] private float _loadingDelay = 2f;
         [SerializeField] private UnityEvent _onLoadingStart;
 
+        public static readonly string CurrentLevelSavingName = "CurrentLevel";
+
+        public static readonly int MainMenuIndex = 0;
+        public static readonly int IntroIndex = 1;
+        public static readonly int Level1Index = 2;
+        public static readonly int Level2Index = 3;
+        public static readonly int Level3Index = 4;
+
         private IEnumerator LoadScene(int index)
         {
-            if(_isLoading) yield break;
+            if (_isLoading) yield break;
 
             _isLoading = true;
 
@@ -43,17 +44,18 @@ namespace BSTW.Utils
 
         public void LoadMainMenu()
         {
-
             StartCoroutine(LoadScene(MainMenuIndex));
         }
 
         public void LoadIntro()
         {
+            PlayerPrefs.SetInt(CurrentLevelSavingName, IntroIndex);
             StartCoroutine(LoadScene(IntroIndex));
         }
 
         public void LoadLevel1()
         {
+            PlayerPrefs.SetInt(CurrentLevelSavingName, Level1Index);
             StartCoroutine(LoadScene(Level1Index));
         }
 
@@ -65,6 +67,11 @@ namespace BSTW.Utils
         public void LoadLevel3()
         {
             StartCoroutine(LoadScene(Level3Index));
+        }
+
+        public void LoadLevel(int index)
+        {
+            StartCoroutine(LoadScene(index));
         }
 
         public void QuitGame()
