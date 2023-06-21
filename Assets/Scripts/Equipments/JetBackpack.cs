@@ -1,4 +1,5 @@
 using BSTW.Data.Equipments;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,6 +7,7 @@ namespace BSTW.Equipments
 {
     public class JetBackpack : MonoBehaviour
     {
+        private Coroutine _rechargeTotalCoroutine;   
         private float _rechargeDurationAux = 0f;
 
         private bool _canBeFueled = true;
@@ -38,7 +40,7 @@ namespace BSTW.Equipments
             }
             else
             {
-                if (_canBeFueled)
+                if (_canBeFueled && _jetBackpackUser.CanFuelJetpack())
                 {
                     SetFuelSpeed(false);
                 }
@@ -102,6 +104,26 @@ namespace BSTW.Equipments
             _canBeFueled = true;
             _onFuelObtained?.Invoke();
             UpdateFuel(amount);
+        }
+
+        public void RechargeTotalFuel(float speed)
+        {
+            if(_rechargeTotalCoroutine != null)
+            {
+                StopCoroutine(_rechargeTotalCoroutine);
+            }
+
+            _rechargeTotalCoroutine = StartCoroutine(RechargeTotalFueldCoroutine(speed));
+        }
+
+        private IEnumerator RechargeTotalFueldCoroutine(float speed)
+        {
+            while (_jetBackpackData.CurrentFuelAmount < JetBackpackData.MaxFuelAmount)
+            {
+                UpdateFuel(Time.deltaTime * _jetBackpackData.FuelIncreaseSpeed * speed);
+
+                yield return null;
+            }
         }
     }
 }

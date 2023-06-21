@@ -734,6 +734,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6146103658376640463}
+        m_TargetAssemblyTypeName: BSTW.Equipments.JetBackpack, Assembly-CSharp
+        m_MethodName: RechargeTotalFuel
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3661840271173547296
 GameObject:
   m_ObjectHideFlags: 0
@@ -11336,13 +11348,13 @@ GameObject:
   - component: {fileID: 4917344340799524409}
   - component: {fileID: 5571951601805222781}
   - component: {fileID: 5157008614702098617}
-  - component: {fileID: 6025565614441959701}
   - component: {fileID: 5871238415937604047}
   - component: {fileID: 6993374090152357404}
   - component: {fileID: 8022229656759347831}
   - component: {fileID: 1888885557654356219}
   - component: {fileID: 815930427430135622}
   - component: {fileID: 3315104679884176127}
+  - component: {fileID: 1523957291871244462}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -11583,7 +11595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerRb: {fileID: 5571951601805222785}
   _thirdPersonCamera: {fileID: 0}
-  _jetBackpackUser: {fileID: 6025565614441959701}
+  _jetBackpackUser: {fileID: 1523957291871244462}
   _movementData: {fileID: 11400000, guid: fca5e4d0cc557244f9a98c45ba8e93f6, type: 2}
   _playerShooting: {fileID: 5157008614702098617}
   _onPlayerMove:
@@ -11913,18 +11925,6 @@ MonoBehaviour:
         m_CallState: 2
   _emptyGunSFX: {fileID: 8300000, guid: 4a6394f9036cc2e408ac888c0b7cdf76, type: 3}
   _playerCameraShake: {fileID: 1888885557654356219}
---- !u!114 &6025565614441959701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7294626355850845352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9055a9cf9bfd8694d8d91e20191806ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5871238415937604047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12827,6 +12827,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &1523957291871244462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294626355850845352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c368c33da0a21d44e810589ec75b8119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7294626355850845354
 GameObject:
   m_ObjectHideFlags: 0
@@ -15237,7 +15249,7 @@ PrefabInstance:
     - target: {fileID: 1961563092493767145, guid: 4cf533a82e431ee448f77994e3be7e8e, type: 3}
       propertyPath: _jetBackpackUser
       value: 
-      objectReference: {fileID: 6025565614441959701}
+      objectReference: {fileID: 1523957291871244462}
     - target: {fileID: 1961563092493767145, guid: 4cf533a82e431ee448f77994e3be7e8e, type: 3}
       propertyPath: _onFuelObtained.m_PersistentCalls.m_Calls.Array.size
       value: 1

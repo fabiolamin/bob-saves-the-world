@@ -6,6 +6,11 @@ namespace BSTW.Equipments
     {
         public bool IsFlying { get; set; }
         public bool HasFuel { get; set; }
+
+        public virtual bool CanFuelJetpack()
+        {
+            return true;
+        }
     }
 }
 
