@@ -18,7 +18,7 @@ MonoBehaviour:
   _bounceSpeed: 25
   _bounceForceModifier: 1000
   _rotationSpeed: 6
-  _flySpeed: 12.5
+  _flySpeed: 12
   _aimingSpeed: 2
   _delayJumpingToFly: 0.2
   _delayToMove: 1
