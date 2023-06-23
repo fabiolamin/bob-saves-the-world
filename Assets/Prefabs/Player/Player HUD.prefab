@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 3500468721132571462}
   - component: {fileID: 1653332395515333212}
   - component: {fileID: 9041372003606316726}
+  - component: {fileID: 8497452948126890411}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -410,6 +411,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!95 &8497452948126890411
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871670431852234498}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8765295675d03f1418367937265c9a22, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3060571818489592265
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +442,7 @@ GameObject:
   - component: {fileID: 8872646516709667040}
   - component: {fileID: 477784519997191569}
   - component: {fileID: 2706128315244653628}
+  - component: {fileID: 1803739221407261756}
   m_Layer: 5
   m_Name: Weapon Icon Bg
   m_TagString: Untagged
@@ -488,6 +510,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1803739221407261756
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060571818489592265}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8765295675d03f1418367937265c9a22, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3099226387355029895
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.49, y: -29.738}
+  m_AnchoredPosition: {x: 191, y: -29.738}
   m_SizeDelta: {x: 210.026, y: 37.399}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5504163978267630491
@@ -590,7 +632,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 17
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -853,6 +895,7 @@ GameObject:
   - component: {fileID: 8136912959603510545}
   - component: {fileID: 744984477498630633}
   - component: {fileID: 8717189906387479555}
+  - component: {fileID: 2343243508785316378}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -932,6 +975,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!95 &2343243508785316378
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4642167292295781736}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8765295675d03f1418367937265c9a22, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5128189929615360313
 GameObject:
   m_ObjectHideFlags: 0
