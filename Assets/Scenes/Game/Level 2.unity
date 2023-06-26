@@ -31300,6 +31300,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 218658988}
     - target: {fileID: 5979856351700351733, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_XAxis.m_MaxSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351700351733, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
+      propertyPath: m_YAxis.m_MaxSpeed
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979856351700351733, guid: 66d1785e3aa36fe4cbc3bd8d6f889647, type: 3}
       propertyPath: m_Lens.NearClipPlane
       value: 0.5
       objectReference: {fileID: 0}
