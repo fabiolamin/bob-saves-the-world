@@ -11,6 +11,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Default Variant 6
       objectReference: {fileID: 0}
+    - target: {fileID: 926915146466689528, guid: 8ef92105bab27d04d8d141ca54df71dc, type: 3}
+      propertyPath: m_Size.x
+      value: 17.894384
+      objectReference: {fileID: 0}
+    - target: {fileID: 926915146466689528, guid: 8ef92105bab27d04d8d141ca54df71dc, type: 3}
+      propertyPath: m_Size.y
+      value: 29.695204
+      objectReference: {fileID: 0}
+    - target: {fileID: 926915146466689528, guid: 8ef92105bab27d04d8d141ca54df71dc, type: 3}
+      propertyPath: m_Size.z
+      value: 11.524411
+      objectReference: {fileID: 0}
+    - target: {fileID: 926915146466689528, guid: 8ef92105bab27d04d8d141ca54df71dc, type: 3}
+      propertyPath: m_Center.x
+      value: -1.7563595
+      objectReference: {fileID: 0}
+    - target: {fileID: 926915146466689528, guid: 8ef92105bab27d04d8d141ca54df71dc, type: 3}
+      propertyPath: m_Center.y
+      value: 14.826874
+      objectReference: {fileID: 0}
+    - target: {fileID: 926915146466689528, guid: 8ef92105bab27d04d8d141ca54df71dc, type: 3}
+      propertyPath: m_Center.z
+      value: -5.5324144
+      objectReference: {fileID: 0}
     - target: {fileID: 926915146466689529, guid: 8ef92105bab27d04d8d141ca54df71dc, type: 3}
       propertyPath: m_RootOrder
       value: 0

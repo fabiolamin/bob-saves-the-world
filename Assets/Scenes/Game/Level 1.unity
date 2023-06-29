@@ -2014,6 +2014,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2472926188495941177, guid: 8fc509e24f97bc04caa5c13bee2b47ba, type: 3}
+      propertyPath: m_Size.x
+      value: 17.720718
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472926188495941177, guid: 8fc509e24f97bc04caa5c13bee2b47ba, type: 3}
+      propertyPath: m_Size.y
+      value: 29.601694
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472926188495941177, guid: 8fc509e24f97bc04caa5c13bee2b47ba, type: 3}
+      propertyPath: m_Size.z
+      value: 11.0551
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472926188495941177, guid: 8fc509e24f97bc04caa5c13bee2b47ba, type: 3}
+      propertyPath: m_Center.x
+      value: -1.576227
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472926188495941177, guid: 8fc509e24f97bc04caa5c13bee2b47ba, type: 3}
+      propertyPath: m_Center.y
+      value: 14.780118
+      objectReference: {fileID: 0}
+    - target: {fileID: 2472926188495941177, guid: 8fc509e24f97bc04caa5c13bee2b47ba, type: 3}
+      propertyPath: m_Center.z
+      value: -5.6744404
+      objectReference: {fileID: 0}
     - target: {fileID: 2472926188495941573, guid: 8fc509e24f97bc04caa5c13bee2b47ba, type: 3}
       propertyPath: m_Name
       value: Building Default (5)
@@ -14517,6 +14541,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6968680223003641363, guid: 393604c89fe6e93488de195ebd7c2501, type: 3}
+      propertyPath: m_Size.z
+      value: 10.922019
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968680223003641363, guid: 393604c89fe6e93488de195ebd7c2501, type: 3}
+      propertyPath: m_Center.z
+      value: -2.5891714
+      objectReference: {fileID: 0}
     - target: {fileID: 6968680223003641839, guid: 393604c89fe6e93488de195ebd7c2501, type: 3}
       propertyPath: m_Name
       value: Building Default (13)
@@ -24926,6 +24958,14 @@ PrefabInstance:
     - target: {fileID: 6968680223003641362, guid: 393604c89fe6e93488de195ebd7c2501, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968680223003641363, guid: 393604c89fe6e93488de195ebd7c2501, type: 3}
+      propertyPath: m_Size.z
+      value: 10.876592
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968680223003641363, guid: 393604c89fe6e93488de195ebd7c2501, type: 3}
+      propertyPath: m_Center.z
+      value: -2.5664604
       objectReference: {fileID: 0}
     - target: {fileID: 6968680223003641839, guid: 393604c89fe6e93488de195ebd7c2501, type: 3}
       propertyPath: m_Name
