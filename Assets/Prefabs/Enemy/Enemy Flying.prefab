@@ -2214,11 +2214,11 @@ PrefabInstance:
     - target: {fileID: 4887838319972590320, guid: c92bb1b6824ed3f4bb92546eb5269280, type: 3}
       propertyPath: _lootItems.Array.data[1].ItemPool
       value: 
-      objectReference: {fileID: 8867054256115842836}
+      objectReference: {fileID: 1939970105012516585}
     - target: {fileID: 4887838319972590320, guid: c92bb1b6824ed3f4bb92546eb5269280, type: 3}
       propertyPath: _lootItems.Array.data[2].ItemPool
       value: 
-      objectReference: {fileID: 1939970105012516585}
+      objectReference: {fileID: 8867054256115842836}
     - target: {fileID: 4887838319972590320, guid: c92bb1b6824ed3f4bb92546eb5269280, type: 3}
       propertyPath: _lootItems.Array.data[3].ItemPool
       value: 

@@ -7634,6 +7634,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1570932392}
     m_Modifications:
+    - target: {fileID: 5388391118533618959, guid: c8c0460264686cd4ea82f4d110828d9d, type: 3}
+      propertyPath: _maxRespawnTimer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5388391118533618959, guid: c8c0460264686cd4ea82f4d110828d9d, type: 3}
+      propertyPath: _minRespawnTimer
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5388391118533618992, guid: c8c0460264686cd4ea82f4d110828d9d, type: 3}
       propertyPath: m_Name
       value: Pistol Ammo Item Auto Respawn
@@ -8926,11 +8934,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8586345529874164657, guid: 5fbc799659ecf0d43974ae68130f0b7a, type: 3}
       propertyPath: _maxRespawnTimer
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8586345529874164657, guid: 5fbc799659ecf0d43974ae68130f0b7a, type: 3}
       propertyPath: _minRespawnTimer
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8586345529874164670, guid: 5fbc799659ecf0d43974ae68130f0b7a, type: 3}
       propertyPath: m_Name
@@ -9101,11 +9109,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8553577925735291654, guid: 99f9067fb2527ae40a4e2acb4f5bc499, type: 3}
       propertyPath: _maxRespawnTimer
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8553577925735291654, guid: 99f9067fb2527ae40a4e2acb4f5bc499, type: 3}
       propertyPath: _minRespawnTimer
-      value: 15
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 8553577925735291703, guid: 99f9067fb2527ae40a4e2acb4f5bc499, type: 3}
       propertyPath: m_RootOrder

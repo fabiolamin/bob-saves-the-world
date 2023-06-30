@@ -21,11 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4781893804813992842, guid: 803fb7ff7759fc246ae273c850b63047, type: 3}
       propertyPath: _maxRespawnTimer
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4781893804813992842, guid: 803fb7ff7759fc246ae273c850b63047, type: 3}
       propertyPath: _minRespawnTimer
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4781893804813992885, guid: 803fb7ff7759fc246ae273c850b63047, type: 3}
       propertyPath: m_Name

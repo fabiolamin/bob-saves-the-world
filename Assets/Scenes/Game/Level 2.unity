@@ -22793,7 +22793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5388391118533619006, guid: c8c0460264686cd4ea82f4d110828d9d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 55.78
+      value: -3.9
       objectReference: {fileID: 0}
     - target: {fileID: 5388391118533619006, guid: c8c0460264686cd4ea82f4d110828d9d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22801,7 +22801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5388391118533619006, guid: c8c0460264686cd4ea82f4d110828d9d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 113.5
+      value: 161.1
       objectReference: {fileID: 0}
     - target: {fileID: 5388391118533619006, guid: c8c0460264686cd4ea82f4d110828d9d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -31406,14 +31406,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1570932392}
     m_Modifications:
-    - target: {fileID: 2332437868953543823, guid: 94138538141c0464c810eb479a503113, type: 3}
-      propertyPath: _maxRespawnTimer
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2332437868953543823, guid: 94138538141c0464c810eb479a503113, type: 3}
-      propertyPath: _minRespawnTimer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 2332437868953543856, guid: 94138538141c0464c810eb479a503113, type: 3}
       propertyPath: m_Name
       value: Assault Rifle Ammo Item Auto Respawn
@@ -31424,7 +31416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2332437868953543870, guid: 94138538141c0464c810eb479a503113, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.66
+      value: 55.05
       objectReference: {fileID: 0}
     - target: {fileID: 2332437868953543870, guid: 94138538141c0464c810eb479a503113, type: 3}
       propertyPath: m_LocalPosition.y
@@ -31432,7 +31424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2332437868953543870, guid: 94138538141c0464c810eb479a503113, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 162.9
+      value: 112.17
       objectReference: {fileID: 0}
     - target: {fileID: 2332437868953543870, guid: 94138538141c0464c810eb479a503113, type: 3}
       propertyPath: m_LocalRotation.w

@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406165581323790152, guid: 2c6868afba6c234408cf1a3260b0fb90, type: 3}
       propertyPath: m_Name
-      value: Rocket Launcher Ammo Item Auto Respawn
+      value: Rocket Launcher Ammo Item Auto Respawn Variant
       objectReference: {fileID: 0}
     - target: {fileID: 406165581323790199, guid: 2c6868afba6c234408cf1a3260b0fb90, type: 3}
       propertyPath: AutoRespawn
@@ -97,11 +97,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406165581323790199, guid: 2c6868afba6c234408cf1a3260b0fb90, type: 3}
       propertyPath: _maxRespawnTimer
-      value: 45
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 406165581323790199, guid: 2c6868afba6c234408cf1a3260b0fb90, type: 3}
       propertyPath: _minRespawnTimer
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c6868afba6c234408cf1a3260b0fb90, type: 3}
