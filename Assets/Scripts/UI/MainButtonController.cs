@@ -12,12 +12,11 @@ namespace BSTW.UI
         [SerializeField] private TextMeshProUGUI _mainButtonText;
         [SerializeField] private AudioFade _soundtrackAudioFade;
         [SerializeField] private GameObject _uiClickBlocker;
+        [SerializeField] private GameObject _howToPlayPanel;
         [SerializeField] private SceneLoader _sceneLoader;
 
         private void Start()
         {
-            _mainButton.onClick.AddListener(OnMainButtonClicked);
-
             if (IsNewGame())
             {
                 _mainButtonText.text = "new game";
@@ -32,8 +31,6 @@ namespace BSTW.UI
 
         private void OnDestroy()
         {
-            _mainButton.onClick.RemoveListener(OnMainButtonClicked);
-
             if (IsNewGame())
             {
                 _mainButton.onClick.RemoveListener(OnNewButtonClicked);
@@ -44,19 +41,15 @@ namespace BSTW.UI
             }
         }
 
-        private void OnMainButtonClicked()
-        {
-            _soundtrackAudioFade.StartFadeOut();
-            _uiClickBlocker.SetActive(true);
-        }
-
         private void OnNewButtonClicked()
         {
-            _sceneLoader.LoadIntro();
+            _howToPlayPanel.SetActive(true);
         }
 
         private void OnContinueButtonClicked()
         {
+            _soundtrackAudioFade.StartFadeOut();
+            _uiClickBlocker.SetActive(true);
             _sceneLoader.LoadLevel(PlayerPrefs.GetInt(SceneLoader.CurrentLevelSavingName, 0));
         }
 
