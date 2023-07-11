@@ -14,6 +14,7 @@ namespace BSTW.UI
         [SerializeField] private GameObject _uiClickBlocker;
         [SerializeField] private GameObject _howToPlayPanel;
         [SerializeField] private SceneLoader _sceneLoader;
+        [SerializeField] private CursorController _cursorController;
 
         private void Start()
         {
@@ -48,6 +49,7 @@ namespace BSTW.UI
 
         private void OnContinueButtonClicked()
         {
+            _cursorController.gameObject.SetActive(false);
             _soundtrackAudioFade.StartFadeOut();
             _uiClickBlocker.SetActive(true);
             _sceneLoader.LoadLevel(PlayerPrefs.GetInt(SceneLoader.CurrentLevelSavingName, 0));

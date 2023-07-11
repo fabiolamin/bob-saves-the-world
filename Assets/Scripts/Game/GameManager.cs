@@ -38,6 +38,8 @@ namespace BSTW.Game
             OnGameResumed?.Invoke(false);
             Time.timeScale = 0f;
             IsGamePaused = true;
+
+            Cursor.visible = Gamepad.current == null;
         }
 
         public void ResumeGame()

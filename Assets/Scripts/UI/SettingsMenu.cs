@@ -44,7 +44,7 @@ namespace BSTW.UI
         {
             _resolutions.Clear();
 
-            foreach (var resolution in Screen.resolutions)
+            foreach (var resolution in Screen.resolutions.OrderByDescending(s => s.width))
             {
                 if (_resolutions.Any(r => r.width == resolution.width && r.height == resolution.height)) continue;
 
