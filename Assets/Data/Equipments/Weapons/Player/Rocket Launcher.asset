@@ -17,6 +17,7 @@ MonoBehaviour:
   _shootSFX: {fileID: 0}
   _reloadSFX: {fileID: 8300000, guid: c0a502bdca924dd4ea11c342a2172d83, type: 3}
   _cameraShakeData: {fileID: 11400000, guid: 4ad6baaaaf05f304ab75eedd82e4fab8, type: 2}
+  _gamepadRumbleData: {fileID: 11400000, guid: e736f86f7b1fb534983f50c53ea8d0bb, type: 2}
   _maxAmmo: 10
   _criticalAmmoPercentage: 0.3
   _targets:

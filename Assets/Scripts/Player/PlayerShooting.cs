@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using BSTW.Equipments.Weapons.Shooting;
 using System.Collections;
 using BSTW.Game;
+using BSTW.Utils;
 
 namespace BSTW.Player
 {
@@ -21,6 +22,7 @@ namespace BSTW.Player
         [SerializeField] private AudioClip _emptyGunSFX;
 
         [SerializeField] private PlayerCameraShake _playerCameraShake;
+        [SerializeField] private GamepadRumbleController _gamepadRumbleController;
 
         public bool IsAiming { get; private set; } = false;
 
@@ -95,6 +97,7 @@ namespace BSTW.Player
         protected override void Shoot()
         {
             _playerCameraShake.StartShakeCamera(CurrentWeapon.WeaponData.CameraShakeData);
+            _gamepadRumbleController.StartGamepadRumble(CurrentWeapon.WeaponData.GamepadRumbleData);
 
             base.Shoot();
         }

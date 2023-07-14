@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 0}
-  _maxHealth: 3000
+  _maxHealth: 2500
   _criticalHealthPercentage: 0.3
   _knockDownPercentage: 0.5
   _healthUpdateDelay: 0.5
@@ -3948,7 +3948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bar: {fileID: 192614831421721219}
   _smoothlySpeed: 0.4
-  _maxValue: 3000
+  _maxValue: 2500
 --- !u!1 &192614832704407718
 GameObject:
   m_ObjectHideFlags: 0

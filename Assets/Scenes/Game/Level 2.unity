@@ -23857,7 +23857,7 @@ MonoBehaviour:
   _humans:
   - {fileID: 5421731819145082495}
   - {fileID: 998202420}
-  _durationInSeconds: 150
+  _durationInSeconds: 130
 --- !u!114 &2926231778999301600
 MonoBehaviour:
   m_ObjectHideFlags: 0
