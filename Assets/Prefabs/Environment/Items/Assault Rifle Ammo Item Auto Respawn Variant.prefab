@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4781893804813992842, guid: 803fb7ff7759fc246ae273c850b63047, type: 3}
       propertyPath: _bonusAmount
-      value: 70
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4781893804813992842, guid: 803fb7ff7759fc246ae273c850b63047, type: 3}
       propertyPath: _rotationSpeed

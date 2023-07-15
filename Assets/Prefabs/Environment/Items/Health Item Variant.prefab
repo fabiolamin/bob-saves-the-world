@@ -88,6 +88,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3412376949745134447, guid: d38524fe0868a304baf3bf9b9aa6dfb4, type: 3}
+      propertyPath: _bonusAmount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412376949745134447, guid: d38524fe0868a304baf3bf9b9aa6dfb4, type: 3}
       propertyPath: _rotationSpeed
       value: 220
       objectReference: {fileID: 0}

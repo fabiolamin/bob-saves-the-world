@@ -3037,6 +3037,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: _lootItems.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[0].ItemPool
       value: 
       objectReference: {fileID: 6505896236350986792}

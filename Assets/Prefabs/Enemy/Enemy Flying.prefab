@@ -2233,11 +2233,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4887838319972590320, guid: c92bb1b6824ed3f4bb92546eb5269280, type: 3}
       propertyPath: _lootItems.Array.data[1].Probability
-      value: 0.6
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4887838319972590320, guid: c92bb1b6824ed3f4bb92546eb5269280, type: 3}
       propertyPath: _lootItems.Array.data[2].Probability
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4887838319972590320, guid: c92bb1b6824ed3f4bb92546eb5269280, type: 3}
       propertyPath: _lootItems.Array.data[3].Probability

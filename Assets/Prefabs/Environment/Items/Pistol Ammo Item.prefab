@@ -70,7 +70,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _bonusAmount: 20
+  _bonusAmount: 50
   _followSpeed: 50
   _rotationSpeed: 220
   _spawnForce: 30
