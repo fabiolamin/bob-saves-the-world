@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57bdc50c02393d74aac5fbe0a6da83ea, type: 3}
   m_Name: Rocket Projectile
   m_EditorClassIdentifier: 
-  _speed: 60
+  _speed: 85
   _rapidFire: 0
   _hitRadius: 15
   _hitForce: 650

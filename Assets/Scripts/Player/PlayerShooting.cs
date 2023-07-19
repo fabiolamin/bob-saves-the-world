@@ -96,6 +96,8 @@ namespace BSTW.Player
 
         protected override void Shoot()
         {
+            if (CurrentWeapon.CurrentProjectile == null) return;
+
             _playerCameraShake.StartShakeCamera(CurrentWeapon.WeaponData.CameraShakeData);
             _gamepadRumbleController.StartGamepadRumble(CurrentWeapon.WeaponData.GamepadRumbleData);
 

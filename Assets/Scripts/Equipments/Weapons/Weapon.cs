@@ -14,6 +14,7 @@ namespace BSTW.Equipments.Weapons
     {
         [SerializeField] private WeaponData _weaponData;
         [SerializeField] private UnityEvent _onShoot;
+        [SerializeField] private UnityEvent _onProjectileSet;
 
         [SerializeField] private ObjectPooling _projectilePooling;
         [SerializeField] private ObjectPooling _bulletShellPooling;
@@ -24,7 +25,6 @@ namespace BSTW.Equipments.Weapons
 
         protected CharacterShooting characterShooting;
         protected Queue<Projectile> projectiles = new Queue<Projectile>();
-        protected bool isProjectileLoaded = true;
         protected Coroutine projectileLoadingCoroutine;
 
         public WeaponData WeaponData => _weaponData;
@@ -66,7 +66,7 @@ namespace BSTW.Equipments.Weapons
 
         public void Shoot(Vector3 origin, Vector3 direction)
         {
-            if (CurrentProjectile == null || !_weaponData.IsSelected || !isProjectileLoaded) return;
+            if (CurrentProjectile == null || !_weaponData.IsSelected) return;
 
             RaycastHit target;
 
@@ -75,7 +75,6 @@ namespace BSTW.Equipments.Weapons
                 _onShoot?.Invoke();
                 CurrentProjectile.GetReadyToMove(_projectileOrigin.position, target.point);
                 CurrentProjectile = null;
-                isProjectileLoaded = false;
                 UpdateCurrentAmmo(-1);
 
                 if (_bulletShellPooling != null && _bulletShellOrigin != null)
@@ -91,32 +90,14 @@ namespace BSTW.Equipments.Weapons
 
         public virtual void SetProjectile()
         {
-            if (projectiles.Count > 0)
+            if (projectiles.Count > 0 && CanShoot)
             {
                 CurrentProjectile = projectiles.Dequeue();
-                isProjectileLoaded = true;
+
+                _onProjectileSet?.Invoke();
             }
         }
 
-        private void StartProjectileLoading()
-        {
-            if (projectileLoadingCoroutine != null)
-            {
-                StopCoroutine(projectileLoadingCoroutine);
-            }
-
-            projectileLoadingCoroutine = StartCoroutine(LoadProjectile());
-        }
-
-        protected virtual IEnumerator LoadProjectile()
-        {
-            isProjectileLoaded = false;
-
-            yield return new WaitForSeconds(WeaponData.ShootingInterval);
-
-            isProjectileLoaded = true;
-            SetProjectile();
-        }
 
         private void UpdateCurrentAmmo(int amount)
         {
@@ -136,13 +117,16 @@ namespace BSTW.Equipments.Weapons
 
             UpdateCurrentAmmo(amount);
             FillProjectilesQueue();
+
+            if (_weaponData.IsSelected)
+                CheckProjectileLoading();
         }
 
         public void CheckProjectileLoading()
         {
-            if (isProjectileLoaded) return;
+            if (CurrentProjectile != null) return;
 
-            StartProjectileLoading();
+            SetProjectile();
         }
     }
 }

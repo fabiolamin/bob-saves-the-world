@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileData: {fileID: 11400000, guid: 703cd4f2a0a8fb147a04bb969c7a1f59, type: 2}
   _projectileRb: {fileID: 1130755838421140494}
+  _audioSource: {fileID: 0}
   _hitVFXPooling: {fileID: 0}
   _onShot:
     m_PersistentCalls:
@@ -160,7 +161,7 @@ MonoBehaviour:
         m_CallState: 2
   _projectileCollider: {fileID: 1130755838421140495}
   _increaseColliderDist: 5
-  _defaultColliderRadius: 0.5
+  _defaultColliderRadius: 0.2
   _maxColliderRadius: 2.5
 --- !u!1001 &5502494430064281877
 PrefabInstance:

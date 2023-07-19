@@ -70,15 +70,20 @@ namespace BSTW.Equipments.Weapons
         {
             if (_canMove)
             {
-                transform.position = Vector3.MoveTowards(transform.position, _targetPosition, Time.deltaTime * projectileData.Speed);
-
                 if (IsProjectileNearTarget())
                 {
                     _projectileCollider.radius = _maxColliderRadius;
                 }
 
-                if (!_projectileData.RapidFire)
-                    _targetPosition += transform.forward * projectileData.Speed;
+                if (_projectileData.RapidFire)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, _targetPosition, Time.deltaTime * projectileData.Speed);
+                }
+                else
+                {
+                    transform.position += transform.forward * Time.deltaTime * projectileData.Speed;
+                }
+
             }
         }
 

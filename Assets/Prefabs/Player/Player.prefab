@@ -11795,6 +11795,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5157008614702098617}
+        m_TargetAssemblyTypeName: BSTW.Equipments.Weapons.Shooting.CharacterShooting,
+          Assembly-CSharp
+        m_MethodName: CheckWeaponProjectileLoading
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onPlayerFall:
     m_PersistentCalls:
       m_Calls:
@@ -11863,7 +11876,7 @@ MonoBehaviour:
     WeaponHandPosition: {fileID: 7590744270546420176}
   - Weapon: {fileID: 6278064590874154936, guid: 6c590bf50a636e142a2cc4b89d1ac74d, type: 3}
     WeaponHandPosition: {fileID: 6434409793662632558}
-  - Weapon: {fileID: 7756808887045012431, guid: 0a8e772be4806eb4db19e6e178a6c760, type: 3}
+  - Weapon: {fileID: 1924473272415158888, guid: 0a8e772be4806eb4db19e6e178a6c760, type: 3}
     WeaponHandPosition: {fileID: 1715129136812411413}
   _onShot:
     m_PersistentCalls:
@@ -12273,6 +12286,19 @@ MonoBehaviour:
       - m_Target: {fileID: 5157008614702098617}
         m_TargetAssemblyTypeName: BSTW.Player.PlayerShooting, Assembly-CSharp
         m_MethodName: CheckShooting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5157008614702098617}
+        m_TargetAssemblyTypeName: BSTW.Equipments.Weapons.Shooting.CharacterShooting,
+          Assembly-CSharp
+        m_MethodName: CheckWeaponProjectileLoading
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

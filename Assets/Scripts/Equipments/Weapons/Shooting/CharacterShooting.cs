@@ -94,7 +94,8 @@ namespace BSTW.Equipments.Weapons.Shooting
 
         public bool CanShoot()
         {
-            return IsReadyToShoot && !IsShooting && isHoldingShootingTrigger && CurrentWeapon.CanShoot;
+            return IsReadyToShoot && !IsShooting && isHoldingShootingTrigger &&
+            CurrentWeapon.CanShoot;
         }
 
         private IEnumerator GetReadyToShoot()
@@ -103,12 +104,16 @@ namespace BSTW.Equipments.Weapons.Shooting
 
             while (isHoldingShootingTrigger)
             {
-                Shoot();
+                if (CurrentWeapon.CurrentProjectile != null)
+                {
+                    Shoot();
 
-                yield return new WaitForSeconds(CurrentWeapon.WeaponData.ShootingInterval);
+                    yield return new WaitForSeconds(CurrentWeapon.WeaponData.ShootingInterval);
+                }
 
-                if (CurrentWeapon.CurrentProjectile == null)
-                    CurrentWeapon.SetProjectile();
+                CurrentWeapon.SetProjectile();
+
+                yield return null;
             }
 
             IsShooting = false;
@@ -147,7 +152,7 @@ namespace BSTW.Equipments.Weapons.Shooting
             SetCurrentWeapon(Weapons[currentWeaponIndex]);
             ActivateCurrentWeapon(true);
 
-            CurrentWeapon.CheckProjectileLoading();
+            CheckWeaponProjectileLoading();
 
             PlayReloadSFX();
             CheckCriticalAmmo();
@@ -194,6 +199,13 @@ namespace BSTW.Equipments.Weapons.Shooting
             {
                 _onTargetKilled?.Invoke();
             }
+        }
+
+        public void CheckWeaponProjectileLoading()
+        {
+            if (CurrentWeapon == null) return;
+
+            CurrentWeapon.CheckProjectileLoading();
         }
 
         protected abstract Vector3 GetShootingOrigin();
