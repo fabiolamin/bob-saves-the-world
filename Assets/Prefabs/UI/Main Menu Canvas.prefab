@@ -1189,7 +1189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 16673700351802724, guid: 5da127dadbe3aa549a65bdbc0c973345, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 720.3932
+      value: 770.6537
       objectReference: {fileID: 0}
     - target: {fileID: 16673700351802724, guid: 5da127dadbe3aa549a65bdbc0c973345, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1225,7 +1225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 16673700351802724, guid: 5da127dadbe3aa549a65bdbc0c973345, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -506.8966
+      value: -532.02686
       objectReference: {fileID: 0}
     - target: {fileID: 16673700351802724, guid: 5da127dadbe3aa549a65bdbc0c973345, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1279,6 +1279,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 159
       objectReference: {fileID: 0}
+    - target: {fileID: 5846704780889087481, guid: 5da127dadbe3aa549a65bdbc0c973345, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 212
+      objectReference: {fileID: 0}
     - target: {fileID: 6048832447118813843, guid: 5da127dadbe3aa549a65bdbc0c973345, type: 3}
       propertyPath: m_Name
       value: Play Button
@@ -1313,7 +1317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6048832447118813844, guid: 5da127dadbe3aa549a65bdbc0c973345, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 43
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 6048832447118813845, guid: 5da127dadbe3aa549a65bdbc0c973345, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1346,6 +1350,10 @@ PrefabInstance:
     - target: {fileID: 6048832448467123470, guid: 5da127dadbe3aa549a65bdbc0c973345, type: 3}
       propertyPath: m_fontSizeBase
       value: 14.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208227065177677578, guid: 5da127dadbe3aa549a65bdbc0c973345, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 214
       objectReference: {fileID: 0}
     - target: {fileID: 7223577217005440845, guid: 5da127dadbe3aa549a65bdbc0c973345, type: 3}
       propertyPath: m_AnchoredPosition.y
