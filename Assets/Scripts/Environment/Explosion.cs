@@ -3,6 +3,7 @@ using BSTW.Player;
 using BSTW.Utils;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace BSTW.Environment
 {
@@ -77,7 +78,7 @@ namespace BSTW.Environment
             {
                 var target = collider.GetComponent<ProjectileTarget>();
 
-                if (target != null && !_targets.Contains(target))
+                if (target != null && !_targets.Any(t => t.gameObject == target.gameObject))
                     _targets.Add(target);
             }
         }

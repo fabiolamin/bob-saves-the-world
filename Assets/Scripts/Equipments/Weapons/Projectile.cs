@@ -105,9 +105,14 @@ namespace BSTW.Equipments.Weapons
             transform.rotation = origin.localRotation;
         }
 
-        public void GetReadyToMove(Vector3 origin, Vector3 target)
+        public virtual void GetReadyToMove(Vector3 origin, Vector3 target)
         {
             _projectileCollider.radius = _defaultColliderRadius;
+
+            transform.LookAt(target);
+            transform.position = origin;
+
+            _targetPosition = target;
 
             EnablePhysics(true);
             gameObject.SetActive(true);
@@ -115,10 +120,6 @@ namespace BSTW.Equipments.Weapons
 
             _onShot?.Invoke();
 
-            transform.LookAt(target);
-            transform.position = origin;
-
-            _targetPosition = target;
             _canMove = true;
         }
 
