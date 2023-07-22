@@ -18,10 +18,13 @@ namespace BSTW.Player
         private float _currentSpeed = 0f;
         private float _delayJumpingToFlyAux = 0f;
         private float _currentFallForce = 0f;
+        private float _jumpDelay = 0.5f;
+        private float _jumpDelayAux;
 
         private bool _isJumping = false;
         private bool _isHoldingJumpKey = false;
         private bool _canMove = false;
+        private bool _canJump = false;
         private bool _isMovingForward = false;
 
         private GameManager _gameManager;
@@ -70,6 +73,7 @@ namespace BSTW.Player
 
             CheckIfPlayerIsFlying();
             CheckPlayerHeight();
+            CheckJumpDelay();
         }
 
         private void FixedUpdate()
@@ -125,6 +129,20 @@ namespace BSTW.Player
             }
         }
 
+        private void CheckJumpDelay()
+        {
+            if (!_canJump)
+            {
+                _jumpDelayAux -= Time.deltaTime;
+
+                if (_jumpDelayAux <= 0)
+                {
+                    _canJump = true;
+                    _jumpDelayAux = _jumpDelay;
+                }
+            }
+        }
+
         public void CheckPlayerFall()
         {
             _isJumping = false;
@@ -168,6 +186,9 @@ namespace BSTW.Player
             yield return new WaitForSeconds(duration);
 
             _canMove = true;
+            _canJump = true;
+
+            _jumpDelayAux = _jumpDelay;
         }
 
         private void MovePlayer()
@@ -218,11 +239,7 @@ namespace BSTW.Player
 
         public void Jump()
         {
-            if (_isJumping) return;
-
             _playerRb.velocity += Vector3.up * _movementData.JumpingSpeed;
-
-            _isJumping = true;
         }
 
         public void Bounce()
@@ -243,6 +260,8 @@ namespace BSTW.Player
         {
             if (CanPlayerJump(value))
             {
+                _isJumping = true;
+                _canJump = false;
                 _onPlayerJump?.Invoke();
             }
 
@@ -273,8 +292,8 @@ namespace BSTW.Player
 
         private bool CanPlayerJump(InputAction.CallbackContext value)
         {
-            return value.started && PlayerFoot.IsOnTheGround &&
-            _canMove && !_isJumping && !_gameManager.IsGamePaused && !_gameManager.IsGameFinished;
+            return value.canceled && PlayerFoot.IsOnTheGround &&
+            _canMove && _canJump && !_isJumping && !_gameManager.IsGamePaused && !_gameManager.IsGameFinished;
         }
 
         private bool CanPlayerRollOnGround(InputAction.CallbackContext value)
