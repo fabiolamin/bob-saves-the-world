@@ -136,6 +136,8 @@ namespace BSTW.Player
                 Roll();
             }
 
+            _currentSpeed = _movementData.MovementSpeed;
+
             _currentFallForce = 0f;
         }
 
@@ -185,13 +187,6 @@ namespace BSTW.Player
             {
                 _newMovement.y = _movementData.FlySpeed;
             }
-            else
-            {
-                if (_playerRb.velocity.y < 0f)
-                    _newMovement.y = _playerRb.velocity.y;
-                else if (_playerRb.velocity.y >= 0f && !_isJumping)
-                    _newMovement.y = _defaultVelocity.y;
-            }
 
             _playerRb.velocity = _newMovement;
 
@@ -223,7 +218,11 @@ namespace BSTW.Player
 
         public void Jump()
         {
+            if (_isJumping) return;
+
             _playerRb.velocity += Vector3.up * _movementData.JumpingSpeed;
+
+            _isJumping = true;
         }
 
         public void Bounce()
@@ -244,7 +243,6 @@ namespace BSTW.Player
         {
             if (CanPlayerJump(value))
             {
-                _isJumping = true;
                 _onPlayerJump?.Invoke();
             }
 
