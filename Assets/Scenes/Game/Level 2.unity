@@ -9193,7 +9193,7 @@ PrefabInstance:
       objectReference: {fileID: 934516055}
     - target: {fileID: 4755675833019896761, guid: 9448ab37179b8ae4cb58c64cb5378950, type: 3}
       propertyPath: _enemySpawnInfos.Array.data[0].MaxEnemiesAlive
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4755675833019896761, guid: 9448ab37179b8ae4cb58c64cb5378950, type: 3}
       propertyPath: _enemySpawnInfos.Array.data[1].MaxEnemiesAlive

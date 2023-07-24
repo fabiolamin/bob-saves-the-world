@@ -9,9 +9,6 @@ namespace BSTW.Enemy
 
         [SerializeField] private float _chasingDistace = 70f;
 
-        [SerializeField] private float _maxAttackHeightRange = 5f;
-        [SerializeField] private bool _checkAttackHeight = true;
-
         private void Update()
         {
             RemoveTargetWhenFarAway();
@@ -54,8 +51,7 @@ namespace BSTW.Enemy
 
         public bool IsTargetFarAway(Transform target)
         {
-            return Vector3.Distance(_defaultEnemyAIController.transform.position, target.transform.position) > _chasingDistace ||
-            (_checkAttackHeight && target.position.y - transform.position.y > _maxAttackHeightRange);
+            return Vector3.Distance(_defaultEnemyAIController.transform.position, target.transform.position) > _chasingDistace;
         }
     }
 }
