@@ -154,7 +154,7 @@ namespace BSTW.Player
                 Roll();
             }
 
-            _currentSpeed = _movementData.MovementSpeed;
+            _currentSpeed = _playerShooting.IsAiming ? _movementData.AimingSpeed : _movementData.MovementSpeed;
 
             _currentFallForce = 0f;
         }
