@@ -292,7 +292,7 @@ namespace BSTW.Player
 
         private bool CanPlayerJump(InputAction.CallbackContext value)
         {
-            return value.canceled && PlayerFoot.IsOnTheGround &&
+            return value.started && PlayerFoot.IsOnTheGround &&
             _canMove && _canJump && !_isJumping && !_gameManager.IsGamePaused && !_gameManager.IsGameFinished;
         }
 
