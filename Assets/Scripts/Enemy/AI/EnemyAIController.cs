@@ -54,10 +54,7 @@ namespace BSTW.Enemy.AI
 
         public void SwitchState(EnemyAIState enemyAIState)
         {
-            if (currentState != null)
-            {
-                currentState.ExitState();
-            }
+            ExitCurrentState();
 
             currentState = enemyAIState;
             currentState.EnterState();
@@ -113,6 +110,14 @@ namespace BSTW.Enemy.AI
             _onDeathActivated?.Invoke();
 
             gameObject.SetActive(false);
+        }
+
+        public void ExitCurrentState()
+        {
+            if (currentState != null)
+            {
+                currentState.ExitState();
+            }
         }
 
         public abstract void OnHit();
