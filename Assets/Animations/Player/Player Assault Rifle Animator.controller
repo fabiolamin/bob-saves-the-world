@@ -17,7 +17,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.37500006
   m_HasExitTime: 0
@@ -279,7 +279,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hit
-  m_Speed: 1
+  m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -9145168688826758829}
@@ -518,7 +518,7 @@ AnimatorStateMachine:
     m_Position: {x: -560, y: -360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -751489370798292582}
-    m_Position: {x: -1430, y: 230, z: 0}
+    m_Position: {x: -1610, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2125843151119131979}
     m_Position: {x: -1390, y: -150, z: 0}
