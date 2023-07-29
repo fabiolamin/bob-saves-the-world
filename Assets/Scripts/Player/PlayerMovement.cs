@@ -11,6 +11,7 @@ namespace BSTW.Player
     public class PlayerMovement : MonoBehaviour
     {
         private Vector2 _movement = Vector3.zero;
+        private Vector2 _movementInput = Vector2.zero;
         private Vector3 _newMovement = Vector3.zero;
         private Vector3 _defaultVelocity = Vector3.zero;
         private Vector3 _defaultRotation = Vector3.zero;
@@ -26,6 +27,7 @@ namespace BSTW.Player
         private bool _canMove = false;
         private bool _canJump = false;
         private bool _isMovingForward = false;
+        private bool _rollOnFallingIdle = false;
 
         private GameManager _gameManager;
 
@@ -71,9 +73,20 @@ namespace BSTW.Player
 
             if (!_canMove || _gameManager.IsGamePaused || _gameManager.IsGameFinished) return;
 
+            CheckMovementInput();
             CheckIfPlayerIsFlying();
             CheckPlayerHeight();
             CheckJumpDelay();
+        }
+
+        private void CheckMovementInput()
+        {
+            _movement.x = Mathf.MoveTowards(
+                            _movement.x, _movementInput.x, Time.deltaTime * _movementData.InputGravity
+                        );
+            _movement.y = Mathf.MoveTowards(
+                _movement.y, _movementInput.y, Time.deltaTime * _movementData.InputGravity
+            );
         }
 
         private void FixedUpdate()
@@ -151,6 +164,14 @@ namespace BSTW.Player
             if (CanPlayerRollOnFall())
             {
                 _onPlayerFall?.Invoke();
+
+                if (_movement.x == 0f && _movement.y == 0f)
+                {
+                    _rollOnFallingIdle = true;
+                    var roll = transform.forward * _movementData.RollSpeed;
+                    _playerRb.velocity += roll;
+                }
+
                 Roll();
             }
 
@@ -199,10 +220,17 @@ namespace BSTW.Player
 
         private void UpdateMovement()
         {
+            if (_rollOnFallingIdle) return;
+
             var forward = new Vector3(_thirdPersonCamera.transform.forward.x, 0f, _thirdPersonCamera.transform.forward.z).normalized;
             var right = new Vector3(_thirdPersonCamera.transform.right.x, 0f, _thirdPersonCamera.transform.right.z).normalized;
 
             _newMovement = (forward * _movement.y * _currentSpeed) + (right * _movement.x * _currentSpeed) + Vector3.up * _playerRb.velocity.y;
+
+            var movementOnFalling = new Vector3(_newMovement.x / _movementData.ModifierOnFalling,
+            _newMovement.y, _newMovement.z / _movementData.ModifierOnFalling);
+
+            _newMovement = _currentFallForce > _movementData.MinFallForceToReduceSpeed ? movementOnFalling : _newMovement;
 
             if (_jetBackpackUser.IsFlying)
             {
@@ -252,7 +280,7 @@ namespace BSTW.Player
 
         public void OnMove(InputAction.CallbackContext value)
         {
-            _movement = value.ReadValue<Vector2>();
+            _movementInput = value.ReadValue<Vector2>();
             _isMovingForward = _movement.y > 0f && _movement.x == 0f;
         }
 
@@ -286,6 +314,7 @@ namespace BSTW.Player
             if (!IsRolling) return;
 
             IsRolling = false;
+            _rollOnFallingIdle = false;
             _currentSpeed = _movementData.MovementSpeed;
             _onPlayerRollFinished?.Invoke();
         }

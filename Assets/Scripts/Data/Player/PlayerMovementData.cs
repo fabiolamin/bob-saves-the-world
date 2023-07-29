@@ -23,6 +23,10 @@ namespace BSTW.Data.Player
         [SerializeField] private float _maxPlayerHeight = 90f;
         [SerializeField] private float _minPlayerHeight = -1f;
         [SerializeField] private float _minFallForceToRoll = 15f;
+        [SerializeField] private float _minFallForceToReduceSpeed = 20f;
+
+        [SerializeField] private float _modifierOnFalling = 1.2f;
+        [SerializeField] private float _inputGravity = 10f;
 
         public float MovementSpeed => _movementSpeed;
         public float RollSpeed => _rollSpeed;
@@ -39,6 +43,9 @@ namespace BSTW.Data.Player
         public float MaxPlayerHeight => _maxPlayerHeight;
         public float MinPlayerHeight => _minPlayerHeight;
         public float MinFallForceToRoll => _minFallForceToRoll;
+        public float MinFallForceToReduceSpeed => _minFallForceToReduceSpeed;
+        public float ModifierOnFalling => _modifierOnFalling;
+        public float InputGravity => _inputGravity;
     }
 }
 
