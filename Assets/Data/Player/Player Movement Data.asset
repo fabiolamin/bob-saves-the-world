@@ -27,4 +27,4 @@ MonoBehaviour:
   _minFallForceToRoll: 1500
   _minFallForceToReduceSpeed: 20
   _modifierOnFalling: 1.2
-  _inputGravity: 3.5
+  _inputGravity: 6

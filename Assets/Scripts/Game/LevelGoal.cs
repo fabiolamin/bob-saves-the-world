@@ -2,11 +2,14 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using System.Collections;
+using BSTW.Player;
 
 namespace BSTW.Game
 {
     public abstract class LevelGoal : MonoBehaviour
     {
+        private PlayerHealth _playerHealth;
+
         [SerializeField] private TextMeshProUGUI _goalTMP;
 
         [SerializeField] private UnityEvent _onGoalAchieved;
@@ -16,6 +19,8 @@ namespace BSTW.Game
 
         protected virtual void Awake()
         {
+            _playerHealth = FindObjectOfType<PlayerHealth>();
+
             UpdateGoalText();
         }
 
@@ -51,6 +56,8 @@ namespace BSTW.Game
         private IEnumerator StartGoalAchievement()
         {
             yield return new WaitForSeconds(_transitionDelay);
+
+            if (!_playerHealth.IsAlive) yield break;
 
             SaveAchievement();
             _onGoalAchieved?.Invoke();

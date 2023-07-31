@@ -8778,7 +8778,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  _transitionDelay: 1
+  _transitionDelay: 1.5
   _enemy: {fileID: 344265487}
 --- !u!1001 &4086612320437924387
 PrefabInstance:

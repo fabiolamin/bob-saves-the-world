@@ -29534,7 +29534,7 @@ PrefabInstance:
       objectReference: {fileID: 1567337559}
     - target: {fileID: 2203476290336605177, guid: 885e68c46ae2d6047a92e806089a2619, type: 3}
       propertyPath: _transitionDelay
-      value: 1.2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2203476290336605177, guid: 885e68c46ae2d6047a92e806089a2619, type: 3}
       propertyPath: _enemyBases.Array.size
