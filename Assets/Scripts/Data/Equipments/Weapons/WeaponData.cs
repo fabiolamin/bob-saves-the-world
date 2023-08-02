@@ -20,6 +20,7 @@ namespace BSTW.Data.Equipments.Weapons
         [SerializeField] private float _shootingInterval = 0.5f;
         [SerializeField] private float _shootingDistance = 500f;
         [SerializeField] private bool _isSelected = false;
+        [SerializeField] private bool _holdShootingTrigger = false;
 
         public RuntimeAnimatorController AnimatorController => _animatorController;
         public Sprite Icon => _icon;
@@ -37,6 +38,7 @@ namespace BSTW.Data.Equipments.Weapons
         public float ShootingDistance => _shootingDistance;
         public bool IsSelected { get { return _isSelected; } set { _isSelected = value; } }
         public bool CanLoadWeapon { get { return CurrentAmmo < MaxAmmo; } }
+        public bool HoldShootingTrigger => _holdShootingTrigger;
     }
 }
 

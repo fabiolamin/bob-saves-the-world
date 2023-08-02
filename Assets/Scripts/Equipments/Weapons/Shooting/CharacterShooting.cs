@@ -30,7 +30,7 @@ namespace BSTW.Equipments.Weapons.Shooting
         [SerializeField] public UnityEvent _onTargetKilled;
 
 
-        protected bool isHoldingShootingTrigger = false;
+        protected bool shootingTriggered = false;
         protected AudioSource shootingAudioSource => _shootingAudioSource;
 
         public bool IsShooting { get; protected set; } = false;
@@ -94,7 +94,7 @@ namespace BSTW.Equipments.Weapons.Shooting
 
         public bool CanShoot()
         {
-            return IsReadyToShoot && !IsShooting && isHoldingShootingTrigger &&
+            return IsReadyToShoot && !IsShooting && shootingTriggered &&
             CurrentWeapon.CanShoot;
         }
 
@@ -102,7 +102,7 @@ namespace BSTW.Equipments.Weapons.Shooting
         {
             IsShooting = true;
 
-            while (isHoldingShootingTrigger)
+            while (shootingTriggered)
             {
                 if (CurrentWeapon.CurrentProjectile != null)
                 {

@@ -90,8 +90,13 @@ namespace BSTW.Equipments.Weapons
 
         public virtual void SetProjectile()
         {
-            if (projectiles.Count > 0 && CanShoot)
+            if (CanShoot)
             {
+                if(projectiles.Count == 0)
+                {
+                    FillProjectilesQueue();
+                }
+
                 CurrentProjectile = projectiles.Dequeue();
 
                 _onProjectileSet?.Invoke();

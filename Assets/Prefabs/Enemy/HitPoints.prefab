@@ -257,7 +257,7 @@ MonoBehaviour:
   - {x: 1, y: 1}
   _duration: 1
   _speed: 3
-  _maxDistance: 3.5
+  _maxDistance: 5
   _highDamageValue: 40
   _scaleIncrementOnHighDamage: 0.3
   _colorOnHighDamage: {r: 1, g: 0, b: 0, a: 1}

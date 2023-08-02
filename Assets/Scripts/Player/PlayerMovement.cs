@@ -281,7 +281,7 @@ namespace BSTW.Player
         public void OnMove(InputAction.CallbackContext value)
         {
             _movementInput = value.ReadValue<Vector2>();
-            _isMovingForward = _movement.y > 0f && _movement.x == 0f;
+            _isMovingForward = _movementInput.y > 0f && _movementInput.x == 0f;
         }
 
         public void OnJump(InputAction.CallbackContext value)

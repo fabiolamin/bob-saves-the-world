@@ -28,6 +28,7 @@ MonoBehaviour:
     HitType: 1
     Damage: 50
     CanKnockDown: 0
-  _shootingInterval: 0.9
+  _shootingInterval: 1
   _shootingDistance: 1000
   _isSelected: 0
+  _holdShootingTrigger: 0

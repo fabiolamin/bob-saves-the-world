@@ -31,3 +31,4 @@ MonoBehaviour:
   _shootingInterval: 0.4
   _shootingDistance: 1000
   _isSelected: 1
+  _holdShootingTrigger: 0

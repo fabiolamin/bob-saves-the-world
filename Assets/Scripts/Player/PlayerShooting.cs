@@ -39,7 +39,7 @@ namespace BSTW.Player
 
             if (!IsReadyToShoot) return;
 
-            _aimImage.SetActive(IsAiming || isHoldingShootingTrigger);
+            _aimImage.SetActive(IsAiming || shootingTriggered);
             _onPlayerAim?.Invoke(IsAiming);
         }
 
@@ -47,7 +47,10 @@ namespace BSTW.Player
         {
             if (_gameManager.IsGamePaused || _gameManager.IsGameFinished) return;
 
-            isHoldingShootingTrigger = value.action.IsPressed();
+            if(CurrentWeapon != null)
+            {
+                shootingTriggered = CurrentWeapon.WeaponData.HoldShootingTrigger ? value.action.IsPressed() : value.started;
+            }
 
             if (CurrentWeapon.WeaponData.CurrentAmmo <= 0f && value.started)
                 shootingAudioSource.PlayOneShot(_emptyGunSFX);
@@ -72,7 +75,7 @@ namespace BSTW.Player
 
         protected override void CheckShooting()
         {
-            _aimImage.SetActive(IsAiming || isHoldingShootingTrigger);
+            _aimImage.SetActive(IsAiming || shootingTriggered);
 
             base.CheckShooting();
         }
@@ -135,7 +138,7 @@ namespace BSTW.Player
         {
             IsAiming = false;
             IsShooting = false;
-            isHoldingShootingTrigger = false;
+            shootingTriggered = false;
             IsReadyToShoot = true;
 
             _aimImage.SetActive(IsAiming);
