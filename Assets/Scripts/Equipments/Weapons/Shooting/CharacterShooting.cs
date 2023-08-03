@@ -121,10 +121,12 @@ namespace BSTW.Equipments.Weapons.Shooting
 
         protected virtual void Shoot()
         {
-            _onShot?.Invoke();
-
             CurrentWeapon.Shoot(GetShootingOrigin(), GetShootingDirection());
+        }
 
+        public virtual void TriggerShootingEffects()
+        {
+            _onShot?.Invoke();
             PlayShootSFX();
         }
 

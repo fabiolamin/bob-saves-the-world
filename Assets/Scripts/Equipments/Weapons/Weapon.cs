@@ -23,6 +23,8 @@ namespace BSTW.Equipments.Weapons
 
         [SerializeField] private bool _infiniteAmmo = false;
 
+        [SerializeField] private float _maxShootingAngle = 60f;
+
         protected CharacterShooting characterShooting;
         protected Queue<Projectile> projectiles = new Queue<Projectile>();
         protected Coroutine projectileLoadingCoroutine;
@@ -72,6 +74,10 @@ namespace BSTW.Equipments.Weapons
 
             if (Physics.Raycast(origin, direction, out target, _weaponData.ShootingDistance, LayerMask.GetMask(_weaponData.Targets)))
             {
+
+                if (!IsTargetInFrontOfShooter(target.point)) return;
+
+                characterShooting.TriggerShootingEffects();
                 _onShoot?.Invoke();
                 CurrentProjectile.GetReadyToMove(_projectileOrigin.position, target.point);
                 CurrentProjectile = null;
@@ -92,7 +98,7 @@ namespace BSTW.Equipments.Weapons
         {
             if (CanShoot)
             {
-                if(projectiles.Count == 0)
+                if (projectiles.Count == 0)
                 {
                     FillProjectilesQueue();
                 }
@@ -132,6 +138,19 @@ namespace BSTW.Equipments.Weapons
             if (CurrentProjectile != null) return;
 
             SetProjectile();
+        }
+
+        private bool IsTargetInFrontOfShooter(Vector3 target)
+        {
+            Vector2 directionToTarget = new Vector2(target.x, target.z) - new Vector2(
+                characterShooting.transform.position.x,
+                characterShooting.transform.position.z);
+
+            float angle = Vector2.Angle(
+            new Vector2(characterShooting.transform.forward.x, characterShooting.transform.forward.z),
+            directionToTarget.normalized);
+
+            return Mathf.Abs(angle) < _maxShootingAngle;
         }
     }
 }

@@ -97,16 +97,6 @@ namespace BSTW.Player
             return Camera.main.transform.forward;
         }
 
-        protected override void Shoot()
-        {
-            if (CurrentWeapon.CurrentProjectile == null) return;
-
-            _playerCameraShake.StartShakeCamera(CurrentWeapon.WeaponData.CameraShakeData);
-            _gamepadRumbleController.StartGamepadRumble(CurrentWeapon.WeaponData.GamepadRumbleData);
-
-            base.Shoot();
-        }
-
         public override void OnCharacterHitTarget(bool isTargetAlive)
         {
             base.OnCharacterHitTarget(isTargetAlive);
@@ -143,6 +133,14 @@ namespace BSTW.Player
 
             _aimImage.SetActive(IsAiming);
             _onPlayerAim?.Invoke(IsAiming);
+        }
+
+        public override void TriggerShootingEffects()
+        {
+            base.TriggerShootingEffects();
+
+            _playerCameraShake.StartShakeCamera(CurrentWeapon.WeaponData.CameraShakeData);
+            _gamepadRumbleController.StartGamepadRumble(CurrentWeapon.WeaponData.GamepadRumbleData);
         }
     }
 }
