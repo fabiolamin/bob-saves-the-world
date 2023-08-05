@@ -3541,7 +3541,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _enemyShooting: {fileID: 5037982571182111679}
-  _attackPositionRadius: 12
+  _attackPositionRadius: 9
   _minAttackDuration: 2.5
   _maxAttackDuration: 3.5
 --- !u!114 &6476372265376061253 stripped
