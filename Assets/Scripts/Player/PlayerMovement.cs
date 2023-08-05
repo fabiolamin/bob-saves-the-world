@@ -13,8 +13,9 @@ namespace BSTW.Player
         private Vector2 _movement = Vector3.zero;
         private Vector2 _movementInput = Vector2.zero;
         private Vector3 _newMovement = Vector3.zero;
-        private Vector3 _defaultVelocity = Vector3.zero;
         private Vector3 _defaultRotation = Vector3.zero;
+
+        private const float _maxVelocityYToJump = 2f;
 
         private float _currentSpeed = 0f;
         private float _delayJumpingToFlyAux = 0f;
@@ -59,7 +60,6 @@ namespace BSTW.Player
             if (_movementData != null && _playerRb != null)
             {
                 _currentSpeed = _movementData.MovementSpeed;
-                _defaultVelocity = _playerRb.velocity;
 
                 StartCoroutine(WaitToMove(_movementData.DelayToMove));
             }
@@ -267,12 +267,17 @@ namespace BSTW.Player
 
         public void Jump()
         {
+            if (_playerRb.velocity.y >= _maxVelocityYToJump) return;
+
             _playerRb.velocity += Vector3.up * _movementData.JumpingSpeed;
         }
 
         public void Bounce()
         {
+            if (_playerRb.velocity.y >= _maxVelocityYToJump) return;
+
             var calculatedBounceForce = _movementData.BounceSpeed + (_currentFallForce / _movementData.BounceForceModifier);
+
             _playerRb.velocity += Vector3.up * calculatedBounceForce;
 
             Roll();
