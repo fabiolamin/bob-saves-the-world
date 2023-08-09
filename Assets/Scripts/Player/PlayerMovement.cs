@@ -54,6 +54,7 @@ namespace BSTW.Player
         [SerializeField] private float _minFallForceToShakeCamera = 2000f;
 
         public static bool IsRolling { get; private set; } = false;
+        public static bool IsMoving { get; private set; } = false;
 
         private void Awake()
         {
@@ -81,6 +82,8 @@ namespace BSTW.Player
 
         private void CheckMovementInput()
         {
+            IsMoving = _movementInput.x != 0f || _movementInput.y != 0f;
+
             _movement.x = Mathf.MoveTowards(
                             _movement.x, _movementInput.x, Time.deltaTime * _movementData.InputGravity
                         );
@@ -135,8 +138,6 @@ namespace BSTW.Player
             }
             else if (_playerRb.velocity.y > 0f)
             {
-                _currentFallForce = 0f;
-
                 if (_jetBackpackUser.IsFlying)
                     _playerCameraShake.StartShakeCamera(_shakeOnFlying);
             }
@@ -165,7 +166,7 @@ namespace BSTW.Player
             {
                 _onPlayerFall?.Invoke();
 
-                if (_movement.x == 0f && _movement.y == 0f)
+                if (_movementInput.x == 0f && _movementInput.y == 0f)
                 {
                     _rollOnFallingIdle = true;
                     var roll = transform.forward * _movementData.RollSpeed;
@@ -277,6 +278,8 @@ namespace BSTW.Player
             if (_playerRb.velocity.y >= _maxVelocityYToJump) return;
 
             var calculatedBounceForce = _movementData.BounceSpeed + (_currentFallForce / _movementData.BounceForceModifier);
+
+            _currentFallForce = 0f;
 
             _playerRb.velocity += Vector3.up * calculatedBounceForce;
 

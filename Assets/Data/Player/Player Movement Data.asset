@@ -24,7 +24,7 @@ MonoBehaviour:
   _delayToMove: 1
   _maxPlayerHeight: 80
   _minPlayerHeight: -1
-  _minFallForceToRoll: 1500
+  _minFallForceToRoll: 1200
   _minFallForceToReduceSpeed: 20
   _modifierOnFalling: 1.2
   _inputGravity: 6
