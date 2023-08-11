@@ -109,8 +109,9 @@ namespace BSTW.Equipments.Weapons
         {
             _projectileCollider.radius = _defaultColliderRadius;
 
-            transform.LookAt(target);
             transform.position = origin;
+
+            transform.LookAt(target);
 
             _targetPosition = target;
 

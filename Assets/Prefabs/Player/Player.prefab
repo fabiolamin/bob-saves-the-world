@@ -11679,6 +11679,7 @@ MonoBehaviour:
   _jetBackpackUser: {fileID: 1523957291871244462}
   _movementData: {fileID: 11400000, guid: fca5e4d0cc557244f9a98c45ba8e93f6, type: 2}
   _playerShooting: {fileID: 5157008614702098617}
+  _playerHealth: {fileID: 6993374090152357404}
   _onPlayerMove:
     m_PersistentCalls:
       m_Calls:
@@ -13030,6 +13031,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4834792476794282643}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Pause
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 9206906883181985050}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1523957291871244462
 MonoBehaviour:
@@ -16155,6 +16180,11 @@ PrefabInstance:
 --- !u!198 &9007725158588443002 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2002122901717175058, guid: a696088678f789e4182ac6f86d9c9718, type: 3}
+  m_PrefabInstance: {fileID: 7406493279191409256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9206906883181985050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1805001593333784434, guid: a696088678f789e4182ac6f86d9c9718, type: 3}
   m_PrefabInstance: {fileID: 7406493279191409256}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &9209827147787794760 stripped

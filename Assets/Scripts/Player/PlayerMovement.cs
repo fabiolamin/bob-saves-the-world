@@ -37,6 +37,7 @@ namespace BSTW.Player
         [SerializeField] private JetBackpackUser _jetBackpackUser;
         [SerializeField] private PlayerMovementData _movementData;
         [SerializeField] private PlayerShooting _playerShooting;
+        [SerializeField] private PlayerHealth _playerHealth;
 
         [Header("Events")]
         [SerializeField] private UnityEvent<float, float> _onPlayerMove;
@@ -72,7 +73,7 @@ namespace BSTW.Player
         {
             _onPlayerIsGround?.Invoke(PlayerFoot.IsOnTheGround);
 
-            if (!_canMove || _gameManager.IsGamePaused || _gameManager.IsGameFinished) return;
+            if (!_canMove || _gameManager.IsGamePaused || _gameManager.IsGameFinished || !_playerHealth.IsAlive) return;
 
             CheckMovementInput();
             CheckIfPlayerIsFlying();
@@ -94,7 +95,7 @@ namespace BSTW.Player
 
         private void FixedUpdate()
         {
-            if (!_canMove || _gameManager.IsGamePaused || _gameManager.IsGameFinished) return;
+            if (!_canMove || _gameManager.IsGamePaused || _gameManager.IsGameFinished || !_playerHealth.IsAlive) return;
 
             RotatePlayer();
             MovePlayer();
