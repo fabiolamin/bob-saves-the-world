@@ -763,13 +763,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lootItems:
   - ItemPool: {fileID: 2590214138701806346}
-    Probability: 0.8
+    Probability: 0.9
   - ItemPool: {fileID: 4760437146525922039}
-    Probability: 0.7
+    Probability: 0.8
   - ItemPool: {fileID: 4735917877434957722}
-    Probability: 0.55
-  - ItemPool: {fileID: 1543684159874694380}
     Probability: 0.4
+  - ItemPool: {fileID: 1543684159874694380}
+    Probability: 0.3
   _itemsLimit: 3
 --- !u!1 &4749466925424748760
 GameObject:
