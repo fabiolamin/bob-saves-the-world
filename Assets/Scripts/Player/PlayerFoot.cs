@@ -13,7 +13,7 @@ namespace BSTW.Player
 
         private void Update()
         {
-            if(PlayerMovement.IsMoving && IsOnTheGround)
+            if (PlayerMovement.IsMoving && IsOnTheGround)
             {
                 if (_footStepsVFX.isPlaying) return;
 
@@ -31,8 +31,11 @@ namespace BSTW.Player
         {
             IsOnTheGround = true;
 
-            if (other.GetComponent<BouncySurface>() != null)
+            var bouncySurface = other.GetComponent<BouncySurface>();
+
+            if (bouncySurface != null)
             {
+                bouncySurface.OnBounce?.Invoke();
                 _onPlayerBounce?.Invoke();
                 return;
             }
