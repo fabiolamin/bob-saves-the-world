@@ -64,19 +64,19 @@ namespace BSTW.Enemy.AI
         {
             if (TargetPriorities.Any(t => t.TargetTag == target.tag) && targets.Contains(target))
             {
-                CurrentTarget = null;
+                if (target.name == CurrentTarget.name)
+                    CurrentTarget = null;
+
                 targets.Remove(target);
 
-                if (targets.Count == 0)
+                if (targets.Count == 0 && !DeathState.IsActive)
                 {
                     SwitchState(InvestigateState);
 
                     return;
                 }
 
-                if (AttackState.IsActive)
-                    CurrentTarget = GetNewTarget();
-                else
+                if (AttackState.IsActive && CurrentTarget == null)
                     AttackTarget();
             }
         }
@@ -101,6 +101,8 @@ namespace BSTW.Enemy.AI
 
         private void AttackTarget()
         {
+            if (DeathState.IsActive) return;
+
             CurrentTarget = GetNewTarget();
 
             SwitchState(AttackState);
@@ -108,6 +110,8 @@ namespace BSTW.Enemy.AI
 
         public void RestoreEnemy()
         {
+            if (!DeathState.IsActive) return;
+
             SwitchState(InvestigateState);
 
             EnemyHealth.RestoreHealth();
@@ -115,7 +119,7 @@ namespace BSTW.Enemy.AI
 
         protected override bool IsTargetDead()
         {
-            return CurrentTarget != null && !CurrentTarget.IsAlive && AttackState.IsActive && EnemyHealth.IsAlive;
+            return !DeathState.IsActive && CurrentTarget != null && !CurrentTarget.IsAlive && AttackState.IsActive && EnemyHealth.IsAlive;
         }
     }
 }
