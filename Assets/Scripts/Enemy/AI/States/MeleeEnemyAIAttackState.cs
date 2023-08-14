@@ -36,7 +36,12 @@ namespace BSTW.Enemy.AI.States
 
             if (_canAttack)
             {
-                (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.destination = EnemyController.CurrentTarget.transform.position;
+                Vector3 destination = new Vector3(
+                EnemyController.CurrentTarget.transform.position.x,
+                EnemyController.transform.position.y,
+                EnemyController.CurrentTarget.transform.position.z);
+
+                (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.destination = destination;
                 (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
 
                 if (IsNearTarget())

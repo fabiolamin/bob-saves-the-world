@@ -675,8 +675,6 @@ GameObject:
   - component: {fileID: 2495987275098785716}
   - component: {fileID: 9075301845686691868}
   - component: {fileID: 3152149767442630759}
-  - component: {fileID: 6316848727459242577}
-  - component: {fileID: 4068180499147042153}
   m_Layer: 7
   m_Name: Prop Jump
   m_TagString: Untagged
@@ -749,37 +747,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6316848727459242577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9163237377109653014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e777a8bd777b45b4fb799fe93f2381bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectPrefab: {fileID: 100002, guid: 99c73c92ac40473459640b165473206f, type: 3}
-  _amount: 5
-  _origin: {fileID: 0}
---- !u!114 &4068180499147042153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9163237377109653014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1b8dcc395e6a4b42bc6485fa1292386, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectileTargetRb: {fileID: 0}
-  _hitVFXPooling: {fileID: 6316848727459242577}
-  _audioSourcePooling: {fileID: 0}
-  _audioHitClips: []
-  _onHit:
-    m_PersistentCalls:
-      m_Calls: []

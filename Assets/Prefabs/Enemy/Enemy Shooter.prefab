@@ -3519,7 +3519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyController: {fileID: 5122388786604819290}
-  MovementSpeed: 20
+  MovementSpeed: 25
   OnEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -3530,9 +3530,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _enemyShooting: {fileID: 5037982571182111679}
-  _attackPositionRadius: 7
+  _attackPositionRadius: 5
   _minAttackDuration: 2.5
-  _maxAttackDuration: 3.5
+  _maxAttackDuration: 3
 --- !u!114 &6476372265376061253 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4735917877434957722, guid: 2052f036503368646b68ac5827797157, type: 3}
@@ -3601,10 +3601,11 @@ MonoBehaviour:
   _enemyController: {fileID: 5122388786604819290}
   _center: {fileID: 5833846127733084361}
   _shootingDirectionOffset: {x: 0, y: 1, z: 0}
-  _obstacleAvoidanceDistance: 5
+  _obstacleAvoidanceDistance: 6
   _obstacleLayers:
   - Environment
   - Prop
+  - Enemy
 --- !u!114 &5122388786604819290
 MonoBehaviour:
   m_ObjectHideFlags: 0
