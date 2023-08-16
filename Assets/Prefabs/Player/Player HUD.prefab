@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bar: {fileID: 1558718970955293853}
+  _canvas: {fileID: 7581070447623224639}
   _smoothlySpeed: 5
   _maxValue: 100
 --- !u!1 &1595672459546187706
@@ -1337,6 +1338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bar: {fileID: 502474370155922192}
+  _canvas: {fileID: 7581070447623224639}
   _smoothlySpeed: 0.4
   _maxValue: 100
 --- !u!1 &7581070446024347503

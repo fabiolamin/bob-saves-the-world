@@ -36,9 +36,10 @@ namespace BSTW.Enemy.AI.States
             }
             else
             {
-                if ((EnemyController as TerrestrialEnemyAIController).HasReachedDestination())
+                if ((EnemyController as TerrestrialEnemyAIController).HasReachedDestination() &&
+                (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isOnNavMesh)
                 {
-                    (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = true;
+                    (EnemyController as TerrestrialEnemyAIController).StopNavMeshAgent(true);
                     (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = 0f;
 
                     (EnemyController as TerrestrialEnemyAIController).LookAtTarget();
@@ -75,9 +76,12 @@ namespace BSTW.Enemy.AI.States
 
         private void Move()
         {
-            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = false;
-            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
-            (EnemyController as TerrestrialEnemyAIController).MoveTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
+            if ((EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isOnNavMesh)
+            {
+                (EnemyController as TerrestrialEnemyAIController).StopNavMeshAgent(false);
+                (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
+                (EnemyController as TerrestrialEnemyAIController).MoveTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
+            }
         }
 
         private IEnumerator StartShooting()

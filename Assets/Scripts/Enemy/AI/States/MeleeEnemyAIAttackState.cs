@@ -22,7 +22,7 @@ namespace BSTW.Enemy.AI.States
 
             base.EnterState();
 
-            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = true;
+            (EnemyController as TerrestrialEnemyAIController).StopNavMeshAgent(true);
             (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = 0f;
 
             _enterMeleeAttackStateCoroutine = StartCoroutine(EnterMeleeAttackState());
@@ -41,8 +41,11 @@ namespace BSTW.Enemy.AI.States
                 EnemyController.transform.position.y,
                 EnemyController.CurrentTarget.transform.position.z);
 
-                (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.destination = destination;
-                (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
+                if ((EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isOnNavMesh)
+                {
+                    (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.destination = destination;
+                    (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
+                }
 
                 if (IsNearTarget())
                 {
@@ -71,7 +74,7 @@ namespace BSTW.Enemy.AI.States
 
             if (_canAttack)
             {
-                (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = false;
+                (EnemyController as TerrestrialEnemyAIController).StopNavMeshAgent(false);
 
                 return;
             }
@@ -84,20 +87,20 @@ namespace BSTW.Enemy.AI.States
             yield return new WaitForSeconds(EnemyController.EnemyAnimator.GetCurrentAnimationDuration() + _enterMeleeAtackDelay);
 
             _canAttack = true;
-            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = false;
+            (EnemyController as TerrestrialEnemyAIController).StopNavMeshAgent(false);
         }
 
         private IEnumerator StartAttack()
         {
             _canAttack = false;
 
-            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = true;
+            (EnemyController as TerrestrialEnemyAIController).StopNavMeshAgent(true);
 
             _onAttack?.Invoke();
 
             yield return new WaitForSeconds(EnemyController.EnemyAnimator.GetCurrentAnimationDuration() + _attackDelay);
 
-            (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.isStopped = false;
+            (EnemyController as TerrestrialEnemyAIController).StopNavMeshAgent(false);
             (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
             _canAttack = true;
         }

@@ -4058,8 +4058,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultEnemyAIController: {fileID: 2248305449558283631}
   _chasingDistace: 40
-  _maxAttackHeightRange: 30
-  _checkAttackHeight: 1
 --- !u!4 &1715129135890968793
 Transform:
   m_ObjectHideFlags: 0
@@ -6759,6 +6757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bar: {fileID: 6343843078879268413}
+  _canvas: {fileID: 0}
   _smoothlySpeed: 0.4
   _maxValue: 70
 --- !u!82 &3010515986042017748
@@ -37890,6 +37889,7 @@ MonoBehaviour:
   _jetBackpackUser: {fileID: 0}
   _movementData: {fileID: 0}
   _playerShooting: {fileID: 0}
+  _playerHealth: {fileID: 0}
   _onPlayerMove:
     m_PersistentCalls:
       m_Calls: []
@@ -39539,7 +39539,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3661149767181306137}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87e425263df893642bca16d97659d718, type: 3}
   m_Name: 
@@ -39550,6 +39550,7 @@ MonoBehaviour:
   _onPlayerBounce:
     m_PersistentCalls:
       m_Calls: []
+  _footStepsVFX: {fileID: 0}
 --- !u!114 &9209969060680345697
 MonoBehaviour:
   m_ObjectHideFlags: 0

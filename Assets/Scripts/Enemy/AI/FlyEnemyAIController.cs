@@ -15,10 +15,7 @@ namespace BSTW.Enemy.AI
 
         public override void OnDeath()
         {
-            if (_respawnCoroutine != null)
-            {
-                StopCoroutine(_respawnCoroutine);
-            }
+            StopRespawnCoroutine();
 
             _respawnCoroutine = StartCoroutine(RespawnByItSelf());
         }
@@ -31,6 +28,14 @@ namespace BSTW.Enemy.AI
 
             targets.Clear();
             CurrentTarget = null;
+        }
+
+        public void StopRespawnCoroutine()
+        {
+            if (_respawnCoroutine != null)
+            {
+                StopCoroutine(_respawnCoroutine);
+            }
         }
     }
 }

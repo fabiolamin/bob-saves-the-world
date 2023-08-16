@@ -12092,7 +12092,7 @@ MonoBehaviour:
   _maxHealth: 100
   _criticalHealthPercentage: 0.3
   _knockDownPercentage: 0.3
-  _healthUpdateDelay: 1
+  _healthUpdateDelay: 1.5
   _onCriticalHealthStarted:
     m_PersistentCalls:
       m_Calls:

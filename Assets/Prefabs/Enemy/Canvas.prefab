@@ -326,5 +326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bar: {fileID: 8916949740262670523}
+  _canvas: {fileID: 6988631177839875250}
   _smoothlySpeed: 0.4
   _maxValue: 100

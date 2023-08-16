@@ -217,9 +217,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 192614830696067985}
-        m_TargetAssemblyTypeName: UnityEngine.AI.NavMeshAgent, UnityEngine
-        m_MethodName: set_isStopped
+      - m_Target: {fileID: 192614830696067984}
+        m_TargetAssemblyTypeName: BSTW.Enemy.AI.BossEnemyAIController, Assembly-CSharp
+        m_MethodName: StopNavMeshAgent
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -737,6 +737,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 192614830696067984}
+        m_TargetAssemblyTypeName: BSTW.Enemy.AI.BossEnemyAIController, Assembly-CSharp
+        m_MethodName: StopNavMeshAgent
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 192614830696067984}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -759,18 +771,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 192614830696067985}
-        m_TargetAssemblyTypeName: UnityEngine.AI.NavMeshAgent, UnityEngine
-        m_MethodName: set_isStopped
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 192614830696067985}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
@@ -3971,6 +3971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bar: {fileID: 192614831421721219}
+  _canvas: {fileID: 192614831786394398}
   _smoothlySpeed: 0.4
   _maxValue: 2500
 --- !u!1 &192614832704407718

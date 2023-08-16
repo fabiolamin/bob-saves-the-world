@@ -93,6 +93,13 @@ namespace BSTW.Enemy.AI
             var distanceFromTarget = Vector3.Distance(transform.position, target);
             return distanceFromTarget <= minDistance;
         }
+
+        public void StopNavMeshAgent(bool isStopped)
+        {
+            if (!NavMeshAgent.isOnNavMesh) return;
+
+            NavMeshAgent.isStopped = isStopped;
+        }
     }
 }
 

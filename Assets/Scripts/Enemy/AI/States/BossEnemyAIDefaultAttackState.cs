@@ -31,7 +31,11 @@ namespace BSTW.Enemy.AI.States
 
             if (_canAttack)
             {
-                (EnemyController as BossEnemyAIController).NavMeshAgent.destination = EnemyController.CurrentTarget.transform.position;
+                if ((EnemyController as BossEnemyAIController).NavMeshAgent.isOnNavMesh)
+                {
+                    (EnemyController as BossEnemyAIController).NavMeshAgent.destination = EnemyController.CurrentTarget.transform.position;
+                    (EnemyController as BossEnemyAIController).NavMeshAgent.speed = MovementSpeed;
+                }
 
                 if ((EnemyController as BossEnemyAIController).IsNearTarget(
                 EnemyController.CurrentTarget.transform.position,
@@ -73,7 +77,7 @@ namespace BSTW.Enemy.AI.States
 
             _canAttack = false;
 
-            (EnemyController as BossEnemyAIController).NavMeshAgent.isStopped = true;
+            (EnemyController as BossEnemyAIController).StopNavMeshAgent(true);
             (EnemyController as BossEnemyAIController).NavMeshAgent.speed = 0f;
 
             EnemyController.RotateEnemyQuickly(EnemyController.CurrentTarget.transform.position);
@@ -93,7 +97,9 @@ namespace BSTW.Enemy.AI.States
 
         private void StartBossEnemyMovement()
         {
-            (EnemyController as BossEnemyAIController).NavMeshAgent.isStopped = false;
+            if (!(EnemyController as BossEnemyAIController).NavMeshAgent.isOnNavMesh) return;
+
+            (EnemyController as BossEnemyAIController).StopNavMeshAgent(false);
             (EnemyController as BossEnemyAIController).NavMeshAgent.speed = MovementSpeed;
         }
     }

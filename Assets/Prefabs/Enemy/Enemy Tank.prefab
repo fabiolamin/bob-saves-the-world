@@ -1417,6 +1417,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7252753125593686596}
     - target: {fileID: 3908726240467966053, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 8737980260565165855}
+    - target: {fileID: 3908726240467966053, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
       objectReference: {fileID: 6093739406482162087}
@@ -1453,12 +1457,20 @@ PrefabInstance:
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 3908726240467966053, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: StopNavMeshAgent
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908726240467966053, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 3908726240467966053, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[10].m_MethodName
       value: OnDeath
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908726240467966053, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: BSTW.Enemy.AI.TerrestrialEnemyAIController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3908726240467966053, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[10].m_TargetAssemblyTypeName
@@ -1622,7 +1634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[7].m_Mode
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[10].m_Mode
@@ -1647,7 +1659,7 @@ PrefabInstance:
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 2957759549333591769}
+      objectReference: {fileID: 8737980260565165855}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
@@ -1706,11 +1718,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_enabled
+      value: StopNavMeshAgent
       objectReference: {fileID: 0}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: set_isStopped
+      value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -1726,7 +1738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[7].m_MethodName
-      value: set_speed
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[10].m_MethodName
@@ -1746,11 +1758,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.Behaviour, UnityEngine
+      value: BSTW.Enemy.AI.TerrestrialEnemyAIController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.AI.NavMeshAgent, UnityEngine
+      value: UnityEngine.Behaviour, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
@@ -1794,11 +1806,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5923009131734812998, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _onGameFinish.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument

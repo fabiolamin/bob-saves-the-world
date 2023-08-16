@@ -10,19 +10,20 @@ namespace BSTW.UI
 
         public Image Bar;
 
+        [SerializeField] private GameObject _canvas;
         [SerializeField] private float _smoothlySpeed = 5f;
         [SerializeField] private float _maxValue = 100f;
 
         public void UpdateBar(float currentValue, float maxValue)
         {
-            if (!Bar.gameObject.activeSelf) return;
+            if (!_canvas.gameObject.activeSelf) return;
 
             Bar.fillAmount = currentValue / maxValue;
         }
 
         public void UpdateBarSmoothly(float currentValue, float maxValue)
         {
-            if (!Bar.gameObject.activeSelf) return;
+            if (!_canvas.gameObject.activeSelf) return;
 
             if (_updateBarSmoothlyCoroutine is not null)
             {

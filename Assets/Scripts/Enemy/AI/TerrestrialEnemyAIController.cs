@@ -50,8 +50,11 @@ namespace BSTW.Enemy.AI
                 newPosition = GetArea(radius, center);
             }
 
-            OnMovementStarted?.Invoke();
-            NavMeshAgent.SetDestination(hit.position);
+            if (NavMeshAgent.isOnNavMesh)
+            {
+                OnMovementStarted?.Invoke();
+                NavMeshAgent.SetDestination(hit.position);
+            }
         }
 
         private Vector3 GetArea(float radius, Vector3 center)
@@ -83,6 +86,13 @@ namespace BSTW.Enemy.AI
 
             if (EnemySpawner != null)
                 EnemySpawner.RemoveEnemyAlive(this);
+        }
+
+        public void StopNavMeshAgent(bool isStopped)
+        {
+            if (!NavMeshAgent.isOnNavMesh) return;
+
+            NavMeshAgent.isStopped = isStopped;
         }
     }
 }
