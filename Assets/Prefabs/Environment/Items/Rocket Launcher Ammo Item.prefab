@@ -104,7 +104,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 5c92aa37ff3826a47a35a5119754f4a0, type: 2}
     - target: {fileID: 5469989538491209558, guid: 0a800ba2096109340be58950258a79ca, type: 3}
       propertyPath: _bonusAmount
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5469989538491209572, guid: 0a800ba2096109340be58950258a79ca, type: 3}
       propertyPath: m_Size.x

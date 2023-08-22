@@ -12656,11 +12656,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cinemachineCamera: {fileID: 0}
   _rigsAmount: 3
-  _maxIntensity: 10
-  _maxTimer: 3
-  _intensityDistanceConstant: 60
-  _timerDistanceConstant: 30
-  _maxShakeDistance: 70
+  _maxIntensity: 6
+  _maxTimer: 0.8
+  _intensityDistanceConstant: 25
+  _timerDistanceConstant: 13
+  _maxShakeDistance: 45
 --- !u!114 &815930427430135622
 MonoBehaviour:
   m_ObjectHideFlags: 0

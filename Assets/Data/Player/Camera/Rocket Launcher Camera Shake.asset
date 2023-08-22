@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632d777e15f5b8547aa9917375320873, type: 3}
   m_Name: Rocket Launcher Camera Shake
   m_EditorClassIdentifier: 
-  _intensity: 4
-  _timer: 1
+  _intensity: 3.5
+  _timer: 0.8

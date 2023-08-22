@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2056b89f72264ae4e93cdac635f3c932, type: 3}
   m_Name: Rocket Gamepad Rumble Data
   m_EditorClassIdentifier: 
-  _lowFrequency: 5
-  _highFrequency: 6
-  _duration: 0.4
+  _lowFrequency: 4
+  _highFrequency: 5
+  _duration: 0.3
