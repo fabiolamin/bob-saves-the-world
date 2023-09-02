@@ -38,10 +38,12 @@ namespace BSTW.Enemy
 
         public bool IsFrontOfObstacle()
         {
-            return Physics.Raycast(_center.transform.position,
-            _center.transform.forward,
+            return Physics.BoxCast(_center.transform.position,
+            Vector3.one * 2f, _center.transform.forward,
+            Quaternion.identity,
             _obstacleAvoidanceDistance,
-            LayerMask.GetMask(_obstacleLayers));
+            LayerMask.GetMask(_obstacleLayers),
+            QueryTriggerInteraction.Collide);
         }
     }
 }

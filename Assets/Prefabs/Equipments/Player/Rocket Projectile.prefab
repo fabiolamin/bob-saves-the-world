@@ -136,7 +136,7 @@ MonoBehaviour:
   _projectileCollider: {fileID: 117822287807736846}
   _increaseColliderDist: 4
   _defaultColliderRadius: 0.1
-  _maxColliderRadius: 2.5
+  _maxColliderRadius: 2.1
   _explosion: {fileID: 6427903325663977023}
 --- !u!114 &2752147153377741372
 MonoBehaviour:
@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aca09cdd31bcbf42b03d643806b8ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageDistanceConstant: 500
-  _maxDamageDistance: 50
+  _damageDistanceConstant: 220
+  _maxDamageDistance: 10
 --- !u!1 &2545025410759988689
 GameObject:
   m_ObjectHideFlags: 0

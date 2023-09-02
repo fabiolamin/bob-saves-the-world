@@ -47,9 +47,13 @@ namespace BSTW.Enemy.AI.States
                     StopShootingCoroutine();
 
                     if (_enemyShooting.IsFrontOfObstacle())
+                    {
                         Move();
+                    }
                     else
+                    {
                         _shootingCoroutine = StartCoroutine(StartShooting());
+                    }
                 }
             }
         }
@@ -80,7 +84,9 @@ namespace BSTW.Enemy.AI.States
             {
                 (EnemyController as TerrestrialEnemyAIController).StopNavMeshAgent(false);
                 (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
-                (EnemyController as TerrestrialEnemyAIController).MoveTowardsArea(_attackPositionRadius, EnemyController.CurrentTarget.transform.position);
+                (EnemyController as TerrestrialEnemyAIController).MoveTowardsArea(
+                _attackPositionRadius / 2f,
+                EnemyController.CurrentTarget.transform.position + (_attackPositionRadius * 2f * EnemyController.CurrentTarget.transform.forward));
             }
         }
 

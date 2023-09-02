@@ -3538,7 +3538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3481953394173224098, guid: 250ae828e72e44f419f27f5d858eaf18, type: 3}
       propertyPath: _onGameResume.m_PersistentCalls.m_Calls.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3481953394173224098, guid: 250ae828e72e44f419f27f5d858eaf18, type: 3}
       propertyPath: _onGamePause.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -3621,9 +3621,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1784776172}
     - target: {fileID: 3481953394173224098, guid: 250ae828e72e44f419f27f5d858eaf18, type: 3}
-      propertyPath: _onGameResume.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      propertyPath: _onGameResume.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1784776172}
+    - target: {fileID: 3481953394173224098, guid: 250ae828e72e44f419f27f5d858eaf18, type: 3}
+      propertyPath: _onGameResume.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 5571951601805222780}
     - target: {fileID: 3481953394173224098, guid: 250ae828e72e44f419f27f5d858eaf18, type: 3}
       propertyPath: _onGameResume.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
@@ -3710,7 +3714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3481953394173224098, guid: 250ae828e72e44f419f27f5d858eaf18, type: 3}
       propertyPath: _onGameResume.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: SetActive
+      value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 3481953394173224098, guid: 250ae828e72e44f419f27f5d858eaf18, type: 3}
       propertyPath: _onGameResume.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
@@ -3754,7 +3758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3481953394173224098, guid: 250ae828e72e44f419f27f5d858eaf18, type: 3}
       propertyPath: _onGameResume.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Behaviour, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3481953394173224098, guid: 250ae828e72e44f419f27f5d858eaf18, type: 3}
       propertyPath: _onGameResume.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
@@ -3774,7 +3778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3481953394173224098, guid: 250ae828e72e44f419f27f5d858eaf18, type: 3}
       propertyPath: _onGameResume.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3481953394173224098, guid: 250ae828e72e44f419f27f5d858eaf18, type: 3}
       propertyPath: _onGameResume.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument

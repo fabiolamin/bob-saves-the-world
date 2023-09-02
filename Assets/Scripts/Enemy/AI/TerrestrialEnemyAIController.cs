@@ -6,6 +6,8 @@ namespace BSTW.Enemy.AI
 {
     public class TerrestrialEnemyAIController : DefaultEnemyAIController
     {
+        [SerializeField] private float _pathTimeLimit = 0.1f;
+
         public EnemySpawner EnemySpawner;
 
         public NavMeshAgent NavMeshAgent;
@@ -45,9 +47,18 @@ namespace BSTW.Enemy.AI
 
             var newPosition = GetArea(radius, center);
 
+            var delayTime = 0f;
+
             while (!NavMesh.SamplePosition(newPosition, out hit, radius, 1))
             {
                 newPosition = GetArea(radius, center);
+
+                delayTime += Time.deltaTime;
+
+                if (delayTime >= _pathTimeLimit)
+                {
+                    return;
+                }
             }
 
             if (NavMeshAgent.isOnNavMesh)

@@ -160,9 +160,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _projectileCollider: {fileID: 7577802957623741237}
-  _increaseColliderDist: 1
-  _defaultColliderRadius: 0.5
-  _maxColliderRadius: 0.7
+  _increaseColliderDist: 0.5
+  _defaultColliderRadius: 0.2
+  _maxColliderRadius: 1
 --- !u!1001 &875659034203580407
 PrefabInstance:
   m_ObjectHideFlags: 0

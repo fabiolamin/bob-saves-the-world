@@ -2384,13 +2384,25 @@ PrefabInstance:
       propertyPath: m_BaseOffset
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2201155478300816129, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201155478300816129, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: m_Acceleration
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201155478300816129, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2388851097173040345, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2765708840552132253, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: MovementSpeed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2765708840552132253, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: EnemyController
@@ -2404,6 +2416,10 @@ PrefabInstance:
       propertyPath: _attacks.Array.data[0]
       value: 
       objectReference: {fileID: 9100000, guid: 8c35fbf742448b846ab264241c4fe475, type: 2}
+    - target: {fileID: 3418423640319576825, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: _chasingDistace
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3418423640319576825, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _checkAttackHeight
       value: 1
@@ -2813,8 +2829,16 @@ PrefabInstance:
       value: 2.03815
       objectReference: {fileID: 0}
     - target: {fileID: 4728072484365034196, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: m_Size.x
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728072484365034196, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: m_Size.y
       value: 22.81851
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728072484365034196, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: m_Size.z
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4728072484365034196, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: m_Center.y
@@ -3146,11 +3170,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[2].Probability
-      value: 0.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[3].Probability
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6596921859701344815, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _lootItems.Array.data[4].Probability
@@ -3559,8 +3583,8 @@ MonoBehaviour:
       m_Calls: []
   _enemyShooting: {fileID: 5037982571182111679}
   _attackPositionRadius: 5
-  _minAttackDuration: 2.5
-  _maxAttackDuration: 3
+  _minAttackDuration: 3
+  _maxAttackDuration: 3.5
 --- !u!114 &6476372265376061253 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4735917877434957722, guid: 2052f036503368646b68ac5827797157, type: 3}
@@ -3628,8 +3652,8 @@ MonoBehaviour:
       m_Calls: []
   _enemyController: {fileID: 5122388786604819290}
   _center: {fileID: 5833846127733084361}
-  _shootingDirectionOffset: {x: 0, y: 1, z: 0}
-  _obstacleAvoidanceDistance: 6
+  _shootingDirectionOffset: {x: 0, y: 1.5, z: 0}
+  _obstacleAvoidanceDistance: 4
   _obstacleLayers:
   - Environment
   - Prop
@@ -3733,6 +3757,7 @@ MonoBehaviour:
   TargetPriorities:
   - Priority: 1
     TargetTag: Player
+  _pathTimeLimit: 0.5
   EnemySpawner: {fileID: 0}
   NavMeshAgent: {fileID: 492578230357089246}
   Id: 3

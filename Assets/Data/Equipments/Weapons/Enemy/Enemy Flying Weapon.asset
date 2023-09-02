@@ -17,6 +17,7 @@ MonoBehaviour:
   _shootSFX: {fileID: 8300000, guid: 880c0dd6a03ae4a41b40294d0734cddc, type: 3}
   _reloadSFX: {fileID: 0}
   _cameraShakeData: {fileID: 0}
+  _gamepadRumbleData: {fileID: 0}
   _maxAmmo: 150
   _criticalAmmoPercentage: 0.3
   _targets:
@@ -27,6 +28,7 @@ MonoBehaviour:
     HitType: 1
     Damage: 10
     CanKnockDown: 0
-  _shootingInterval: 1
+  _shootingInterval: 1.3
   _shootingDistance: 5000
   _isSelected: 1
+  _holdShootingTrigger: 0

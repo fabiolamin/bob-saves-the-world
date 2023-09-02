@@ -47,7 +47,12 @@ namespace BSTW.Enemy.AI.States
         {
             yield return new WaitForSeconds(Random.Range(_minTimeNewInvestigation, _maxTimeNewInvestigation));
 
-            (EnemyController as TerrestrialEnemyAIController).MoveTowardsArea(_investigateRadius, transform.position);
+            var enemySpawner = (EnemyController as TerrestrialEnemyAIController).EnemySpawner;
+
+            var radius = enemySpawner != null ? enemySpawner.Radius : _investigateRadius;
+            var position = enemySpawner != null ? enemySpawner.transform.position : transform.position;
+
+            (EnemyController as TerrestrialEnemyAIController).MoveTowardsArea(radius, position);
 
             (EnemyController as TerrestrialEnemyAIController).NavMeshAgent.speed = MovementSpeed;
             _hasStopped = false;

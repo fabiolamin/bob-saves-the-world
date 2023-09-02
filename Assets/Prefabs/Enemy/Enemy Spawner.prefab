@@ -47,7 +47,6 @@ MonoBehaviour:
   _objectPrefab: {fileID: 6584439585672052043, guid: c92bb1b6824ed3f4bb92546eb5269280, type: 3}
   _amount: 3
   _origin: {fileID: 4755675833019896741}
-  _pooledObjects: []
 --- !u!1 &4755675833019896767
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +146,7 @@ MonoBehaviour:
   _targetPriorities:
   - Priority: 1
     TargetTag: Player
+  _radius: 10
 --- !u!1 &4755675833096576686
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +194,6 @@ MonoBehaviour:
   _objectPrefab: {fileID: 4843989316638119316, guid: 2052f036503368646b68ac5827797157, type: 3}
   _amount: 3
   _origin: {fileID: 4755675833019896741}
-  _pooledObjects: []
 --- !u!1 &4755675833185253809
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +275,6 @@ MonoBehaviour:
   _objectPrefab: {fileID: 8410840653873459276, guid: b3b47dd5f8037fb4080b1af9aa5cdcd6, type: 3}
   _amount: 3
   _origin: {fileID: 4755675833019896741}
-  _pooledObjects: []
 --- !u!1001 &7148307826420584063
 PrefabInstance:
   m_ObjectHideFlags: 0

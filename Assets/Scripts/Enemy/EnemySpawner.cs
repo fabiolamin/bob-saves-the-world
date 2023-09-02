@@ -35,6 +35,10 @@ namespace BSTW.Enemy
 
         [SerializeField] private EnemyTargetPriority[] _targetPriorities;
 
+        [SerializeField] private float _radius = 10f;
+
+        public float Radius => _radius;
+
         private void Start()
         {
             _maxEnemiesAlive = _enemySpawnInfos.Sum(e => e.MaxEnemiesAlive);
@@ -96,10 +100,7 @@ namespace BSTW.Enemy
             {
                 if (_enemiesAlive.Count == _maxEnemiesAlive)
                 {
-                    if (_enemySpawnCoroutine != null)
-                    {
-                        StopCoroutine(_enemySpawnCoroutine);
-                    }
+                    StopSpawn();
 
                     _enemySpawnCoroutine = StartCoroutine(StartSpawn());
                 }
@@ -116,10 +117,15 @@ namespace BSTW.Enemy
 
             if (_enemiesAlive.Count == _maxEnemiesAlive)
             {
-                if (_enemySpawnCoroutine != null)
-                {
-                    StopCoroutine(_enemySpawnCoroutine);
-                }
+                StopSpawn();
+            }
+        }
+
+        public void StopSpawn()
+        {
+            if (_enemySpawnCoroutine != null)
+            {
+                StopCoroutine(_enemySpawnCoroutine);
             }
         }
     }
