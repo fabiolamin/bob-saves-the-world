@@ -163,7 +163,7 @@ namespace BSTW.Equipments.Weapons.Shooting
                 StopShooting();
         }
 
-        private void ActivateCurrentWeapon(bool isActive)
+        protected void ActivateCurrentWeapon(bool isActive)
         {
             CurrentWeapon.WeaponData.IsSelected = isActive;
             CurrentWeapon.gameObject.SetActive(isActive);

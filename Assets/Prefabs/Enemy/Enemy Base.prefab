@@ -4849,7 +4849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 5182902525518947186}
-  _maxHealth: 750
+  _maxHealth: 650
   _criticalHealthPercentage: 0.4
   _knockDownPercentage: 0.5
   _healthUpdateDelay: 0.5
@@ -11150,7 +11150,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 317605925395857014, guid: ae3d44933344b4c42bbc126c4f02470c, type: 3}
       propertyPath: _maxValue
-      value: 750
+      value: 650
       objectReference: {fileID: 0}
     - target: {fileID: 1585996936145380250, guid: ae3d44933344b4c42bbc126c4f02470c, type: 3}
       propertyPath: m_Pivot.x

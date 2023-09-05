@@ -155,6 +155,7 @@ namespace BSTW.Player
             weapon.gameObject.SetActive(true);
 
             SetCurrentWeapon(weapon);
+            ActivateCurrentWeapon(true);
         }
     }
 }

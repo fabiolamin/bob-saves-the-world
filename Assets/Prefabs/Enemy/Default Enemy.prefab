@@ -898,7 +898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyController: {fileID: 5675533187566437063}
-  MovementSpeed: 4
+  MovementSpeed: 3
   OnEnter:
     m_PersistentCalls:
       m_Calls:

@@ -2390,11 +2390,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2201155478300816129, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: m_Acceleration
-      value: 35
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2201155478300816129, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: m_StoppingDistance
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215976939302745552, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: _maxValue
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 2388851097173040345, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: m_Enabled
@@ -3309,6 +3313,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8368905634000368457, guid: 2052f036503368646b68ac5827797157, type: 3}
+      propertyPath: _maxHealth
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368905634000368457, guid: 2052f036503368646b68ac5827797157, type: 3}
       propertyPath: _enemyController
       value: 
       objectReference: {fileID: 5122388786604819290}
@@ -3572,7 +3580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyController: {fileID: 5122388786604819290}
-  MovementSpeed: 25
+  MovementSpeed: 20
   OnEnter:
     m_PersistentCalls:
       m_Calls: []
