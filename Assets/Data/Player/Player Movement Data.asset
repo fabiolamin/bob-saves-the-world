@@ -22,7 +22,7 @@ MonoBehaviour:
   _aimingSpeed: 2
   _delayJumpingToFly: 0.2
   _delayToMove: 1
-  _maxPlayerHeight: 80
+  _maxPlayerHeight: 90
   _minPlayerHeight: -1
   _minFallForceToRoll: 1200
   _minFallForceToReduceSpeed: 20

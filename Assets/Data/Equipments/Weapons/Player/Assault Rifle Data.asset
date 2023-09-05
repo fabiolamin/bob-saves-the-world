@@ -30,5 +30,5 @@ MonoBehaviour:
     CanKnockDown: 0
   _shootingInterval: 0.15
   _shootingDistance: 1000
-  _isSelected: 1
+  _isSelected: 0
   _holdShootingTrigger: 1

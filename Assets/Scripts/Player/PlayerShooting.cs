@@ -5,6 +5,7 @@ using BSTW.Equipments.Weapons.Shooting;
 using System.Collections;
 using BSTW.Game;
 using BSTW.Utils;
+using System.Linq;
 
 namespace BSTW.Player
 {
@@ -47,7 +48,7 @@ namespace BSTW.Player
         {
             if (_gameManager.IsGamePaused || _gameManager.IsGameFinished) return;
 
-            if(CurrentWeapon != null)
+            if (CurrentWeapon != null)
             {
                 shootingTriggered = CurrentWeapon.WeaponData.HoldShootingTrigger ? value.action.IsPressed() : value.started;
             }
@@ -141,6 +142,19 @@ namespace BSTW.Player
 
             _playerCameraShake.StartShakeCamera(CurrentWeapon.WeaponData.CameraShakeData);
             _gamepadRumbleController.StartGamepadRumble(CurrentWeapon.WeaponData.GamepadRumbleData);
+        }
+
+        protected override void InstantiateWeapons()
+        {
+            base.InstantiateWeapons();
+
+            Weapons.ToList().ForEach(w => { w.WeaponData.IsSelected = false; w.gameObject.SetActive(false); });
+
+            var weapon = Weapons[0];
+
+            weapon.gameObject.SetActive(true);
+
+            SetCurrentWeapon(weapon);
         }
     }
 }

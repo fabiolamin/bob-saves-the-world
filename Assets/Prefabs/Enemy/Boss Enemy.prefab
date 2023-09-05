@@ -342,9 +342,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 192614830696033891}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 6
+  m_Radius: 2
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 15
   avoidancePriority: 99
   m_AngularSpeed: 120
   m_StoppingDistance: 0.5
@@ -389,7 +389,7 @@ MonoBehaviour:
   _onDeathActivated:
     m_PersistentCalls:
       m_Calls: []
-  _rotationSpeed: 10
+  _rotationSpeed: 20
   _deactivationInterval: 5
   EnemyHealth: {fileID: 192614830696067978}
   EnemyAnimator: {fileID: 192614830696067974}
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 0}
-  _maxHealth: 2500
+  _maxHealth: 2150
   _criticalHealthPercentage: 0.3
   _knockDownPercentage: 0.5
   _healthUpdateDelay: 0.5
@@ -3973,7 +3973,7 @@ MonoBehaviour:
   Bar: {fileID: 192614831421721219}
   _canvas: {fileID: 192614831786394398}
   _smoothlySpeed: 0.4
-  _maxValue: 2500
+  _maxValue: 2150
 --- !u!1 &192614832704407718
 GameObject:
   m_ObjectHideFlags: 0
@@ -4515,7 +4515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyController: {fileID: 192614830696067984}
-  MovementSpeed: 9
+  MovementSpeed: 10
   OnEnter:
     m_PersistentCalls:
       m_Calls: []

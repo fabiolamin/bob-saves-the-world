@@ -993,6 +993,7 @@ GameObject:
   - component: {fileID: 3156242094662251909}
   - component: {fileID: 8110430305932402196}
   - component: {fileID: 5923009131734812998}
+  - component: {fileID: 2073628827352907971}
   m_Layer: 14
   m_Name: Default Enemy
   m_TagString: Untagged
@@ -1778,6 +1779,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2073628827352907971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4843989316638119316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b772cb562b0a18840953f17e1f9bd475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materials:
+  - {fileID: 2100000, guid: b08ecf9c9d4626c439320e9d82b8e52f, type: 2}
+  - {fileID: 2100000, guid: 226dacc2ead096b45b5e70aace3ee3e8, type: 2}
+  - {fileID: 2100000, guid: a8c84d7a672b69c4596fabb29d81f92f, type: 2}
+  - {fileID: 2100000, guid: b1377e955237a724f9ada08f3f5e5c66, type: 2}
+  - {fileID: 2100000, guid: 50b9bde3837fc9b4796505ed4336e750, type: 2}
+  _renderers:
+  - {fileID: 4843989316640312082}
+  - {fileID: 4843989316640312084}
+  - {fileID: 4843989316640312086}
+  - {fileID: 4843989316640312086}
+  _skinnedMeshRenderer:
+  - {fileID: 4843989316651718864}
+  - {fileID: 4843989316651718866}
+  - {fileID: 4843989316651718868}
+  - {fileID: 4843989316651718870}
 --- !u!1 &4843989316638119318
 GameObject:
   m_ObjectHideFlags: 0

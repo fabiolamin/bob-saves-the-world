@@ -43,7 +43,7 @@ namespace BSTW.Equipments.Weapons.Shooting
             InstantiateWeapons();
         }
 
-        private void InstantiateWeapons()
+        protected virtual void InstantiateWeapons()
         {
             foreach (var weaponController in _weaponControllers)
             {
@@ -70,7 +70,7 @@ namespace BSTW.Equipments.Weapons.Shooting
             IsShooting = false;
         }
 
-        private void SetCurrentWeapon(Weapon weapon)
+        protected void SetCurrentWeapon(Weapon weapon)
         {
             CurrentWeapon = weapon;
 
