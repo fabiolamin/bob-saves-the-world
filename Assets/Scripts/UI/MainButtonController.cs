@@ -13,6 +13,7 @@ namespace BSTW.UI
         [SerializeField] private AudioFade _soundtrackAudioFade;
         [SerializeField] private GameObject _uiClickBlocker;
         [SerializeField] private GameObject _howToPlayPanel;
+        [SerializeField] private GameObject _mainMenuButtons;
         [SerializeField] private SceneLoader _sceneLoader;
         [SerializeField] private CursorController _cursorController;
 
@@ -44,6 +45,7 @@ namespace BSTW.UI
 
         private void OnNewButtonClicked()
         {
+            _mainMenuButtons.SetActive(false);
             _howToPlayPanel.SetActive(true);
         }
 

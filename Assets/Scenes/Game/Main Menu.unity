@@ -2297,6 +2297,7 @@ MonoBehaviour:
   _soundtrackAudioFade: {fileID: 6728122063156601977}
   _uiClickBlocker: {fileID: 5786646369523320171}
   _howToPlayPanel: {fileID: 221822110}
+  _mainMenuButtons: {fileID: 1718010021}
   _sceneLoader: {fileID: 139031706}
   _cursorController: {fileID: 1410659234912782210}
 --- !u!114 &797486029 stripped
@@ -2830,6 +2831,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 194806284041194485, guid: a9d60fe33a8b8a9439de8bf4103ca01e, type: 3}
   m_PrefabInstance: {fileID: 1652268395}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1718010021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5786646369779854449, guid: fb999c97252b29544a0d7cff94b55efc, type: 3}
+  m_PrefabInstance: {fileID: 5786646369523320169}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1728705043
 GameObject:
