@@ -39,6 +39,8 @@ namespace BSTW.Utils
 
             yield return new WaitUntil(() => asyncLoadLevel.isDone);
 
+            yield return new WaitForSeconds(1f);
+
             _loadingBg.SetActive(false);
         }
 
