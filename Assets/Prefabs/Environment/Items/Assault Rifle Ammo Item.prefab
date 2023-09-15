@@ -91,6 +91,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Assault Rifle Ammo Item
       objectReference: {fileID: 0}
+    - target: {fileID: 5469989540314770652, guid: 0a800ba2096109340be58950258a79ca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6447130050744139392, guid: 0a800ba2096109340be58950258a79ca, type: 3}
       propertyPath: m_IsActive
       value: 0
