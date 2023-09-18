@@ -5969,9 +5969,9 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
-    m_Resolution: 0
+    m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.294
+    m_Strength: 0.585
     m_Bias: 2
     m_NormalBias: 0
     m_NearPlane: 0.1
@@ -18354,21 +18354,21 @@ Transform:
   - {fileID: 848951669}
   - {fileID: 141363715}
   - {fileID: 1973260265}
+  - {fileID: 960339491}
   - {fileID: 669457920}
   - {fileID: 148380775}
-  - {fileID: 960339491}
   - {fileID: 586544561}
   - {fileID: 1266216419}
   - {fileID: 1312887870}
   - {fileID: 1110241962}
   - {fileID: 143770791}
   - {fileID: 909204777}
-  - {fileID: 727846311}
-  - {fileID: 704107721}
-  - {fileID: 365362985}
   - {fileID: 159424227}
   - {fileID: 1012808150}
+  - {fileID: 727846311}
+  - {fileID: 704107721}
   - {fileID: 83806782}
+  - {fileID: 365362985}
   m_Father: {fileID: 388821414}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
