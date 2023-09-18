@@ -56,6 +56,8 @@ namespace BSTW.UI
 
             _resolutionDropdown.ClearOptions();
             _resolutionDropdown.AddOptions(resolutionsString);
+
+            _selectedResolution = Screen.currentResolution;
         }
 
         public void SetVolume(float volume)
