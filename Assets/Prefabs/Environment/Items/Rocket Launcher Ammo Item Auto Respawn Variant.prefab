@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406165581323790199, guid: 2c6868afba6c234408cf1a3260b0fb90, type: 3}
       propertyPath: _bonusAmount
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 406165581323790199, guid: 2c6868afba6c234408cf1a3260b0fb90, type: 3}
       propertyPath: _maxRespawnTimer

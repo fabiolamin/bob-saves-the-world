@@ -3898,7 +3898,7 @@ PrefabInstance:
       objectReference: {fileID: 458575402}
     - target: {fileID: 4755675833019896761, guid: 9448ab37179b8ae4cb58c64cb5378950, type: 3}
       propertyPath: _enemySpawnInfos.Array.data[0].MaxEnemiesAlive
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4755675833019896761, guid: 9448ab37179b8ae4cb58c64cb5378950, type: 3}
       propertyPath: _enemySpawnInfos.Array.data[1].MaxEnemiesAlive
@@ -31020,10 +31020,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1570932392}
     m_Modifications:
-    - target: {fileID: 8553577925735291654, guid: 99f9067fb2527ae40a4e2acb4f5bc499, type: 3}
-      propertyPath: _bonusAmount
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8553577925735291654, guid: 99f9067fb2527ae40a4e2acb4f5bc499, type: 3}
       propertyPath: _maxRespawnTimer
       value: 25

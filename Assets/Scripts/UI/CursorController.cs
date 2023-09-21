@@ -60,6 +60,7 @@ namespace BSTW.UI
             {
                 _cursor.gameObject.SetActive(false);
                 Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
 
                 return;
             }

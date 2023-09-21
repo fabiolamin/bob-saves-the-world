@@ -1105,7 +1105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4755675833019896767, guid: 9448ab37179b8ae4cb58c64cb5378950, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4755675833797526012, guid: 9448ab37179b8ae4cb58c64cb5378950, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10452,10 +10452,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1570932392}
     m_Modifications:
-    - target: {fileID: 8553577925735291654, guid: 99f9067fb2527ae40a4e2acb4f5bc499, type: 3}
-      propertyPath: _bonusAmount
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8553577925735291654, guid: 99f9067fb2527ae40a4e2acb4f5bc499, type: 3}
       propertyPath: _maxRespawnTimer
       value: 50
