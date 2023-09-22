@@ -99,6 +99,8 @@ namespace BSTW.Utils
 
         private void CheckHealth()
         {
+            if (!IsAlive) return;
+
             if (_currentHealth <= 0f)
             {
                 IsAlive = false;
