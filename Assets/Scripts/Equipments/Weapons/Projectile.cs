@@ -13,6 +13,7 @@ namespace BSTW.Equipments.Weapons
         private bool _canMove = false;
         private Vector3 _targetPosition;
         private int _shooterLayer;
+        private Vector3 _projectileForward;
 
         protected ProjectileData projectileData => _projectileData;
         protected ProjectileTarget projectileTarget;
@@ -81,7 +82,7 @@ namespace BSTW.Equipments.Weapons
                 }
                 else
                 {
-                    transform.position += transform.forward * Time.deltaTime * projectileData.Speed;
+                    transform.position += _projectileForward * Time.deltaTime * projectileData.Speed;
                 }
 
             }
@@ -114,6 +115,7 @@ namespace BSTW.Equipments.Weapons
             transform.LookAt(target);
 
             _targetPosition = target;
+            _projectileForward = transform.forward;
 
             EnablePhysics(true);
             gameObject.SetActive(true);
