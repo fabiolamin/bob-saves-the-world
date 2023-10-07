@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Player Movement Data
   m_EditorClassIdentifier: 
   _movementSpeed: 7.3
-  _rollSpeed: 16
+  _rollSpeed: 22
   _jumpingSpeed: 16
   _bounceSpeed: 27
   _bounceForceModifier: 1000
   _rotationSpeed: 6
   _flySpeed: 11
-  _aimingSpeed: 2
+  _aimingSpeed: 3
   _delayJumpingToFly: 0.2
   _delayToMove: 1
   _maxPlayerHeight: 90

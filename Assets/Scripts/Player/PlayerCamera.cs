@@ -9,11 +9,14 @@ namespace BSTW.Player
         private float _defaultCameraXSpeed;
         private float _defaultCameraYSpeed;
 
-        [SerializeField] private PlayerShooting _playerShooting; 
+        [SerializeField] private PlayerShooting _playerShooting;
         [SerializeField] private CinemachineFreeLook _cinemachineCamera;
         [SerializeField] private CinemachineBrain _cinemachineBrain;
         [SerializeField] private float _cameraFOVOnAiming = 30f;
         [SerializeField] private float _switchCameraFOVSpeed = 10f;
+
+        [SerializeField] private float _cameraXSpeedOnShooting = 90f;
+        [SerializeField] private float _cameraYSpeedOnShooting = 1f;
         [SerializeField] private float _cameraXSpeedOnAiming = 2f;
         [SerializeField] private float _cameraYSpeedOnAiming = 2f;
 
@@ -27,12 +30,32 @@ namespace BSTW.Player
         private void Update()
         {
             UpdateCameraFOVOnAiming();
+
+            if (!_playerShooting.IsShooting && !_playerShooting.IsAiming)
+            {
+                _cinemachineCamera.m_XAxis.m_MaxSpeed = _defaultCameraXSpeed;
+                _cinemachineCamera.m_YAxis.m_MaxSpeed = _defaultCameraYSpeed;
+            }
         }
 
         public void UpdateCameraSpeedOnAiming(bool hasAimed)
         {
-            _cinemachineCamera.m_XAxis.m_MaxSpeed = hasAimed ? _cameraXSpeedOnAiming : _defaultCameraXSpeed;
-            _cinemachineCamera.m_YAxis.m_MaxSpeed = hasAimed ? _cameraYSpeedOnAiming : _defaultCameraYSpeed;
+            var xSpeed = _defaultCameraXSpeed;
+            var ySpeed = _defaultCameraYSpeed;
+
+            if (hasAimed)
+            {
+                xSpeed = _cameraXSpeedOnAiming;
+                ySpeed = _cameraYSpeedOnAiming;
+            }
+            else if (!hasAimed && _playerShooting.IsShooting)
+            {
+                xSpeed = _cameraXSpeedOnShooting;
+                ySpeed = _cameraYSpeedOnShooting;
+            }
+
+            _cinemachineCamera.m_XAxis.m_MaxSpeed = xSpeed;
+            _cinemachineCamera.m_YAxis.m_MaxSpeed = ySpeed;
         }
 
         private void UpdateCameraFOVOnAiming()

@@ -12087,8 +12087,10 @@ MonoBehaviour:
   _cinemachineBrain: {fileID: 0}
   _cameraFOVOnAiming: 30
   _switchCameraFOVSpeed: 10
-  _cameraXSpeedOnAiming: 35
-  _cameraYSpeedOnAiming: 0.4
+  _cameraXSpeedOnShooting: 100
+  _cameraYSpeedOnShooting: 1.2
+  _cameraXSpeedOnAiming: 90
+  _cameraYSpeedOnAiming: 1.1
 --- !u!114 &6993374090152357404
 MonoBehaviour:
   m_ObjectHideFlags: 0

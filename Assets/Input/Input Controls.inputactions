@@ -236,7 +236,7 @@
                 {
                     "name": "",
                     "id": "65becd25-e4c8-48d2-9603-fc2768b57548",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",

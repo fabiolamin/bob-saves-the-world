@@ -59,6 +59,8 @@ namespace BSTW.Player
             if (!IsReadyToShoot) return;
 
             CheckShooting();
+
+            _onPlayerAim?.Invoke(IsAiming);
         }
 
         public void OnSwitchWeapon(InputAction.CallbackContext value)
