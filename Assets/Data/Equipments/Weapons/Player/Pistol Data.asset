@@ -26,7 +26,7 @@ MonoBehaviour:
   - Prop
   _hitDamage:
     HitType: 1
-    Damage: 12
+    Damage: 20
     CanKnockDown: 0
   _shootingInterval: 0.4
   _shootingDistance: 1000
