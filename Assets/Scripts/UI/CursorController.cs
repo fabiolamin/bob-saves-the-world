@@ -36,13 +36,6 @@ namespace BSTW.UI
 
             InputUser.PerformPairingWithDevice(_virtualMouse, _playerInput.user);
 
-            if (_cursors != null)
-            {
-                var newPosition = new Vector2(Screen.width / 2, Screen.height / 2);
-                InputState.Change(_virtualMouse.position, newPosition);
-                UpdateCursorAnchor(newPosition);
-            }
-
             InputSystem.onAfterUpdate += UpdateCursorMotion;
         }
 
