@@ -1,5 +1,4 @@
-Bob Saves The World is a third-person shooter game where the player controls Bob,  an awesome dude who is the only person that can save the world against evil alien monsters. To conquer that, Bob has several guns like a rocket launcher (don't ask me how he got it),  a jetpack (it's useful, believe me)  and  a great sense of courage (I don't know how).  Be ready to shoot aliens, jump, fly and more important: Have fun!
-
+Bob Saves The World is a third-person shooter game where the player controls Bob,  an awesome dude who is the only person that can save the world against evil alien monsters. To conquer that, Bob has several guns like a rocket launcher,  a jetpack to help him cross the map  and  a great sense of courage.  Be ready to shoot aliens, jump, fly and more important: Have fun!
 Features:
 
 - Player can shoot with different weapons like handgun, assault rifle and rocket launcher.
